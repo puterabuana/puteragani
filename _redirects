@@ -1,0 +1,5 @@
+# Cloudflare Pages — _redirects file
+# Format: /source  /destination  HTTP-status-code
+
+# Custom 404 page
+/* /404.html 404
