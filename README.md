@@ -1,4 +1,4 @@
-# PuteraGani — Premium Article Website
+# Putera Gani — Premium Article Website
 
 A modern, premium editorial website built with HTML, Tailwind CSS (CDN), and minimal JavaScript.
 Ready to deploy directly on GitHub Pages or Cloudflare Pages.
@@ -8,7 +8,7 @@ Ready to deploy directly on GitHub Pages or Cloudflare Pages.
 ## 📁 Folder Structure
 
 ```
-puteragani/
+Putera Gani/
 ├── index.html                          ← Homepage
 ├── assets/
 │   ├── css/
@@ -155,7 +155,7 @@ When adding a new article card, pick a category color scheme:
 Your site will be live at `https://your-project.pages.dev`
 
 ### Custom Domain:
-In Cloudflare Pages → your project → **Custom domains** → add `puteragani.com`
+In Cloudflare Pages → your project → **Custom domains** → add `Putera Gani.com`
 
 ---
 
@@ -164,7 +164,7 @@ In Cloudflare Pages → your project → **Custom domains** → add `puteragani.
 1. Push to GitHub
 2. Go to **Settings → Pages**
 3. Source: **Deploy from branch** → `main` → `/ (root)`
-4. Save — your site will be at `https://yourusername.github.io/puteragani/`
+4. Save — your site will be at `https://yourusername.github.io/Putera Gani/`
 
 ---
 
@@ -172,12 +172,12 @@ In Cloudflare Pages → your project → **Custom domains** → add `puteragani.
 
 Edit these in every article's `<head>`:
 ```html
-<title>Article Title — PuteraGani</title>
+<title>Article Title — Putera Gani</title>
 <meta name="description" content="150-160 character description." />
 <meta property="og:title"       content="Article Title" />
 <meta property="og:description" content="Article description." />
 <meta property="og:image"       content="../../assets/images/thumbnails/your-image.jpg" />
-<meta property="og:url"         content="https://puteragani.com/articles/your-slug/" />
+<meta property="og:url"         content="https://Putera Gani.com/articles/your-slug/" />
 ```
 
 ---
@@ -198,4 +198,4 @@ Edit these in every article's `<head>`:
 ---
 
 *Built with HTML · Tailwind CSS · Minimal JavaScript*
-*PuteraGani © 2025*
+*Putera Gani © 2025*

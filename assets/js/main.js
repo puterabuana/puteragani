@@ -1,5 +1,5 @@
 /* ============================================================
-   PuteraGani — Main JavaScript
+   Putera Gani — Main JavaScript
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
