@@ -9,7 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (navbar) {
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 20);
-    }, { passive: true 
+    }, { passive: true });
+  }
+
   /* ── Load More Articles (homepage) ── */
   const articleGrid = document.getElementById('article-grid');
   const loadMoreBtn = document.getElementById('load-more-btn');
@@ -54,9 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
         loadMoreBtn.style.display = 'none';
       }
     });
-  }
-
-});
   }
 
   /* ── Mobile menu toggle ── */
