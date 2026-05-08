@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Putera Gani</title>
+  <meta name="description" content="Get in touch with Putera Gani — editorial inquiries, collaborations, and general contact." />
+  <meta name="author" content="Putera Gani" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Contact — Putera Gani" />
+  <meta property="og:description" content="Get in touch with Putera Gani — editorial inquiries, collaborations, and general contact." />
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="shortcut icon" href="assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } }
+    }
+  </script>
+  <style>
+    .page-content { max-width: 760px; margin: 0 auto; }
+    .page-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 700;
+      color: var(--ink); margin: 2.5rem 0 0.9rem;
+      letter-spacing: -0.015em;
+    }
+    .page-content p {
+      font-size: 0.9375rem; color: var(--ink-soft);
+      line-height: 1.8; margin-bottom: 1.2rem;
+    }
+    .page-content ul {
+      margin: 0 0 1.2rem 1.2rem; color: var(--ink-soft);
+      font-size: 0.9375rem; line-height: 1.8;
+    }
+    .page-content li { margin-bottom: 0.4rem; }
+    .page-content a { color: var(--accent); text-decoration: underline; }
+    .page-content a:hover { color: var(--accent-dark); }
+    .contact-card {
+      background: #fff; border: 1px solid var(--rule);
+      border-radius: 16px; padding: 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+      text-decoration: none !important; color: inherit !important;
+    }
+    .contact-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .contact-icon {
+      width: 46px; height: 46px; border-radius: 10px;
+      background: var(--accent-pale); border: 1px solid rgba(200,151,58,0.25);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .divider { height: 1px; background: var(--rule); margin: 2.5rem 0; }
+  </style>
+</head>
+<body>
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="index.html" class="flex items-center gap-3 no-underline" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <button id="menu-btn" class="md:hidden p-2 rounded-lg" style="background:var(--paper-warm); border:1px solid var(--rule);" aria-label="Toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="4" y1="8" x2="20" y2="8"/>
+            <line x1="4" y1="16" x2="20" y2="16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mobile-menu">
+    <div class="px-4 pb-4 pt-2 flex flex-col gap-1">
+      <a href="index.html" class="nav-link block py-2" style="text-decoration:none;">Home</a>
+      <a href="technology.html" class="nav-link block py-2" style="text-decoration:none;">Technology</a>
+      <a href="design.html" class="nav-link block py-2" style="text-decoration:none;">Design</a>
+      <a href="culture.html" class="nav-link block py-2" style="text-decoration:none;">Culture</a>
+      <a href="science.html" class="nav-link block py-2" style="text-decoration:none;">Science</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero-gradient">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <div class="animate-fade-up" style="max-width:600px;">
+      <div class="hero-tag mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Putera Gani
+      </div>
+      <h1 class="font-display text-white mb-3 leading-tight" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight:700; letter-spacing:-0.02em;">Get in Touch</h1>
+      <p style="color:rgba(255,255,255,0.6); font-size:0.9375rem; line-height:1.75;">We'd love to hear from you — story tips, collaborations, or just to say hello.</p>
+    </div>
+  </div>
+</section>
+
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+  <div class="page-content">
+    <p>We're always open to story tips, collaboration proposals, feedback, and general conversation. Choose the channel that works best for you.</p>
+    <div class="grid sm:grid-cols-2 gap-4 mt-8 mb-8">
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ganiputerabuana@gmail.com" class="contact-card" target="_blank" rel="noopener">
+        <div class="contact-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div style="font-size:0.7rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:3px;">Email</div>
+          <div style="font-family:'Playfair Display',serif; font-size:0.9rem; font-weight:600; color:var(--ink);">ganiputerabuana@gmail.com</div>
+          <div style="font-size:0.75rem; color:var(--ink-muted); margin-top:3px;">Click to open Gmail compose</div>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/puterabuana" class="contact-card" target="_blank" rel="noopener">
+        <div class="contact-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.75"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="var(--accent)" stroke="none"/></svg>
+        </div>
+        <div>
+          <div style="font-size:0.7rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:3px;">Instagram</div>
+          <div style="font-family:'Playfair Display',serif; font-size:0.9rem; font-weight:600; color:var(--ink);">@puterabuana</div>
+          <div style="font-size:0.75rem; color:var(--ink-muted); margin-top:3px;">DM us on Instagram</div>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/puterabuana/" class="contact-card" target="_blank" rel="noopener">
+        <div class="contact-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </div>
+        <div>
+          <div style="font-size:0.7rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:3px;">LinkedIn</div>
+          <div style="font-family:'Playfair Display',serif; font-size:0.9rem; font-weight:600; color:var(--ink);">Putera Buana Gani</div>
+          <div style="font-size:0.75rem; color:var(--ink-muted); margin-top:3px;">Connect professionally</div>
+        </div>
+      </a>
+    </div>
+    <div class="divider"></div>
+    <h2>Response Time</h2>
+    <p>We aim to respond to all messages within 2–3 business days. For time-sensitive matters, Instagram DM is usually the fastest channel.</p>
+    <h2>Editorial Inquiries</h2>
+    <p>If you have a story idea, article pitch, or would like to collaborate on content, please include a brief description of the topic and your background when reaching out. We read everything, though we cannot guarantee a response to every submission.</p>
+  </div>
+</main>
+
+<footer class="footer-bg mt-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <div class="grid md:grid-cols-3 gap-10 mb-10">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="pg-logo-mark" style="background: rgba(200,151,58,0.15); border: 1px solid rgba(200,151,58,0.35); color:var(--accent);">PG</div>
+          <span class="footer-logo-text">Putera Gani</span>
+        </div>
+        <p style="color:rgba(255,255,255,0.4); font-size:0.8125rem; line-height:1.7; max-width:260px;">
+          A premium editorial platform exploring technology, design, culture, and the ideas shaping our future.
+        </p>
+        <div class="flex gap-2 mt-5">
+          <a href="https://www.instagram.com/puterabuana" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/puterabuana/" class="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#fff; font-weight:600; font-size:0.8125rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem;">Navigate</h4>
+        <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="technology.html" class="footer-link">Technology</a></li>
+          <li><a href="design.html" class="footer-link">Design</a></li>
+          <li><a href="culture.html" class="footer-link">Culture</a></li>
+          <li><a href="science.html" class="footer-link">Science</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:#fff; font-weight:600; font-size:0.8125rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem;">Company</h4>
+        <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;">
+          <li><a href="about.html" class="footer-link">About</a></li>
+          <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
+          <li><a href="terms.html" class="footer-link">Terms of Service</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6">
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+      <p style="color:rgba(255,255,255,0.2); font-size:0.75rem;">Crafted with intention — built for readers.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

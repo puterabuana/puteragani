@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>Culture — Putera Gani</title>
+  <meta name="description" content="Explore culture articles on Putera Gani — cities and the human mind, social trends, philosophy, and the ideas shaping how we live." />
+  <meta name="keywords" content="culture, society, cities, philosophy, social trends, Putera Gani" />
+  <meta name="author" content="Putera Gani" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://puteragani.com/culture.html" />
+  <meta property="og:title"       content="Culture — Putera Gani" />
+  <meta property="og:description" content="Cities and the human mind, social trends, philosophy, and the ideas shaping how we live." />
+  <meta property="og:image"       content="assets/images/og-cover.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Culture — Putera Gani" />
+  <meta name="twitter:description" content="Cities, society, philosophy, and the ideas shaping how we live." />
+  <meta name="twitter:image"       content="assets/images/og-cover.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="shortcut icon" href="assets/images/favicon.svg" />
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#0f0f0f',
+            paper: '#fafaf8',
+            accent: '#c8973a',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     NAVBAR
+     ═══════════════════════════════════════════════════════════ -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+
+      <a href="index.html" class="flex items-center gap-3 no-underline" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="culture.html" class="nav-link" style="text-decoration:none; color:var(--accent);">Culture</a>
+        <a href="science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <div class="search-wrap hidden md:block">
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          <input type="search" class="search-input" placeholder="Search articles…" aria-label="Search articles" />
+        </div>
+        <button id="menu-btn" class="md:hidden p-2 rounded-lg" style="background:var(--paper-warm); border:1px solid var(--rule);" aria-label="Toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="4" y1="8" x2="20" y2="8"/>
+            <line x1="4" y1="16" x2="20" y2="16"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="mobile-menu">
+    <div class="px-4 pb-4 pt-2 flex flex-col gap-1">
+      <a href="index.html" class="nav-link block py-2" style="text-decoration:none;">Home</a>
+      <a href="technology.html" class="nav-link block py-2" style="text-decoration:none;">Technology</a>
+      <a href="design.html" class="nav-link block py-2" style="text-decoration:none;">Design</a>
+      <a href="culture.html" class="nav-link block py-2" style="text-decoration:none; color:var(--accent);">Culture</a>
+      <a href="science.html" class="nav-link block py-2" style="text-decoration:none;">Science</a>
+      <div class="relative mt-2">
+        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="search" class="search-input" style="width:100%;" placeholder="Search articles…" aria-label="Search articles" />
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     CATEGORY HERO BANNER
+     ═══════════════════════════════════════════════════════════ -->
+<section class="hero-gradient">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
+    <div class="animate-fade-up">
+      <div class="hero-tag mb-5">
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        Category
+      </div>
+      <h1 class="font-display text-white mb-4 leading-tight" style="font-size: clamp(2rem, 4vw, 3rem); font-weight:700; letter-spacing:-0.02em;">
+        Culture
+      </h1>
+      <p style="color:rgba(255,255,255,0.6); font-size:1rem; max-width:560px; line-height:1.75;">
+        How cities shape the mind, the philosophy behind modern life, social movements, and the ideas defining how we live and relate to one another.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     MAIN CONTENT — ARTICLE GRID + SIDEBAR
+     ═══════════════════════════════════════════════════════════ -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <!-- ── ARTICLE GRID ── -->
+    <div class="flex-1 min-w-0">
+
+      <div class="section-label mb-8">Culture Articles</div>
+
+      <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
+
+        <!-- ARTICLE: Cities Shape the Mind -->
+        <article class="article-card">
+          <a href="#" style="text-decoration:none;" aria-label="Read: How Cities Shape the Human Mind">
+            <div class="card-thumb">
+              <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&q=75"
+                   alt="City skyline at night"
+                   loading="lazy" width="600" height="375" />
+              <div class="card-thumb-overlay"></div>
+            </div>
+          </a>
+          <div class="card-body">
+            <span class="category-badge" style="background:#fdf4ff; color:#9333ea; border-color:rgba(147,51,234,0.2);">Culture</span>
+            <h2 class="card-title">
+              <a href="#" style="text-decoration:none; color:inherit;">
+                How Cities Shape the Human Mind and the Way We Think
+              </a>
+            </h2>
+            <p class="card-desc">The surprising neuroscience behind urban environments and why dense cities make us smarter and more creative.</p>
+            <div class="card-meta">
+              <span>Mar 2025</span>
+              <span class="card-meta-dot"></span>
+              <span>7 min read</span>
+            </div>
+            <a href="#" class="btn-primary mt-4" style="width:fit-content; font-size:0.75rem; padding: 0.5rem 1.1rem;">
+              Read More
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+      <!-- END ARTICLE GRID -->
+
+    </div>
+
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="w-full lg:w-72 xl:w-80 flex-shrink-0">
+
+      <div class="rounded-2xl p-6 mb-8" style="background:#fff; border:1px solid var(--rule);">
+        <div class="section-label mb-5" style="font-size:0.6875rem;">Trending Now</div>
+        <div>
+          <a href="#" class="trending-item" style="text-decoration:none;">
+            <span class="trending-num">01</span>
+            <div>
+              <div class="trending-title">How Cities Shape the Human Mind</div>
+              <div style="font-size:0.7rem; color:var(--ink-muted); margin-top:3px;">Culture · 7 min</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Newsletter Signup -->
+      <div class="rounded-2xl p-6 mb-8" style="background: linear-gradient(135deg, #1a1510 0%, #0f0f0f 100%); border:1px solid #2a2520;">
+        <div style="font-family:'DM Mono',monospace; font-size:0.65rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:0.75rem;">Newsletter</div>
+        <h3 class="font-display text-white mb-2 leading-snug" style="font-size:1.2rem; font-weight:700;">Stories delivered to your inbox</h3>
+        <p style="font-size:0.8125rem; color:rgba(255,255,255,0.45); line-height:1.6; margin-bottom:1.25rem;">One curated read, every week. No noise.</p>
+        <div style="display:flex; flex-direction:column; gap:0.75rem;">
+          <input
+            type="email"
+            placeholder="your@email.com"
+            style="width:100%; padding:0.65rem 1rem; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:50px; font-size:0.8125rem; color:#fff; outline:none; font-family:'DM Sans',sans-serif; transition:border-color 0.28s ease;"
+            onfocus="this.style.borderColor='rgba(200,151,58,0.6)'"
+            onblur="this.style.borderColor='rgba(255,255,255,0.12)'"
+          />
+          <button
+            style="width:100%; padding:0.7rem 1rem; background:var(--accent); color:#fff; font-size:0.875rem; font-weight:600; border-radius:50px; border:none; cursor:pointer; font-family:'DM Sans',sans-serif; transition:background 0.28s ease, transform 0.2s ease;"
+            onmouseover="this.style.background='var(--accent-dark)'; this.style.transform='translateY(-1px)'"
+            onmouseout="this.style.background='var(--accent)'; this.style.transform='translateY(0)'"
+          >Subscribe Free</button>
+        </div>
+        <p style="font-size:0.7rem; color:rgba(255,255,255,0.25); text-align:center; margin-top:0.75rem;">No spam. Unsubscribe anytime.</p>
+      </div>
+
+      <div class="rounded-2xl p-6" style="background:#fff; border:1px solid var(--rule);">
+        <div class="section-label mb-5" style="font-size:0.6875rem;">Browse Categories</div>
+        <div class="flex flex-wrap gap-2">
+          <a href="technology.html" class="category-badge" style="text-decoration:none;">Technology</a>
+          <a href="design.html" class="category-badge" style="text-decoration:none; background:#f0f7ff; color:#2563eb; border-color:rgba(37,99,235,0.2);">Design</a>
+          <a href="science.html" class="category-badge" style="text-decoration:none; background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Science</a>
+          <a href="culture.html" class="category-badge" style="text-decoration:none; background:#fdf4ff; color:#9333ea; border-color:rgba(147,51,234,0.2);">Culture</a>
+          <a href="#" class="category-badge" style="text-decoration:none; background:#fff7ed; color:#ea580c; border-color:rgba(234,88,12,0.2);">Business</a>
+          <a href="#" class="category-badge" style="text-decoration:none; background:#fef2f2; color:#dc2626; border-color:rgba(220,38,38,0.2);">Health</a>
+        </div>
+      </div>
+
+    </aside>
+
+  </div>
+</main>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════════ -->
+<footer class="footer-bg mt-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <div class="grid md:grid-cols-3 gap-10 mb-10">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="pg-logo-mark" style="background: rgba(200,151,58,0.15); border: 1px solid rgba(200,151,58,0.35); color:var(--accent);">PG</div>
+          <span class="footer-logo-text">Putera Gani</span>
+        </div>
+        <p style="color:rgba(255,255,255,0.4); font-size:0.8125rem; line-height:1.7; max-width:260px;">
+          A premium editorial platform exploring technology, design, culture, and the ideas shaping our future.
+        </p>
+                <div class="flex gap-2 mt-5">
+          <a href="https://www.instagram.com/puterabuana" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/puterabuana/" class="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#fff; font-weight:600; font-size:0.8125rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem;">Navigate</h4>
+        <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="technology.html" class="footer-link">Technology</a></li>
+          <li><a href="design.html" class="footer-link">Design</a></li>
+          <li><a href="culture.html" class="footer-link">Culture</a></li>
+          <li><a href="science.html" class="footer-link">Science</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:#fff; font-weight:600; font-size:0.8125rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem;">Company</h4>
+                <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;">
+          <li><a href="about.html" class="footer-link">About</a></li>
+          <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
+          <li><a href="terms.html" class="footer-link">Terms of Service</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6">
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+      <p style="color:rgba(255,255,255,0.2); font-size:0.75rem;">Crafted with intention — built for readers.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
