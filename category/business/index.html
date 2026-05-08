@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO — updated dynamically by category-engine.js -->
+  <title>Business — Putera Gani</title>
+  <meta name="description" content="The creator economy, entrepreneurship, leadership, and the new rules of work in an era of rapid transformation." />
+  <meta name="keywords" content="business, entrepreneurship, creator economy, leadership, future of work, Putera Gani" />
+  <meta name="author" content="Putera Gani" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://puteragani.com/category/business/" />
+  <meta property="og:title"       content="Business — Putera Gani" />
+  <meta property="og:description" content="The creator economy, entrepreneurship, and the new rules of work." />
+  <meta property="og:image"       content="../../assets/images/og-cover.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Business — Putera Gani" />
+  <meta name="twitter:description" content="The creator economy, entrepreneurship, and the new rules of work." />
+  <meta name="twitter:image"       content="../../assets/images/og-cover.jpg" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://puteragani.com/category/business/" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <link rel="shortcut icon" href="../../assets/images/favicon.svg" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ink:'#0f0f0f', paper:'#fafaf8', accent:'#c8973a' }
+        }
+      }
+    }
+  </script>
+
+  <!-- Category accent colour override -->
+  <style>
+    :root { --cat-bg:#fff7ed; --cat-color:#ea580c; --cat-border:rgba(234,88,12,0.2); }
+    .cat-hero-accent { color: #ea580c; }
+    .cat-tag { background:rgba(234,88,12,0.15); border-color:rgba(234,88,12,0.4); color:#ea580c; }
+    .cat-count {
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:2px 10px; border-radius:50px; font-size:0.75rem; font-weight:600;
+      background:#fff7ed; color:#ea580c; border:1px solid rgba(234,88,12,0.25);
+      margin-left:0.6rem; vertical-align:middle;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     NAVBAR — no Business/Health in nav (secondary categories)
+     ═══════════════════════════════════════════════════════════ -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center h-16" style="position:relative;">
+
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;flex-shrink:0;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink);letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-7" style="position:absolute;left:50%;transform:translateX(-50%);">
+        <a href="../../index.html"      class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html"     class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html"    class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html"    class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+
+      <div class="flex items-center gap-4" style="margin-left:auto;">
+        <div class="search-wrap hidden md:block">
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          <input type="search" class="search-input" placeholder="Search articles…" aria-label="Search articles" autocomplete="off" />
+        </div>
+        <button id="menu-btn" class="md:hidden p-2 rounded-lg" style="background:var(--paper-warm);border:1px solid var(--rule);" aria-label="Toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mobile-menu">
+    <div class="px-4 pb-4 pt-2 flex flex-col gap-1">
+      <a href="../../index.html"      class="nav-link block py-2" style="text-decoration:none;">Home</a>
+      <a href="../../technology.html" class="nav-link block py-2" style="text-decoration:none;">Technology</a>
+      <a href="../../design.html"     class="nav-link block py-2" style="text-decoration:none;">Design</a>
+      <a href="../../culture.html"    class="nav-link block py-2" style="text-decoration:none;">Culture</a>
+      <a href="../../science.html"    class="nav-link block py-2" style="text-decoration:none;">Science</a>
+      <div class="relative mt-2">
+        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="search" class="search-input" style="width:100%;" placeholder="Search articles…" aria-label="Search articles" autocomplete="off" />
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     BREADCRUMB
+     ═══════════════════════════════════════════════════════════ -->
+<nav aria-label="Breadcrumb" style="background:var(--paper-warm);border-bottom:1px solid var(--rule);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+    <ol style="display:flex;align-items:center;gap:0.5rem;list-style:none;padding:0;margin:0;font-size:0.8rem;color:var(--ink-muted);">
+      <li><a href="../../index.html" style="text-decoration:none;color:var(--ink-muted);transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--ink-muted)'">Home</a></li>
+      <li aria-hidden="true" style="opacity:0.4;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </li>
+      <li style="color:var(--ink-soft);">Categories</li>
+      <li aria-hidden="true" style="opacity:0.4;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </li>
+      <li aria-current="page" style="color:var(--cat-color);font-weight:500;">Business</li>
+    </ol>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     CATEGORY HERO
+     ═══════════════════════════════════════════════════════════ -->
+<section class="hero-gradient" aria-labelledby="cat-hero-title">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
+    <div class="animate-fade-up">
+      <div class="hero-tag cat-tag mb-5">
+        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+        </svg>
+        Category
+      </div>
+      <h1 id="cat-hero-title" class="font-display text-white mb-4 leading-tight"
+          style="font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-0.02em;">
+        Business
+      </h1>
+      <p id="cat-hero-desc" style="color:rgba(255,255,255,0.6);font-size:1rem;max-width:560px;line-height:1.75;">
+        The creator economy, entrepreneurship, leadership, and the new rules of work in an era of rapid transformation.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     MAIN CONTENT
+     ═══════════════════════════════════════════════════════════ -->
+<main id="category-page" data-category="Business"
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <!-- ── ARTICLE GRID ── -->
+    <div class="flex-1 min-w-0">
+      <div class="flex items-baseline gap-2 mb-8">
+        <div id="cat-section-label" class="section-label">Business Articles</div>
+      </div>
+      <div id="cat-article-grid" class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6"
+           aria-live="polite" aria-label="Business articles">
+        <!-- Rendered by category-engine.js -->
+      </div>
+    </div>
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="w-full lg:w-72 xl:w-80 flex-shrink-0">
+
+      <!-- Trending Now -->
+      <div class="trending-widget rounded-2xl p-6 mb-8" style="background:#fff;border:1px solid var(--rule);">
+        <div class="section-label mb-5" style="font-size:0.6875rem;">Trending Now</div>
+        <div id="cat-trending-list">
+          <div style="color:var(--ink-muted);font-size:0.8125rem;">Loading…</div>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="rounded-2xl p-6 mb-8" style="background:linear-gradient(135deg,#1a1510 0%,#0f0f0f 100%);border:1px solid #2a2520;">
+        <div style="font-family:'DM Mono',monospace;font-size:0.65rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;">Newsletter</div>
+        <h3 class="font-display text-white mb-2 leading-snug" style="font-size:1.2rem;font-weight:700;">Stories delivered to your inbox</h3>
+        <p style="font-size:0.8125rem;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:1.25rem;">One curated read, every week. No noise.</p>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <input type="email" placeholder="your@email.com"
+            style="width:100%;padding:0.65rem 1rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:50px;font-size:0.8125rem;color:#fff;outline:none;font-family:'DM Sans',sans-serif;transition:border-color 0.28s ease;"
+            onfocus="this.style.borderColor='rgba(200,151,58,0.6)'" onblur="this.style.borderColor='rgba(255,255,255,0.12)'" />
+          <button style="width:100%;padding:0.7rem 1rem;background:var(--accent);color:#fff;font-size:0.875rem;font-weight:600;border-radius:50px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.28s ease,transform 0.2s ease;"
+            onmouseover="this.style.background='var(--accent-dark)';this.style.transform='translateY(-1px)'"
+            onmouseout="this.style.background='var(--accent)';this.style.transform='translateY(0)'">Subscribe Free</button>
+        </div>
+        <p style="font-size:0.7rem;color:rgba(255,255,255,0.25);text-align:center;margin-top:0.75rem;">No spam. Unsubscribe anytime.</p>
+      </div>
+
+      <!-- Browse Categories -->
+      <div class="rounded-2xl p-6" style="background:#fff;border:1px solid var(--rule);">
+        <div class="section-label mb-5" style="font-size:0.6875rem;">Browse Categories</div>
+        <div id="cat-sidebar-categories" class="flex flex-wrap gap-2">
+          <!-- Rendered by category-engine.js -->
+        </div>
+      </div>
+
+    </aside>
+  </div>
+</main>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER — no Business/Health in nav links
+     ═══════════════════════════════════════════════════════════ -->
+<footer class="footer-bg mt-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <div class="grid md:grid-cols-3 gap-10 mb-10">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="pg-logo-mark" style="background:rgba(200,151,58,0.15);border:1px solid rgba(200,151,58,0.35);color:var(--accent);">PG</div>
+          <span class="footer-logo-text">Putera Gani</span>
+        </div>
+        <p style="color:rgba(255,255,255,0.4);font-size:0.8125rem;line-height:1.7;max-width:260px;">
+          A premium editorial platform exploring technology, design, culture, and the ideas shaping our future.
+        </p>
+        <div class="flex gap-2 mt-5">
+          <a href="https://www.instagram.com/puterabuana" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/puterabuana/" class="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#fff;font-weight:600;font-size:0.8125rem;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1rem;">Navigate</h4>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.6rem;">
+          <li><a href="../../index.html"      class="footer-link">Home</a></li>
+          <li><a href="../../technology.html" class="footer-link">Technology</a></li>
+          <li><a href="../../design.html"     class="footer-link">Design</a></li>
+          <li><a href="../../culture.html"    class="footer-link">Culture</a></li>
+          <li><a href="../../science.html"    class="footer-link">Science</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:#fff;font-weight:600;font-size:0.8125rem;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1rem;">Company</h4>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.6rem;">
+          <li><a href="../../about.html"          class="footer-link">About</a></li>
+          <li><a href="../../privacy-policy.html" class="footer-link">Privacy Policy</a></li>
+          <li><a href="../../terms.html"          class="footer-link">Terms of Service</a></li>
+          <li><a href="../../contact.html"        class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6">
+      <p style="color:rgba(255,255,255,0.3);font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+      <p style="color:rgba(255,255,255,0.2);font-size:0.75rem;">Crafted with intention — built for readers.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/category-engine.js"></script>
+</body>
+</html>

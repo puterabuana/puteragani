@@ -244,58 +244,18 @@
 </div>
 
 <!-- ══════════════════════════════════════════
-     RELATED ARTICLES — update with real articles
+     RELATED ARTICLES — auto-rendered from articles.json
+     Change data-current-slug to this article's slug.
      ══════════════════════════════════════════ -->
 <div style="background:var(--paper-warm);border-top:1px solid var(--rule);">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
     <div class="section-label mb-8">Related Articles</div>
-    <div class="grid sm:grid-cols-3 gap-5">
-
-      <!-- Related Card 1 — copy & edit for each -->
-      <article class="article-card">
-        <a href="LINK-TO-ARTICLE" style="text-decoration:none;">
-          <div class="card-thumb">
-            <img src="THUMBNAIL-URL" alt="ALT TEXT" loading="lazy"/>
-            <div class="card-thumb-overlay"></div>
-          </div>
-        </a>
-        <div class="card-body">
-          <span class="category-badge">Category</span>
-          <h3 class="card-title" style="font-size:0.9rem;"><a href="LINK-TO-ARTICLE" style="text-decoration:none;color:inherit;">Article Title</a></h3>
-          <div class="card-meta"><span>X min read</span></div>
-        </div>
-      </article>
-
-      <!-- Related Card 2 -->
-      <article class="article-card">
-        <a href="#" style="text-decoration:none;">
-          <div class="card-thumb">
-            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&q=70" alt="Science" loading="lazy"/>
-            <div class="card-thumb-overlay"></div>
-          </div>
-        </a>
-        <div class="card-body">
-          <span class="category-badge" style="background:#f0fdf4;color:#16a34a;border-color:rgba(22,163,74,0.2);">Science</span>
-          <h3 class="card-title" style="font-size:0.9rem;"><a href="#" style="text-decoration:none;color:inherit;">Quantum Computing Explained</a></h3>
-          <div class="card-meta"><span>10 min read</span></div>
-        </div>
-      </article>
-
-      <!-- Related Card 3 -->
-      <article class="article-card">
-        <a href="#" style="text-decoration:none;">
-          <div class="card-thumb">
-            <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=400&q=70" alt="Culture" loading="lazy"/>
-            <div class="card-thumb-overlay"></div>
-          </div>
-        </a>
-        <div class="card-body">
-          <span class="category-badge" style="background:#fdf4ff;color:#9333ea;border-color:rgba(147,51,234,0.2);">Culture</span>
-          <h3 class="card-title" style="font-size:0.9rem;"><a href="#" style="text-decoration:none;color:inherit;">How Cities Shape the Human Mind</a></h3>
-          <div class="card-meta"><span>7 min read</span></div>
-        </div>
-      </article>
-
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="YOUR-ARTICLE-SLUG-HERE"
+    >
+      <!-- Injected by related.js -->
     </div>
   </div>
 </div>
@@ -315,5 +275,6 @@
 </footer>
 
 <script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
 </body>
 </html>
