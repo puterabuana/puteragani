@@ -152,6 +152,24 @@
       "excerpt": "More than 50 million people now call themselves creators. What happens when passion becomes profession at scale?",
       "content": "A generation ago, you needed a studio, a label, a publisher, or a network to reach an audience. Today, you need a phone and an idea.",
       "url": "articles/creator-economy-work/index.html"
-    }
-  ]
+    },
+  {
+      "id": "010",
+  "title": "How Personal Branding Is Becoming the New Resume",
+  "slug": "personal-branding-new-resume",
+  "category": "Business",
+  "tags": ["Business", "Career", "Creator Economy"],
+  "featured": false,
+  "trending": true,
+  "date": "2026-05-09",
+  "author": "Putera Gani",
+  "readTime": "9 min",
+  "image": "https://images.unsplash.com/...",
+  "imageLarge": "https://images.unsplash.com/...",
+  "excerpt": "Why reputation and online identity are replacing traditional resumes.",
+  "content": "A short summary of the article...",
+  "url": "articles/personal-branding-new-resume/index.html"
+  }
+]
 }
+

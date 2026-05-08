@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Branding Is the New Resume — Page 3: Building for the Long Game — Putera Gani</title>
+  <meta name="description" content="The long-game principles of personal brand building: how to stay relevant as industries shift, when to reinvent, and what separates the professionals who endure." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>tailwind.config = { theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } } }</script>
+
+  <style>
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(200,151,58,0.07) 0%, rgba(200,151,58,0.03) 100%);
+      border: 1px solid rgba(200,151,58,0.3);
+      border-left: 3px solid var(--accent, #c8973a);
+      border-radius: 12px;
+      padding: 1rem 1rem;
+      margin: 1.75rem 0;
+    }
+    @media (min-width: 640px) { .highlight-box { padding: 1.25rem 1.5rem; } }
+    .highlight-box .hb-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .highlight-box p { margin: 0 !important; font-size: 0.9375rem; line-height: 1.7; color: var(--ink, #0f0f0f); }
+
+    .cta-block {
+      background: var(--ink, #0f0f0f);
+      border-radius: 14px;
+      padding: 1.25rem 1.125rem;
+      margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 640px) { .cta-block { padding: 1.5rem 1.75rem; } }
+    .cta-block::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: rgba(200,151,58,0.08);
+    }
+    .cta-block .cta-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .cta-block p { margin: 0 !important; font-size: 0.9375rem; color: rgba(255,255,255,0.82); line-height: 1.7; }
+    .cta-block strong { color: #fff !important; }
+
+    .strategy-item {
+      display: flex;
+      gap: 0.875rem;
+      align-items: flex-start;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    @media (min-width: 640px) { .strategy-item { gap: 1.125rem; } }
+    .strategy-item:last-child { border-bottom: none; }
+    .strategy-num {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: var(--accent-pale, rgba(200,151,58,0.08));
+      border: 1px solid rgba(200,151,58,0.22);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent, #c8973a);
+      margin-top: 2px;
+    }
+    .strategy-content h4 { font-size: 0.875rem; font-weight: 600; color: var(--ink, #0f0f0f); margin: 0 0 0.3rem 0; letter-spacing: -0.01em; }
+    @media (min-width: 640px) { .strategy-content h4 { font-size: 0.9375rem; } }
+    .strategy-content p { margin: 0 !important; font-size: 0.8125rem; color: var(--ink-muted, #6b6860); line-height: 1.65; }
+    @media (min-width: 640px) { .strategy-content p { font-size: 0.875rem; } }
+
+    .bold-callout {
+      border-top: 2px solid var(--ink, #0f0f0f);
+      border-bottom: 2px solid var(--ink, #0f0f0f);
+      padding: 1.25rem 0;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    .bold-callout p {
+      margin: 0 !important;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 4vw, 1.375rem);
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: -0.015em;
+      color: var(--ink, #0f0f0f);
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      background: var(--rule, #e8e4de);
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 2.25rem 0;
+    }
+    @media (min-width: 480px) { .stat-row { grid-template-columns: repeat(3, 1fr); } }
+    .stat-cell { background: var(--paper, #fafaf8); padding: 1rem 0.875rem; text-align: center; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ink, #0f0f0f);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    @media (min-width: 480px) { .stat-num { font-size: 1.75rem; } }
+    .stat-num span { color: var(--accent, #c8973a); }
+    .stat-label { font-size: 0.7rem; color: var(--ink-muted, #6b6860); line-height: 1.4; font-family: 'DM Mono', monospace; letter-spacing: 0.03em; }
+
+    .section-rule { display: flex; align-items: center; gap: 0.75rem; margin: 2rem 0; }
+    .section-rule::before, .section-rule::after { content: ''; flex: 1; height: 1px; background: var(--rule, #e8e4de); }
+    .section-rule span { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted, #6b6860); white-space: nowrap; }
+
+    .article-body p strong { color: var(--ink, #0f0f0f); font-weight: 650; }
+
+    .strategy-box {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      padding: 1rem 1rem;
+      margin: 1.75rem 0;
+      background: var(--paper, #fafaf8);
+    }
+    @media (min-width: 640px) { .strategy-box { padding: 1.25rem 1.5rem; } }
+    .strategy-box-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted, #6b6860);
+      margin-bottom: 0.875rem;
+      font-family: 'DM Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge" style="background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Business</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    Personal Branding Is the New Resume — Building for the Long Game
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 9, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>4 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 3 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1455849318743-b2233052fcff?w=1200&q=80"
+         alt="Long-term career strategy and vision"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Long game strategy
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT — PAGE 3 -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          We arrive at the question that actually matters: not how to start building a personal brand, but how to <strong>build one that lasts long enough to matter.</strong> The internet is littered with the remnants of brand-building efforts abandoned after six weeks. What separates the professionals whose reputations accumulate genuine compound value from those who cycle endlessly through sprints of activity followed by long silences?
+        </p>
+
+        <p>
+          The answer is not strategic sophistication. It is not platform mastery. It is something quieter and more difficult: the <strong>deliberate development of a perspective worth having.</strong>
+        </p>
+
+        <h2>The AI Variable — How the Landscape Just Changed</h2>
+
+        <p>
+          It would be dishonest to discuss personal branding in 2026 without confronting the most significant shift to hit professional reputation in a decade: the saturation of AI-generated content. Every platform is now flooded with competent, well-structured, stylistically coherent content that was produced by no one — assembled by algorithms, attributed to professionals who approved it.
+        </p>
+
+        <!-- ── Highlight Box ── -->
+        <div class="highlight-box">
+          <div class="hb-label">⚡ The New Scarcity</div>
+          <p>When AI can generate fluent, knowledgeable-sounding content about virtually any professional topic in seconds, the value of <em>generic expertise content</em> collapses toward zero. What becomes newly scarce — and therefore newly valuable — is <strong>genuine perspective, lived experience, and the kind of specific judgment that cannot be synthesized from training data.</strong> The market is, paradoxically, more hungry than ever for authentically human thought.</p>
+        </div>
+
+        <p>
+          This changes the calculus for personal branding in ways many professionals have not yet fully absorbed. <strong>The era of winning with volume is over.</strong> The professional who publishes three genuinely insightful pieces a month, grounded in specific experience and real conviction, will outperform the one who publishes daily with AI assistance and nothing that couldn't have been written by a well-briefed language model.
+        </p>
+
+        <div class="section-rule"><span>The Long Game</span></div>
+
+        <h2>What Enduring Brands Are Built On</h2>
+
+        <p>
+          The professionals who have maintained relevant, valued personal brands across a decade or more share characteristics that are worth examining carefully. These are not the loudest voices or the most prolific publishers. They are, almost without exception, people who have <strong>developed deep expertise in a specific intersection of problems</strong> and have been willing to share their thinking in public with enough regularity to build an audience that finds them trustworthy.
+        </p>
+
+        <!-- ── Stat Row ── -->
+        <div class="stat-row">
+          <div class="stat-cell">
+            <div class="stat-num">10<span>yr</span></div>
+            <div class="stat-label">Average tenure of the most cited thought leaders in their fields</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num"><span>$</span>2.1T</div>
+            <div class="stat-label">Global creator economy valuation, projected by 2027</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">38<span>%</span></div>
+            <div class="stat-label">Of executives say thought leadership was a key factor in selecting vendors</div>
+          </div>
+        </div>
+
+        <!-- ── Strategy Box: Building for Decades ── -->
+        <div class="strategy-box">
+          <div class="strategy-box-title">🏛️ Principles of Brands That Endure</div>
+          <div class="strategy-item">
+            <div class="strategy-num">01</div>
+            <div class="strategy-content">
+              <h4>Own Your Intersection</h4>
+              <p>The most valuable brands are not the ones that cover the most ground — they are the ones that own a specific intersection that no one else occupies. "Marketing" is too broad. "Marketing strategy for Series A B2B SaaS companies navigating product-led growth" is ownable.</p>
+            </div>
+          </div>
+          <div class="strategy-item">
+            <div class="strategy-num">02</div>
+            <div class="strategy-content">
+              <h4>Build the Intellectual Archive</h4>
+              <p>The goal over years is to build a body of work dense enough that a serious person can spend an hour with it and come away with a genuine sense of how you think. This is impossible to fake, and it is the single most defensible professional asset you can build.</p>
+            </div>
+          </div>
+          <div class="strategy-item">
+            <div class="strategy-num">03</div>
+            <div class="strategy-content">
+              <h4>Evolve in Public</h4>
+              <p>One of the most powerful things a professional brand can demonstrate is the capacity to learn and change position when evidence demands it. The willingness to say "I was wrong about this, and here's what changed my mind" is rarer than it should be — and instantly differentiating.</p>
+            </div>
+          </div>
+          <div class="strategy-item">
+            <div class="strategy-num">04</div>
+            <div class="strategy-content">
+              <h4>Treat Industry Shifts as Feature, Not Bug</h4>
+              <p>Every major disruption in your field is an opportunity to demonstrate how you process change — to show your thinking live, in public. The professionals who build brand capital fastest are those who synthesize disruptions clearly before the conventional wisdom has formed.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>When to Reinvent — and When to Persist</h2>
+
+        <p>
+          One of the harder judgment calls in long-term brand management is knowing when to stay the course and when to genuinely reinvent. <strong>Industries transform. Niches saturate. Positions become mainstream.</strong> The consultant who was a distinctive voice on remote work strategy in 2019 is one of thousands today.
+        </p>
+
+        <p>
+          The answer is not to abandon the brand at the first sign of competition, but to ask a more precise question: <em>Is the thing that made me distinctive still distinctive?</em> If the answer is no, the work is not to start over — it is to find the next layer. What do you know now, from having been in this space long enough, that newcomers cannot yet know? <strong>Experience genuinely compounds. The professional who has been writing about a domain for eight years has access to a kind of insight that cannot be shortcut.</strong>
+        </p>
+
+        <!-- ── Bold Callout ── -->
+        <div class="bold-callout">
+          <p>"Your brand is not a campaign. It is a <span>record of your judgment</span> — the accumulated evidence that you are the kind of person worth listening to when things get complicated."</p>
+        </div>
+
+        <h2>The Uncomfortable Realization at the End</h2>
+
+        <p>
+          This piece has covered a great deal of tactical ground — platforms, consistency, authenticity, AI's impact, the failure modes, the long game. But the honest conclusion lands somewhere simpler and more demanding than any of it: <strong>the prerequisite to building a meaningful personal brand is having something meaningful to say.</strong>
+        </p>
+
+        <p>
+          That means doing the work before the publishing. It means developing genuine views, earned through actual engagement with the problems in your field. It means being willing to be wrong in public, to change position, to hold minority opinions when you believe they are correct. <strong>The brand is downstream of the professional. Build the professional first.</strong>
+        </p>
+
+        <!-- ── CTA Block ── -->
+        <div class="cta-block">
+          <div class="cta-label">🎯 Final Takeaway</div>
+          <p>The resume will not disappear overnight. But its authority is eroding, gradually and then suddenly, in exactly the way Hemingway described going bankrupt. <strong>The professionals who build the most durable careers in the next decade will be those who took their reputation as seriously as their credentials</strong> — and started building it long before anyone was watching.</p>
+        </div>
+
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a href="page-2.html" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+          </div>
+          <a href="../../index.html" class="btn-accent">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Back to Homepage
+          </a>
+        </div>
+      </div>
+
+      <!-- Completion Banner -->
+      <div class="mt-10 rounded-2xl p-7 text-center" style="background: linear-gradient(135deg, #1a1510 0%, #0f0f0f 100%); border: 1px solid #2a2520;">
+        <div class="text-accent font-mono text-xs font-medium mb-3 tracking-widest uppercase">Article Complete</div>
+        <h3 class="font-display text-white text-xl font-semibold mb-2">Thanks for reading</h3>
+        <p style="color:rgba(255,255,255,0.5); font-size:0.875rem; margin-bottom:1.5rem;">
+          Enjoyed this piece? Subscribe for one curated story delivered to your inbox each week.
+        </p>
+        <div class="flex gap-3 max-w-sm mx-auto">
+          <input type="email" placeholder="your@email.com"
+                 style="flex:1; padding:0.6rem 1rem; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:8px; color:#fff; font-size:0.8125rem; outline:none; font-family:'DM Sans',sans-serif;"
+                 aria-label="Email address" />
+          <button class="btn-accent" style="white-space:nowrap;">Subscribe</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Shift & What It Means</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Platforms & Strategy</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">Building for the Long Game</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">More to Read</div>
+    <div class="grid sm:grid-cols-3 gap-5">
+      <article class="article-card">
+        <a href="#" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&q=70" alt="Remote Work" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge" style="background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Business</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="#" style="text-decoration:none; color:inherit;">The Future of Work is Already Here</a></h3>
+          <div class="card-meta"><span>7 min read</span></div>
+        </div>
+      </article>
+      <article class="article-card">
+        <a href="#" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=400&q=70" alt="AI Future" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge">Technology</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="#" style="text-decoration:none; color:inherit;">The Future of Artificial Intelligence</a></h3>
+          <div class="card-meta"><span>8 min read</span></div>
+        </div>
+      </article>
+      <article class="article-card">
+        <a href="#" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&q=70" alt="Career" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge" style="background:#fdf4ff; color:#9333ea; border-color:rgba(147,51,234,0.2);">Culture</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="#" style="text-decoration:none; color:inherit;">Reputation as Infrastructure</a></h3>
+          <div class="card-meta"><span>8 min read</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>
