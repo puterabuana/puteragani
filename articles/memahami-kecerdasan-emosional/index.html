@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Understanding Emotional Intelligence: The Science Behind Feeling — Putera Gani</title>
+  <meta name="description" content="What emotional intelligence actually is, why it matters more than IQ in many areas of life, and what the science says about whether you can develop it." />
+  <meta name="author" content="Putera Gani" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:type"        content="article" />
+  <meta property="og:url"         content="https://puteragani.com/articles/memahami-kecerdasan-emosional/" />
+  <meta property="og:title"       content="Understanding Emotional Intelligence: The Science Behind Feeling" />
+  <meta property="og:description" content="EQ isn't a buzzword — it's a measurable set of skills that shapes your relationships, career, and wellbeing." />
+
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } }
+    }
+  </script>
+
+  <style>
+    /* ── EQ Framework Grid ── */
+    .eq-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin: 2rem 0;
+    }
+    @media (min-width: 540px) {
+      .eq-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .eq-card {
+      border-radius: 12px;
+      padding: 1.1rem 1.25rem;
+      border: 1px solid var(--rule, #e8e4de);
+      background: var(--paper, #fafaf8);
+      position: relative;
+      overflow: hidden;
+    }
+    .eq-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--accent, #c8973a);
+    }
+    .eq-card-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .eq-card h4 {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.35rem 0;
+      letter-spacing: -0.01em;
+    }
+    .eq-card p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.6;
+    }
+
+    /* ── Brain vs Heart Split ── */
+    .brain-heart-split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--rule, #e8e4de);
+      margin: 2rem 0;
+    }
+    @media (min-width: 600px) {
+      .brain-heart-split { grid-template-columns: 1fr 1fr; }
+    }
+    .split-iq {
+      background: var(--ink, #0f0f0f);
+      padding: 1.5rem 1.25rem;
+    }
+    .split-eq {
+      background: linear-gradient(135deg, rgba(200,151,58,0.08), rgba(200,151,58,0.03));
+      padding: 1.5rem 1.25rem;
+      border-top: 1px solid var(--rule, #e8e4de);
+    }
+    @media (min-width: 600px) {
+      .split-eq { border-top: none; border-left: 1px solid var(--rule, #e8e4de); }
+    }
+    .split-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .split-iq .split-label { color: var(--accent, #c8973a); }
+    .split-eq .split-label { color: var(--accent, #c8973a); }
+    .split-iq ul, .split-eq ul {
+      list-style: none;
+      padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .split-iq li {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.5;
+      padding-left: 1rem;
+      position: relative;
+    }
+    .split-iq li::before { content: '—'; position: absolute; left: 0; color: var(--accent, #c8973a); font-size: 0.75rem; }
+    .split-eq li {
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.5;
+      padding-left: 1rem;
+      position: relative;
+    }
+    .split-eq li::before { content: '—'; position: absolute; left: 0; color: var(--accent, #c8973a); font-size: 0.75rem; }
+
+    /* ── Myth Buster Block ── */
+    .myth-buster {
+      background: #fff;
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+    .myth-buster-header {
+      background: var(--ink, #0f0f0f);
+      padding: 0.75rem 1.25rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+    }
+    .myth-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    @media (min-width: 540px) {
+      .myth-row { grid-template-columns: 1fr 1fr; }
+    }
+    .myth-row:last-child { border-bottom: none; }
+    .myth-cell {
+      padding: 0.9rem 1.25rem;
+      font-size: 0.8125rem;
+      line-height: 1.6;
+    }
+    .myth-cell.myth { color: var(--ink-muted, #6b6860); background: #fafaf8; }
+    .myth-cell.myth::before {
+      content: '✕ Myth';
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #dc2626;
+      margin-bottom: 0.35rem;
+    }
+    .myth-cell.reality { color: var(--ink, #0f0f0f); border-top: 1px solid var(--rule); }
+    @media (min-width: 540px) { .myth-cell.reality { border-top: none; border-left: 1px solid var(--rule, #e8e4de); } }
+    .myth-cell.reality::before {
+      content: '✓ Reality';
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #16a34a;
+      margin-bottom: 0.35rem;
+    }
+
+    /* ── Research Callout ── */
+    .research-callout {
+      background: linear-gradient(135deg, rgba(200,151,58,0.07), rgba(200,151,58,0.02));
+      border: 1px solid rgba(200,151,58,0.28);
+      border-left: 3px solid var(--accent, #c8973a);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin: 1.75rem 0;
+    }
+    @media (min-width: 640px) { .research-callout { padding: 1.25rem 1.5rem; } }
+    .research-callout .rc-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .research-callout p { margin: 0 !important; font-size: 0.9375rem; line-height: 1.7; color: var(--ink, #0f0f0f); }
+
+    /* ── Section Divider ── */
+    .section-rule {
+      display: flex; align-items: center; gap: 0.75rem; margin: 2rem 0;
+    }
+    .section-rule::before, .section-rule::after {
+      content: ''; flex: 1; height: 1px; background: var(--rule, #e8e4de);
+    }
+    .section-rule span {
+      font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--ink-muted, #6b6860); white-space: nowrap;
+    }
+
+    /* ── Large Pull Quote ── */
+    .pull-quote {
+      border-top: 2px solid var(--ink, #0f0f0f);
+      border-bottom: 2px solid var(--ink, #0f0f0f);
+      padding: 1.5rem 0;
+      margin: 2.25rem 0;
+      text-align: center;
+    }
+    .pull-quote p {
+      margin: 0 !important;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 4vw, 1.4rem);
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: -0.015em;
+      color: var(--ink, #0f0f0f);
+    }
+    .pull-quote p span { color: var(--accent, #c8973a); }
+
+    /* ── Inline bold ── */
+    .article-body p strong { color: var(--ink, #0f0f0f); font-weight: 650; }
+  </style>
+</head>
+<body>
+
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge" style="background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Health</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    Understanding Emotional Intelligence: The Science Behind Feeling
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 9, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>4 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 1 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&q=80"
+         alt="Emotional connection — two people in conversation"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Human connection
+    </div>
+  </div>
+</div>
+
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          There is a certain type of person who fails every standardised test, struggles with formal education, and yet navigates the world with an almost uncanny effectiveness. They know, somehow, exactly what to say in a difficult conversation. They sense when a room shifts. They build trust quickly and lose it rarely. For most of the twentieth century, psychology had no good language for this. Today, it does: <strong>emotional intelligence</strong>.
+        </p>
+
+        <p>
+          The term sounds like a contradiction. Emotions are messy, involuntary, irrational — the opposite of intelligence, which we tend to imagine as cool, deliberate, and precise. But decades of research have dismantled this dichotomy. Emotions are not noise in the system of cognition. <strong>They are an indispensable part of the system itself.</strong>
+        </p>
+
+        <!-- ── EQ Framework Grid ── -->
+        <div class="eq-grid">
+          <div class="eq-card">
+            <div class="eq-card-num">Domain 01</div>
+            <h4>Self-Awareness</h4>
+            <p>The ability to recognize your own emotions in real time — understanding what you're feeling, why, and how it influences your thinking and behavior.</p>
+          </div>
+          <div class="eq-card">
+            <div class="eq-card-num">Domain 02</div>
+            <h4>Self-Regulation</h4>
+            <p>The capacity to manage emotional impulses — not suppressing them, but directing them productively rather than reactively.</p>
+          </div>
+          <div class="eq-card">
+            <div class="eq-card-num">Domain 03</div>
+            <h4>Empathy</h4>
+            <p>Accurately reading the emotional states of others — through facial expression, tone, posture, and context — and responding appropriately.</p>
+          </div>
+          <div class="eq-card">
+            <div class="eq-card-num">Domain 04</div>
+            <h4>Social Skill</h4>
+            <p>Applying emotional awareness in relationships: navigating conflict, building rapport, influencing others, and sustaining cooperation over time.</p>
+          </div>
+        </div>
+
+        <p>
+          This framework, developed by psychologists Peter Salovey and John Mayer and popularized by Daniel Goleman in 1995, gave practitioners a map. But a map is only useful if you understand the terrain. What is emotional intelligence, really — <strong>and can it be developed, or are you born with the capacity you'll always have?</strong>
+        </p>
+
+        <div class="section-rule"><span>IQ vs EQ</span></div>
+
+        <h2>The Intelligence We Were Taught to Ignore</h2>
+
+        <p>
+          Standard IQ tests measure pattern recognition, working memory, verbal comprehension, and logical reasoning. They predict academic performance reasonably well. They predict income and job performance moderately well. What they predict poorly is relationship satisfaction, leadership effectiveness, mental health outcomes, and the ability to navigate complex social environments.
+        </p>
+
+        <!-- ── Brain vs Heart Split ── -->
+        <div class="brain-heart-split">
+          <div class="split-iq">
+            <div class="split-label">IQ — What It Predicts</div>
+            <ul>
+              <li>Academic test performance</li>
+              <li>Technical problem-solving speed</li>
+              <li>Entry into competitive professions</li>
+              <li>Processing complex abstract data</li>
+            </ul>
+          </div>
+          <div class="split-eq">
+            <div class="split-label">EQ — What It Predicts</div>
+            <ul>
+              <li>Leadership effectiveness at scale</li>
+              <li>Relationship quality and longevity</li>
+              <li>Recovery speed after setbacks</li>
+              <li>Team performance under pressure</li>
+            </ul>
+          </div>
+        </div>
+
+        <p>
+          A landmark study by the Center for Creative Leadership found that the number-one reason senior executives fail is not lack of technical skill or intelligence — it is <strong>difficulty managing relationships.</strong> An inability to handle interpersonal conflict, to read political dynamics, to build the trust necessary for people to follow through difficult change. These are emotional intelligence failures, not cognitive ones.
+        </p>
+
+        <!-- ── Pull Quote ── -->
+        <div class="pull-quote">
+          <p>"IQ gets you the job. <span>EQ determines how far you go</span> — and how many people want to go there with you."</p>
+        </div>
+
+        <h2>What the Neuroscience Shows</h2>
+
+        <p>
+          The scientific case for emotional intelligence is grounded in neuroscience. The brain processes emotional stimuli through the amygdala — two almond-shaped clusters in the limbic system — before those signals reach the prefrontal cortex, where rational deliberation happens. This means emotion is, architecturally, prior to reason. <strong>We feel before we think.</strong>
+        </p>
+
+        <p>
+          Antonio Damasio's research with patients who had prefrontal cortex damage produced a counterintuitive finding: these patients retained normal IQ scores but became profoundly impaired at decision-making. Without the emotional signals that normally flag options as good or bad, they became paralysed by indecision or made catastrophically poor choices. Damasio called this the <strong>somatic marker hypothesis</strong>: emotions are not irrational distractions from good decisions — they are the substrate on which good decisions are made.
+        </p>
+
+        <!-- ── Research Callout ── -->
+        <div class="research-callout">
+          <div class="rc-label">🔬 Neuroscience Finding</div>
+          <p>Mirror neurons — first discovered in macaques, now identified in humans — fire both when you perform an action <em>and</em> when you observe someone else performing it. This neural mirroring is widely considered the biological basis of empathy: the brain literally simulates the emotional state of the person in front of you. Empathy is not a choice or a skill you perform. It is, at the neural level, <strong>an automatic process you either amplify or suppress.</strong></p>
+        </div>
+
+        <h2>Dismantling the Myths</h2>
+
+        <p>
+          Despite growing research, emotional intelligence remains surrounded by misconceptions — many of them persistent because they serve people who prefer not to engage with their own emotional lives.
+        </p>
+
+        <!-- ── Myth Buster Block ── -->
+        <div class="myth-buster">
+          <div class="myth-buster-header">⚡ Common Myths vs Research Reality</div>
+          <div class="myth-row">
+            <div class="myth-cell myth">High EQ means being nice and agreeable all the time.</div>
+            <div class="myth-cell reality">High EQ includes the ability to deliver difficult feedback, hold firm boundaries, and navigate conflict — none of which require agreeableness.</div>
+          </div>
+          <div class="myth-row">
+            <div class="myth-cell myth">Women are naturally more emotionally intelligent than men.</div>
+            <div class="myth-cell reality">Large meta-analyses show no consistent gender difference in overall EQ. Differences appear in specific sub-dimensions, and all are dwarfed by individual variation.</div>
+          </div>
+          <div class="myth-row">
+            <div class="myth-cell myth">EQ is fixed — you either have it or you don't.</div>
+            <div class="myth-cell reality">Unlike IQ, which is highly stable after adolescence, EQ shows significant plasticity throughout life. Targeted practice produces measurable improvements.</div>
+          </div>
+        </div>
+
+        <p>
+          The plasticity finding is the most important. It means emotional intelligence is less like a trait you possess and more like a skill set you develop. <strong>The question is not what your natural baseline is — it is how seriously you are prepared to work on it.</strong> Page 2 examines exactly what that work looks like in practice.
+        </p>
+
+      </div>
+
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <div></div>
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot active"></div>
+            <div class="page-dot"></div>
+            <div class="page-dot"></div>
+          </div>
+          <a href="page-2.html" class="btn-primary">
+            Continue to Page 2
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">What EQ Actually Is</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">How to Develop It</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">EQ at Work & in Life</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div id="related-articles" class="grid sm:grid-cols-3 gap-5" data-current-slug="memahami-kecerdasan-emosional">
+    </div>
+  </div>
+</div>
+
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>

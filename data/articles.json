@@ -169,6 +169,40 @@
   "excerpt": "Why reputation and online identity are replacing traditional resumes.",
   "content": "A short summary of the article...",
   "url": "articles/personal-branding-new-resume/index.html"
+  },
+  {
+    "id": "011",
+    "title": "Understanding Emotional Intelligence: The Science Behind Feeling",
+    "slug": "memahami-kecerdasan-emosional",
+    "category": "Health",
+    "tags": ["Health", "Psychology", "Emotional Intelligence", "Wellbeing", "Neuroscience"],
+    "featured": false,
+    "trending": true,
+    "date": "2026-05-09",
+    "author": "Putera Gani",
+    "readTime": "10 min",
+    "image": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=75",
+    "imageLarge": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80",
+    "excerpt": "EQ isn't a buzzword — it's a measurable set of skills that shapes your relationships, career, and wellbeing. Here's what the science actually says.",
+    "content": "There is a certain type of person who fails every standardised test, struggles with formal education, and yet navigates the world with an almost uncanny effectiveness. Today, psychology finally has good language for this.",
+    "url": "articles/memahami-kecerdasan-emosional/index.html"
+  },
+  {
+    "id": "012",
+    "title": "The Philosophy of Minimalism: Why Less Has Always Been a Radical Idea",
+    "slug": "filosofi-minimalisme",
+    "category": "Culture",
+    "tags": ["Culture", "Philosophy", "Minimalism", "Lifestyle", "Stoicism"],
+    "featured": false,
+    "trending": true,
+    "date": "2026-05-09",
+    "author": "Putera Gani",
+    "readTime": "10 min",
+    "image": "https://images.unsplash.com/photo-1449247709967-d4461a6a6103?w=600&q=75",
+    "imageLarge": "https://images.unsplash.com/photo-1449247709967-d4461a6a6103?w=800&q=80",
+    "excerpt": "Minimalism is not an aesthetic trend. It is a centuries-old philosophical tradition — and a serious response to the question of what makes a life worth living.",
+    "content": "Strip the Muji catalogues and capsule wardrobes away, and you find something considerably more demanding: a centuries-old insistence that most of what we accumulate does not add to life — it costs life.",
+    "url": "articles/filosofi-minimalisme/index.html"
   }
 ]
 }

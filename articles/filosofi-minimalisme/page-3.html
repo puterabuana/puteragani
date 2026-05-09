@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Philosophy of Minimalism — Page 3: The Limits of Less — Putera Gani</title>
+  <meta name="description" content="The honest critique of minimalism — what it gets wrong, who it excludes, and why its best version remains worth pursuing anyway." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>tailwind.config = { theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } } }</script>
+
+  <style>
+    /* ── Critique Cards ── */
+    .critique-list {
+      margin: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .critique-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    .critique-item:last-child { border-bottom: none; }
+    .critique-marker {
+      flex-shrink: 0;
+      width: 44px;
+      background: var(--paper, #fafaf8);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 1.1rem;
+      border-right: 1px solid var(--rule, #e8e4de);
+      font-size: 1rem;
+    }
+    .critique-body {
+      padding: 1rem 1.1rem;
+      flex: 1;
+    }
+    .critique-body h4 {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.35rem;
+    }
+    .critique-body p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.65;
+    }
+
+    /* ── Tension Table ── */
+    .tension-table-wrap {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--rule, #e8e4de);
+      margin: 2rem 0;
+    }
+    .tension-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+    }
+    .tension-table thead tr {
+      background: var(--ink, #0f0f0f);
+    }
+    .tension-table thead th {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
+    .tension-table thead th:first-child { color: var(--accent, #c8973a); }
+    .tension-table tbody tr {
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    .tension-table tbody tr:last-child { border-bottom: none; }
+    .tension-table tbody tr:nth-child(even) { background: rgba(200,151,58,0.02); }
+    .tension-table td {
+      padding: 0.8rem 1rem;
+      vertical-align: top;
+      line-height: 1.55;
+      color: var(--ink-muted, #6b6860);
+    }
+    .tension-table td:first-child {
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+
+    /* ── Resolution Box ── */
+    .resolution-box {
+      background: linear-gradient(135deg, rgba(200,151,58,0.09), rgba(200,151,58,0.02));
+      border: 1px solid rgba(200,151,58,0.3);
+      border-left: 3px solid var(--accent, #c8973a);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+    }
+    .resolution-box .rb-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .resolution-box p { margin: 0 !important; font-size: 0.9375rem; line-height: 1.75; color: var(--ink, #0f0f0f); }
+    .resolution-box p strong { font-weight: 650; }
+
+    /* ── Section Rule ── */
+    .section-rule {
+      display: flex; align-items: center; gap: 0.75rem; margin: 2rem 0;
+    }
+    .section-rule::before, .section-rule::after {
+      content: ''; flex: 1; height: 1px; background: var(--rule, #e8e4de);
+    }
+    .section-rule span {
+      font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--ink-muted, #6b6860); white-space: nowrap;
+    }
+
+    /* ── Inline bold ── */
+    .article-body p strong { color: var(--ink, #0f0f0f); font-weight: 650; }
+  </style>
+</head>
+<body>
+
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge" style="background:#fdf4ff; color:#9333ea; border-color:rgba(147,51,234,0.2);">Culture</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    The Philosophy of Minimalism — The Limits of Less
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 9, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>3 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 3 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=1200&q=80"
+         alt="Abundance and constraint — balance"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Balance
+    </div>
+  </div>
+</div>
+
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          Any philosophy worth taking seriously should survive honest criticism. Minimalism, for all its insights, has real blind spots — and ignoring them produces a version of the philosophy that is self-congratulatory rather than genuinely examined. The strongest case for minimalism is made by a version that has honestly reckoned with its own limits.
+        </p>
+
+        <h2>The Legitimate Critiques</h2>
+
+        <p>
+          The critiques of contemporary minimalism are not all cynical or uninformed. Several of them cut to genuine weaknesses in how the philosophy is often presented and practiced.
+        </p>
+
+        <!-- ── Critique Cards ── -->
+        <div class="critique-list">
+          <div class="critique-item">
+            <div class="critique-marker">⚠️</div>
+            <div class="critique-body">
+              <h4>The Privilege Critique</h4>
+              <p>Minimalism is most easily practiced by those who have enough. The freedom to own fewer things depends on the confidence that if you need something, you can acquire it again. For people in genuine material precarity, "owning less" is not a philosophy — it is an economic condition. Contemporary minimalism frequently speaks past this reality entirely.</p>
+            </div>
+          </div>
+          <div class="critique-item">
+            <div class="critique-marker">⚠️</div>
+            <div class="critique-body">
+              <h4>The Cultural Objects Problem</h4>
+              <p>Not all objects are created equal in their relationship to meaning. A grandmother's embroidery, a collection of records that shaped a person's adolescence, a shelf of annotated books — these are not clutter. Minimalism sometimes produces a hostility to accumulation that fails to distinguish between objects that carry meaning and objects that merely occupy space.</p>
+            </div>
+          </div>
+          <div class="critique-item">
+            <div class="critique-marker">⚠️</div>
+            <div class="critique-body">
+              <h4>The Social Dimension</h4>
+              <p>Humans are relational beings. Some of what minimalism calls "excess" — the dinner that takes three hours, the gift that serves no function, the ritual that seems inefficient — is precisely the material of social life. A minimalism too hostile to the unnecessary risks a sterility that undermines the relationships it was supposed to serve.</p>
+            </div>
+          </div>
+          <div class="critique-item">
+            <div class="critique-marker">⚠️</div>
+            <div class="critique-body">
+              <h4>The Identity Trap</h4>
+              <p>Minimalism, particularly in its social media form, can become another identity to curate and perform — which is precisely the opposite of what the philosophy prescribes. A person obsessively photographing their sparse apartment for an audience has not escaped consumerism; they have substituted a different currency.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-rule"><span>The Honest Tension</span></div>
+
+        <h2>Where Minimalism and Abundance Genuinely Conflict</h2>
+
+        <p>
+          There are areas where the tension between minimalism and other human goods is not resolvable by clever framing — where the honest answer is that trade-offs exist and must be chosen consciously rather than dissolved philosophically.
+        </p>
+
+        <!-- ── Tension Table ── -->
+        <div class="tension-table-wrap">
+          <table class="tension-table">
+            <thead>
+              <tr>
+                <th>Domain</th>
+                <th>Minimalist Pull</th>
+                <th>Competing Good</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Hospitality</td>
+                <td>Fewer things, less space, smaller table</td>
+                <td>Generosity and welcome require abundance</td>
+              </tr>
+              <tr>
+                <td>Children</td>
+                <td>Minimal toys, structured environment</td>
+                <td>Rich sensory environments support development</td>
+              </tr>
+              <tr>
+                <td>Creative work</td>
+                <td>Focused constraints enhance output</td>
+                <td>Serendipitous discovery requires material variety</td>
+              </tr>
+              <tr>
+                <td>Professional depth</td>
+                <td>Fewer commitments, deeper engagement</td>
+                <td>Career growth often requires broad exposure first</td>
+              </tr>
+              <tr>
+                <td>Community</td>
+                <td>Intentional relationships, small circles</td>
+                <td>Weak ties and broad networks create opportunity</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          Acknowledging these tensions is not a reason to abandon minimalism. It is a reason to practice it with more precision — <strong>applying the principle where it genuinely serves, and suspending it where other goods take legitimate precedence.</strong> The philosophy works best as a question you ask, not a rule you impose.
+        </p>
+
+        <!-- ── Resolution Box ── -->
+        <div class="resolution-box">
+          <div class="rb-label">🧭 What Remains</div>
+          <p>Strip away the aesthetic and the social performance, and what philosophical minimalism offers is genuinely valuable: a practice of asking whether what you're accumulating — time, objects, commitments, mental preoccupations — <strong>serves a life you have actually chosen</strong>, or is simply the residue of choices made by inertia, social pressure, and the aggressive ingenuity of markets. That question is worth asking. It does not require a capsule wardrobe to answer it.</p>
+        </div>
+
+      </div>
+
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a href="page-2.html" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+          </div>
+          <a href="../../index.html" class="btn-accent">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Back to Homepage
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-10 rounded-2xl p-7 text-center" style="background: linear-gradient(135deg, #1a1510 0%, #0f0f0f 100%); border: 1px solid #2a2520;">
+        <div class="text-accent font-mono text-xs font-medium mb-3 tracking-widest uppercase">Article Complete</div>
+        <h3 class="font-display text-white text-xl font-semibold mb-2">Thanks for reading</h3>
+        <p style="color:rgba(255,255,255,0.5); font-size:0.875rem; margin-bottom:1.5rem;">
+          Enjoyed this piece? Subscribe for one curated story delivered to your inbox each week.
+        </p>
+        <div class="flex gap-3 max-w-sm mx-auto">
+          <input type="email" placeholder="your@email.com"
+                 style="flex:1; padding:0.6rem 1rem; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:8px; color:#fff; font-size:0.8125rem; outline:none; font-family:'DM Sans',sans-serif;"
+                 aria-label="Email address" />
+          <button class="btn-accent" style="white-space:nowrap;">Subscribe</button>
+        </div>
+      </div>
+
+    </div>
+
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Philosophy</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">In Practice</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">The Limits of Less</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">More to Read</div>
+    <div id="related-articles" class="grid sm:grid-cols-3 gap-5" data-current-slug="filosofi-minimalisme"></div>
+  </div>
+</div>
+
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>

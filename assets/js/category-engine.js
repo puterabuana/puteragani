@@ -203,7 +203,7 @@ const CategoryEngine = (() => {
     const wrap = document.getElementById('cat-sidebar-categories');
     if (!wrap) return;
     const cats = [...new Set(articles.map(a => a.category))].sort();
-    const pageMap = { Technology:'technology.html', Design:'design.html', Science:'science.html', Culture:'culture.html' };
+    const pageMap = { Technology:'technology.html', Design:'design.html', Science:'science.html', Culture:'culture.html', Business:'business.html', Health:'health.html' };
     wrap.innerHTML = cats.map(cat => {
       const s    = (CATEGORY_CONFIG[cat] || CATEGORY_CONFIG.Technology).style;
       const href = pageMap[cat]

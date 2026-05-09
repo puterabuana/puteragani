@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Understanding Emotional Intelligence — Page 2: How to Develop It — Putera Gani</title>
+  <meta name="description" content="Practical, evidence-based methods for developing emotional intelligence — from journaling and mindfulness to regulated exposure and feedback loops." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>tailwind.config = { theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } } }</script>
+
+  <style>
+    /* ── Practice Ladder ── */
+    .practice-ladder {
+      margin: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .ladder-rung {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    .ladder-rung:last-child { border-bottom: none; }
+    .rung-level {
+      flex-shrink: 0;
+      min-width: 64px;
+      text-align: center;
+      padding: 0.35rem 0.5rem;
+      border-radius: 6px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .rung-level.beginner { background: rgba(22,163,74,0.1); color: #15803d; border: 1px solid rgba(22,163,74,0.25); }
+    .rung-level.intermediate { background: rgba(200,151,58,0.1); color: var(--accent, #c8973a); border: 1px solid rgba(200,151,58,0.28); }
+    .rung-level.advanced { background: rgba(15,15,15,0.06); color: var(--ink, #0f0f0f); border: 1px solid rgba(15,15,15,0.15); }
+    .rung-content h4 {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.3rem 0;
+    }
+    .rung-content p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.65;
+    }
+
+    /* ── Emotion Wheel Visual ── */
+    .emotion-wheel-box {
+      background: var(--ink, #0f0f0f);
+      border-radius: 14px;
+      padding: 1.5rem 1.25rem;
+      margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .emotion-wheel-box::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; right: -40px;
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      background: rgba(200,151,58,0.06);
+    }
+    .ewb-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .ewb-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    @media (min-width: 480px) { .ewb-grid { grid-template-columns: repeat(3, 1fr); } }
+    .ewb-chip {
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 0.45rem 0.65rem;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.4;
+    }
+    .ewb-chip strong { color: #fff; display: block; font-size: 0.7rem; margin-bottom: 2px; }
+    .ewb-note {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.6;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 0.85rem;
+    }
+
+    /* ── Before/After Scenario ── */
+    .scenario-pair {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+    .scenario-pair-header {
+      background: var(--paper, #fafaf8);
+      padding: 0.7rem 1.25rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    .scenario-body {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 540px) { .scenario-body { grid-template-columns: 1fr 1fr; } }
+    .scenario-before { padding: 1.1rem 1.25rem; border-bottom: 1px solid var(--rule); }
+    @media (min-width: 540px) { .scenario-before { border-bottom: none; border-right: 1px solid var(--rule, #e8e4de); } }
+    .scenario-after { padding: 1.1rem 1.25rem; background: rgba(22,163,74,0.03); }
+    .scenario-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .scenario-tag.low { color: #dc2626; }
+    .scenario-tag.high { color: #16a34a; }
+    .scenario-before p, .scenario-after p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      line-height: 1.65;
+      font-style: italic;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* ── Inline bold ── */
+    .article-body p strong { color: var(--ink, #0f0f0f); font-weight: 650; }
+
+    /* ── Section Rule ── */
+    .section-rule {
+      display: flex; align-items: center; gap: 0.75rem; margin: 2rem 0;
+    }
+    .section-rule::before, .section-rule::after {
+      content: ''; flex: 1; height: 1px; background: var(--rule, #e8e4de);
+    }
+    .section-rule span {
+      font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--ink-muted, #6b6860); white-space: nowrap;
+    }
+
+    /* ── Insight Tag ── */
+    .insight-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(200,151,58,0.1); border: 1px solid rgba(200,151,58,0.25);
+      border-radius: 20px; padding: 3px 10px;
+      font-family: 'DM Mono', monospace; font-size: 0.62rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--accent, #c8973a); font-weight: 600; margin-bottom: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge" style="background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Health</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    Understanding Emotional Intelligence — How to Actually Develop It
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 9, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>3 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 2 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80"
+         alt="Reflection and self-awareness practice"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Reflection
+    </div>
+  </div>
+</div>
+
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          Knowing that emotional intelligence can be developed is not the same as knowing how. The self-help industry offers no shortage of generic advice — "be more empathetic," "listen actively," "name your feelings." What research shows is that these prescriptions are too vague to be actionable. <strong>EQ development requires specific, targeted practice directed at specific deficits,</strong> with feedback loops tight enough to register progress.
+        </p>
+
+        <h2>Start with Granularity: The Vocabulary Problem</h2>
+
+        <p>
+          Lisa Feldman Barrett, one of the leading emotion researchers working today, has documented what she calls <em>emotional granularity</em>: the degree to which a person can distinguish between fine-grained emotional states rather than lumping everything into broad categories like "good," "bad," or "stressed." Her research shows that people with higher emotional granularity regulate their emotions more effectively, make better decisions under pressure, and recover faster from adversity.
+        </p>
+
+        <!-- ── Emotion Vocabulary Grid ── -->
+        <div class="emotion-wheel-box">
+          <div class="ewb-label">🎯 Beyond "Fine" — Expanding Your Emotional Vocabulary</div>
+          <div class="ewb-grid">
+            <div class="ewb-chip"><strong>Instead of: Angry</strong>frustrated, resentful, indignant, irritated, outraged</div>
+            <div class="ewb-chip"><strong>Instead of: Sad</strong>melancholic, bereft, disheartened, wistful, dejected</div>
+            <div class="ewb-chip"><strong>Instead of: Anxious</strong>apprehensive, dread, unease, restless, hypervigilant</div>
+            <div class="ewb-chip"><strong>Instead of: Happy</strong>elated, content, proud, relieved, serene, grateful</div>
+            <div class="ewb-chip"><strong>Instead of: Confused</strong>ambivalent, uncertain, disoriented, conflicted</div>
+            <div class="ewb-chip"><strong>Instead of: Excited</strong>anticipatory, eager, energized, hopeful, exhilarated</div>
+          </div>
+          <div class="ewb-note">Keeping a brief daily emotion log — three specific words per entry — measurably increases granularity within six to eight weeks, according to research by Barrett's lab at Northeastern University.</div>
+        </div>
+
+        <p>
+          The practical implication: if you cannot name what you're feeling with precision, you cannot regulate it with precision. <strong>The emotional vocabulary you have is not a cosmetic concern — it is your actual toolkit.</strong> Expanding it is the first concrete step toward higher EQ.
+        </p>
+
+        <div class="section-rule"><span>The Practice Ladder</span></div>
+
+        <h2>A Tiered Approach to EQ Development</h2>
+
+        <p>
+          Research from clinical psychology and executive coaching converges on a tiered model: basic practices that build self-awareness, intermediate practices that develop regulation, and advanced practices that extend into social mastery. Attempting advanced levels without the foundational skills is a common reason EQ training fails.
+        </p>
+
+        <!-- ── Practice Ladder ── -->
+        <div class="practice-ladder">
+          <div class="ladder-rung">
+            <div class="rung-level beginner">Beginner</div>
+            <div class="rung-content">
+              <h4>Daily Emotion Labelling</h4>
+              <p>Three times a day, pause and name your current emotional state with maximum specificity. The pause itself — before labelling — activates the prefrontal cortex and begins to interrupt automatic reactivity.</p>
+            </div>
+          </div>
+          <div class="ladder-rung">
+            <div class="rung-level beginner">Beginner</div>
+            <div class="rung-content">
+              <h4>Trigger Mapping</h4>
+              <p>Keep a log of situations that consistently produce strong emotional reactions. Over two weeks, patterns emerge — specific people, environments, or types of challenge that reliably dysregulate you. You cannot manage what you have not mapped.</p>
+            </div>
+          </div>
+          <div class="ladder-rung">
+            <div class="rung-level intermediate">Intermediate</div>
+            <div class="rung-content">
+              <h4>Physiological Regulation Practice</h4>
+              <p>The body leads the emotion. Breathing techniques (specifically extended exhale breathing) and progressive muscle relaxation directly modulate the autonomic nervous system — cutting the physiological substrate of emotional dysregulation before it escalates cognitively.</p>
+            </div>
+          </div>
+          <div class="ladder-rung">
+            <div class="rung-level intermediate">Intermediate</div>
+            <div class="rung-content">
+              <h4>Structured Perspective-Taking</h4>
+              <p>After any significant conflict or misunderstanding, write a full account of the situation from the other person's point of view — including their likely emotional experience, their goals, and the pressures they were under. This is not natural empathy; it is deliberate cognitive empathy.</p>
+            </div>
+          </div>
+          <div class="ladder-rung">
+            <div class="rung-level advanced">Advanced</div>
+            <div class="rung-content">
+              <h4>Feedback Solicitation and Integration</h4>
+              <p>Systematically ask trusted people for honest feedback on your emotional impact. The key is not just receiving it, but tracking patterns across sources and across time. Blind spots in self-perception are the most stubborn obstacle to EQ growth.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>What Change Actually Looks Like</h2>
+
+        <p>
+          EQ development does not feel like a sudden awakening. It feels — at first — like noticing things you previously missed, and then noticing them a fraction of a second earlier than before. The process is incremental and often uncomfortable, because what you're developing is a more accurate perception of your own internal state and its effect on others. <strong>Accuracy, before it becomes useful, is often unflattering.</strong>
+        </p>
+
+        <!-- ── Before/After Scenario ── -->
+        <div class="scenario-pair">
+          <div class="scenario-pair-header">🔁 The Same Situation — Two Responses</div>
+          <div class="scenario-body">
+            <div class="scenario-before">
+              <div class="scenario-tag low">Lower EQ Response</div>
+              <p>"My colleague interrupted me in the meeting again. I told them they always do this and walked out. Later I sent an email saying the project is fine, I'm fine, no problem."</p>
+            </div>
+            <div class="scenario-after">
+              <div class="scenario-tag high">Developing EQ Response</div>
+              <p>"I noticed I felt a spike of indignation when interrupted — likely tied to feeling undervalued. I stayed. Later I named the pattern specifically in a one-on-one, asked what was driving their urgency, and we resolved the underlying dynamic."</p>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          The difference is not that the second person feels less. It is that they have the internal architecture to process feeling without being hijacked by it — and the skill to communicate through emotion rather than around it.
+        </p>
+
+        <div class="insight-tag">💡 Key Takeaway</div>
+        <p>
+          EQ development is measured not by whether you have difficult emotions — everyone does — but by the lag time between stimulus and response. <strong>Every technique above is, in some form, a lag-extension practice:</strong> widening the gap between what happens and what you do about it, until choice becomes possible where reactivity used to live.
+        </p>
+
+      </div>
+
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a href="index.html" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+            <div class="page-dot"></div>
+          </div>
+          <a href="page-3.html" class="btn-primary">
+            Continue to Page 3
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">What EQ Actually Is</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">How to Develop It</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">EQ at Work & in Life</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div id="related-articles" class="grid sm:grid-cols-3 gap-5" data-current-slug="memahami-kecerdasan-emosional"></div>
+  </div>
+</div>
+
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>
