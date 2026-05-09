@@ -47,6 +47,16 @@ const ArticleEngine = (() => {
      ════════════════════════════════════════════════════════════ */
 
   /**
+   * Convert article date + optional time field into a sortable timestamp.
+   * Supports: { date: "2026-05-09", time: "14:30" }
+   * Falls back gracefully if time is missing.
+   */
+  function toDateTime(article) {
+    const dateStr = (article.date || '1970-01-01') + 'T' + (article.time || '00:00') + ':00';
+    return new Date(dateStr);
+  }
+
+  /**
    * Compute relevance score for an article against a search query.
    * Tier weights:
    *   40 — title match          (highest)
@@ -334,7 +344,15 @@ const ArticleEngine = (() => {
 
     if (!q) {
       hideSearchOverlay();
-      STATE.filtered = STATE.all.sort(function(a, b) { return new Date(b.date) - new Date(a.date); });
+      // Apply category filter even without a search query
+      STATE.filtered = STATE.all
+        .filter(function(a) {
+          if (STATE.activeCategory !== 'All' && a.category !== STATE.activeCategory) return false;
+          return true;
+        })
+        .sort(function(a, b) { return toDateTime(b) - toDateTime(a); });
+      renderGrid(true);
+      updateLoadMore();
       return;
     }
 
@@ -351,7 +369,7 @@ const ArticleEngine = (() => {
       })
       .sort(function(a, b) {
         const diff = scoreArticle(b, q) - scoreArticle(a, q);
-        return diff !== 0 ? diff : new Date(b.date) - new Date(a.date);
+        return diff !== 0 ? diff : toDateTime(b) - toDateTime(a);
       });
 
     showSearchOverlay(q, results);
@@ -367,7 +385,8 @@ const ArticleEngine = (() => {
       STATE.displayed = 0;
     }
 
-    const slice = STATE.filtered.slice(STATE.displayed, STATE.displayed + STATE.PER_LOAD);
+    const batchSize = (reset && STATE.displayed === 0) ? STATE.INITIAL : STATE.PER_LOAD;
+    const slice = STATE.filtered.slice(STATE.displayed, STATE.displayed + batchSize);
     if (!slice.length && STATE.displayed === 0) {
       grid.innerHTML = '<div class="col-span-full" style="padding:3rem 0; text-align:center; color:var(--ink-muted);"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin:0 auto 1rem; opacity:0.4; display:block;"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><p style="font-size:1rem; font-weight:500;">No articles found</p><p style="font-size:0.875rem; margin-top:0.25rem; opacity:0.6;">Try a different category.</p></div>';
       return;
@@ -469,7 +488,7 @@ const ArticleEngine = (() => {
     try {
       const articles = await fetchArticles();
       STATE.all      = articles;
-      STATE.filtered = [...articles].sort(function(a, b) { return new Date(b.date) - new Date(a.date); });
+      STATE.filtered = [...articles].sort(function(a, b) { return toDateTime(b) - toDateTime(a); });
 
       renderFeatured(articles);
       renderTrending(articles);

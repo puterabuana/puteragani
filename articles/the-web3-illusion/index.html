@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>The Web3 Illusion: Separating Hype from Genuine Innovation — Putera Gani</title>
+  <meta name="description" content="A critical examination of blockchain promises versus reality, and what genuinely new possibilities it unlocks." />
+  <meta name="author" content="Putera Gani" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="article" />
+  <meta property="og:url"         content="https://Putera Gani.com/articles/the-web3-illusion/" />
+  <meta property="og:title"       content="The Web3 Illusion: Separating Hype from Genuine Innovation" />
+  <meta property="og:description" content="Blockchain promises versus reality — what genuinely new possibilities it unlocks." />
+  <meta property="og:image"       content="../../assets/images/thumbnails/web3-article.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } }
+    }
+  </script>
+
+  <style>
+    /* ── Premium Content Enhancement Styles ── */
+
+    /* Highlighted Content Box */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(200,151,58,0.07) 0%, rgba(200,151,58,0.03) 100%);
+      border: 1px solid rgba(200,151,58,0.3);
+      border-left: 3px solid var(--accent, #c8973a);
+      border-radius: 12px;
+      padding: 1rem 1rem;
+      margin: 1.75rem 0;
+    }
+    @media (min-width: 640px) {
+      .highlight-box { padding: 1.25rem 1.5rem; }
+    }
+    .highlight-box .hb-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .highlight-box p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* CTA Info Block */
+    .cta-block {
+      background: var(--ink, #0f0f0f);
+      border-radius: 14px;
+      padding: 1.25rem 1.125rem;
+      margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 640px) {
+      .cta-block { padding: 1.5rem 1.75rem; }
+    }
+    .cta-block::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: rgba(200,151,58,0.08);
+    }
+    .cta-block .cta-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .cta-block p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+    }
+    .cta-block strong {
+      color: #fff !important;
+    }
+
+    /* Numbered Strategy Section */
+    .strategy-item {
+      display: flex;
+      gap: 0.875rem;
+      align-items: flex-start;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    @media (min-width: 640px) {
+      .strategy-item { gap: 1.125rem; }
+    }
+    .strategy-item:last-child { border-bottom: none; }
+    .strategy-num {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: var(--accent-pale, rgba(200,151,58,0.08));
+      border: 1px solid rgba(200,151,58,0.22);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent, #c8973a);
+      margin-top: 2px;
+    }
+    .strategy-content h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.3rem 0;
+      letter-spacing: -0.01em;
+    }
+    @media (min-width: 640px) {
+      .strategy-content h4 { font-size: 0.9375rem; }
+    }
+    .strategy-content p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.65;
+    }
+    @media (min-width: 640px) {
+      .strategy-content p { font-size: 0.875rem; }
+    }
+
+    .bold-callout {
+      border-top: 2px solid var(--ink, #0f0f0f);
+      border-bottom: 2px solid var(--ink, #0f0f0f);
+      padding: 1.25rem 0;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    .bold-callout p {
+      margin: 0 !important;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 4vw, 1.375rem);
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: -0.015em;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Visual Reading Break / Stat Row */
+    .stat-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      background: var(--rule, #e8e4de);
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 2.25rem 0;
+    }
+    @media (min-width: 480px) {
+      .stat-row { grid-template-columns: 1fr 1fr; }
+    }
+    .stat-row .stat-item {
+      background: white;
+      padding: 1.25rem 1.125rem;
+      text-align: center;
+    }
+    @media (min-width: 640px) {
+      .stat-row .stat-item { padding: 1.5rem 1.375rem; }
+    }
+    .stat-item .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--accent, #c8973a);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-item .stat-label {
+      font-size: 0.75rem;
+      color: var(--ink-muted, #6b6860);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+    }
+
+    .strategy-box {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      padding: 1.5rem 1.25rem;
+      margin: 2rem 0;
+    }
+    @media (min-width: 640px) {
+      .strategy-box { padding: 1.75rem 1.5rem; }
+    }
+    .strategy-box-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.01em;
+    }
+    @media (min-width: 640px) {
+      .strategy-box-title { font-size: 0.9375rem; }
+    }
+
+    /* Sticky indicators */
+    .sticky {
+      position: sticky;
+    }
+
+    /* Reading progress indicator */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2.5px;
+      background: var(--accent);
+      z-index: 999;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge">Technology</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    The Web3 Illusion: Separating Hype from Reality
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 09, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>6 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 1 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&q=80"
+         alt="Web3 and blockchain technology"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Blockchain Technology
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT — PAGE 1 -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          The promise of Web3 was revolutionary: <strong>a decentralized internet owned by its users, free from corporate gatekeepers, powered by blockchain technology that would distribute power from Wall Street to everyday people.</strong> The vision was intoxicating — and intoxicating visions are notoriously effective at obscuring inconvenient truths.
+        </p>
+
+        <p>
+          We are now living in the aftermath of that intoxication. The NFT market, which reached a peak valuation of $28 billion in early 2022, has contracted to a fraction of that size. FTX — the crypto exchange that promised to be the future of finance — collapsed in catastrophic fraud. Crypto founders are being prosecuted. The broader blockchain ecosystem has survived countless cycles of boom and bust, each one leaving a trail of bankrupt investors and abandoned projects. Yet Web3 remains a defining narrative in technology, defended fiercely by true believers and dismissed equally fiercely by skeptics. The truth, as usual, lies in the middle — which is far more interesting than either camp acknowledges.
+        </p>
+
+        <div class="bold-callout">
+          <p>The real question isn't whether blockchain will revolutionize everything. It's which problems are genuinely solved by decentralization, and which are simply marketing narratives dressed up in cryptographic clothing.</p>
+        </div>
+
+        <h2>The Vision That Captured Minds</h2>
+
+        <p>
+          To understand Web3's appeal, you must first understand its enemy: the centralized tech platforms that dominate digital life. Apple, Google, Meta, Amazon — these companies don't just provide services. They extract enormous value from users while controlling what you see, what you can say, and how you're able to build on their platforms. Your data is harvested, analyzed, monetized. Their algorithms decide what's true. Your account can be deleted at their whim.
+        </p>
+
+        <p>
+          Blockchain was presented as a technological escape route from this control structure. Instead of trusting a company, you trust mathematics and cryptography. Instead of centralized servers owned by a corporation, you have a distributed network of nodes maintained by thousands of independent participants. Instead of hidden algorithms, you have transparent rules enshrined in code. The appeal is obvious: it addresses real, legitimate frustrations with how the internet has evolved.
+        </p>
+
+        <!-- ── Strategy Box: The Core Blockchain Claims ── -->
+        <div class="strategy-box">
+          <div class="strategy-box-title">⛓️ The Three Core Promises of Web3</div>
+          <div class="strategy-item">
+            <div class="strategy-num">01</div>
+            <div class="strategy-content">
+              <h4>Decentralization</h4>
+              <p>Remove single points of failure and control. No central authority can censor, shut down, or unilaterally change the rules. Power distributed to network participants.</p>
+            </div>
+          </div>
+          <div class="strategy-item">
+            <div class="strategy-num">02</div>
+            <div class="strategy-content">
+              <h4>Transparency</h4>
+              <p>All transactions and logic visible on the blockchain. No hidden databases, black-box algorithms, or opaque decision-making. Complete auditability and immutability.</p>
+            </div>
+          </div>
+          <div class="strategy-item">
+            <div class="strategy-num">03</div>
+            <div class="strategy-content">
+              <h4>Ownership</h4>
+              <p>Users own their data, their assets, their digital identity. You control your private keys; you control your assets. No intermediary can take them from you or freeze your accounts.</p>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          These promises address genuine problems. The question — the one that separates Web3 believers from skeptics — is whether blockchain is actually the solution, or whether it's solving these problems in ways that create worse problems elsewhere.
+        </p>
+
+        <!-- ── Highlight Box: The Trade-Off Reality ── -->
+        <div class="highlight-box">
+          <div class="hb-label">🔄 Critical Insight</div>
+          <p>Blockchain doesn't eliminate problems. It trades one set of problems for another. The question is whether the trade is worth it in a given domain. Sometimes the answer is yes. Often, it's no.</p>
+        </div>
+
+        <h2>Where Blockchain Actually Works</h2>
+
+        <p>
+          This is crucial: blockchain solves certain problems brilliantly, in specific contexts. The mistake is generalizing from those successes to claim it's a universal solution. That's where ideology replaces engineering.
+        </p>
+
+        <p>
+          The strongest use case for blockchain remains its original one: <strong>a system for transferring value across borders without a trusted intermediary.</strong> Bitcoin, despite its volatility and limitations, solved a real problem: how do you send money across the world in a way that doesn't require trusting banks, governments, or corporations to process the transaction? The answer is elegant — use cryptography and distributed consensus instead of trusting institutions.
+        </p>
+
+        <p>
+          For remittances from migrant workers to families in other countries, where Western Union charges 7-12% in fees, this remains genuinely valuable. For payments in countries with failing currencies or oppressive financial systems, this provides genuine escape routes that didn't exist before. There are real applications where the decentralization trade-off — slower processing, higher volatility, technical complexity — is worth it because the alternative is worse.
+        </p>
+
+        <!-- ── CTA Block: The Nuanced Path Forward ── -->
+        <div class="cta-block">
+          <div class="cta-label">🎯 The Real Conversation</div>
+          <p><strong>Web3 is neither the revolution promised nor the scam its harshest critics claim.</strong> It's a set of technologies that solve specific problems in specific domains, often poorly, sometimes brilliantly. Understanding which is which — and resisting the urge to apply blockchain everywhere — is the difference between legitimate innovation and Frankensteinian misapplication. On Page 2, we explore where blockchain fails, and why.</p>
+        </div>
+
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <div><!-- No previous on page 1 --></div>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot active"></div>
+            <div class="page-dot"></div>
+            <div class="page-dot"></div>
+          </div>
+          <a href="page-2.html" class="btn-primary">
+            Continue to Page 2
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sticky Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top: 80px;">
+        <!-- Article Info -->
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">Promise vs Reality</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Failure Modes</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Real Possibilities</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Share -->
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     RELATED ARTICLES — dynamic from articles.json
+     ═══════════════════════════════════════════════════ -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="the-web3-illusion"
+    >
+      <!-- Injected by related.js -->
+    </div>
+  </div>
+</div>
+
+<!-- Footer (simplified on article pages) -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>

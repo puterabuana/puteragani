@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>The Art of Storytelling — Page 2: Digital Narrative — Putera Gani</title>
+  <meta name="description" content="How digital platforms have transformed narrative structures and the power dynamics of storytelling." />
+  <meta name="author" content="Putera Gani" />
+
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } }
+    }
+  </script>
+
+  <style>
+    /* ── Unique Page 2 Styles ── */
+
+    /* Platform Impact Box */
+    .platform-box {
+      background: linear-gradient(135deg, rgba(200,151,58,0.06) 0%, rgba(200,151,58,0.02) 100%);
+      border: 1px solid rgba(200,151,58,0.25);
+      border-left: 4px solid var(--accent, #c8973a);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin: 1.75rem 0;
+    }
+    .platform-box .pb-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .platform-box p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Algorithm Impact Block */
+    .algorithm-block {
+      background: var(--ink, #0f0f0f);
+      border-radius: 12px;
+      padding: 1.5rem 1.5rem;
+      margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .algorithm-block::before {
+      content: '';
+      position: absolute;
+      top: -50px; right: -50px;
+      width: 150px; height: 150px;
+      border-radius: 50%;
+      background: rgba(200,151,58,0.06);
+    }
+    .algorithm-block .algo-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .algorithm-block p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+    }
+
+    /* Comparison Grid */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.75rem 0;
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    @media (max-width: 640px) {
+      .comparison-grid { grid-template-columns: 1fr; }
+    }
+    .comparison-cell {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .comparison-cell:nth-child(even) {
+      background: var(--paper, #fafaf8);
+    }
+    .comparison-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+    }
+    .comparison-content {
+      font-size: 0.95rem;
+      color: var(--ink, #0f0f0f);
+      line-height: 1.6;
+    }
+
+    /* Power Dynamic List */
+    .power-list {
+      margin: 1.75rem 0;
+    }
+    .power-item {
+      display: flex;
+      gap: 1rem;
+      padding: 0.875rem 0;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    .power-item:last-child {
+      border-bottom: none;
+    }
+    .power-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: rgba(200,151,58,0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+    .power-content h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.3rem 0;
+    }
+    .power-content p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.5;
+    }
+
+    /* Stat Row */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      border-top: 1px solid var(--rule, #e8e4de);
+      border-bottom: 1px solid var(--rule, #e8e4de);
+      margin: 2rem 0;
+      padding: 1.5rem 0;
+    }
+    .stat-cell {
+      background: var(--paper, #fafaf8);
+      padding: 1rem 0.875rem;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--ink, #0f0f0f);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .stat-num span { color: var(--accent, #c8973a); }
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.4;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.03em;
+    }
+
+    .section-rule {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+    .section-rule::before, .section-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule, #e8e4de);
+    }
+    .section-rule span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      white-space: nowrap;
+    }
+
+    .article-body p strong {
+      color: var(--ink, #0f0f0f);
+      font-weight: 650;
+    }
+
+    .page-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .page-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(15,15,15,0.15);
+      transition: background 0.2s;
+    }
+    .page-dot.active {
+      background: var(--accent, #c8973a);
+    }
+  </style>
+</head>
+<body>
+
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Page 1
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge">Culture</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    The Digital Narrative: How Algorithms Shape What Stories We Tell
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 9, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>7 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 2 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&q=80"
+         alt="Digital storytelling and social media platforms"
+         loading="lazy" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Digital platforms
+    </div>
+  </div>
+</div>
+
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          Here's a paradox: we have more tools to tell stories than ever before. And yet, <strong>the stories that get amplified are increasingly shaped by invisible mathematical systems.</strong>
+        </p>
+
+        <p>
+          When you post a story on TikTok or Instagram, you're not telling it to humans first — you're telling it to an algorithm. That algorithm decides if your narrative reaches ten people or ten million. The algorithm trains you to optimize for its preferences: shorter hooks, sharper emotional beats, higher velocity of surprise. <strong>The algorithm is rewriting storytelling itself.</strong>
+        </p>
+
+        <div class="platform-box">
+          <div class="pb-label">⚙️ The Algorithm Effect</div>
+          <p>Platforms that optimize for engagement have inadvertently created a new narrative grammar. Stories are now compressed, accelerated, and designed for maximum emotional resonance in the first 3 seconds. It's effective — and fundamentally different from how stories evolved naturally.</p>
+        </div>
+
+        <h2>The Transformation of Distribution</h2>
+
+        <p>
+          For most of human history, distribution was the bottleneck for storytellers. You could tell brilliant stories, but who would hear them? <strong>You needed gatekeepers.</strong> Publishers, studios, networks — institutions that could amplify your voice to millions.
+        </p>
+
+        <p>
+          The internet demolished these barriers. Now anyone can publish. Anyone can broadcast. This is democratization. But it comes with a hidden cost: <strong>the algorithms that replaced gatekeepers have their own biases.</strong>
+        </p>
+
+        <div class="stat-row">
+          <div class="stat-cell">
+            <div class="stat-num">500<span>M</span></div>
+            <div class="stat-label">Hours watched on YouTube daily</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">1<span>B</span></div>
+            <div class="stat-label">TikTok videos created daily</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">0.1<span>%</span></div>
+            <div class="stat-label">That achieve viral reach</div>
+          </div>
+        </div>
+
+        <div class="section-rule"><span>Who Controls the Narrative</span></div>
+
+        <p>
+          Here's what's rarely discussed: algorithms <strong>prefer certain types of stories.</strong> They favor content that triggers immediate emotional responses — outrage, joy, shock, desire. They penalize nuance, complexity, ambiguity. A three-hour documentary wrestling with moral ambiguity will lose to a 30-second clip that unambiguously celebrates or condemns.
+        </p>
+
+        <div class="algorithm-block">
+          <div class="algo-label">📊 The Invisible Incentive</div>
+          <p>Social media algorithms optimize for engagement. Engagement follows predictable emotional patterns. Therefore, platforms inadvertently reward narratives that trigger strong immediate emotions and penalize those requiring deep attention or reflection.</p>
+        </div>
+
+        <p>
+          This isn't conspiracy — it's infrastructure. It's not intentional harm, but structural bias. <strong>The systems we've built to distribute stories are slowly reshaping what kinds of stories get told.</strong>
+        </p>
+
+        <h2>The Rise of Personal Narrative</h2>
+
+        <p>
+          One shift is undeniably positive: the rise of previously marginalized voices. Throughout history, powerful institutions decided which stories were worth preserving. That meant certain perspectives — mostly those of wealthy, educated, male elites — dominated the historical record.
+        </p>
+
+        <div class="comparison-grid">
+          <div class="comparison-cell">
+            <div class="comparison-label">📚 Traditional Gatekeeping</div>
+            <div class="comparison-content">A few publishers decide which stories reach millions. Barriers to entry are high. Institutions control narrative.</div>
+          </div>
+          <div class="comparison-cell">
+            <div class="comparison-label">📱 Platform Democratization</div>
+            <div class="comparison-content">Anyone can publish. Algorithms decide reach. Millions compete for visibility. Some centralized control remains.</div>
+          </div>
+        </div>
+
+        <p>
+          Now, diaspora communities can tell their own stories without waiting for Hollywood permission. Indigenous narratives can reach audiences without institutional mediation. <strong>This is culturally profound.</strong>
+        </p>
+
+        <p>
+          Yet the power dynamics remain. They've simply shifted from institutional control to algorithmic control. A different form of gatekeeping — less visible, harder to challenge, but no less real.
+        </p>
+
+        <div class="power-list">
+          <div class="power-item">
+            <div class="power-icon">🎯</div>
+            <div class="power-content">
+              <h4>Attention Capture</h4>
+              <p>Stories now compete in an attention economy. Those with resources to hire editors, cinematographers, producers have advantages.</p>
+            </div>
+          </div>
+          <div class="power-item">
+            <div class="power-icon">💰</div>
+            <div class="power-content">
+              <h4>Monetization Access</h4>
+              <p>Not all creators can monetize their content. Sponsorship opportunities go to those already with reach — creating wealth concentration.</p>
+            </div>
+          </div>
+          <div class="power-item">
+            <div class="power-icon">🔄</div>
+            <div class="power-content">
+              <h4>Algorithm Feedback Loops</h4>
+              <p>Once a story gets traction, algorithms amplify it further. Winners take most. The rich-get-richer dynamic is built in.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Authenticity as Currency</h2>
+
+        <p>
+          One response has been the valorization of "authenticity." We're tired of polished, mediated narratives. We crave raw truth. <strong>Real moments. Unfiltered stories.</strong> TikTok's dominance over Instagram partly reflects this hunger.
+        </p>
+
+        <p>
+          But here's the trap: the demand for authenticity is now commodified. Influencers stage "authentic" moments. Brands hire creators to tell "real" stories about their products. <strong>Authenticity has become another aesthetic to perform.</strong>
+        </p>
+
+        <!-- Navigation -->
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <a href="index.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: transparent; color: var(--accent); text-decoration: none; border: 1px solid var(--rule); border-radius: 8px; font-weight: 600; font-size: 0.9rem;" onmouseover="this.style.backgroundColor='rgba(200,151,58,0.05)'" onmouseout="this.style.backgroundColor='transparent'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back to Page 1
+          </a>
+          <a href="page-3.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 0.9rem;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+            Page 3: Craft & Agency
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top: 80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Origins & Biology</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">Digital Age & Power</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Craft & Agency</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div id="related-articles" class="grid sm:grid-cols-3 gap-5" data-current-slug="the-art-of-storytelling-in-modern-society">
+    </div>
+  </div>
+</div>
+
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>

@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>The Art of Storytelling in Modern Society — Putera Gani</title>
+  <meta name="description" content="From ancient myths to digital narratives — how storytelling remains humanity's most powerful tool for connection, meaning-making, and cultural transmission." />
+  <meta name="author" content="Putera Gani" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="article" />
+  <meta property="og:url"         content="https://Putera Gani.com/articles/the-art-of-storytelling-in-modern-society/" />
+  <meta property="og:title"       content="The Art of Storytelling in Modern Society" />
+  <meta property="og:description" content="How narrative shapes reality and connects us across cultures." />
+  <meta property="og:image"       content="../../assets/images/thumbnails/storytelling-article.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } }
+    }
+  </script>
+
+  <style>
+    /* ── Premium Content Enhancement Styles ── */
+
+    /* Narrative Flow Box */
+    .narrative-box {
+      background: linear-gradient(135deg, rgba(200,151,58,0.08) 0%, rgba(200,151,58,0.04) 100%);
+      border: 1px solid rgba(200,151,58,0.3);
+      border-left: 3px solid var(--accent, #c8973a);
+      border-radius: 12px;
+      padding: 1rem 1rem;
+      margin: 1.75rem 0;
+    }
+    @media (min-width: 640px) {
+      .narrative-box { padding: 1.25rem 1.5rem; }
+    }
+    .narrative-box .nb-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .narrative-box p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Cultural Insight Block */
+    .cultural-block {
+      background: var(--ink, #0f0f0f);
+      border-radius: 14px;
+      padding: 1.25rem 1.125rem;
+      margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 640px) {
+      .cultural-block { padding: 1.5rem 1.75rem; }
+    }
+    .cultural-block::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: rgba(200,151,58,0.08);
+    }
+    .cultural-block .cultural-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .cultural-block p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+    }
+    .cultural-block strong {
+      color: rgba(255,255,255,0.95);
+      font-weight: 650;
+    }
+    .cultural-block em {
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* Timeline Element */
+    .timeline-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 1.75rem 0;
+    }
+    .timeline-item {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1rem 0;
+      border-left: 2px solid var(--rule, #e8e4de);
+      padding-left: 1.25rem;
+      margin-left: 0;
+    }
+    .timeline-item:first-child {
+      padding-top: 0;
+    }
+    .timeline-item:last-child {
+      border-left: none;
+    }
+    .timeline-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent, #c8973a);
+      margin-top: 0.3rem;
+      flex-shrink: 0;
+      margin-left: -1.37rem;
+    }
+    .timeline-content h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin-bottom: 0.4rem;
+    }
+    .timeline-content p {
+      font-size: 0.9rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Story Example Box */
+    .story-example {
+      background: rgba(200,151,58,0.05);
+      border: 1px solid rgba(200,151,58,0.2);
+      border-radius: 12px;
+      padding: 1rem 1rem;
+      margin: 1.75rem 0;
+      font-style: italic;
+      color: var(--ink, #0f0f0f);
+      line-height: 1.8;
+    }
+    @media (min-width: 640px) {
+      .story-example { padding: 1.25rem 1.5rem; }
+    }
+
+    /* Stat Row */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      border-top: 1px solid var(--rule, #e8e4de);
+      border-bottom: 1px solid var(--rule, #e8e4de);
+      margin: 2rem 0;
+      padding: 1.5rem 0;
+    }
+    .stat-cell {
+      background: var(--paper, #fafaf8);
+      padding: 1rem 0.875rem;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ink, #0f0f0f);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    @media (min-width: 480px) {
+      .stat-num { font-size: 1.75rem; }
+    }
+    .stat-num span { color: var(--accent, #c8973a); }
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.4;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.03em;
+    }
+
+    /* Section Divider */
+    .section-rule {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+    .section-rule::before, .section-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule, #e8e4de);
+    }
+    .section-rule span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      white-space: nowrap;
+    }
+
+    /* Inline Bold Highlight */
+    .article-body p strong {
+      color: var(--ink, #0f0f0f);
+      font-weight: 650;
+    }
+
+    /* Insight Tag */
+    .insight-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(200,151,58,0.1);
+      border: 1px solid rgba(200,151,58,0.25);
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Framework Box */
+    .framework-box {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      padding: 1rem 1rem;
+      margin: 1.75rem 0;
+      background: var(--paper, #fafaf8);
+    }
+    @media (min-width: 640px) {
+      .framework-box { padding: 1.25rem 1.5rem; }
+    }
+    .framework-box-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted, #6b6860);
+      margin-bottom: 0.875rem;
+      font-family: 'DM Mono', monospace;
+    }
+    .framework-item {
+      display: flex;
+      gap: 1rem;
+      padding: 0.875rem 0;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    .framework-item:last-child {
+      border-bottom: none;
+    }
+    .framework-num {
+      flex-shrink: 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent, #c8973a);
+    }
+    .framework-content h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.3rem 0;
+    }
+    .framework-content p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.5;
+    }
+
+    .page-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .page-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(15,15,15,0.15);
+      transition: background 0.2s;
+    }
+    .page-dot.active {
+      background: var(--accent, #c8973a);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- ═══════════════════════════════════════════════════
+     NAVBAR
+     ═══════════════════════════════════════════════════ -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE HEADER
+     ═══════════════════════════════════════════════════ -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+
+  <!-- Back Link + Category -->
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition: color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge">Culture</span>
+  </div>
+
+  <!-- Title -->
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    The Art of Storytelling in Modern Society: Why Narrative Still Rules Everything
+  </h1>
+
+  <!-- Meta -->
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 9, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>7 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <!-- Page Indicator -->
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 1 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     HERO IMAGE
+     ═══════════════════════════════════════════════════ -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&q=80"
+         alt="Storytelling — ancient traditions and modern narratives"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Stories across cultures
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE CONTENT — PAGE 1
+     ═══════════════════════════════════════════════════ -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <!-- Article Body -->
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <!-- ── Opening Hook ── -->
+        <p>
+          Before written language. Before alphabets. Before civilization itself — there was story. Around fires in the darkness, humans have always gathered to share narratives. We are, at our evolutionary core, <strong>creatures who make sense of the world through story.</strong>
+        </p>
+
+        <p>
+          In our screens-dominated age, we assume storytelling has become diluted — fragmented into tweets, TikToks, and algorithm-optimized reels. Yet the opposite is true. <strong>Storytelling is everywhere.</strong> It shapes politics, brands, personal identity, and how we understand our place in the world. The skill of narrative has never been more valuable — or more misunderstood.
+        </p>
+
+        <!-- ── Narrative Box: Core Premise ── -->
+        <div class="narrative-box">
+          <div class="nb-label">📖 The Core Insight</div>
+          <p>Storytelling is not decoration. It is the fundamental technology by which humans transmit meaning, build culture, and create the cognitive frameworks through which we interpret reality itself.</p>
+        </div>
+
+        <h2>Why Stories Are How We Think</h2>
+
+        <p>
+          Our brains are not organized to receive random facts. Facts bounce off us. <strong>Stories stick.</strong> They activate multiple regions of our brain — not just the language processing parts, but the sensory cortex, the motor cortex, the emotional centers. When you hear a compelling narrative, your brain doesn't just understand it. Your brain *experiences* it.
+        </p>
+
+        <p>
+          Neuroscientist Paul Zak has demonstrated that when we experience a well-told story, our bodies release cortisol and oxytocin — chemicals that sharpen focus and deepen emotional connection. The same neurons that fire when you hear about someone running also fire in your motor cortex — as if your body is running alongside them. <strong>We don't just hear stories. We live them.</strong>
+        </p>
+
+        <!-- ── Stat Row: Visual Reading Break ── -->
+        <div class="stat-row">
+          <div class="stat-cell">
+            <div class="stat-num">70<span>%</span></div>
+            <div class="stat-label">Of memorable moments in memory are narrative-based</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">22<span>x</span></div>
+            <div class="stat-label">More memorable when presented as story versus facts</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">5000<span>+</span></div>
+            <div class="stat-label">Years humans have used storytelling</div>
+          </div>
+        </div>
+
+        <div class="section-rule"><span>The Universal Language</span></div>
+
+        <p>
+          What makes storytelling so powerful is its <strong>universality combined with infinite particularity.</strong> A story about loss resonates across cultures. A narrative about courage transcends language. Yet every culture tells these universal stories in radically different ways — with different values, different aesthetics, different implicit meanings.
+        </p>
+
+        <!-- ── Story Example Box ── -->
+        <div class="story-example">
+          A hero's journey in the West is about individual triumph. The same structure in many Eastern narratives is about surrender and integration. The shape is recognizable. The meaning is transformed.
+        </div>
+
+        <!-- ── Cultural Insight Block ── -->
+        <div class="cultural-block">
+          <div class="cultural-label">🌍 Anthropological Reality</div>
+          <p>Every human society has had storytellers — shamans, griots, bards, monks, novelists, screenwriters. The role changes. The function doesn't. <strong>Stories are how cultures preserve their identity, transmit values, and make sense of chaos.</strong></p>
+        </div>
+
+        <h2>The Architecture of Compelling Narrative</h2>
+
+        <p>
+          So what makes some stories transcendent and others forgettable? Scholars, screenwriters, and storytellers have identified structural patterns that appear across centuries and cultures.
+        </p>
+
+        <!-- ── Framework Box: Narrative Elements ── -->
+        <div class="framework-box">
+          <div class="framework-box-title">📐 The Five Pillars of Effective Storytelling</div>
+          <div class="framework-item">
+            <div class="framework-num">01</div>
+            <div class="framework-content">
+              <h4>A Character We Care About</h4>
+              <p>Not necessarily likeable — but someone whose agency and struggle matter to us. We must recognize something human in them.</p>
+            </div>
+          </div>
+          <div class="framework-item">
+            <div class="framework-num">02</div>
+            <div class="framework-content">
+              <h4>A World With Clear Stakes</h4>
+              <p>What will be lost if the character fails? The stakes must be felt, not merely stated. We need to understand why this matters.</p>
+            </div>
+          </div>
+          <div class="framework-item">
+            <div class="framework-num">03</div>
+            <div class="framework-content">
+              <h4>Concrete Details Over Abstraction</h4>
+              <p>Not "they were afraid" but "their hands trembled" or "they couldn't meet the other person's eyes." Specific sensory details make stories real.</p>
+            </div>
+          </div>
+          <div class="framework-item">
+            <div class="framework-num">04</div>
+            <div class="framework-content">
+              <h4>Genuine Uncertainty About Outcome</h4>
+              <p>If the audience knows exactly what will happen, there is no story — only recitation. Surprise and misdirection keep us engaged.</p>
+            </div>
+          </div>
+          <div class="framework-item">
+            <div class="framework-num">05</div>
+            <div class="framework-content">
+              <h4>Meaningful Transformation</h4>
+              <p>The character — and ideally the audience — must be different at the end. This is what elevates narrative beyond entertainment to meaning-making.</p>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          Notice what's absent from this list: perfect production value. Sophisticated vocabulary. Cinematic scope. A story told around a campfire with nothing but voice and firelight can contain all five pillars. A billion-dollar film can miss every single one.
+        </p>
+
+        <p>
+          This is why storytelling remains so democratized. In an age of AI, high-end tools, and professional gatekeepers, the core technology of narrative <strong>remains accessible to anyone.</strong> Your story matters not because of how it's packaged but because of what it says and how authentically you say it.
+        </p>
+
+        <h2>From Ancient Caves to Algorithm Feeds</h2>
+
+        <p>
+          The medium has changed. The imperative hasn't. Cave paintings in Sulawesi dating back 40,000 years depict hunts, animals, and what scholars believe are narratives. These were the first stories — visual narratives told to transmit knowledge, celebrate hunts, and perhaps simply to say: <em>we were here. This mattered to us.</em>
+        </p>
+
+        <!-- ── Page Navigation ── -->
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule);">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <span style="font-size: 0.85rem; color: var(--ink-muted); font-family: 'DM Mono', monospace;">Continue reading</span>
+            <a href="page-2.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 0.9rem; transition: all 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+              Page 2: The Digital Narrative
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Sticky Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top: 80px;">
+        <!-- Article Info -->
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">Origins & Biology</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Digital Age & Power</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Craft & Agency</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Share -->
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     RELATED ARTICLES — dynamic from articles.json
+     ═══════════════════════════════════════════════════ -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="the-art-of-storytelling-in-modern-society"
+    >
+      <!-- Injected by related.js -->
+    </div>
+  </div>
+</div>
+
+<!-- Footer (simplified on article pages) -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>

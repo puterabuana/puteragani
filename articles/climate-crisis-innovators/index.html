@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>The Climate Crisis and the Innovators Racing to Fix It — Putera Gani</title>
+  <meta name="description" content="From direct air capture to fusion reactors — the technologies that could redefine humanity's relationship with the planet." />
+  <meta name="author" content="Putera Gani" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="article" />
+  <meta property="og:url"         content="https://puteragani.com/articles/climate-crisis-innovators/" />
+  <meta property="og:title"       content="The Climate Crisis and the Innovators Racing to Fix It" />
+  <meta property="og:description" content="From direct air capture to fusion reactors — the technologies that could redefine humanity's relationship with the planet." />
+  <meta property="og:image"       content="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=1200&q=80" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } }
+    }
+  </script>
+
+  <style>
+    .narrative-box {
+      background: linear-gradient(135deg, rgba(22,163,74,0.08) 0%, rgba(22,163,74,0.03) 100%);
+      border: 1px solid rgba(22,163,74,0.3);
+      border-left: 3px solid #16a34a;
+      border-radius: 12px;
+      padding: 1rem 1rem;
+      margin: 1.75rem 0;
+    }
+    @media (min-width: 640px) { .narrative-box { padding: 1.25rem 1.5rem; } }
+    .narrative-box .nb-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #16a34a;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .narrative-box p { margin: 0 !important; font-size: 0.9375rem; line-height: 1.7; color: var(--ink, #0f0f0f); }
+
+    .dark-block {
+      background: var(--ink, #0f0f0f);
+      border-radius: 14px;
+      padding: 1.25rem 1.125rem;
+      margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 640px) { .dark-block { padding: 1.5rem 1.75rem; } }
+    .dark-block::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: rgba(22,163,74,0.08);
+    }
+    .dark-block .db-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #4ade80;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .dark-block p { margin: 0 !important; font-size: 0.9375rem; color: rgba(255,255,255,0.82); line-height: 1.7; }
+    .dark-block strong { color: rgba(255,255,255,0.95); font-weight: 650; }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      border-top: 1px solid var(--rule, #e8e4de);
+      border-bottom: 1px solid var(--rule, #e8e4de);
+      margin: 2rem 0;
+      padding: 1.5rem 0;
+    }
+    .stat-cell { background: var(--paper, #fafaf8); padding: 1rem 0.875rem; text-align: center; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ink, #0f0f0f);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    @media (min-width: 480px) { .stat-num { font-size: 1.75rem; } }
+    .stat-num span { color: #16a34a; }
+    .stat-label { font-size: 0.7rem; color: var(--ink-muted, #6b6860); line-height: 1.4; font-family: 'DM Mono', monospace; letter-spacing: 0.03em; }
+
+    .section-rule { display: flex; align-items: center; gap: 0.75rem; margin: 2rem 0; }
+    .section-rule::before, .section-rule::after { content: ''; flex: 1; height: 1px; background: var(--rule, #e8e4de); }
+    .section-rule span { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted, #6b6860); white-space: nowrap; }
+
+    .framework-box { border: 1px solid var(--rule, #e8e4de); border-radius: 14px; padding: 1rem 1rem; margin: 1.75rem 0; background: var(--paper, #fafaf8); }
+    @media (min-width: 640px) { .framework-box { padding: 1.25rem 1.5rem; } }
+    .framework-box-title { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted, #6b6860); margin-bottom: 0.875rem; font-family: 'DM Mono', monospace; }
+    .framework-item { display: flex; gap: 1rem; padding: 0.875rem 0; border-bottom: 1px solid var(--rule, #e8e4de); }
+    .framework-item:last-child { border-bottom: none; }
+    .framework-num { flex-shrink: 0; font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: #16a34a; }
+    .framework-content h4 { font-size: 0.9rem; font-weight: 600; color: var(--ink, #0f0f0f); margin: 0 0 0.3rem 0; }
+    .framework-content p { margin: 0; font-size: 0.85rem; color: var(--ink-muted, #6b6860); line-height: 1.5; }
+
+    .article-body p strong { color: var(--ink, #0f0f0f); font-weight: 650; }
+
+    .page-dots { display: flex; gap: 6px; }
+    .page-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(15,15,15,0.15); transition: background 0.2s; }
+    .page-dot.active { background: #16a34a; }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:#16a34a; z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge" style="background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Science</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size:clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    The Climate Crisis and the Innovators Racing to Fix It
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>Jan 30, 2025</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>11 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 1 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=1200&q=80"
+         alt="Aerial view of forest and river — climate and nature"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Climate & Environment
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT — PAGE 1 -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <!-- Article Body -->
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          The numbers are no longer abstract. Average global temperatures have risen over 1.1°C above pre-industrial levels. Arctic ice sheets are retreating at record speeds. Extreme weather events — wildfires, floods, superstorms — have become the defining vocabulary of our era. <strong>The climate emergency is not a future problem. It is today's emergency, demanding today's solutions.</strong>
+        </p>
+
+        <p>
+          Yet for the first time in human history, we also possess something remarkable: an unprecedented arsenal of technologies capable of fundamentally altering our relationship with the planet. From machines that pull carbon directly from the air, to reactors that harness the same energy as the sun — <strong>the innovators racing to fix our climate are building things that were science fiction a decade ago.</strong>
+        </p>
+
+        <!-- Narrative Box -->
+        <div class="narrative-box">
+          <div class="nb-label">🌍 The Core Challenge</div>
+          <p>To limit warming to 1.5°C, humanity must reach net-zero carbon emissions by 2050 and actively remove billions of tonnes of CO₂ already in the atmosphere. No single technology can achieve this. What's required is a portfolio — an entire civilizational transformation across energy, agriculture, transport, and industry simultaneously.</p>
+        </div>
+
+        <h2>The Scale of What We're Up Against</h2>
+
+        <p>
+          Understanding the innovations requires first understanding the problem's scale. Humanity currently emits approximately <strong>37 billion tonnes of CO₂ per year.</strong> Every tonne that enters the atmosphere stays there for centuries. The carbon we emitted during the Industrial Revolution is still warming the planet today.
+        </p>
+
+        <p>
+          This means emissions reductions alone — even dramatic ones — are no longer sufficient. Scientists increasingly agree that we must also actively <strong>remove carbon that already exists in the atmosphere.</strong> We must simultaneously build the clean energy infrastructure to replace fossil fuels, while also engineering solutions to reverse what the past two centuries of industrialization have done.
+        </p>
+
+        <!-- Stat Row -->
+        <div class="stat-row">
+          <div class="stat-cell">
+            <div class="stat-num">37<span>Gt</span></div>
+            <div class="stat-label">CO₂ emitted by humanity per year</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">1.5<span>°C</span></div>
+            <div class="stat-label">Target warming limit above pre-industrial levels</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">2050</div>
+            <div class="stat-label">Target year for global net-zero emissions</div>
+          </div>
+        </div>
+
+        <div class="section-rule"><span>The Energy Transition</span></div>
+
+        <h2>Solar and Wind: The Revolution Already Happening</h2>
+
+        <p>
+          The most consequential climate story of the past decade isn't a scientific breakthrough — it's an economic one. The cost of solar electricity has fallen by more than <strong>90% since 2010.</strong> Wind power has dropped similarly. Renewable energy is now, in most of the world, the cheapest form of new electricity generation ever built.
+        </p>
+
+        <p>
+          This matters enormously because the core challenge of the energy transition is not technological — it is economic and political. <strong>Clean energy now wins on price.</strong> The barriers that remain are largely about grid infrastructure, storage, and the vested interests of fossil fuel incumbents — not about whether renewables work.
+        </p>
+
+        <!-- Dark Block -->
+        <div class="dark-block">
+          <div class="db-label">⚡ The Price Revolution</div>
+          <p>In 2010, solar power cost around $400 per megawatt-hour. By 2024, new solar installations in sunny regions are delivering electricity at under $20 per megawatt-hour — cheaper than operating existing coal or gas plants. <strong>The economics of clean energy have permanently shifted.</strong> The question is no longer whether we can afford to transition — it's whether we can move fast enough.</p>
+        </div>
+
+        <h2>The Hardest Problems: Industry and Transport</h2>
+
+        <p>
+          Electricity is the easier half. The harder challenge is decarbonizing sectors that can't simply be electrified: steel production, cement manufacturing, long-haul shipping, and aviation together represent roughly <strong>one-third of all global emissions.</strong>
+        </p>
+
+        <p>
+          These are the sectors where the most interesting — and most urgent — innovation battles are being fought. Steel made with hydrogen instead of coal. Cement produced through electrochemical processes. Ships powered by ammonia. Aircraft running on sustainable aviation fuel. <strong>Each of these represents an industry being rebuilt from its molecular foundations.</strong>
+        </p>
+
+        <!-- Framework Box -->
+        <div class="framework-box">
+          <div class="framework-box-title">🏭 The Hard-to-Abate Sectors</div>
+          <div class="framework-item">
+            <div class="framework-num">01</div>
+            <div class="framework-content">
+              <h4>Steel Production</h4>
+              <p>Traditional steelmaking uses coal as both fuel and chemical agent. Green hydrogen can replace coal, producing water as a byproduct instead of CO₂. Sweden's HYBRIT project has already produced the world's first fossil-free steel.</p>
+            </div>
+          </div>
+          <div class="framework-item">
+            <div class="framework-num">02</div>
+            <div class="framework-content">
+              <h4>Cement & Concrete</h4>
+              <p>Concrete production accounts for 8% of global CO₂. Novel cements, carbon-cured concrete, and electrochemical processes are all being developed to eliminate these emissions without sacrificing material performance.</p>
+            </div>
+          </div>
+          <div class="framework-item">
+            <div class="framework-num">03</div>
+            <div class="framework-content">
+              <h4>Aviation</h4>
+              <p>Sustainable aviation fuels (SAFs) made from biological or synthetic sources can reduce lifecycle emissions by up to 80%. Electric aircraft for short routes and hydrogen-powered planes for longer routes are advancing rapidly.</p>
+            </div>
+          </div>
+          <div class="framework-item">
+            <div class="framework-num">04</div>
+            <div class="framework-content">
+              <h4>Shipping</h4>
+              <p>Maritime shipping carries 90% of world trade. Ammonia, methanol, and hydrogen are all being trialled as zero-carbon marine fuels. Maersk has already ordered ammonia-capable vessels for delivery in the late 2020s.</p>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          What's remarkable is that for each of these apparently intractable problems, viable technical pathways now exist. The challenge has shifted from "can we?" to "how fast can we scale?" — and that is a fundamentally different, and more tractable, kind of problem.
+        </p>
+
+        <!-- Page Navigation -->
+        <div style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--rule);">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+            <span style="font-size:0.85rem; color:var(--ink-muted); font-family:'DM Mono',monospace;">Continue reading</span>
+            <a href="page-2.html" style="display:inline-flex; align-items:center; gap:8px; padding:10px 16px; background:#16a34a; color:white; text-decoration:none; border-radius:8px; font-weight:600; font-size:0.9rem; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+              Page 2: Carbon Removal
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Sticky Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:rgba(22,163,74,0.08); border:1px solid rgba(22,163,74,0.2); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:#16a34a; font-weight:600;">01</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">The Energy Transition</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Carbon Removal</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Fusion & The Future</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<div style="background:var(--paper-warm); border-top:1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div id="related-articles" class="grid sm:grid-cols-3 gap-5" data-current-slug="climate-crisis-innovators">
+    </div>
+  </div>
+</div>
+
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>

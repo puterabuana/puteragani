@@ -56,8 +56,8 @@
     const s   = CATEGORY_STYLES[article.category] || CATEGORY_STYLES.Technology;
     const url = articleUrl(article.slug);
     return `
-      <article class="article-card related-card" style="cursor:pointer;" onclick="window.location.href='${url}'">
-        <a href="${url}" style="text-decoration:none;" tabindex="-1" aria-hidden="true">
+      <a href="${url}" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;height:100%;">
+        <article class="article-card related-card" style="cursor:pointer;display:flex;flex-direction:column;height:100%;">
           <div class="card-thumb">
             <img
               src="${article.image}"
@@ -68,19 +68,19 @@
             />
             <div class="card-thumb-overlay"></div>
           </div>
-        </a>
-        <div class="card-body">
-          <span class="category-badge" style="background:${s.bg};color:${s.color};border-color:${s.border};">
-            ${article.category}
-          </span>
-          <h3 class="card-title" style="font-size:0.9rem;">
-            <a href="${url}" style="text-decoration:none;color:inherit;">${article.title}</a>
-          </h3>
-          <div class="card-meta">
-            <span>${article.readTime} read</span>
+          <div class="card-body">
+            <span class="category-badge" style="background:${s.bg};color:${s.color};border-color:${s.border};">
+              ${article.category}
+            </span>
+            <h3 class="card-title" style="font-size:0.9rem;">
+              ${article.title}
+            </h3>
+            <div class="card-meta">
+              <span>${article.readTime} read</span>
+            </div>
           </div>
-        </div>
-      </article>`;
+        </article>
+      </a>`;
   }
 
   /* ── Pick related: same category first, then others; exclude current ── */

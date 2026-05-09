@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>Quantum Computing Explained — Page 1: Fundamentals — Putera Gani</title>
+  <meta name="description" content="Inside the labs where scientists are harnessing quantum mechanics to build computers of the future." />
+  <meta name="author" content="Putera Gani" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="article" />
+  <meta property="og:url"         content="https://Putera Gani.com/articles/quantum-computing-explained/" />
+  <meta property="og:title"       content="Quantum Computing Explained: The Race to Rewrite Physics" />
+  <meta property="og:description" content="Inside the most advanced physics labs on earth, a new type of computer is being born." />
+  <meta property="og:image"       content="../../assets/images/thumbnails/ai-article.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } }
+    }
+  </script>
+
+  <style>
+    /* ── Premium Content Enhancement Styles ── */
+
+    /* Highlighted Content Box */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(200,151,58,0.07) 0%, rgba(200,151,58,0.03) 100%);
+      border: 1px solid rgba(200,151,58,0.3);
+      border-left: 3px solid var(--accent, #c8973a);
+      border-radius: 12px;
+      padding: 1rem 1rem;
+      margin: 1.75rem 0;
+    }
+    @media (min-width: 640px) {
+      .highlight-box { padding: 1.25rem 1.5rem; }
+    }
+    .highlight-box .hb-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .highlight-box p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* CTA Info Block */
+    .cta-block {
+      background: var(--ink, #0f0f0f);
+      border-radius: 14px;
+      padding: 1.25rem 1.125rem;
+      margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 640px) {
+      .cta-block { padding: 1.5rem 1.75rem; }
+    }
+    .cta-block::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: rgba(200,151,58,0.08);
+    }
+    .cta-block .cta-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .cta-block p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+    }
+    .cta-block strong {
+      color: #fff !important;
+    }
+
+    /* Numbered Strategy Section */
+    .strategy-item {
+      display: flex;
+      gap: 0.875rem;
+      align-items: flex-start;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    @media (min-width: 640px) {
+      .strategy-item { gap: 1.125rem; }
+    }
+    .strategy-item:last-child { border-bottom: none; }
+    .strategy-num {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: var(--accent-pale, rgba(200,151,58,0.08));
+      border: 1px solid rgba(200,151,58,0.22);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent, #c8973a);
+      margin-top: 2px;
+    }
+    .strategy-content h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.3rem 0;
+      letter-spacing: -0.01em;
+    }
+    @media (min-width: 640px) {
+      .strategy-content h4 { font-size: 0.9375rem; }
+    }
+    .strategy-content p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.65;
+    }
+    @media (min-width: 640px) {
+      .strategy-content p { font-size: 0.875rem; }
+    }
+
+    .bold-callout {
+      border-top: 2px solid var(--ink, #0f0f0f);
+      border-bottom: 2px solid var(--ink, #0f0f0f);
+      padding: 1.25rem 0;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    .bold-callout p {
+      margin: 0 !important;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 4vw, 1.375rem);
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: -0.015em;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Visual Reading Break / Stat Row */
+    .stat-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      background: var(--rule, #e8e4de);
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 2.25rem 0;
+    }
+    @media (min-width: 480px) {
+      .stat-row { grid-template-columns: repeat(3, 1fr); }
+    }
+    .stat-cell {
+      background: var(--paper, #fafaf8);
+      padding: 1rem 0.875rem;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ink, #0f0f0f);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    @media (min-width: 480px) {
+      .stat-num { font-size: 1.75rem; }
+    }
+    .stat-num span { color: var(--accent, #c8973a); }
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.4;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.03em;
+    }
+
+    /* Section Divider */
+    .section-rule {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+    .section-rule::before, .section-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule, #e8e4de);
+    }
+    .section-rule span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      white-space: nowrap;
+    }
+
+    /* Inline Bold Highlight */
+    .article-body p strong {
+      color: var(--ink, #0f0f0f);
+      font-weight: 650;
+    }
+
+    /* Actionable Insight Tag */
+    .insight-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(200,151,58,0.1);
+      border: 1px solid rgba(200,151,58,0.25);
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Strategy Box Wrapper */
+    .strategy-box {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      padding: 1rem 1rem;
+      margin: 1.75rem 0;
+      background: var(--paper, #fafaf8);
+    }
+    @media (min-width: 640px) {
+      .strategy-box { padding: 1.25rem 1.5rem; }
+    }
+    .strategy-box-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted, #6b6860);
+      margin-bottom: 0.875rem;
+      font-family: 'DM Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- ═══════════════════════════════════════════════════
+     NAVBAR
+     ═══════════════════════════════════════════════════ -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE HEADER
+     ═══════════════════════════════════════════════════ -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+
+  <!-- Back Link + Category -->
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition: color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge">Science</span>
+  </div>
+
+  <!-- Title -->
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    Quantum Computing Explained: The Race to Rewrite the Rules of Physics
+  </h1>
+
+  <!-- Meta -->
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 9, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>10 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <!-- Page Indicator -->
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 1 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     HERO IMAGE
+     ═══════════════════════════════════════════════════ -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1200&q=80"
+         alt="Quantum Computing — Physics visualization"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Quantum technology
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE CONTENT — PAGE 1
+     ═══════════════════════════════════════════════════ -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <!-- Article Body -->
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <!-- ── Opening Hook ── -->
+        <p>
+          Inside the most advanced physics labs on earth, a new type of computer is being born — one that operates on the <strong>strange rules of quantum mechanics.</strong> This is not incremental progress on classical computing. This is a fundamental rethinking of what computation means.
+        </p>
+
+        <p>
+          A classical computer — your laptop, your phone, the servers running the internet — processes information using bits. Each bit is either a 0 or a 1. Everything that happens in digital technology is just billions of these binary switches flipping on and off billions of times per second.
+        </p>
+
+        <!-- ── Highlight Box: Core Premise ── -->
+        <div class="highlight-box">
+          <div class="hb-label">⚛️ The Core Insight</div>
+          <p>Quantum computers exploit a loophole in the universe. They use <strong>quantum bits, or "qubits,"</strong> which can be 0, 1, or <em>both simultaneously</em>. This is called superposition, and it changes everything downstream.</p>
+        </div>
+
+        <h2>Why Quantum Is Not Just Faster</h2>
+
+        <p>
+          The key difference between classical and quantum computing is <strong>exponential scaling.</strong> A classical computer with 300 bits can represent one of 2^300 possible values at any moment. A quantum computer with 300 qubits can represent all 2^300 values simultaneously through superposition.
+        </p>
+
+        <p>
+          That means for certain types of problems — molecular simulation, optimization, cryptanalysis — quantum computers don't need to be incrementally faster. They need to be catastrophically, paradigm-shatteringly faster. The mathematics guarantees it, if we can build them.
+        </p>
+
+        <!-- ── Stat Row: Visual Reading Break ── -->
+        <div class="stat-row">
+          <div class="stat-cell">
+            <div class="stat-num">1981<span>.</span></div>
+            <div class="stat-label">Year Richard Feynman proposed quantum computing</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num"><span>$</span>39B</div>
+            <div class="stat-label">Global quantum computing market projected by 2033</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">500<span>+</span></div>
+            <div class="stat-label">Qubits in the largest quantum computers today</div>
+          </div>
+        </div>
+
+        <div class="section-rule"><span>The Fragility Problem</span></div>
+
+        <p>
+          But there is a catch — a fundamental one. <strong>Qubits are incredibly fragile.</strong> They need to be kept at temperatures colder than outer space. They need perfect isolation from vibration, electromagnetic interference, and heat. Even tiny disturbances cause them to "collapse" into a fixed state, losing their quantum properties.
+        </p>
+
+        <p>
+          This is called <strong>decoherence,</strong> and it happens in microseconds to milliseconds. Before a quantum computer can run a meaningful calculation, decoherence has often already destroyed the qubits' quantum properties. <em>This</em> is the primary technical barrier that separates current prototypes from practical, scalable quantum computers.
+        </p>
+
+        <!-- ── Bold Callout ── -->
+        <div class="bold-callout">
+          <p>"Quantum computing will not compete with classical computers. It will specialize. The question is: at what tasks?"</p>
+        </div>
+
+        <h2>How Qubits Actually Work</h2>
+
+        <p>
+          Unlike classical bits, which exist as either 0 or 1, <strong>qubits exploit the counterintuitive properties of quantum mechanics.</strong> A qubit can exist in a superposition of both 0 and 1 simultaneously, only "choosing" a definite state when measured. This property alone unlocks exponential speedup for certain algorithms.
+        </p>
+
+        <!-- ── Strategy Box: How It Actually Works ── -->
+        <div class="strategy-box">
+          <div class="strategy-box-title">⚛️ Why Quantum Advantage Matters — 4 Core Reasons</div>
+          <div class="strategy-item">
+            <div class="strategy-num">01</div>
+            <div class="strategy-content">
+              <h4>Molecular Simulation</h4>
+              <p>Simulating quantum systems (like chemical reactions) is exponentially hard for classical computers. Quantum computers can model these directly, potentially accelerating drug discovery and materials science by years.</p>
+            </div>
+          </div>
+          <div class="strategy-item">
+            <div class="strategy-num">02</div>
+            <div class="strategy-content">
+              <h4>Optimization Problems</h4>
+              <p>Finding the best solution among trillions of possibilities. Applications in logistics, portfolio optimization, traffic routing, and circuit design.</p>
+            </div>
+          </div>
+          <div class="strategy-item">
+            <div class="strategy-num">03</div>
+            <div class="strategy-content">
+              <h4>Cryptanalysis</h4>
+              <p>Breaking RSA encryption and other cryptographic systems. This is why governments and security researchers are seriously concerned about quantum computers and already preparing quantum-resistant encryption.</p>
+            </div>
+          </div>
+          <div class="strategy-item">
+            <div class="strategy-num">04</div>
+            <div class="strategy-content">
+              <h4>Machine Learning</h4>
+              <p>Certain ML algorithms may benefit from quantum speedup. This remains theoretical and highly contested, but has attracted significant investment and research.</p>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          What makes quantum computing remarkable is not just the theoretical speedup, but the <strong>fundamental difference in problem-solving approach.</strong> The largest quantum computers today have around 400-500 qubits, but even this small number can represent more states than classical computers can meaningfully explore.
+        </p>
+
+        <!-- ── Highlight Box: The Emergent Capabilities Insight ── -->
+        <div class="highlight-box">
+          <div class="hb-label">🔬 Research Finding</div>
+          <p>For certain algorithms — like Shor's algorithm for factoring large numbers — quantum speedup is <strong>mathematically proven and exponential.</strong> A quantum computer could break RSA encryption in hours, whereas a classical computer would take millions of years. That certainty is unique. Nobody understands why consciousness emerges or how general intelligence works, but everyone understands the mathematics of quantum speedup.</p>
+        </div>
+
+        <h2>The Quantum Computing Landscape</h2>
+
+        <p>
+          The race to build practical quantum computers is intense. Multiple physical approaches are being pursued, each with different trade-offs. <strong>Superconducting qubits, trapped ions, photonic systems, and topological qubits</strong> are all viable candidates. No one approach has won yet.
+        </p>
+
+        <p>
+          The companies and researchers at the frontier include IBM, Google, IonQ, Rigetti, and D-Wave — each betting on different technologies and timelines. Some are aiming for near-term quantum advantage in narrow applications. Others are playing the long game, building toward fully fault-tolerant quantum computers that can run large-scale algorithms reliably.
+
+        <p>
+          In robotics, years of incremental progress are giving way to systems that learn complex physical tasks through simulation and reinforcement learning. <strong>Self-driving technology, despite a more tortuous path than boosters promised, is becoming real in controlled environments.</strong>
+        </p>
+
+        <!-- ── CTA Block: What This Means for You ── -->
+        <div class="cta-block">
+          <div class="cta-label">💡 Actionable Insight</div>
+          <p><strong>Quantum computers will NOT replace classical computers.</strong> They will specialize. The productive question is: where will quantum advantage first appear, and how do I position myself on the right side of that transition? <strong>On Page 2, we explore the industry race</strong> between IBM, Google, IonQ, and others racing to achieve practical quantum advantage first.</p>
+        </div>
+
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <div><!-- No previous on page 1 --></div>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot active"></div>
+            <div class="page-dot"></div>
+            <div class="page-dot"></div>
+          </div>
+          <a href="page-2.html" class="btn-primary">
+            Continue to Page 2
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sticky Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top: 80px;">
+        <!-- Article Info -->
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">Fundamentals</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Industry Race</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Future</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Share -->
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     RELATED ARTICLES — dynamic from articles.json
+     ═══════════════════════════════════════════════════ -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="quantum-computing-explained"
+    >
+      <!-- Injected by related.js -->
+    </div>
+  </div>
+</div>
+
+<!-- Footer (simplified on article pages) -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>
