@@ -440,7 +440,7 @@ const ArticleEngine = (() => {
   }
 
   async function fetchArticles() {
-    const res = await fetch('data/articles.json', { cache: 'no-cache' });
+    const res = await fetch('data/articles.json');
     if (!res.ok) throw new Error('HTTP ' + res.status + ': ' + res.statusText);
     const data = await res.json();
     if (!data.articles || !Array.isArray(data.articles)) throw new Error('Invalid data format in articles.json');

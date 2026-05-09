@@ -227,10 +227,10 @@ const CategoryEngine = (() => {
     const prefix = getPrefix();
 
     // Show skeleton immediately
-    grid.innerHTML = skeleton(6);
+    grid.innerHTML = skeleton(3);
 
     try {
-      const res = await fetch(`${prefix}data/articles.json`, { cache: 'no-cache' });
+      const res = await fetch(`${prefix}data/articles.json`);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       const all  = data.articles || [];
