@@ -74,15 +74,37 @@
         <a href="science.html" class="nav-link" style="text-decoration:none;">Science</a>
       </nav>
 
-      <!-- Search Bar + Mobile Menu Btn -->
-      <div class="flex items-center gap-4" style="margin-left:auto;">
-        <!-- Search -->
-        <div class="search-wrap hidden md:block">
+      <!-- Right side: Search + Mobile buttons -->
+      <div class="flex items-center gap-3" style="margin-left:auto;">
+
+        <!-- Desktop Search -->
+        <div class="search-wrap hidden md:block" id="desktop-search-wrap">
           <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
           </svg>
-          <input type="search" class="search-input" placeholder="Search articles…" aria-label="Search articles" id="search-input" autocomplete="off" />
+          <input
+            type="search"
+            class="search-input"
+            placeholder="Search articles…"
+            aria-label="Search articles"
+            id="search-input"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <!-- Clear button -->
+          <button id="search-clear-btn" aria-label="Clear search" style="display:none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
         </div>
+
+        <!-- Mobile Search Button -->
+        <button id="mobile-search-btn" class="md:hidden" aria-label="Search articles" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+        </button>
 
         <!-- Mobile Menu Button -->
         <button id="menu-btn" class="md:hidden p-2 rounded-lg" style="background:var(--paper-warm); border:1px solid var(--rule);" aria-label="Toggle menu">
@@ -104,183 +126,245 @@
       <a href="design.html" class="nav-link block py-2" style="text-decoration:none;">Design</a>
       <a href="culture.html" class="nav-link block py-2" style="text-decoration:none;">Culture</a>
       <a href="science.html" class="nav-link block py-2" style="text-decoration:none;">Science</a>
-      <!-- Mobile Search -->
-      <div class="relative mt-2">
-        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-        </svg>
-        <input type="search" class="search-input" style="width:100%;" placeholder="Search articles…" aria-label="Search articles" autocomplete="off" />
-      </div>
     </div>
   </div>
 </header>
 
-
 <!-- ═══════════════════════════════════════════════════════════
-     HERO / FEATURED ARTICLE — rendered from JSON (featured: true)
+     MOBILE SEARCH BAR — slides in below navbar on mobile
      ═══════════════════════════════════════════════════════════ -->
-<section class="hero-gradient" id="featured-section" aria-label="Featured Story">
-  <!-- Content injected by ArticleEngine.renderFeatured() -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-    <div style="display:flex; align-items:center; gap:1rem; color:rgba(255,255,255,0.3); font-size:0.875rem;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="animation:spin 1s linear infinite;">
-        <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+<div id="mobile-search-bar" aria-hidden="true">
+  <div class="max-w-7xl mx-auto px-4" style="padding-top:0.75rem; padding-bottom:0.75rem;">
+    <div style="position:relative;">
+      <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
       </svg>
-      Loading featured story…
+      <input
+        type="search"
+        id="mobile-search-input"
+        class="search-input"
+        placeholder="Search articles…"
+        aria-label="Search articles"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        style="width:100%;"
+      />
+      <button id="mobile-search-clear" aria-label="Clear search" style="display:none; position:absolute; right:0.85rem; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; color:var(--ink-muted); padding:4px; border-radius:50%; transition:color 0.2s;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
     </div>
   </div>
-</section>
-
+</div>
 
 <!-- ═══════════════════════════════════════════════════════════
-     MAIN CONTENT — ARTICLE GRID + SIDEBAR
+     SEARCH RESULTS OVERLAY
+     Appears directly below navbar when searching.
+     Zero scroll. Zero layout shift. Pure overlay.
      ═══════════════════════════════════════════════════════════ -->
-<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-  <div class="flex flex-col lg:flex-row gap-12">
+<div id="search-overlay" aria-live="polite" aria-label="Search results">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-    <!-- ── ARTICLE GRID ── -->
-    <div class="flex-1 min-w-0">
-
-      <!-- Section Header -->
-      <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
-        <div class="section-label">Latest Articles</div>
-      </div>
-
-      <!-- Category Filter Bar — rendered from JSON -->
-      <div id="category-filter" class="flex flex-wrap gap-2 mb-8" role="group" aria-label="Filter by category">
-        <!-- Injected by ArticleEngine.renderCategoryFilter() -->
-      </div>
-
-      <!-- Article Grid — rendered from JSON -->
-      <div id="article-grid" class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
-        <!-- Injected by ArticleEngine -->
-      </div>
-
-      <!-- Load More -->
-      <div class="flex justify-center mt-10">
-        <button id="load-more-btn" class="btn-ghost" style="display:none;">
-          Load More Articles
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 5v14M5 12l7 7 7-7"/>
+    <!-- Search meta: query + count -->
+    <div id="search-overlay-meta" style="margin-bottom:1.5rem;">
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.75rem;">
+        <div>
+          <p id="search-overlay-label" style="font-family:'DM Mono',monospace; font-size:0.65rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:0.3rem;">Search Results</p>
+          <h2 id="search-overlay-title" style="font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700; color:var(--ink); letter-spacing:-0.02em;"></h2>
+        </div>
+        <button id="search-overlay-close" aria-label="Close search results" style="display:flex; align-items:center; gap:0.5rem; padding:0.45rem 1rem; background:transparent; border:1.5px solid var(--rule); border-radius:50px; font-size:0.75rem; font-weight:600; color:var(--ink-soft); cursor:pointer; font-family:'DM Sans',sans-serif; transition:all 0.22s ease; white-space:nowrap;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
           </svg>
+          Clear search
         </button>
       </div>
-
+      <div id="search-overlay-count" style="font-size:0.8125rem; color:var(--ink-muted); margin-top:0.4rem;"></div>
     </div>
-    <!-- END ARTICLE GRID -->
 
+    <!-- Results grid -->
+    <div id="search-results-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
 
-    <!-- ── SIDEBAR ── -->
-    <aside class="w-full lg:w-72 xl:w-80 flex-shrink-0">
-
-      <!-- Trending Now — rendered from JSON (trending: true) -->
-      <div class="trending-widget rounded-2xl p-6 mb-8" style="background:#fff; border:1px solid var(--rule);">
-        <div class="section-label mb-5" style="font-size:0.6875rem;">Trending Now</div>
-        <div id="trending-list">
-          <!-- Injected by ArticleEngine.renderTrending() -->
-          <div style="color:var(--ink-muted); font-size:0.8125rem;">Loading…</div>
-        </div>
-      </div>
-
-      <!-- Newsletter Signup -->
-      <div class="rounded-2xl p-6 mb-8" style="background:linear-gradient(135deg,#1a1510 0%,#0f0f0f 100%); border:1px solid #2a2520;">
-        <div style="font-family:'DM Mono',monospace; font-size:0.65rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:0.75rem;">Newsletter</div>
-        <h3 class="font-display text-white mb-2 leading-snug" style="font-size:1.2rem; font-weight:700;">Stories delivered to your inbox</h3>
-        <p style="font-size:0.8125rem; color:rgba(255,255,255,0.45); line-height:1.6; margin-bottom:1.25rem;">One curated read, every week. No noise.</p>
-        <div style="display:flex; flex-direction:column; gap:0.75rem;">
-          <input
-            type="email"
-            placeholder="your@email.com"
-            style="width:100%; padding:0.65rem 1rem; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:50px; font-size:0.8125rem; color:#fff; outline:none; font-family:'DM Sans',sans-serif; transition:border-color 0.28s ease;"
-            onfocus="this.style.borderColor='rgba(200,151,58,0.6)'"
-            onblur="this.style.borderColor='rgba(255,255,255,0.12)'"
-          />
-          <button
-            style="width:100%; padding:0.7rem 1rem; background:var(--accent); color:#fff; font-size:0.875rem; font-weight:600; border-radius:50px; border:none; cursor:pointer; font-family:'DM Sans',sans-serif; transition:background 0.28s ease, transform 0.2s ease;"
-            onmouseover="this.style.background='var(--accent-dark)'; this.style.transform='translateY(-1px)'"
-            onmouseout="this.style.background='var(--accent)'; this.style.transform='translateY(0)'"
-          >Subscribe Free</button>
-        </div>
-        <p style="font-size:0.7rem; color:rgba(255,255,255,0.25); text-align:center; margin-top:0.75rem;">No spam. Unsubscribe anytime.</p>
-      </div>
-
-      <!-- Browse Categories — rendered from JSON -->
-      <div class="rounded-2xl p-6" style="background:#fff; border:1px solid var(--rule);">
-        <div class="section-label mb-5" style="font-size:0.6875rem;">Browse Categories</div>
-        <div id="sidebar-categories" class="flex flex-wrap gap-2">
-          <!-- Injected by ArticleEngine.renderSidebarCategories() -->
-        </div>
-      </div>
-
-    </aside>
-    <!-- END SIDEBAR -->
+    <!-- No results state -->
+    <div id="search-no-results" style="display:none; padding:3rem 0; text-align:center; color:var(--ink-muted);">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin:0 auto 1rem; opacity:0.35; display:block;">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <p style="font-size:1rem; font-weight:600; color:var(--ink); margin-bottom:0.35rem;">No articles found</p>
+      <p id="search-no-results-msg" style="font-size:0.875rem; opacity:0.65;">Try a different search term.</p>
+    </div>
 
   </div>
-</main>
-
+</div>
 
 <!-- ═══════════════════════════════════════════════════════════
-     FOOTER
+     HOMEPAGE CONTENT (hidden while search is active)
      ═══════════════════════════════════════════════════════════ -->
-<footer class="footer-bg mt-8">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-    <div class="grid md:grid-cols-3 gap-10 mb-10">
+<div id="homepage-content">
 
-      <!-- Brand -->
-      <div>
-        <div class="flex items-center gap-3 mb-4">
-          <div class="pg-logo-mark" style="background:rgba(200,151,58,0.15); border:1px solid rgba(200,151,58,0.35); color:var(--accent);">PG</div>
-          <span class="footer-logo-text">Putera Gani</span>
+  <!-- HERO / FEATURED ARTICLE — rendered from JSON (featured: true) -->
+  <section class="hero-gradient" id="featured-section" aria-label="Featured Story">
+    <!-- Content injected by ArticleEngine.renderFeatured() -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <div style="display:flex; align-items:center; gap:1rem; color:rgba(255,255,255,0.3); font-size:0.875rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="animation:spin 1s linear infinite;">
+          <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+        </svg>
+        Loading featured story…
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT — ARTICLE GRID + SIDEBAR -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="flex flex-col lg:flex-row gap-12">
+
+      <!-- ── ARTICLE GRID ── -->
+      <div class="flex-1 min-w-0">
+
+        <!-- Section Header -->
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <div class="section-label">Latest Articles</div>
         </div>
-        <p style="color:rgba(255,255,255,0.4); font-size:0.8125rem; line-height:1.7; max-width:260px;">
-          A premium editorial platform exploring technology, design, culture, and the ideas shaping our future.
+
+        <!-- Category Filter Bar — rendered from JSON -->
+        <div id="category-filter" class="flex flex-wrap gap-2 mb-8" role="group" aria-label="Filter by category">
+          <!-- Injected by ArticleEngine.renderCategoryFilter() -->
+        </div>
+
+        <!-- Article Grid — rendered from JSON -->
+        <div id="article-grid" class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
+          <!-- Injected by ArticleEngine -->
+        </div>
+
+        <!-- Load More -->
+        <div class="flex justify-center mt-10">
+          <button id="load-more-btn" class="btn-ghost" style="display:none;">
+            Load More Articles
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+      <!-- END ARTICLE GRID -->
+
+
+      <!-- ── SIDEBAR ── -->
+      <aside class="w-full lg:w-72 xl:w-80 flex-shrink-0">
+
+        <!-- Trending Now -->
+        <div class="trending-widget rounded-2xl p-6 mb-8" style="background:#fff; border:1px solid var(--rule);">
+          <div class="section-label mb-5" style="font-size:0.6875rem;">Trending Now</div>
+          <div id="trending-list">
+            <div style="color:var(--ink-muted); font-size:0.8125rem;">Loading…</div>
+          </div>
+        </div>
+
+        <!-- Newsletter Signup -->
+        <div class="rounded-2xl p-6 mb-8" style="background:linear-gradient(135deg,#1a1510 0%,#0f0f0f 100%); border:1px solid #2a2520;">
+          <div style="font-family:'DM Mono',monospace; font-size:0.65rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:0.75rem;">Newsletter</div>
+          <h3 class="font-display text-white mb-2 leading-snug" style="font-size:1.2rem; font-weight:700;">Stories delivered to your inbox</h3>
+          <p style="font-size:0.8125rem; color:rgba(255,255,255,0.45); line-height:1.6; margin-bottom:1.25rem;">One curated read, every week. No noise.</p>
+          <div style="display:flex; flex-direction:column; gap:0.75rem;">
+            <input
+              type="email"
+              placeholder="your@email.com"
+              style="width:100%; padding:0.65rem 1rem; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:50px; font-size:0.8125rem; color:#fff; outline:none; font-family:'DM Sans',sans-serif; transition:border-color 0.28s ease;"
+              onfocus="this.style.borderColor='rgba(200,151,58,0.6)'"
+              onblur="this.style.borderColor='rgba(255,255,255,0.12)'"
+            />
+            <button
+              style="width:100%; padding:0.7rem 1rem; background:var(--accent); color:#fff; font-size:0.875rem; font-weight:600; border-radius:50px; border:none; cursor:pointer; font-family:'DM Sans',sans-serif; transition:background 0.28s ease, transform 0.2s ease;"
+              onmouseover="this.style.background='var(--accent-dark)'; this.style.transform='translateY(-1px)'"
+              onmouseout="this.style.background='var(--accent)'; this.style.transform='translateY(0)'"
+            >Subscribe Free</button>
+          </div>
+          <p style="font-size:0.7rem; color:rgba(255,255,255,0.25); text-align:center; margin-top:0.75rem;">No spam. Unsubscribe anytime.</p>
+        </div>
+
+        <!-- Browse Categories -->
+        <div class="rounded-2xl p-6" style="background:#fff; border:1px solid var(--rule);">
+          <div class="section-label mb-5" style="font-size:0.6875rem;">Browse Categories</div>
+          <div id="sidebar-categories" class="flex flex-wrap gap-2">
+            <!-- Injected by ArticleEngine.renderSidebarCategories() -->
+          </div>
+        </div>
+
+      </aside>
+      <!-- END SIDEBAR -->
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-bg mt-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="grid md:grid-cols-3 gap-10 mb-10">
+
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="pg-logo-mark" style="background:rgba(200,151,58,0.15); border:1px solid rgba(200,151,58,0.35); color:var(--accent);">PG</div>
+            <span class="footer-logo-text">Putera Gani</span>
+          </div>
+          <p style="color:rgba(255,255,255,0.4); font-size:0.8125rem; line-height:1.7; max-width:260px;">
+            A premium editorial platform exploring technology, design, culture, and the ideas shaping our future.
+          </p>
+          <div class="flex gap-2 mt-5">
+            <a href="https://www.instagram.com/puterabuana" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/puterabuana/" class="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 style="color:#fff; font-weight:600; font-size:0.8125rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem;">Navigate</h4>
+          <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="technology.html" class="footer-link">Technology</a></li>
+            <li><a href="design.html" class="footer-link">Design</a></li>
+            <li><a href="culture.html" class="footer-link">Culture</a></li>
+            <li><a href="science.html" class="footer-link">Science</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div>
+          <h4 style="color:#fff; font-weight:600; font-size:0.8125rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem;">Company</h4>
+          <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;">
+            <li><a href="about.html" class="footer-link">About</a></li>
+            <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
+            <li><a href="terms.html" class="footer-link">Terms of Service</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <hr class="footer-divider" />
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6">
+        <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">
+          &copy; 2026 Putera Gani. All rights reserved.
         </p>
-        <div class="flex gap-2 mt-5">
-          <a href="https://www.instagram.com/puterabuana" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/in/puterabuana/" class="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-        </div>
+        <p style="color:rgba(255,255,255,0.2); font-size:0.75rem;">
+          Crafted with intention — built for readers.
+        </p>
       </div>
-
-      <!-- Quick Links -->
-      <div>
-        <h4 style="color:#fff; font-weight:600; font-size:0.8125rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem;">Navigate</h4>
-        <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;">
-          <li><a href="index.html" class="footer-link">Home</a></li>
-          <li><a href="technology.html" class="footer-link">Technology</a></li>
-          <li><a href="design.html" class="footer-link">Design</a></li>
-          <li><a href="culture.html" class="footer-link">Culture</a></li>
-          <li><a href="science.html" class="footer-link">Science</a></li>
-        </ul>
-      </div>
-
-      <!-- Legal -->
-      <div>
-        <h4 style="color:#fff; font-weight:600; font-size:0.8125rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem;">Company</h4>
-        <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;">
-          <li><a href="about.html" class="footer-link">About</a></li>
-          <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
-          <li><a href="terms.html" class="footer-link">Terms of Service</a></li>
-          <li><a href="contact.html" class="footer-link">Contact</a></li>
-        </ul>
-      </div>
-
     </div>
+  </footer>
 
-    <hr class="footer-divider" />
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6">
-      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">
-        &copy; 2026 Putera Gani. All rights reserved.
-      </p>
-      <p style="color:rgba(255,255,255,0.2); font-size:0.75rem;">
-        Crafted with intention — built for readers.
-      </p>
-    </div>
-  </div>
-</footer>
+</div>
+<!-- END #homepage-content -->
+
 
 <!-- ═══════════════════════════════════════════════════════════
      SCRIPTS

@@ -12,16 +12,17 @@ const ArticleEngine = (() => {
 
   /* ── State ── */
   const STATE = {
-    all: [],         // all articles from JSON
-    filtered: [],    // currently filtered/searched set
-    displayed: 0,    // how many are currently shown in grid
-    INITIAL: 6,      // articles shown on load
-    PER_LOAD: 3,     // added per "Load More" click
+    all:            [],
+    filtered:       [],
+    displayed:      0,
+    INITIAL:        6,
+    PER_LOAD:       3,
     activeCategory: 'All',
-    searchQuery: '',
+    searchQuery:    '',
+    isSearchActive: false,
   };
 
-  /* ── Category colour map (matches existing CSS design) ── */
+  /* ── Category colour map ── */
   const CATEGORY_STYLES = {
     Technology: { bg: 'var(--accent-pale)',  color: 'var(--accent-dark)', border: 'rgba(200,151,58,0.25)' },
     Design:     { bg: '#f0f7ff',             color: '#2563eb',            border: 'rgba(37,99,235,0.2)'   },
@@ -31,20 +32,16 @@ const ArticleEngine = (() => {
     Health:     { bg: '#fef2f2',             color: '#dc2626',            border: 'rgba(220,38,38,0.2)'   },
   };
 
-  /* ── Format date → "May 2025" ── */
   function formatDate(isoDate) {
     if (!isoDate) return '';
-    const d = new Date(isoDate + 'T00:00:00');
-    return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+    return new Date(isoDate + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
   }
 
-  /* ── Category badge HTML ── */
   function categoryBadge(cat) {
     const s = CATEGORY_STYLES[cat] || CATEGORY_STYLES.Technology;
     return `<span class="category-badge" style="background:${s.bg}; color:${s.color}; border-color:${s.border};">${cat}</span>`;
   }
 
-  /* ── Render article card HTML ── */
   function renderCard(article) {
     const date = formatDate(article.date);
     const url  = article.slug ? `articles/${article.slug}/index.html` : (article.url || '#');
@@ -52,13 +49,8 @@ const ArticleEngine = (() => {
       <article class="article-card" data-id="${article.id}" data-category="${article.category}">
         <a href="${url}" style="text-decoration:none;" aria-label="Read: ${article.title}">
           <div class="card-thumb">
-            <img
-              src="${article.image}"
-              alt="${article.title}"
-              loading="lazy"
-              width="600" height="375"
-              onerror="this.src='https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&q=75'"
-            />
+            <img src="${article.image}" alt="${article.title}" loading="lazy" width="600" height="375"
+              onerror="this.src='https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&q=75'" />
             <div class="card-thumb-overlay"></div>
           </div>
         </a>
@@ -83,19 +75,16 @@ const ArticleEngine = (() => {
       </article>`;
   }
 
-  /* ── Render the featured hero section ── */
+  /* ── Render featured hero ── */
   function renderFeatured(articles) {
     const heroSection = document.getElementById('featured-section');
     if (!heroSection) return;
-
     const featured = articles.find(a => a.featured) || articles[0];
     if (!featured) { heroSection.style.display = 'none'; return; }
-
     const url = featured.slug ? `articles/${featured.slug}/index.html` : (featured.url || '#');
     heroSection.innerHTML = `
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
-          <!-- Featured Text -->
           <div class="animate-fade-up">
             <div class="hero-tag mb-5">
               <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
@@ -103,18 +92,12 @@ const ArticleEngine = (() => {
               </svg>
               Featured Story
             </div>
-            <h1 class="font-display text-white mb-5 leading-tight" style="font-size:clamp(2rem,4vw,3rem); font-weight:700; letter-spacing:-0.02em;">
-              ${featured.title}
-            </h1>
-            <p class="text-base mb-8" style="color:rgba(255,255,255,0.65); line-height:1.75; max-width:520px;">
-              ${featured.excerpt}
-            </p>
+            <h1 class="font-display text-white mb-5 leading-tight" style="font-size:clamp(2rem,4vw,3rem); font-weight:700; letter-spacing:-0.02em;">${featured.title}</h1>
+            <p class="text-base mb-8" style="color:rgba(255,255,255,0.65); line-height:1.75; max-width:520px;">${featured.excerpt}</p>
             <div class="flex flex-wrap items-center gap-4">
               <a href="${url}" class="btn-accent">
                 Read Story
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
               <div class="flex items-center gap-3" style="color:rgba(255,255,255,0.45); font-size:0.8125rem;">
                 <span>${featured.readTime} read</span>
@@ -123,34 +106,26 @@ const ArticleEngine = (() => {
               </div>
             </div>
           </div>
-          <!-- Featured Image -->
           <div class="hero-img-wrap animate-fade-up delay-200" style="height:420px;">
-            <img
-              src="${featured.imageLarge || featured.image}"
-              alt="${featured.title}"
-              loading="eager"
-              onerror="this.src='https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&q=80'"
-            />
+            <img src="${featured.imageLarge || featured.image}" alt="${featured.title}" loading="eager"
+              onerror="this.src='https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&q=80'" />
             <div class="hero-img-overlay"></div>
           </div>
         </div>
       </div>`;
   }
 
-  /* ── Render trending sidebar list ── */
+  /* ── Render trending sidebar ── */
   function renderTrending(articles) {
     const trendingList = document.getElementById('trending-list');
     if (!trendingList) return;
-
     const trending = articles.filter(a => a.trending).slice(0, 5);
-    if (!trending.length) { trendingList.closest('.trending-widget')?.style && (trendingList.closest('.trending-widget').style.display = 'none'); return; }
-
+    if (!trending.length) { trendingList.closest('.trending-widget')?.remove(); return; }
     trendingList.innerHTML = trending.map((a, i) => {
-      const num = String(i + 1).padStart(2, '0');
       const url = a.slug ? `articles/${a.slug}/index.html` : (a.url || '#');
       return `
         <a href="${url}" class="trending-item" style="text-decoration:none;">
-          <span class="trending-num">${num}</span>
+          <span class="trending-num">${String(i+1).padStart(2,'0')}</span>
           <div>
             <div class="trending-title">${a.title}</div>
             <div style="font-size:0.7rem; color:var(--ink-muted); margin-top:3px;">${a.category} · ${a.readTime}</div>
@@ -163,89 +138,175 @@ const ArticleEngine = (() => {
   function renderCategoryFilter(articles) {
     const filterWrap = document.getElementById('category-filter');
     if (!filterWrap) return;
-
     const categories = ['All', ...new Set(articles.map(a => a.category))].sort((a, b) => a === 'All' ? -1 : b === 'All' ? 1 : a.localeCompare(b));
-
     filterWrap.innerHTML = categories.map(cat => {
       const s = cat === 'All'
         ? { bg: 'var(--ink)', color: 'var(--paper)', border: 'var(--ink)' }
         : (CATEGORY_STYLES[cat] || { bg: 'var(--accent-pale)', color: 'var(--accent-dark)', border: 'rgba(200,151,58,0.25)' });
       const isActive = cat === STATE.activeCategory;
-      return `
-        <button
-          class="category-filter-btn ${isActive ? 'active' : ''}"
-          data-category="${cat}"
-          style="
-            display:inline-flex; align-items:center; padding:5px 14px;
-            border-radius:50px; font-size:0.6875rem; font-weight:600;
-            letter-spacing:0.08em; text-transform:uppercase;
-            cursor:pointer; border:1px solid;
-            background:${isActive ? s.bg : 'transparent'};
-            color:${isActive ? s.color : 'var(--ink-soft)'};
-            border-color:${isActive ? s.border : 'var(--rule)'};
-            transition:all 0.22s ease;
-          "
-        >${cat}</button>`;
+      return `<button class="category-filter-btn${isActive?' active':''}" data-category="${cat}"
+        style="display:inline-flex;align-items:center;padding:5px 14px;border-radius:50px;font-size:0.6875rem;font-weight:600;
+               letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;border:1px solid;
+               background:${isActive?s.bg:'transparent'};color:${isActive?s.color:'var(--ink-soft)'};border-color:${isActive?s.border:'var(--rule)'};
+               transition:all 0.22s ease;">${cat}</button>`;
     }).join('');
 
     filterWrap.querySelectorAll('.category-filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         STATE.activeCategory = btn.dataset.category;
-        applyFilters();
-        // Update active styles
         filterWrap.querySelectorAll('.category-filter-btn').forEach(b => {
           const cat = b.dataset.category;
           const s = cat === 'All'
             ? { bg: 'var(--ink)', color: 'var(--paper)', border: 'var(--ink)' }
             : (CATEGORY_STYLES[cat] || { bg: 'var(--accent-pale)', color: 'var(--accent-dark)', border: 'rgba(200,151,58,0.25)' });
           const active = b.dataset.category === STATE.activeCategory;
-          b.style.background    = active ? s.bg   : 'transparent';
-          b.style.color         = active ? s.color : 'var(--ink-soft)';
-          b.style.borderColor   = active ? s.border : 'var(--rule)';
+          b.style.background  = active ? s.bg    : 'transparent';
+          b.style.color       = active ? s.color : 'var(--ink-soft)';
+          b.style.borderColor = active ? s.border : 'var(--rule)';
         });
+        applyFilters();
       });
     });
   }
 
-  /* ── Render browse categories sidebar ── */
+  /* ── Render sidebar categories ── */
   function renderSidebarCategories(articles) {
     const sidebarCats = document.getElementById('sidebar-categories');
     if (!sidebarCats) return;
-
-    const categoryPageMap = { Technology: 'technology.html', Design: 'design.html', Science: 'science.html', Culture: 'culture.html', Business: 'category/business/index.html', Health: 'category/health/index.html' };
+    const categoryPageMap = { Technology:'technology.html', Design:'design.html', Science:'science.html', Culture:'culture.html', Business:'category/business/index.html', Health:'category/health/index.html' };
     const categories = [...new Set(articles.map(a => a.category))].sort();
-
     sidebarCats.innerHTML = categories.map(cat => {
       const s = CATEGORY_STYLES[cat] || CATEGORY_STYLES.Technology;
       const href = categoryPageMap[cat] || `category/${cat.toLowerCase()}/index.html`;
-      return `<a href="${href}" class="category-badge" style="text-decoration:none; background:${s.bg}; color:${s.color}; border-color:${s.border};">${cat}</a>`;
+      return `<a href="${href}" class="category-badge" style="text-decoration:none;background:${s.bg};color:${s.color};border-color:${s.border};">${cat}</a>`;
     }).join('');
   }
 
-  /* ── Apply search + category filter, refresh grid ── */
+  /* ════════════════════════════════════════════════════════════
+     SEARCH OVERLAY — the core of the new search UX.
+     
+     Instead of collapsing the hero and scrolling the page,
+     we swap entire layers:
+       - #homepage-content: the normal page (hero + grid + sidebar)
+       - #search-overlay:   the search results layer
+     
+     When query is non-empty → hide homepage, show overlay (no scroll).
+     When query is empty     → show homepage, hide overlay.
+     Zero layout shift. Zero scroll jump. Works on all screen sizes.
+     ════════════════════════════════════════════════════════════ */
+
+  const homepageContent  = document.getElementById('homepage-content');
+  const searchOverlay    = document.getElementById('search-overlay');
+  const searchResultsGrid = document.getElementById('search-results-grid');
+  const searchNoResults  = document.getElementById('search-no-results');
+  const searchNoResultsMsg = document.getElementById('search-no-results-msg');
+  const searchOverlayTitle = document.getElementById('search-overlay-title');
+  const searchOverlayCount = document.getElementById('search-overlay-count');
+  const searchOverlayClose = document.getElementById('search-overlay-close');
+
+  function showSearchOverlay(query, results) {
+    /* Update overlay content */
+    if (searchOverlayTitle) {
+      searchOverlayTitle.textContent = `"${query}"`;
+    }
+    if (searchOverlayCount) {
+      searchOverlayCount.textContent = results.length === 0
+        ? 'No articles match your search'
+        : `${results.length} article${results.length !== 1 ? 's' : ''} found`;
+    }
+
+    /* Render results or show empty state */
+    if (searchResultsGrid) {
+      searchResultsGrid.innerHTML = '';
+      searchResultsGrid.style.display = '';
+    }
+    if (results.length === 0) {
+      if (searchResultsGrid) searchResultsGrid.style.display = 'none';
+      if (searchNoResults) {
+        searchNoResults.style.display = '';
+        if (searchNoResultsMsg) searchNoResultsMsg.textContent = `No articles found for "${query}". Try different keywords.`;
+      }
+    } else {
+      if (searchNoResults) searchNoResults.style.display = 'none';
+      if (searchResultsGrid) {
+        results.forEach((article, i) => {
+          const div = document.createElement('div');
+          div.innerHTML = renderCard(article).trim();
+          const card = div.firstChild;
+          // Staggered fade-in
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(16px)';
+          card.style.transition = `opacity 0.35s ease ${i * 0.06}s, transform 0.35s ease ${i * 0.06}s`;
+          searchResultsGrid.appendChild(card);
+          // Trigger animation next frame
+          requestAnimationFrame(() => requestAnimationFrame(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }));
+        });
+      }
+    }
+
+    /* Show overlay, hide homepage — no scroll */
+    if (!STATE.isSearchActive) {
+      STATE.isSearchActive = true;
+      if (homepageContent)  homepageContent.classList.add('search-active');
+      if (searchOverlay)    searchOverlay.classList.add('search-active');
+    }
+  }
+
+  function hideSearchOverlay() {
+    STATE.isSearchActive = false;
+    if (homepageContent) homepageContent.classList.remove('search-active');
+    if (searchOverlay)   searchOverlay.classList.remove('search-active');
+    // Clean up grid
+    if (searchResultsGrid) searchResultsGrid.innerHTML = '';
+  }
+
+  /* Close button on overlay */
+  if (searchOverlayClose) {
+    searchOverlayClose.addEventListener('click', () => {
+      clearAllSearchInputs();
+      hideSearchOverlay();
+    });
+  }
+
+  function clearAllSearchInputs() {
+    STATE.searchQuery = '';
+    document.querySelectorAll('#search-input, #mobile-search-input').forEach(i => { i.value = ''; });
+    const clearBtns = document.querySelectorAll('#search-clear-btn, #mobile-search-clear');
+    clearBtns.forEach(b => b.style.display = 'none');
+  }
+
+  /* ── Apply search filter ── */
   function applyFilters() {
-    const q = STATE.searchQuery.toLowerCase().trim();
-    STATE.filtered = STATE.all
+    const q = STATE.searchQuery.trim();
+    const ql = q.toLowerCase();
+
+    if (!q) {
+      hideSearchOverlay();
+      // Also refresh the main grid in case category changed
+      STATE.filtered = STATE.all.sort((a, b) => new Date(b.date) - new Date(a.date));
+      return;
+    }
+
+    const results = STATE.all
       .filter(a => {
         const matchCat = STATE.activeCategory === 'All' || a.category === STATE.activeCategory;
         if (!matchCat) return false;
-        if (!q) return true;
         return (
-          a.title.toLowerCase().includes(q) ||
-          a.category.toLowerCase().includes(q) ||
-          a.excerpt.toLowerCase().includes(q) ||
-          (a.tags || []).some(t => t.toLowerCase().includes(q))
+          a.title.toLowerCase().includes(ql) ||
+          a.category.toLowerCase().includes(ql) ||
+          a.excerpt.toLowerCase().includes(ql) ||
+          (a.tags || []).some(t => t.toLowerCase().includes(ql))
         );
       })
-      .sort((a, b) => new Date(b.date) - new Date(a.date)); // newest first
+      .sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    STATE.displayed = 0;
-    renderGrid(true); // full reset
-    updateLoadMore();
-    showSearchFeedback(q, STATE.filtered.length);
+    showSearchOverlay(q, results);
   }
 
-  /* ── Render the article grid ── */
+  /* ── Render the homepage article grid ── */
   function renderGrid(reset = false) {
     const grid = document.getElementById('article-grid');
     if (!grid) return;
@@ -263,7 +324,7 @@ const ArticleEngine = (() => {
             <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
           </svg>
           <p style="font-size:1rem; font-weight:500;">No articles found</p>
-          <p style="font-size:0.875rem; margin-top:0.25rem; opacity:0.6;">Try a different search term or category.</p>
+          <p style="font-size:0.875rem; margin-top:0.25rem; opacity:0.6;">Try a different category.</p>
         </div>`;
       return;
     }
@@ -271,10 +332,9 @@ const ArticleEngine = (() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
-          const el = entry.target;
-          el.style.animationDelay = `${i * 0.07}s`;
-          el.classList.add('animate-fade-up');
-          observer.unobserve(el);
+          entry.target.style.animationDelay = `${i * 0.07}s`;
+          entry.target.classList.add('animate-fade-up');
+          observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1 });
@@ -291,34 +351,10 @@ const ArticleEngine = (() => {
     STATE.displayed += slice.length;
   }
 
-  /* ── Load more button logic ── */
   function updateLoadMore() {
     const btn = document.getElementById('load-more-btn');
     if (!btn) return;
-    const remaining = STATE.filtered.length - STATE.displayed;
-    btn.style.display = remaining > 0 ? '' : 'none';
-  }
-
-  /* ── Search feedback message ── */
-  function showSearchFeedback(query, count) {
-    let feedback = document.getElementById('search-feedback');
-    if (!feedback) {
-      feedback = document.createElement('p');
-      feedback.id = 'search-feedback';
-      feedback.style.cssText = 'font-size:0.8125rem; color:var(--ink-muted); margin-bottom:1.25rem; min-height:1.2em;';
-      const label = document.querySelector('.section-label');
-      label?.insertAdjacentElement('afterend', feedback);
-    }
-    if (!query && STATE.activeCategory === 'All') {
-      feedback.textContent = '';
-    } else if (count === 0) {
-      feedback.textContent = `No results for "${query || STATE.activeCategory}"`;
-    } else {
-      const parts = [];
-      if (query) parts.push(`"${query}"`);
-      if (STATE.activeCategory !== 'All') parts.push(STATE.activeCategory);
-      feedback.textContent = `${count} article${count !== 1 ? 's' : ''} for ${parts.join(' in ')}`;
-    }
+    btn.style.display = (STATE.filtered.length - STATE.displayed) > 0 ? '' : 'none';
   }
 
   /* ── Loading skeleton ── */
@@ -338,7 +374,6 @@ const ArticleEngine = (() => {
     grid.innerHTML = Array(6).fill(skeletonCard).join('');
   }
 
-  /* ── Error state ── */
   function showError(msg) {
     const grid = document.getElementById('article-grid');
     if (grid) {
@@ -352,13 +387,10 @@ const ArticleEngine = (() => {
           <button onclick="ArticleEngine.init()" style="margin-top:1.25rem; padding:0.5rem 1.25rem; background:var(--ink); color:#fff; border:none; border-radius:50px; font-size:0.8125rem; cursor:pointer;">Try Again</button>
         </div>`;
     }
-    const hero = document.getElementById('featured-section');
-    if (hero) hero.style.display = 'none';
-    const loadMoreBtn = document.getElementById('load-more-btn');
-    if (loadMoreBtn) loadMoreBtn.style.display = 'none';
+    document.getElementById('featured-section')?.style && (document.getElementById('featured-section').style.display = 'none');
+    document.getElementById('load-more-btn')?.style && (document.getElementById('load-more-btn').style.display = 'none');
   }
 
-  /* ── Fetch JSON data ── */
   async function fetchArticles() {
     const res = await fetch('data/articles.json', { cache: 'no-cache' });
     if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
@@ -367,31 +399,41 @@ const ArticleEngine = (() => {
     return data.articles;
   }
 
-  /* ── Wire up search inputs ── */
+  /* ── Wire up all search inputs ── */
   function initSearch() {
-    const inputs = document.querySelectorAll('.search-input');
+    const inputs = document.querySelectorAll('#search-input, #mobile-search-input');
     let debounceTimer;
+
     inputs.forEach(input => {
       input.addEventListener('input', () => {
         clearTimeout(debounceTimer);
         debounceTimer = setTimeout(() => {
           STATE.searchQuery = input.value;
-          // Sync all search inputs
+          // Sync other inputs
           inputs.forEach(i => { if (i !== input) i.value = input.value; });
           applyFilters();
-        }, 220);
+        }, 160);
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          clearAllSearchInputs();
+          hideSearchOverlay();
+          input.blur();
+          // Close mobile search bar if open
+          const mobileBar = document.getElementById('mobile-search-bar');
+          const mobileBtn = document.getElementById('mobile-search-btn');
+          if (mobileBar) mobileBar.classList.remove('open');
+          if (mobileBtn) { mobileBtn.classList.remove('active'); mobileBtn.setAttribute('aria-expanded', 'false'); }
+        }
       });
     });
   }
 
-  /* ── Wire up Load More button ── */
   function initLoadMore() {
     const btn = document.getElementById('load-more-btn');
     if (!btn) return;
-    btn.addEventListener('click', () => {
-      renderGrid(false);
-      updateLoadMore();
-    });
+    btn.addEventListener('click', () => { renderGrid(false); updateLoadMore(); });
   }
 
   /* ── Public init ── */
@@ -407,12 +449,10 @@ const ArticleEngine = (() => {
       renderCategoryFilter(articles);
       renderSidebarCategories(articles);
 
-      // Initial grid: show first INITIAL articles
       const grid = document.getElementById('article-grid');
       if (grid) grid.innerHTML = '';
       STATE.displayed = 0;
 
-      // Show INITIAL cards by calling renderGrid in chunks
       const initialSlice = STATE.filtered.slice(0, STATE.INITIAL);
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry, i) => {
@@ -448,10 +488,10 @@ const ArticleEngine = (() => {
 
 })();
 
-/* ── Shimmer animation (injected once) ── */
+/* ── Shimmer animation ── */
 const shimmerStyle = document.createElement('style');
 shimmerStyle.textContent = `@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }`;
 document.head.appendChild(shimmerStyle);
 
-/* ── Boot when DOM ready ── */
+/* ── Boot ── */
 document.addEventListener('DOMContentLoaded', () => ArticleEngine.init());
