@@ -140,7 +140,7 @@
 <!-- ═══════════════════════════════════════════════════════════
      MAIN CONTENT — ARTICLE GRID + SIDEBAR
      ═══════════════════════════════════════════════════════════ -->
-<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+<main id="category-page" data-category="Technology" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
   <div class="flex flex-col lg:flex-row gap-12">
 
     <!-- ── ARTICLE GRID ── -->
@@ -148,70 +148,8 @@
 
       <div class="section-label mb-8">Technology Articles</div>
 
-      <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
-
-        <!-- ARTICLE: The Future of AI -->
-        <article class="article-card">
-          <a href="articles/the-future-of-artificial-intelligence/index.html" style="text-decoration:none;" aria-label="Read: The Future of Artificial Intelligence">
-            <div class="card-thumb">
-              <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=75"
-                   alt="Artificial Intelligence"
-                   loading="lazy" width="600" height="375" />
-              <div class="card-thumb-overlay"></div>
-            </div>
-          </a>
-          <div class="card-body">
-            <span class="category-badge">Technology</span>
-            <h2 class="card-title">
-              <a href="articles/the-future-of-artificial-intelligence/index.html" style="text-decoration:none; color:inherit;">
-                The Future of Artificial Intelligence: How Machines Are Learning to Think
-              </a>
-            </h2>
-            <p class="card-desc">From deep learning to ethical AI — a comprehensive look at the technology reshaping civilization.</p>
-            <div class="card-meta">
-              <span>May 2025</span>
-              <span class="card-meta-dot"></span>
-              <span>8 min read</span>
-            </div>
-            <a href="articles/the-future-of-artificial-intelligence/index.html" class="btn-primary mt-4" style="width:fit-content; font-size:0.75rem; padding: 0.5rem 1.1rem;">
-              Read More
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-        </article>
-
-
-
-        <!-- ARTICLE: Web3 Illusion -->
-        <article class="article-card">
-          <a href="#" style="text-decoration:none;" aria-label="Read: The Web3 Illusion">
-            <div class="card-thumb">
-              <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&q=75"
-                   alt="Blockchain and Web3"
-                   loading="lazy" width="600" height="375" />
-              <div class="card-thumb-overlay"></div>
-            </div>
-          </a>
-          <div class="card-body">
-            <span class="category-badge">Technology</span>
-            <h2 class="card-title">
-              <a href="#" style="text-decoration:none; color:inherit;">
-                The Web3 Illusion: Separating Hype from Genuine Innovation
-              </a>
-            </h2>
-            <p class="card-desc">A critical examination of blockchain promises versus reality, and what genuinely new possibilities it unlocks.</p>
-            <div class="card-meta">
-              <span>Mar 2025</span>
-              <span class="card-meta-dot"></span>
-              <span>9 min read</span>
-            </div>
-            <a href="#" class="btn-primary mt-4" style="width:fit-content; font-size:0.75rem; padding: 0.5rem 1.1rem;">
-              Read More
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-        </article>
-
+      <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6" id="cat-article-grid">
+        <!-- Dynamically injected by category-engine.js -->
       </div>
       <!-- END ARTICLE GRID -->
 
@@ -225,25 +163,8 @@
       <!-- Trending -->
       <div class="rounded-2xl p-6 mb-8" style="background:#fff; border:1px solid var(--rule);">
         <div class="section-label mb-5" style="font-size:0.6875rem;">Trending Now</div>
-        <div>
-
-          <a href="articles/the-future-of-artificial-intelligence/index.html" class="trending-item" style="text-decoration:none;">
-            <span class="trending-num">01</span>
-            <div>
-              <div class="trending-title">The Future of Artificial Intelligence</div>
-              <div style="font-size:0.7rem; color:var(--ink-muted); margin-top:3px;">Technology · 8 min</div>
-            </div>
-          </a>
-          
-
-          <a href="#" class="trending-item" style="text-decoration:none;">
-            <span class="trending-num">03</span>
-            <div>
-              <div class="trending-title">The Web3 Illusion</div>
-              <div style="font-size:0.7rem; color:var(--ink-muted); margin-top:3px;">Technology · 9 min</div>
-            </div>
-          </a>
-
+        <div id="cat-trending-list">
+          <!-- Dynamically injected by category-engine.js -->
         </div>
       </div>
 
@@ -353,6 +274,7 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script src="assets/js/category-engine.js"></script>
 
 </body>
 </html>

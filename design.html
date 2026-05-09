@@ -136,7 +136,7 @@
 <!-- ═══════════════════════════════════════════════════════════
      MAIN CONTENT — ARTICLE GRID + SIDEBAR
      ═══════════════════════════════════════════════════════════ -->
-<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+<main id="category-page" data-category="Design" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
   <div class="flex flex-col lg:flex-row gap-12">
 
     <!-- ── ARTICLE GRID ── -->
@@ -144,68 +144,8 @@
 
       <div class="section-label mb-8">Design Articles</div>
 
-      <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
-
-        <!-- ARTICLE: Timeless Design -->
-        <article class="article-card">
-          <a href="articles/principles-of-timeless-design/index.html" style="text-decoration:none;" aria-label="Read: The Principles of Timeless Design">
-            <div class="card-thumb">
-              <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=75"
-                   alt="Design principles"
-                   loading="lazy" width="600" height="375" />
-              <div class="card-thumb-overlay"></div>
-            </div>
-          </a>
-          <div class="card-body">
-            <span class="category-badge" style="background:#f0f7ff; color:#2563eb; border-color:rgba(37,99,235,0.2);">Design</span>
-            <h2 class="card-title">
-              <a href="articles/principles-of-timeless-design/index.html" style="text-decoration:none; color:inherit;">
-                The Principles of Timeless Design That Never Go Out of Style
-              </a>
-            </h2>
-            <p class="card-desc">Why Dieter Rams' ten commandments of good design remain as relevant today as they were in 1978.</p>
-            <div class="card-meta">
-              <span>Apr 2025</span>
-              <span class="card-meta-dot"></span>
-              <span>6 min read</span>
-            </div>
-            <a href="articles/principles-of-timeless-design/index.html" class="btn-primary mt-4" style="width:fit-content; font-size:0.75rem; padding: 0.5rem 1.1rem;">
-              Read More
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- ARTICLE: Typography -->
-        <article class="article-card">
-          <a href="#" style="text-decoration:none;" aria-label="Read: Typography in the Digital Age">
-            <div class="card-thumb">
-              <img src="https://images.unsplash.com/photo-1586717799252-bd134ad00e26?w=600&q=75"
-                   alt="Typography design"
-                   loading="lazy" width="600" height="375" />
-              <div class="card-thumb-overlay"></div>
-            </div>
-          </a>
-          <div class="card-body">
-            <span class="category-badge" style="background:#f0f7ff; color:#2563eb; border-color:rgba(37,99,235,0.2);">Design</span>
-            <h2 class="card-title">
-              <a href="#" style="text-decoration:none; color:inherit;">
-                Typography in the Digital Age: Why Letters Still Matter More Than Ever
-              </a>
-            </h2>
-            <p class="card-desc">How the craft of type-setting has evolved from Gutenberg's press to responsive variable fonts on modern screens.</p>
-            <div class="card-meta">
-              <span>Feb 2025</span>
-              <span class="card-meta-dot"></span>
-              <span>5 min read</span>
-            </div>
-            <a href="#" class="btn-primary mt-4" style="width:fit-content; font-size:0.75rem; padding: 0.5rem 1.1rem;">
-              Read More
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-        </article>
-
+      <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6" id="cat-article-grid">
+        <!-- Dynamically injected by category-engine.js -->
       </div>
       <!-- END ARTICLE GRID -->
 
@@ -219,21 +159,8 @@
       <!-- Trending -->
       <div class="rounded-2xl p-6 mb-8" style="background:#fff; border:1px solid var(--rule);">
         <div class="section-label mb-5" style="font-size:0.6875rem;">Trending Now</div>
-        <div>
-          <a href="articles/principles-of-timeless-design/index.html" class="trending-item" style="text-decoration:none;">
-            <span class="trending-num">01</span>
-            <div>
-              <div class="trending-title">The Principles of Timeless Design</div>
-              <div style="font-size:0.7rem; color:var(--ink-muted); margin-top:3px;">Design · 6 min</div>
-            </div>
-          </a>
-          <a href="#" class="trending-item" style="text-decoration:none;">
-            <span class="trending-num">02</span>
-            <div>
-              <div class="trending-title">Typography in the Digital Age</div>
-              <div style="font-size:0.7rem; color:var(--ink-muted); margin-top:3px;">Design · 5 min</div>
-            </div>
-          </a>
+        <div id="cat-trending-list">
+          <!-- Dynamically injected by category-engine.js -->
         </div>
       </div>
 
@@ -331,6 +258,7 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script src="assets/js/category-engine.js"></script>
 
 </body>
 </html>

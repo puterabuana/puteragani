@@ -235,29 +235,6 @@
       "url": "articles/principles-of-timeless-design/index.html"
     },
     {
-      "id": "003",
-      "title": "Quantum Computing Explained: The Race to Rewrite the Rules of Physics",
-      "slug": "quantum-computing-explained",
-      "category": "Science",
-      "tags": [
-        "Quantum",
-        "Physics",
-        "Computing",
-        "IBM",
-        "Google"
-      ],
-      "featured": false,
-      "trending": true,
-      "date": "2025-04-10",
-      "author": "Putera Gani",
-      "readTime": "10 min",
-      "image": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=75",
-      "imageLarge": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80",
-      "excerpt": "Inside the labs where scientists are harnessing quantum mechanics to build computers of the future.",
-      "content": "Inside the most advanced physics labs on earth, a new type of computer is being born — one that operates on the strange rules of quantum mechanics.",
-      "url": "articles/quantum-computing-explained/index.html"
-    },
-    {
       "id": "004",
       "title": "How Cities Shape the Human Mind and the Way We Think",
       "slug": "how-cities-shape-the-human-mind",

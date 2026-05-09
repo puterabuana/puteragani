@@ -132,7 +132,7 @@
 <!-- ═══════════════════════════════════════════════════════════
      MAIN CONTENT — ARTICLE GRID + SIDEBAR
      ═══════════════════════════════════════════════════════════ -->
-<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+<main id="category-page" data-category="Science" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
   <div class="flex flex-col lg:flex-row gap-12">
 
     <!-- ── ARTICLE GRID ── -->
@@ -140,38 +140,8 @@
 
       <div class="section-label mb-8">Science Articles</div>
 
-      <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
-
-        <!-- ARTICLE: Quantum Computing -->
-        <article class="article-card">
-          <a href="#" style="text-decoration:none;" aria-label="Read: Quantum Computing Explained">
-            <div class="card-thumb">
-              <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=75"
-                   alt="Quantum Computing"
-                   loading="lazy" width="600" height="375" />
-              <div class="card-thumb-overlay"></div>
-            </div>
-          </a>
-          <div class="card-body">
-            <span class="category-badge" style="background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Science</span>
-            <h2 class="card-title">
-              <a href="#" style="text-decoration:none; color:inherit;">
-                Quantum Computing Explained: The Race to Rewrite the Rules of Physics
-              </a>
-            </h2>
-            <p class="card-desc">Inside the labs where scientists are harnessing quantum mechanics to build computers of the future.</p>
-            <div class="card-meta">
-              <span>Apr 2025</span>
-              <span class="card-meta-dot"></span>
-              <span>10 min read</span>
-            </div>
-            <a href="#" class="btn-primary mt-4" style="width:fit-content; font-size:0.75rem; padding: 0.5rem 1.1rem;">
-              Read More
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-        </article>
-
+      <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6" id="cat-article-grid">
+        <!-- Dynamically injected by category-engine.js -->
       </div>
       <!-- END ARTICLE GRID -->
 
@@ -183,14 +153,8 @@
 
       <div class="rounded-2xl p-6 mb-8" style="background:#fff; border:1px solid var(--rule);">
         <div class="section-label mb-5" style="font-size:0.6875rem;">Trending Now</div>
-        <div>
-          <a href="#" class="trending-item" style="text-decoration:none;">
-            <span class="trending-num">01</span>
-            <div>
-              <div class="trending-title">Quantum Computing Explained</div>
-              <div style="font-size:0.7rem; color:var(--ink-muted); margin-top:3px;">Science · 10 min</div>
-            </div>
-          </a>
+        <div id="cat-trending-list">
+          <!-- Dynamically injected by category-engine.js -->
         </div>
       </div>
 
@@ -286,6 +250,7 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script src="assets/js/category-engine.js"></script>
 
 </body>
 </html>
