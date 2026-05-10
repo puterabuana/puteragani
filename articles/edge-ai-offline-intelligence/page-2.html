@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edge AI — Page 2: Real-World Deployments & Privacy — Putera Gani</title>
+  <meta name="description" content="How Edge AI is transforming healthcare, manufacturing, personal computing, and why running AI locally is the most important privacy development of the decade." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>tailwind.config = { theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } } }</script>
+
+  <style>
+    /* ── Edge AI Page 2 — Unique Component Styles ── */
+
+    /* Industry Card Stack — vertical scroll of use cases */
+    .industry-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--rule, #e8e4de);
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+    .industry-card {
+      background: var(--paper, #fafaf8);
+      padding: 1.125rem 1.25rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    @media (min-width: 640px) {
+      .industry-card { padding: 1.25rem 1.5rem; }
+    }
+    .industry-icon {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(200,151,58,0.09);
+      border: 1px solid rgba(200,151,58,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.125rem;
+      margin-top: 2px;
+    }
+    .industry-content h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.3rem;
+      letter-spacing: -0.01em;
+    }
+    @media (min-width: 640px) {
+      .industry-content h4 { font-size: 0.9375rem; }
+    }
+    .industry-content p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.65;
+    }
+    @media (min-width: 640px) {
+      .industry-content p { font-size: 0.875rem; }
+    }
+
+    /* Privacy Spectrum Bar — horizontal gradient visualization */
+    .privacy-spectrum {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      padding: 1.25rem 1.25rem 1rem;
+      margin: 2rem 0;
+      background: var(--paper, #fafaf8);
+    }
+    @media (min-width: 640px) {
+      .privacy-spectrum { padding: 1.5rem 1.75rem 1.25rem; }
+    }
+    .privacy-spectrum-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      margin-bottom: 1rem;
+    }
+    .spectrum-bar {
+      height: 10px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, #c8973a 0%, #d4a84b 30%, #94a3b8 70%, #475569 100%);
+      margin-bottom: 0.5rem;
+    }
+    .spectrum-labels {
+      display: flex;
+      justify-content: space-between;
+    }
+    .spectrum-labels span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--ink-muted, #6b6860);
+      letter-spacing: 0.05em;
+    }
+    .spectrum-markers {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    .spectrum-marker {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.75rem;
+      color: var(--ink-muted, #6b6860);
+    }
+    .marker-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* Split Highlight — two-column insight comparison */
+    .split-highlight {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      background: var(--rule, #e8e4de);
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+    @media (min-width: 560px) {
+      .split-highlight { grid-template-columns: 1fr 1fr; }
+    }
+    .split-cell {
+      background: var(--paper, #fafaf8);
+      padding: 1.125rem 1.125rem;
+    }
+    @media (min-width: 640px) {
+      .split-cell { padding: 1.25rem 1.5rem; }
+    }
+    .split-cell-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .split-cell-label.good { color: var(--accent, #c8973a); }
+    .split-cell-label.neutral { color: var(--ink-muted, #6b6860); }
+    .split-cell p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.65;
+    }
+    @media (min-width: 640px) {
+      .split-cell p { font-size: 0.875rem; }
+    }
+
+    /* Bold Callout */
+    .bold-callout {
+      border-top: 2px solid var(--ink, #0f0f0f);
+      border-bottom: 2px solid var(--ink, #0f0f0f);
+      padding: 1.25rem 0;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    .bold-callout p {
+      margin: 0 !important;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 4vw, 1.375rem);
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: -0.015em;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Section Divider */
+    .section-rule {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+    .section-rule::before, .section-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule, #e8e4de);
+    }
+    .section-rule span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      white-space: nowrap;
+    }
+
+    .article-body p strong {
+      color: var(--ink, #0f0f0f);
+      font-weight: 650;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge">Technology</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    Edge AI in the Real World — Industries Transformed & Privacy Regained
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 10, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>3 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 2 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80"
+         alt="Edge AI in healthcare — doctor using AI-assisted device"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Healthcare technology
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT — PAGE 2 -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          The most revealing way to understand Edge AI is not through architecture diagrams or benchmark scores — it is through the specific places where moving intelligence from the cloud to the device has changed what is possible. These stories are already being written, in hospitals, factories, cars, and living rooms across the world.
+        </p>
+
+        <h2>Where Edge AI Is Already Changing Everything</h2>
+
+        <!-- ── Industry Stack ── -->
+        <div class="industry-stack">
+          <div class="industry-card">
+            <div class="industry-icon">🏥</div>
+            <div class="industry-content">
+              <h4>Healthcare: Diagnostics That Don't Leave the Room</h4>
+              <p>Portable ultrasound devices now run AI interpretation locally, giving real-time diagnostic assistance in rural clinics that have no fiber internet. Wearables detect atrial fibrillation by processing ECG data on-chip — never transmitting raw cardiac data to any server. The patient's most intimate biological signals stay entirely on the device.</p>
+            </div>
+          </div>
+          <div class="industry-card">
+            <div class="industry-icon">🏭</div>
+            <div class="industry-content">
+              <h4>Manufacturing: Eyes on the Line at Microsecond Speed</h4>
+              <p>Quality control cameras on assembly lines now run defect detection entirely on-device, flagging flaws in real time at production speeds that cloud round-trips could never match. A single modern edge vision system inspects thousands of parts per minute with sub-millimeter precision — no cloud connection required, no production data leaving the factory floor.</p>
+            </div>
+          </div>
+          <div class="industry-card">
+            <div class="industry-icon">🚗</div>
+            <div class="industry-content">
+              <h4>Automotive: The Car That Thinks Faster Than Your Reflexes</h4>
+              <p>Every production autonomous vehicle processes sensor fusion — radar, LiDAR, camera, GPS — entirely on-board computers. The physics of safety make this non-negotiable: a pedestrian-detection decision at highway speed cannot wait for a cloud round-trip. The intelligence must live where the consequences do.</p>
+            </div>
+          </div>
+          <div class="industry-card">
+            <div class="industry-icon">🏠</div>
+            <div class="industry-content">
+              <h4>Smart Home: Devices That Listen Without Hearing You</h4>
+              <p>Modern smart speakers process wake-word detection entirely on-chip. What reaches the cloud is not a continuous audio stream — it is a classified trigger event. The gap between "a device that records everything" and "a device that locally detects one phrase" is the gap between a surveillance device and a genuinely private one.</p>
+            </div>
+          </div>
+          <div class="industry-card">
+            <div class="industry-icon">📱</div>
+            <div class="industry-content">
+              <h4>Personal Computing: AI That Knows You Without Knowing Anyone Else</h4>
+              <p>On-device language models now power autocomplete, grammar correction, email summarization, and personal assistant features without any of your writing leaving your device. Apple's on-device intelligence framework processes your emails, messages, and photos locally — building a model of you that exists only on hardware you own.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-rule"><span>The Privacy Dimension</span></div>
+
+        <h2>The Privacy Revolution Nobody Is Talking About</h2>
+
+        <p>
+          The performance story of Edge AI is compelling. The privacy story is transformative. To understand why, consider what the cloud model of AI actually required: <strong>your data leaving your device, traveling across networks, processed on hardware you don't control, stored in jurisdictions that may not be yours.</strong> Every photo you asked an AI to enhance. Every voice command. Every health metric. All of it centralizing, continuously, in the databases of a handful of corporations.
+        </p>
+
+        <p>
+          Edge AI inverts this architecture. The model comes to the data, rather than the data going to the model. The result is not just faster — it is fundamentally different in terms of what is at risk.
+        </p>
+
+        <!-- ── Privacy Spectrum ── -->
+        <div class="privacy-spectrum">
+          <div class="privacy-spectrum-title">🔒 Data Exposure by AI Architecture</div>
+          <div class="spectrum-bar"></div>
+          <div class="spectrum-labels">
+            <span>Most Private</span>
+            <span>Most Exposed</span>
+          </div>
+          <div class="spectrum-markers">
+            <span class="spectrum-marker">
+              <span class="marker-dot" style="background:var(--accent);"></span>
+              On-device only
+            </span>
+            <span class="spectrum-marker">
+              <span class="marker-dot" style="background:#d4a84b;"></span>
+              Federated learning
+            </span>
+            <span class="spectrum-marker">
+              <span class="marker-dot" style="background:#94a3b8;"></span>
+              Encrypted cloud
+            </span>
+            <span class="spectrum-marker">
+              <span class="marker-dot" style="background:#475569;"></span>
+              Centralized cloud
+            </span>
+          </div>
+        </div>
+
+        <!-- ── Bold Callout ── -->
+        <div class="bold-callout">
+          <p>"When the model moves to the device, <span>the business model that depended on your data</span> faces an existential question. Privacy is not a feature of Edge AI. It is a structural consequence."</p>
+        </div>
+
+        <h2>Federated Learning: The Middle Ground</h2>
+
+        <p>
+          Between pure on-device processing and centralized cloud AI lies a third paradigm: <strong>federated learning.</strong> In this model, AI training happens locally across thousands or millions of devices simultaneously. Each device trains on its own data and contributes only model weight updates — tiny mathematical summaries — to a central server. The raw data never leaves the device.
+        </p>
+
+        <p>
+          Google uses federated learning to improve keyboard autocomplete across Android devices without ever seeing what users type. Apple uses it for emoji suggestions and Siri improvements. The result is a model that benefits from the collective experience of millions of users while never centralizing the sensitive inputs that made the model smart.
+        </p>
+
+        <!-- ── Split Highlight ── -->
+        <div class="split-highlight">
+          <div class="split-cell">
+            <div class="split-cell-label good">What Federated Learning Sends</div>
+            <p>Encrypted gradient updates — mathematical deltas representing how the model should change based on local interactions. No messages, no photos, no identifiers. Just tiny vectors of numbers.</p>
+          </div>
+          <div class="split-cell">
+            <div class="split-cell-label neutral">What Stays on the Device</div>
+            <p>Everything you actually said, typed, photographed, or searched. Your behavioral patterns, your biometrics, your communication history. None of it ever leaves the hardware you own.</p>
+          </div>
+        </div>
+
+        <h2>The Limits of Optimism</h2>
+
+        <p>
+          Edge AI is not without real limitations and legitimate critiques. Smaller models are, by definition, less capable than their cloud-scale counterparts. The gap is narrowing rapidly — but it has not closed. Tasks requiring vast knowledge retrieval, complex multi-step reasoning, or real-time world information still favor cloud architectures that can query enormous databases and run much larger parameter counts.
+        </p>
+
+        <p>
+          There is also a supply chain concern. The silicon that enables Edge AI — the neural processing units in modern phones and laptops — is manufactured by a small number of foundries, concentrated geographically in ways that introduce their own geopolitical risks. <strong>Democratizing AI inference does not automatically democratize AI hardware production.</strong> The edge may be distributed; the means of building the edge are not.
+        </p>
+
+        <p>
+          And there is the question of updates. A cloud model can be corrected, improved, or patched instantly, globally, with a server-side update. An edge model deployed across a billion devices requires a software update pipeline that reaches every device — a logistics challenge of considerable complexity, and a security surface worth taking seriously.
+        </p>
+
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a href="index.html" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+            <div class="page-dot"></div>
+          </div>
+          <a href="page-3.html" class="btn-primary">
+            Continue to Page 3
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">What Is Edge AI & Why Now</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">Real-World Deployments</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Road Ahead</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- Related Articles -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="edge-ai-offline-intelligence"
+    >
+      <!-- Injected by related.js -->
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>

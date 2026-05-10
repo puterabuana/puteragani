@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gut Health — Page 2: What the Research Shows — Putera Gani</title>
+  <meta name="description" content="From depression to autoimmunity — what the latest microbiome science reveals about the gut's role in chronic disease and mental health." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>tailwind.config = { theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } } }</script>
+
+  <style>
+    /* ── Page 2 Unique CSS Components ── */
+
+    /* Research Evidence Card */
+    .evidence-card {
+      background: var(--paper, #fafaf8);
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      padding: 1rem 1rem;
+      margin: 1.75rem 0;
+    }
+    @media (min-width: 640px) {
+      .evidence-card { padding: 1.25rem 1.5rem; }
+    }
+    .evidence-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      margin-bottom: 0.875rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    .evidence-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(200,151,58,0.1);
+      border: 1px solid rgba(200,151,58,0.25);
+      color: var(--accent, #c8973a);
+      padding: 3px 9px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+    .evidence-card p {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.75rem 0;
+    }
+    .evidence-card p:last-child { margin-bottom: 0; }
+
+    /* Condition Comparison Strip */
+    .condition-strip {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+    .condition-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      background: var(--paper, #fafaf8);
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    .condition-row:last-child { border-bottom: none; }
+    .condition-label-col {
+      width: 110px;
+      flex-shrink: 0;
+      padding: 0.875rem 0.875rem;
+      background: rgba(200,151,58,0.04);
+      border-right: 1px solid var(--rule, #e8e4de);
+    }
+    @media (min-width: 480px) {
+      .condition-label-col { width: 130px; padding: 1rem 1rem; }
+    }
+    .condition-label-col span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--accent, #c8973a);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: block;
+    }
+    .condition-detail-col {
+      flex: 1;
+      padding: 0.875rem 0.875rem;
+      font-size: 0.8125rem;
+      line-height: 1.65;
+      color: var(--ink-muted, #6b6860);
+    }
+    @media (min-width: 480px) {
+      .condition-detail-col { padding: 1rem 1rem; font-size: 0.875rem; }
+    }
+
+    /* Leaky Gut Explainer Block */
+    .mechanism-block {
+      background: var(--ink, #0f0f0f);
+      border-radius: 14px;
+      padding: 1.25rem 1.125rem;
+      margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 640px) {
+      .mechanism-block { padding: 1.5rem 1.75rem; }
+    }
+    .mechanism-block::before {
+      content: '';
+      position: absolute;
+      top: -50px; right: -50px;
+      width: 130px; height: 130px;
+      border-radius: 50%;
+      background: rgba(200,151,58,0.06);
+    }
+    .mechanism-block .mb-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .mechanism-block p {
+      margin: 0 0 0.75rem 0 !important;
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+    }
+    .mechanism-block p:last-child { margin-bottom: 0 !important; }
+    .mechanism-block strong { color: #fff !important; }
+
+    /* Research Divider */
+    .research-divider {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+    .research-divider::before, .research-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule, #e8e4de);
+    }
+    .research-divider span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      white-space: nowrap;
+    }
+
+    /* Callout Quote Strip */
+    .quote-strip {
+      border-top: 2px solid var(--ink, #0f0f0f);
+      border-bottom: 2px solid var(--ink, #0f0f0f);
+      padding: 1.25rem 0;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    .quote-strip p {
+      margin: 0 !important;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 4vw, 1.35rem);
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: -0.015em;
+      color: var(--ink, #0f0f0f);
+    }
+
+    .article-body p strong { color: var(--ink, #0f0f0f); font-weight: 650; }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge" style="background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Health</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    Gut Health — What the Science Actually Shows About Your Microbiome
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 10, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>3 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 2 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&q=80"
+         alt="Microscopic gut bacteria visualization"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Microbiome science
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT — PAGE 2 -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          The gut-brain axis is no longer a fringe hypothesis. Over the past decade, it has accumulated a research base substantial enough to shift the positions of mainstream institutions — from the American Psychiatric Association acknowledging the microbiome's role in mental health to the National Institutes of Health funding large-scale microbiome intervention trials. But the science remains young, the mechanisms are complex, and the gap between laboratory findings and clinical applications is still considerable. What follows is a clear-eyed account of what we actually know.
+        </p>
+
+        <h2>Depression and Anxiety: The Evidence</h2>
+
+        <p>
+          The connection between gut health and mental illness has moved from speculative to well-documented over the past decade. Multiple independent lines of evidence now converge on the same conclusion: <strong>the composition of the gut microbiome influences the risk, severity, and possibly the treatment of depression and anxiety disorders.</strong>
+        </p>
+
+        <!-- ── Evidence Card: Depression ── -->
+        <div class="evidence-card">
+          <div class="evidence-card-header">
+            <span class="evidence-badge">Clinical Evidence</span>
+            <span style="font-size:0.8rem; font-weight:600; color:var(--ink);">Depression & the Microbiome</span>
+          </div>
+          <p>A landmark 2019 study published in Nature Microbiology found that two bacterial genera — <em>Coprococcus</em> and <em>Dialister</em> — were consistently depleted in people diagnosed with clinical depression, across multiple independent cohorts, even after controlling for antidepressant use.</p>
+          <p>Fecal transplant studies in rodents have demonstrated that transferring microbiomes from depressed human donors into germ-free mice induces depressive behaviors in the animals — a finding that implies causality rather than mere correlation.</p>
+        </div>
+
+        <p>
+          For anxiety, similar patterns emerge. Germ-free mice — raised without any gut bacteria at all — exhibit an exaggerated stress response and heightened anxiety behaviors. Colonizing them with bacteria from calm mice reduces these behaviors; colonizing them with bacteria from anxious mice amplifies them. <strong>The microbiome appears to calibrate the baseline sensitivity of the stress response system.</strong>
+        </p>
+
+        <div class="research-divider"><span>Systemic Effects</span></div>
+
+        <h2>Beyond Mental Health: A Systemic Reach</h2>
+
+        <p>
+          If gut health influenced only mood, the implications would be significant enough. But the reach of the microbiome appears to extend across virtually every major system in the body. The following conditions have all shown robust associations with microbiome disruption in peer-reviewed literature:
+        </p>
+
+        <!-- ── Condition Comparison Strip ── -->
+        <div class="condition-strip">
+          <div class="condition-row">
+            <div class="condition-label-col"><span>Obesity</span></div>
+            <div class="condition-detail-col">Gut microbiota regulate energy harvest from food, fat storage signaling, and the production of hunger hormones. Distinct microbial profiles are consistently found in obese vs. lean individuals, and transplanting microbiomes between animals transfers metabolic phenotypes.</div>
+          </div>
+          <div class="condition-row">
+            <div class="condition-label-col"><span>Autoimmunity</span></div>
+            <div class="condition-detail-col">Conditions from Type 1 diabetes to multiple sclerosis show altered gut microbiomes at onset. The gut trains the immune system to distinguish self from non-self — a calibration that depends heavily on early microbial colonization.</div>
+          </div>
+          <div class="condition-row">
+            <div class="condition-label-col"><span>Parkinson's</span></div>
+            <div class="condition-detail-col">Up to 80% of Parkinson's patients experience gastrointestinal symptoms years before motor symptoms appear. The misfolded alpha-synuclein proteins central to Parkinson's pathology may originate in the gut and travel to the brain via the vagus nerve.</div>
+          </div>
+          <div class="condition-row">
+            <div class="condition-label-col"><span>Cardiovascular</span></div>
+            <div class="condition-detail-col">Gut bacteria metabolize dietary nutrients like choline and carnitine into TMAO — a compound that promotes arterial plaque formation. Microbiome profiles can predict cardiovascular risk independently of traditional markers like cholesterol.</div>
+          </div>
+          <div class="condition-row">
+            <div class="condition-label-col"><span>Allergies</span></div>
+            <div class="condition-detail-col">The dramatic rise in allergic and atopic conditions in industrialized countries closely mirrors the decline in microbial diversity caused by antibiotic overuse, ultra-processed diets, and reduced early-life microbial exposure.</div>
+          </div>
+        </div>
+
+        <!-- ── Quote Strip ── -->
+        <div class="quote-strip">
+          <p>"We are beginning to understand that many chronic diseases are not brain diseases or heart diseases or gut diseases — they are <span style="color:var(--accent);">ecosystem diseases</span>."</p>
+        </div>
+
+        <h2>The Leaky Gut Mechanism</h2>
+
+        <p>
+          One of the most important mechanisms linking gut disruption to systemic disease is intestinal permeability — commonly called "leaky gut." In a healthy gut, the epithelial lining forms a tight barrier, allowing nutrients to pass while blocking pathogens and toxins. When this barrier is compromised, bacterial products including lipopolysaccharide (LPS) enter the bloodstream.
+        </p>
+
+        <!-- ── Mechanism Block ── -->
+        <div class="mechanism-block">
+          <div class="mb-label">⚠️ The Leaky Gut Cascade</div>
+          <p>When LPS — a component of bacterial cell walls — enters systemic circulation, the immune system mounts an inflammatory response. This <strong>low-grade chronic inflammation</strong> is now implicated in depression (via neuroinflammation), insulin resistance (via metabolic dysfunction), and cardiovascular disease (via endothelial damage). A disrupted gut microbiome degrades the mucus layer that protects the epithelial barrier, creating a self-reinforcing cycle of permeability and inflammation.</p>
+        </div>
+
+        <h2>What Disrupts the Microbiome?</h2>
+
+        <p>
+          The microbiome is remarkably sensitive to modern lifestyle factors. Understanding the major disruptors is the first step toward protecting this ecosystem. The evidence is clearest around the following:
+        </p>
+
+        <p>
+          <strong>Ultra-processed foods</strong> are the most significant modern threat. They are low in the dietary fiber that gut bacteria ferment to produce beneficial short-chain fatty acids, and high in emulsifiers and preservatives that directly damage the gut lining and alter microbial composition. Populations consuming primarily ultra-processed diets show dramatically lower microbial diversity than those eating traditional, whole-food diets.
+        </p>
+
+        <p>
+          <strong>Antibiotics</strong> are powerful and sometimes essential medicines that indiscriminately kill beneficial bacteria alongside pathogens. A single course can reduce microbiome diversity by 25–50%, and in some individuals, recovery to baseline takes months or never fully occurs. The overuse of antibiotics in medicine and agriculture represents the most consequential single intervention affecting the microbiomes of modern populations.
+        </p>
+
+        <p>
+          <strong>Chronic stress</strong> directly alters gut motility, reduces protective mucus secretion, and changes the composition of the microbiome — which in turn amplifies the stress response, creating a feedback loop that both clinicians and researchers are increasingly recognizing as a key mechanism in treatment-resistant anxiety and depression.
+        </p>
+
+        <p>
+          <strong>Sleep deprivation</strong> disrupts the gut's own circadian rhythms. The microbiome has daily oscillation patterns tied to the host's sleep-wake cycle, and irregular sleep is consistently associated with reduced diversity and shifts in composition toward pro-inflammatory species. It is another bidirectional relationship: poor sleep harms the gut, and a disrupted gut makes sleep worse.
+        </p>
+
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a href="index.html" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+            <div class="page-dot"></div>
+          </div>
+          <a href="page-3.html" class="btn-primary">
+            Continue to Page 3
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Second Brain</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">What the Research Shows</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">How to Nourish Your Gut</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div class="grid sm:grid-cols-3 gap-5">
+      <article class="article-card">
+        <a href="../../articles/the-science-of-sleep/index.html" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=400&q=70" alt="Sleep" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge" style="background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Science</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/the-science-of-sleep/index.html" style="text-decoration:none; color:inherit;">The Science of Sleep</a></h3>
+          <div class="card-meta"><span>10 min read</span></div>
+        </div>
+      </article>
+      <article class="article-card">
+        <a href="../../articles/mental-health-technology/index.html" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=400&q=70" alt="Mental Health" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge" style="background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Health</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/mental-health-technology/index.html" style="text-decoration:none; color:inherit;">Mental Health & Technology</a></h3>
+          <div class="card-meta"><span>8 min read</span></div>
+        </div>
+      </article>
+      <article class="article-card">
+        <a href="../../articles/memahami-kecerdasan-emosional/index.html" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=70" alt="Emotional Intelligence" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge" style="background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Health</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/memahami-kecerdasan-emosional/index.html" style="text-decoration:none; color:inherit;">Memahami Kecerdasan Emosional</a></h3>
+          <div class="card-meta"><span>7 min read</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

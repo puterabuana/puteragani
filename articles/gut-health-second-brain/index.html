@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>Gut Health: Why Your Second Brain May Be Running Your Life — Putera Gani</title>
+  <meta name="description" content="The gut-brain axis is rewriting neuroscience, psychiatry, and how we think about mood, immunity, and even personality itself." />
+  <meta name="author" content="Putera Gani" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="article" />
+  <meta property="og:url"         content="https://puteragani.com/articles/gut-health-second-brain/" />
+  <meta property="og:title"       content="Gut Health: Why Your Second Brain May Be Running Your Life" />
+  <meta property="og:description" content="Inside the gut-brain axis — the 100 trillion microbes quietly shaping your mind, mood, and immunity." />
+  <meta property="og:image"       content="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&q=80" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } }
+    }
+  </script>
+
+  <style>
+    /* ── Gut Health Article — Page 1 Unique CSS Components ── */
+
+    /* Microbiome Insight Panel */
+    .microbiome-panel {
+      background: linear-gradient(135deg, rgba(200,151,58,0.06) 0%, rgba(200,151,58,0.02) 100%);
+      border: 1px solid rgba(200,151,58,0.28);
+      border-left: 3px solid var(--accent, #c8973a);
+      border-radius: 12px;
+      padding: 1rem 1rem;
+      margin: 1.75rem 0;
+    }
+    @media (min-width: 640px) {
+      .microbiome-panel { padding: 1.25rem 1.5rem; }
+    }
+    .microbiome-panel .mp-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .microbiome-panel p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Dark Science Block */
+    .science-block {
+      background: var(--ink, #0f0f0f);
+      border-radius: 14px;
+      padding: 1.25rem 1.125rem;
+      margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 640px) {
+      .science-block { padding: 1.5rem 1.75rem; }
+    }
+    .science-block::after {
+      content: '';
+      position: absolute;
+      bottom: -30px; left: -30px;
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      background: rgba(200,151,58,0.07);
+    }
+    .science-block .sb-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .science-block p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+    }
+    .science-block strong { color: #fff !important; }
+
+    /* Bacteria Fact Grid */
+    .bacteria-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      background: var(--rule, #e8e4de);
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 2.25rem 0;
+    }
+    @media (min-width: 480px) {
+      .bacteria-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .bacteria-cell {
+      background: var(--paper, #fafaf8);
+      padding: 1rem 0.875rem;
+      text-align: center;
+    }
+    .bacteria-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ink, #0f0f0f);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    @media (min-width: 480px) {
+      .bacteria-num { font-size: 1.75rem; }
+    }
+    .bacteria-num span { color: var(--accent, #c8973a); }
+    .bacteria-label {
+      font-size: 0.7rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.4;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.03em;
+    }
+
+    /* Axis Divider */
+    .axis-divider {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+    .axis-divider::before, .axis-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule, #e8e4de);
+    }
+    .axis-divider span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      white-space: nowrap;
+    }
+
+    /* Editorial Pull Quote */
+    .editorial-pull {
+      border-top: 2px solid var(--ink, #0f0f0f);
+      border-bottom: 2px solid var(--ink, #0f0f0f);
+      padding: 1.25rem 0;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    .editorial-pull p {
+      margin: 0 !important;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 4vw, 1.375rem);
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: -0.015em;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Numbered Pathway Steps */
+    .pathway-list {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      padding: 1rem 1rem;
+      margin: 1.75rem 0;
+      background: var(--paper, #fafaf8);
+    }
+    @media (min-width: 640px) {
+      .pathway-list { padding: 1.25rem 1.5rem; }
+    }
+    .pathway-list-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted, #6b6860);
+      margin-bottom: 0.875rem;
+      font-family: 'DM Mono', monospace;
+    }
+    .pathway-step {
+      display: flex;
+      gap: 0.875rem;
+      align-items: flex-start;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    @media (min-width: 640px) {
+      .pathway-step { gap: 1.125rem; }
+    }
+    .pathway-step:last-child { border-bottom: none; }
+    .pathway-num {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: rgba(200,151,58,0.08);
+      border: 1px solid rgba(200,151,58,0.22);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent, #c8973a);
+      margin-top: 2px;
+    }
+    .pathway-content h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.3rem 0;
+      letter-spacing: -0.01em;
+    }
+    @media (min-width: 640px) {
+      .pathway-content h4 { font-size: 0.9375rem; }
+    }
+    .pathway-content p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.65;
+    }
+    @media (min-width: 640px) {
+      .pathway-content p { font-size: 0.875rem; }
+    }
+
+    /* Article body inline bold */
+    .article-body p strong {
+      color: var(--ink, #0f0f0f);
+      font-weight: 650;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- ═══════════════════════════════════════════════════
+     NAVBAR
+     ═══════════════════════════════════════════════════ -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE HEADER
+     ═══════════════════════════════════════════════════ -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+
+  <!-- Back Link + Category -->
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition: color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge" style="background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Health</span>
+  </div>
+
+  <!-- Title -->
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    Gut Health: Why Your Second Brain May Be Running Your Life
+  </h1>
+
+  <!-- Meta -->
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 10, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>9 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <!-- Page Indicator -->
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 1 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     HERO IMAGE
+     ═══════════════════════════════════════════════════ -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1200&q=80"
+         alt="Gut health — colorful vegetables and whole foods"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Gut-healthy foods
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE CONTENT — PAGE 1
+     ═══════════════════════════════════════════════════ -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <!-- Article Body -->
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <!-- ── Opening Hook ── -->
+        <p>
+          There is a system inside your body that contains <strong>more neurons than your spinal cord</strong>, produces 95% of the body's serotonin, and communicates directly with your brain via a dedicated neural highway. It influences your mood, your immune defenses, your risk of depression, and possibly even your personality. And until recently, science barely knew it existed as an independent system.
+        </p>
+
+        <p>
+          It is your gut. And the emerging science surrounding it is quietly <strong>rewriting some of medicine's most confident assumptions.</strong>
+        </p>
+
+        <!-- ── Microbiome Panel ── -->
+        <div class="microbiome-panel">
+          <div class="mp-label">🔬 The Core Insight</div>
+          <p>The gut is not a passive digestive tube. It is an active, intelligent ecosystem — home to <strong>100 trillion microorganisms</strong> that collectively outweigh your brain, produce neurochemicals your mood depends on, and communicate bidirectionally with your central nervous system via the vagus nerve. Disrupting this ecosystem has consequences that reach far beyond digestion.</p>
+        </div>
+
+        <h2>What Is the Gut-Brain Axis?</h2>
+
+        <p>
+          The gut-brain axis is the name researchers give to the <strong>bidirectional communication network</strong> linking the enteric nervous system (the nervous system embedded in your gut wall) with the central nervous system (your brain and spinal cord). It operates through multiple channels: neural pathways, hormonal signals, immune messengers, and the metabolites produced by gut bacteria.
+        </p>
+
+        <p>
+          The enteric nervous system contains an estimated 100 to 500 million neurons — a number that prompted early neuroscientists to nickname it the "second brain." Unlike most organs, the gut can operate independently of the brain, regulating digestion even when the vagus nerve is severed. <strong>But its connection to the brain is constant, complex, and consequential in ways researchers are only beginning to map.</strong>
+        </p>
+
+        <!-- ── Bacteria Fact Grid ── -->
+        <div class="bacteria-grid">
+          <div class="bacteria-cell">
+            <div class="bacteria-num">100<span>T</span></div>
+            <div class="bacteria-label">Microbial cells living in your gut — outnumbering human cells</div>
+          </div>
+          <div class="bacteria-cell">
+            <div class="bacteria-num"><span>~</span>95<span>%</span></div>
+            <div class="bacteria-label">Of the body's serotonin produced in the gut, not the brain</div>
+          </div>
+          <div class="bacteria-cell">
+            <div class="bacteria-num">1,000<span>+</span></div>
+            <div class="bacteria-label">Bacterial species identified in the human gut microbiome</div>
+          </div>
+        </div>
+
+        <div class="axis-divider"><span>The Microbiome</span></div>
+
+        <p>
+          At the center of the gut-brain axis is the microbiome — the vast community of bacteria, fungi, viruses, and other microorganisms that inhabit your digestive tract. This ecosystem is not static. It shifts with every meal you eat, every antibiotic you take, every night of poor sleep, and every period of chronic stress. <strong>And its composition, researchers now believe, influences virtually every system in the body.</strong>
+        </p>
+
+        <p>
+          The diversity of the microbiome appears to matter enormously. Populations with rich, diverse gut ecosystems — typically associated with varied, plant-heavy diets and minimal processed food — show markedly different health profiles than those with low microbial diversity. The latter is associated with higher rates of obesity, inflammatory disease, and increasingly, depression and anxiety.
+        </p>
+
+        <!-- ── Editorial Pull Quote ── -->
+        <div class="editorial-pull">
+          <p>"The gut does not merely process what you eat. It processes — in a meaningful, neurochemical sense — <span style="color:var(--accent);">who you are.</span>"</p>
+        </div>
+
+        <h2>How the Gut Talks to the Brain</h2>
+
+        <p>
+          Communication along the gut-brain axis travels via several distinct pathways, each carrying a different type of signal. Understanding these pathways reveals why gut disturbances can produce symptoms that seem entirely unrelated to digestion.
+        </p>
+
+        <!-- ── Pathway Steps ── -->
+        <div class="pathway-list">
+          <div class="pathway-list-title">🧠 The 4 Main Gut-Brain Communication Channels</div>
+          <div class="pathway-step">
+            <div class="pathway-num">01</div>
+            <div class="pathway-content">
+              <h4>The Vagus Nerve</h4>
+              <p>The longest cranial nerve in the body, running from brainstem to gut. About 80% of its fibers carry signals upward — from gut to brain — making the gut one of the brain's most active information sources.</p>
+            </div>
+          </div>
+          <div class="pathway-step">
+            <div class="pathway-num">02</div>
+            <div class="pathway-content">
+              <h4>Neurotransmitter Production</h4>
+              <p>Gut bacteria produce and influence the production of serotonin, dopamine, GABA, and norepinephrine — the same neurotransmitters that psychiatric medications target. Disrupting microbial balance disrupts these signals.</p>
+            </div>
+          </div>
+          <div class="pathway-step">
+            <div class="pathway-num">03</div>
+            <div class="pathway-content">
+              <h4>The Immune System</h4>
+              <p>Roughly 70% of the immune system resides in the gut lining. Inflammation triggered by a disrupted microbiome activates immune pathways that cross the blood-brain barrier, driving neuroinflammation implicated in depression.</p>
+            </div>
+          </div>
+          <div class="pathway-step">
+            <div class="pathway-num">04</div>
+            <div class="pathway-content">
+              <h4>Short-Chain Fatty Acids</h4>
+              <p>When gut bacteria ferment dietary fiber, they produce SCFAs — metabolites that regulate inflammation, protect the gut lining, and cross into the bloodstream to directly influence brain function and neuroplasticity.</p>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          This multiplicity of channels explains a pattern clinicians have long noticed but struggled to systematize: patients with irritable bowel syndrome have dramatically elevated rates of anxiety and depression. Patients with clinical depression often experience gut symptoms first. The arrow of causality does not point in one direction — it points in both directions simultaneously, in an ongoing feedback loop that modern medicine is only beginning to interrupt therapeutically.
+        </p>
+
+        <!-- ── Science Block ── -->
+        <div class="science-block">
+          <div class="sb-label">💡 Research Direction</div>
+          <p>Scientists at institutions from the Salk Institute to University College Cork are now investigating <strong>psychobiotics</strong> — probiotic strains that demonstrably alter mental health outcomes. Early clinical trials show specific bacterial strains reducing cortisol levels, improving depression scores, and attenuating the anxiety response. The field is nascent, but the results are striking enough to have changed how serious researchers think about the future of psychiatry.</p>
+        </div>
+
+        <h2>Why This Matters Now</h2>
+
+        <p>
+          For most of medical history, the gut was treated as a support system — important for nutrition, but subordinate to the brain in every meaningful way. The gut-brain axis research upends this hierarchy. It suggests that <strong>a significant proportion of what we call mental illness may have a gut component</strong> — not as a metaphor, but as a literal, biochemical, treatable mechanism.
+        </p>
+
+        <p>
+          This does not mean psychiatric conditions are "just" gut problems. The brain's role remains central and the psychosocial dimensions of mental illness are real. But it raises urgent questions about whether we have been treating anxiety and depression with insufficient tools — targeting the brain pharmacologically while ignoring the vast, microbially rich system that feeds it signals all day long. <strong>On Page 2, we explore what the research actually shows about specific conditions — and what it means for how we eat, live, and eventually treat the mind.</strong>
+        </p>
+
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <div><!-- No previous on page 1 --></div>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot active"></div>
+            <div class="page-dot"></div>
+            <div class="page-dot"></div>
+          </div>
+          <a href="page-2.html" class="btn-primary">
+            Continue to Page 2
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sticky Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top: 80px;">
+        <!-- Article Info -->
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">The Second Brain</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">What the Research Shows</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">How to Nourish Your Gut</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Share -->
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     RELATED ARTICLES — dynamic from articles.json
+     ═══════════════════════════════════════════════════ -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="gut-health-second-brain"
+    >
+      <!-- Injected by related.js -->
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>

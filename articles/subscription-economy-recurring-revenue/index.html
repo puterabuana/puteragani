@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>The Subscription Economy: How Recurring Revenue Is Reshaping Business — Putera Gani</title>
+  <meta name="description" content="From Netflix to SaaS empires — how the shift from ownership to access is rewriting the rules of how companies make money and keep customers forever." />
+  <meta name="author" content="Putera Gani" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="article" />
+  <meta property="og:url"         content="https://puteragani.com/articles/subscription-economy-recurring-revenue/" />
+  <meta property="og:title"       content="The Subscription Economy: How Recurring Revenue Is Reshaping Business Forever" />
+  <meta property="og:description" content="From Netflix to SaaS empires — the shift from ownership to access is rewriting how companies make money." />
+  <meta property="og:image"       content="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } }
+    }
+  </script>
+
+  <style>
+    /* ── PAGE 1 UNIQUE COMPONENTS: subscription-economy ── */
+
+    /* Revenue Stream Ticker — animated top bar */
+    .rev-ticker {
+      background: var(--ink, #0f0f0f);
+      border-radius: 10px;
+      padding: 0.875rem 1.25rem;
+      margin: 1.75rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      overflow: hidden;
+    }
+    .rev-ticker-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 700;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .rev-ticker-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.625rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .rev-ticker-value em {
+      color: var(--accent, #c8973a);
+      font-style: normal;
+    }
+    .rev-ticker-desc {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+
+    /* Ownership vs Access comparison table */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+    .compare-header {
+      padding: 0.75rem 1rem;
+      text-align: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .compare-header.ownership { background: var(--paper-warm, #f5f0e8); color: var(--ink-muted, #6b6860); border-bottom: 1px solid var(--rule, #e8e4de); }
+    .compare-header.access { background: var(--ink, #0f0f0f); color: var(--accent, #c8973a); border-bottom: 1px solid #222; }
+    .compare-row-ownership {
+      padding: 0.6rem 1rem;
+      font-size: 0.8125rem;
+      color: var(--ink, #0f0f0f);
+      border-bottom: 1px solid var(--rule, #e8e4de);
+      background: var(--paper, #fafaf8);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .compare-row-access {
+      padding: 0.6rem 1rem;
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.8);
+      border-bottom: 1px solid #1a1a1a;
+      background: #111;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .compare-row-ownership:last-child, .compare-row-access:last-child { border-bottom: none; }
+    .compare-dot-old { width: 6px; height: 6px; border-radius: 50%; background: var(--ink-muted, #6b6860); flex-shrink: 0; }
+    .compare-dot-new { width: 6px; height: 6px; border-radius: 50%; background: var(--accent, #c8973a); flex-shrink: 0; }
+
+    /* Highlight box — unique class for p1 */
+    .sub-highlight {
+      background: linear-gradient(135deg, rgba(200,151,58,0.07) 0%, rgba(200,151,58,0.02) 100%);
+      border: 1px solid rgba(200,151,58,0.28);
+      border-left: 3px solid var(--accent, #c8973a);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin: 1.75rem 0;
+    }
+    .sub-highlight .sh-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.61rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+    }
+    .sub-highlight p { margin: 0 !important; font-size: 0.9375rem; line-height: 1.7; color: var(--ink, #0f0f0f); }
+
+    /* Timeline strip — horizontal phases */
+    .era-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--rule, #e8e4de);
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 2.25rem 0;
+    }
+    .era-cell {
+      background: var(--paper, #fafaf8);
+      padding: 1rem 0.875rem;
+      text-align: center;
+    }
+    .era-year {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--accent, #c8973a);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.3rem;
+    }
+    .era-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--ink, #0f0f0f);
+      margin-bottom: 0.3rem;
+    }
+    .era-desc {
+      font-size: 0.72rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.5;
+    }
+
+    /* Section divider — unique class p1 */
+    .sub-rule {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+    .sub-rule::before, .sub-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule, #e8e4de);
+    }
+    .sub-rule span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.61rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      white-space: nowrap;
+    }
+
+    /* Bold pullquote — p1 variant */
+    .sub-pullquote {
+      border-top: 2px solid var(--ink, #0f0f0f);
+      border-bottom: 2px solid var(--ink, #0f0f0f);
+      padding: 1.25rem 0;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    .sub-pullquote p {
+      margin: 0 !important;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 4vw, 1.35rem);
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: -0.015em;
+      color: var(--ink, #0f0f0f);
+    }
+    .sub-pullquote p em { color: var(--accent, #c8973a); font-style: normal; }
+
+    /* CTA block — p1 */
+    .sub-cta {
+      background: var(--ink, #0f0f0f);
+      border-radius: 14px;
+      padding: 1.25rem 1.25rem;
+      margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .sub-cta::before {
+      content: '';
+      position: absolute;
+      top: -50px; right: -50px;
+      width: 130px; height: 130px;
+      border-radius: 50%;
+      background: rgba(200,151,58,0.07);
+    }
+    .sub-cta .sc-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.61rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .sub-cta p { margin: 0 !important; font-size: 0.9375rem; color: rgba(255,255,255,0.8); line-height: 1.7; }
+    .sub-cta strong { color: #fff !important; }
+
+    .article-body p strong { color: var(--ink, #0f0f0f); font-weight: 650; }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- ═══════════════════════════════════════════════════
+     NAVBAR
+     ═══════════════════════════════════════════════════ -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE HEADER
+     ═══════════════════════════════════════════════════ -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+
+  <!-- Back Link + Category -->
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition: color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge">Business</span>
+  </div>
+
+  <!-- Title -->
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    The Subscription Economy: How Recurring Revenue Is Reshaping Business Forever
+  </h1>
+
+  <!-- Meta -->
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 10, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>9 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <!-- Page Indicator -->
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 1 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     HERO IMAGE
+     ═══════════════════════════════════════════════════ -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80"
+         alt="Subscription economy — digital payments and recurring revenue"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Business &amp; Commerce
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE CONTENT — PAGE 1
+     ═══════════════════════════════════════════════════ -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <!-- Article Body -->
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <!-- ── Opening Hook ── -->
+        <p>
+          Something profound has happened to the way businesses make money — and most people haven't fully noticed yet. <strong>The transaction is dying.</strong> In its place, a new economic architecture is rising: one built not on one-time sales, but on ongoing relationships, perpetual access, and the quiet monthly charge that barely registers until you add them all up.
+        </p>
+
+        <p>
+          You no longer buy music — you stream it. You no longer buy software — you license it. You no longer buy a car wash membership at the counter — you subscribe before you've even left the driveway. <strong>The subscription model has crossed from Silicon Valley into every corner of commerce,</strong> and it's changing the fundamental logic of how businesses are built, valued, and run.
+        </p>
+
+        <!-- ── Revenue Ticker: Big Number Callout ── -->
+        <div class="rev-ticker">
+          <div>
+            <div class="rev-ticker-label">📊 Market Size 2026</div>
+            <div class="rev-ticker-value"><em>$1.5</em> Trillion</div>
+            <div class="rev-ticker-desc">Projected global subscription economy revenue — a 437% increase from a decade ago.</div>
+          </div>
+        </div>
+
+        <!-- ── Highlight Box: Core Premise ── -->
+        <div class="sub-highlight">
+          <div class="sh-label">📌 The Fundamental Shift</div>
+          <p>The subscription model doesn't just change how companies collect money — it changes <strong>everything downstream:</strong> how they acquire customers, how they measure success, how they allocate engineering resources, and what relationship they have with the people who use their products. It is a business model that, once adopted fully, rewires the entire organization.</p>
+        </div>
+
+        <h2>From Ownership to Access: A Brief History</h2>
+
+        <p>
+          The subscription idea is not new. Newspapers have used it for centuries. Book-of-the-Month Club launched in 1926. But the digital revolution has made the model <strong>infinitely cheaper to administer and infinitely more scalable.</strong> What once required warehouse logistics and printed invoices can now run on a few lines of API code from Stripe or Recurly.
+        </p>
+
+        <!-- ── Era Strip: Historical Timeline ── -->
+        <div class="era-strip">
+          <div class="era-cell">
+            <div class="era-year">1920s–1990s</div>
+            <div class="era-name">Print Era</div>
+            <div class="era-desc">Newspapers, magazines, book clubs. Subscriptions were rare, logistically complex, and reserved for media.</div>
+          </div>
+          <div class="era-cell">
+            <div class="era-year">2000–2012</div>
+            <div class="era-name">SaaS Pioneer</div>
+            <div class="era-desc">Salesforce proves enterprise software can be rented. Netflix shifts from DVDs to streaming. The model escapes media.</div>
+          </div>
+          <div class="era-cell">
+            <div class="era-year">2013–Now</div>
+            <div class="era-name">Everything Economy</div>
+            <div class="era-desc">Razors, dog food, coffee, cars, gaming, fitness, news. Every category converts. No industry immune.</div>
+          </div>
+        </div>
+
+        <div class="sub-rule"><span>The Business Case</span></div>
+
+        <p>
+          Why have companies adopted the subscription model so aggressively? Because for a business, recurring revenue is <strong>almost infinitely preferable to transactional revenue.</strong> A company with $10 million in predictable annual recurring revenue (ARR) is valued far higher than a company generating $10 million in one-time product sales — even though the top-line numbers look identical.
+        </p>
+
+        <p>
+          Wall Street figured this out, and markets began rewarding subscription metrics accordingly. <strong>Churn rate, monthly recurring revenue (MRR), lifetime value (LTV), and net revenue retention</strong> became the metrics that defined a business's quality. Companies that couldn't demonstrate these metrics were at a structural disadvantage when raising capital or pursuing public offerings.
+        </p>
+
+        <!-- ── Compare Grid: Old vs New Model ── -->
+        <div class="compare-grid">
+          <div class="compare-header ownership">Traditional Sales</div>
+          <div class="compare-header access">Subscription Model</div>
+          <div class="compare-row-ownership"><span class="compare-dot-old"></span>Revenue is lumpy and unpredictable</div>
+          <div class="compare-row-access"><span class="compare-dot-new"></span>Revenue is smooth and forecastable</div>
+          <div class="compare-row-ownership"><span class="compare-dot-old"></span>Customer relationship ends at purchase</div>
+          <div class="compare-row-access"><span class="compare-dot-new"></span>Relationship is the product itself</div>
+          <div class="compare-row-ownership"><span class="compare-dot-old"></span>Growth requires new customers constantly</div>
+          <div class="compare-row-access"><span class="compare-dot-new"></span>Expansion revenue from existing customers</div>
+          <div class="compare-row-ownership"><span class="compare-dot-old"></span>Hard to detect dissatisfied customers</div>
+          <div class="compare-row-access"><span class="compare-dot-new"></span>Churn signals problems before they're fatal</div>
+        </div>
+
+        <!-- ── Pullquote ── -->
+        <div class="sub-pullquote">
+          <p>"A subscription business doesn't sell a product once. It earns the right to keep selling it — <em>every single month.</em> That changes what you optimize for, how you think about customers, and ultimately what kind of company you build."</p>
+        </div>
+
+        <h2>The Companies That Proved It</h2>
+
+        <p>
+          The proof of concept came fast and came loud. Netflix grew from a DVD-by-mail curiosity to a $150 billion streaming empire by betting everything on recurring revenue. Spotify convinced hundreds of millions of people to pay monthly for music that had, for a decade, been widely pirated for free. <strong>Salesforce built the world's most valuable software company</strong> without shipping a single CD-ROM.
+        </p>
+
+        <p>
+          But perhaps the most instructive example is Adobe. In 2012, Adobe announced it would stop selling boxed software — no more Photoshop discs — and move entirely to Adobe Creative Cloud subscriptions. <strong>The stock initially dropped. Customers were furious.</strong> By 2018, Adobe's market capitalization had grown fivefold. Today it's used as a case study in every business school in the world.
+        </p>
+
+        <!-- ── Highlight Box: The Adobe Lesson ── -->
+        <div class="sub-highlight">
+          <div class="sh-label">📈 Case Study</div>
+          <p>Adobe's transition to subscription is textbook. In 2012, they generated $4.4B in revenue with <strong>volatile, product-cycle-dependent spikes.</strong> By 2023, they generated over $19B in revenue with 93% of it recurring. The same product, the same customers — a completely different financial architecture, and a completely different relationship with the market.</p>
+        </div>
+
+        <h2>Not Just Software: The Physical World Converts</h2>
+
+        <p>
+          What makes the current era remarkable is that subscriptions have <strong>escaped the digital world entirely.</strong> Dollar Shave Club disrupted Gillette not by making better razors, but by building a better subscription. Chewy turned pet food into a recurring delivery business with $11 billion in annual revenue. BMW began charging monthly to unlock heated seats on cars customers already owned.
+        </p>
+
+        <p>
+          This last example — BMW's heated-seat subscription — caused public outrage when it was announced, and it was eventually walked back in some markets. But it reveals something important: <strong>manufacturers of physical products now see subscriptions as a revenue layer they can apply to anything.</strong> The car is no longer the product. The ongoing relationship with the car is the product. That mental model is spreading to washing machines, gym equipment, power tools, and medical devices.
+        </p>
+
+        <!-- ── CTA Block ── -->
+        <div class="sub-cta">
+          <div class="sc-label">💡 What's Next</div>
+          <p>The subscription model's rise hasn't been without friction. There is a <strong>growing consumer backlash, a regulatory reckoning, and a fundamental question</strong> about whether unlimited subscriptions are sustainable — for customers and for the businesses themselves. We dig into the economics of churn, the psychology of subscriber fatigue, and what smart companies are doing differently. <strong>That's all on Page 2.</strong></p>
+        </div>
+
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <div><!-- No previous on page 1 --></div>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot active"></div>
+            <div class="page-dot"></div>
+            <div class="page-dot"></div>
+          </div>
+          <a href="page-2.html" class="btn-primary">
+            Continue to Page 2
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sticky Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top: 80px;">
+        <!-- Article Pages Nav -->
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">The Rise of Subscriptions</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Churn Problem</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Future of the Model</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Share -->
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     RELATED ARTICLES
+     ═══════════════════════════════════════════════════ -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="subscription-economy-recurring-revenue"
+    >
+      <!-- Injected by related.js -->
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>

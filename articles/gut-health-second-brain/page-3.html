@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gut Health — Page 3: How to Nourish Your Gut — Putera Gani</title>
+  <meta name="description" content="Practical, evidence-based strategies to rebuild and sustain a diverse, healthy gut microbiome — starting with what you eat." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>tailwind.config = { theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } } }</script>
+
+  <style>
+    /* ── Page 3 Unique CSS Components ── */
+
+    /* Fermented Food Showcase */
+    .food-showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 1.75rem 0;
+    }
+    @media (min-width: 480px) {
+      .food-showcase { grid-template-columns: repeat(4, 1fr); }
+    }
+    .food-tile {
+      background: var(--paper, #fafaf8);
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 10px;
+      padding: 0.875rem 0.625rem;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+    .food-tile:hover {
+      border-color: rgba(200,151,58,0.4);
+    }
+    .food-tile .ft-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+    .food-tile .ft-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .food-tile .ft-desc {
+      font-size: 0.72rem;
+      color: var(--ink-muted, #6b6860);
+      margin-top: 0.25rem;
+      line-height: 1.4;
+    }
+
+    /* Practical Action Block */
+    .action-block {
+      background: var(--ink, #0f0f0f);
+      border-radius: 14px;
+      padding: 1.25rem 1.125rem;
+      margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 640px) {
+      .action-block { padding: 1.5rem 1.75rem; }
+    }
+    .action-block::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: rgba(200,151,58,0.08);
+    }
+    .action-block .ab-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .action-block p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+    }
+    .action-block strong { color: #fff !important; }
+
+    /* Habit Priority Ladder */
+    .habit-ladder {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      padding: 1rem 1rem;
+      margin: 1.75rem 0;
+      background: var(--paper, #fafaf8);
+    }
+    @media (min-width: 640px) {
+      .habit-ladder { padding: 1.25rem 1.5rem; }
+    }
+    .habit-ladder-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted, #6b6860);
+      margin-bottom: 0.875rem;
+      font-family: 'DM Mono', monospace;
+    }
+    .habit-rung {
+      display: flex;
+      gap: 0.875rem;
+      align-items: flex-start;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    @media (min-width: 640px) {
+      .habit-rung { gap: 1.125rem; }
+    }
+    .habit-rung:last-child { border-bottom: none; }
+    .habit-icon {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: rgba(200,151,58,0.08);
+      border: 1px solid rgba(200,151,58,0.22);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      margin-top: 2px;
+    }
+    .habit-text h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.3rem 0;
+      letter-spacing: -0.01em;
+    }
+    @media (min-width: 640px) {
+      .habit-text h4 { font-size: 0.9375rem; }
+    }
+    .habit-text p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.65;
+    }
+
+    /* Forward Horizon Banner */
+    .horizon-banner {
+      background: linear-gradient(135deg, rgba(200,151,58,0.06) 0%, rgba(200,151,58,0.02) 100%);
+      border: 1px solid rgba(200,151,58,0.28);
+      border-left: 3px solid var(--accent, #c8973a);
+      border-radius: 12px;
+      padding: 1rem 1rem;
+      margin: 1.75rem 0;
+    }
+    @media (min-width: 640px) {
+      .horizon-banner { padding: 1.25rem 1.5rem; }
+    }
+    .horizon-banner .hb-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .horizon-banner p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Closing Divider */
+    .closing-rule {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+    .closing-rule::before, .closing-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule, #e8e4de);
+    }
+    .closing-rule span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      white-space: nowrap;
+    }
+
+    .article-body p strong { color: var(--ink, #0f0f0f); font-weight: 650; }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge" style="background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Health</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    Gut Health — How to Actually Nourish Your Microbiome
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 10, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>3 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 3 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1200&q=80"
+         alt="Colorful plant-based foods for gut health"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Plant-rich nutrition
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT — PAGE 3 -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          The gut microbiome can be damaged quickly — a single course of antibiotics, a week of poor diet, or an acute stress response can alter it measurably. The more important news is that it is also remarkably <strong>responsive to positive change.</strong> Unlike genetic risk factors for disease, the microbiome is modifiable. And the interventions with the strongest evidence are not supplements or expensive protocols — they are the foundational practices that humans evolved with and that modern life has systematically dismantled.
+        </p>
+
+        <h2>Start With Food: The Fiber Foundation</h2>
+
+        <p>
+          Dietary fiber is the single most important lever for microbiome health. Gut bacteria don't feed on the proteins and fats that your body absorbs — they feed on the complex carbohydrates and plant fibers that arrive undigested in the colon. <strong>A diet low in fiber is, from the microbiome's perspective, a starvation diet.</strong>
+        </p>
+
+        <p>
+          The variety of fiber matters as much as the quantity. Different bacterial species thrive on different types of fiber — resistant starch, inulin, pectin, cellulose — so consuming a wide range of plant foods feeds a wide range of microbial species. A landmark Stanford study found that participants who ate 30 or more different plant species per week had significantly more diverse microbiomes than those eating fewer than 10. Thirty plants sounds intimidating until you count herbs, spices, nuts, and seeds — a handful of mixed nuts is already four or five species.
+        </p>
+
+        <h2>Fermented Foods: The Living Delivery System</h2>
+
+        <p>
+          Fermented foods deliver live microorganisms directly to the gut, alongside their metabolic byproducts — organic acids, bioactive peptides, and vitamins produced during fermentation. The same Stanford research group found that a high-fermented-food diet increased microbiome diversity and reduced markers of inflammation more effectively than a high-fiber diet alone. The two together were more powerful still.
+        </p>
+
+        <!-- ── Food Showcase Tiles ── -->
+        <div class="food-showcase">
+          <div class="food-tile">
+            <span class="ft-icon">🥛</span>
+            <div class="ft-name">Kefir</div>
+            <div class="ft-desc">30+ microbial strains; more potent than most probiotics</div>
+          </div>
+          <div class="food-tile">
+            <span class="ft-icon">🥬</span>
+            <div class="ft-name">Kimchi</div>
+            <div class="ft-desc">Rich in Lactobacillus; anti-inflammatory compounds</div>
+          </div>
+          <div class="food-tile">
+            <span class="ft-icon">🫙</span>
+            <div class="ft-name">Sauerkraut</div>
+            <div class="ft-desc">Natural fermentation; raw versions only have live cultures</div>
+          </div>
+          <div class="food-tile">
+            <span class="ft-icon">🍵</span>
+            <div class="ft-name">Kombucha</div>
+            <div class="ft-desc">SCOBY-fermented; organic acids support gut lining integrity</div>
+          </div>
+        </div>
+
+        <p>
+          The key distinction is that commercially processed versions of these foods are often pasteurized, which kills the live cultures that provide the benefit. Raw, traditionally fermented kimchi, unpasteurized sauerkraut, and live-culture yogurt are categorically different products from their shelf-stable counterparts. <strong>Reading labels matters: look for "live and active cultures" and short, recognizable ingredient lists.</strong>
+        </p>
+
+        <div class="closing-rule"><span>Lifestyle Pillars</span></div>
+
+        <h2>Beyond Diet: The Full Ecosystem</h2>
+
+        <p>
+          Diet is the most powerful lever, but the microbiome is an ecosystem shaped by the full environment it inhabits. Three non-dietary factors have particularly strong evidence bases:
+        </p>
+
+        <!-- ── Habit Ladder ── -->
+        <div class="habit-ladder">
+          <div class="habit-ladder-title">🌿 Evidence-Backed Microbiome Habits</div>
+          <div class="habit-rung">
+            <div class="habit-icon">😴</div>
+            <div class="habit-text">
+              <h4>Protect Sleep Consistency</h4>
+              <p>The microbiome oscillates on a 24-hour cycle. Maintaining a consistent sleep-wake schedule — even on weekends — preserves the circadian rhythms that healthy microbial communities depend on. Irregular sleep is directly associated with reduced diversity within days.</p>
+            </div>
+          </div>
+          <div class="habit-rung">
+            <div class="habit-icon">🏃</div>
+            <div class="habit-text">
+              <h4>Move Regularly</h4>
+              <p>Exercise increases microbial diversity independently of diet. Athletes consistently show richer, more resilient microbiomes. Even moderate aerobic exercise — 30 minutes, three times a week — produces measurable microbiome improvements within six weeks.</p>
+            </div>
+          </div>
+          <div class="habit-rung">
+            <div class="habit-icon">🧘</div>
+            <div class="habit-text">
+              <h4>Manage Chronic Stress</h4>
+              <p>Chronic psychological stress reduces beneficial bacteria and increases pro-inflammatory species through cortisol's direct effects on gut motility and immune function. Vagus nerve stimulation — through slow breathing, cold exposure, or singing — has measurable effects on gut-brain axis signaling.</p>
+            </div>
+          </div>
+          <div class="habit-rung">
+            <div class="habit-icon">🌱</div>
+            <div class="habit-text">
+              <h4>Spend Time in Nature</h4>
+              <p>Environmental microbial exposure — soil, plants, fresh air — broadens the microbial inputs your immune system trains against. Urban populations show lower diversity than rural ones, and even gardening or walking through parks has been associated with beneficial microbiome shifts.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>On Probiotics: What the Evidence Actually Says</h2>
+
+        <p>
+          The probiotic supplement industry generates billions of dollars annually and is significantly ahead of the science. Most commercially available probiotics contain only one or two bacterial strains, often at doses that struggle to survive stomach acid intact, and with little evidence they colonize the gut in a meaningful way. <strong>For healthy people with intact microbiomes, probiotics appear to produce negligible effects.</strong>
+        </p>
+
+        <p>
+          The picture is different for specific clinical contexts. Evidence supports probiotic use for antibiotic-associated diarrhea, certain gastrointestinal conditions, and some forms of IBS. Specific strains — <em>Lactobacillus rhamnosus GG</em> and <em>Saccharomyces boulardii</em> in particular — have the most robust evidence bases. But the general supplement aisle is, largely, a product of marketing rather than medicine.
+        </p>
+
+        <!-- ── Action Block ── -->
+        <div class="action-block">
+          <div class="ab-label">💡 Where to Start</div>
+          <p>The most impactful change most people can make is also the simplest: <strong>add 5–10 more plant species to your weekly diet.</strong> Not eliminate anything — just add variety. A handful of seeds on your salad, a different grain, a new vegetable each shop. Diversity begets diversity. The bacteria you feed will proliferate; the ones you starve will decline. Over weeks, the composition shifts. Over months, the effects compound. <strong>No supplement comes close to what a varied, plant-rich diet does consistently over time.</strong></p>
+        </div>
+
+        <h2>The Horizon: What's Coming</h2>
+
+        <!-- ── Horizon Banner ── -->
+        <div class="horizon-banner">
+          <div class="hb-label">🔭 Research Frontier</div>
+          <p>The next decade of microbiome science will likely produce personalized dietary recommendations based on individual microbial profiles, targeted psychobiotic interventions for mental health conditions, and possibly fecal microbiota transplantation as a treatment for conditions as diverse as Parkinson's disease and treatment-resistant depression. Microbiome testing is already available directly to consumers — though interpretation remains more art than science. The field is moving fast, and the clinical applications are not far behind.</p>
+        </div>
+
+        <p>
+          We are at the beginning of understanding the full significance of the ecosystem we carry inside us. What is already clear is this: the gut is not a support system. It is a central player in human health — neurological, immunological, metabolic, and psychological. Treating it as an afterthought, as modern dietary and medical culture so often has, carries costs that are only beginning to be fully counted.
+        </p>
+
+        <p>
+          The good news is that the gut is forgiving. It responds to care. Feed it well, rest it sufficiently, expose it to diversity, and protect it from chronic assault — and it will do something remarkable in return: help make you well.
+        </p>
+
+      </div>
+
+      <!-- Final Pagination -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a href="page-2.html" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+          </div>
+          <a href="../../index.html" class="btn-accent">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Back to Homepage
+          </a>
+        </div>
+      </div>
+
+      <!-- Completion Banner -->
+      <div class="mt-10 rounded-2xl p-7 text-center" style="background: linear-gradient(135deg, #1a1510 0%, #0f0f0f 100%); border: 1px solid #2a2520;">
+        <div class="text-accent font-mono text-xs font-medium mb-3 tracking-widest uppercase">Article Complete</div>
+        <h3 class="font-display text-white text-xl font-semibold mb-2">Thanks for reading</h3>
+        <p style="color:rgba(255,255,255,0.5); font-size:0.875rem; margin-bottom:1.5rem;">
+          Enjoyed this piece? Subscribe for one curated story delivered to your inbox each week.
+        </p>
+        <div class="flex gap-3 max-w-sm mx-auto">
+          <input type="email" placeholder="your@email.com"
+                 style="flex:1; padding:0.6rem 1rem; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:8px; color:#fff; font-size:0.8125rem; outline:none; font-family:'DM Sans',sans-serif;"
+                 aria-label="Email address" />
+          <button class="btn-accent" style="white-space:nowrap;">Subscribe</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Second Brain</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">What the Research Shows</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">How to Nourish Your Gut</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">More to Read</div>
+    <div class="grid sm:grid-cols-3 gap-5">
+      <article class="article-card">
+        <a href="../../articles/the-science-of-sleep/index.html" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=400&q=70" alt="Sleep" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge" style="background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Science</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/the-science-of-sleep/index.html" style="text-decoration:none; color:inherit;">The Science of Sleep</a></h3>
+          <div class="card-meta"><span>10 min read</span></div>
+        </div>
+      </article>
+      <article class="article-card">
+        <a href="../../articles/mental-health-technology/index.html" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=400&q=70" alt="Mental Health" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge" style="background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Health</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/mental-health-technology/index.html" style="text-decoration:none; color:inherit;">Mental Health & Technology</a></h3>
+          <div class="card-meta"><span>8 min read</span></div>
+        </div>
+      </article>
+      <article class="article-card">
+        <a href="../../articles/how-cities-shape-the-human-mind/index.html" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=400&q=70" alt="Cities" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge" style="background:#fdf4ff; color:#9333ea; border-color:rgba(147,51,234,0.2);">Culture</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/how-cities-shape-the-human-mind/index.html" style="text-decoration:none; color:inherit;">How Cities Shape the Human Mind</a></h3>
+          <div class="card-meta"><span>7 min read</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

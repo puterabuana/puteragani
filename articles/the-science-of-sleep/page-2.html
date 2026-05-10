@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Science of Sleep — Page 2: Sleep Debt, Dreams & Circadian Rhythm — Putera Gani</title>
+  <meta name="description" content="What sleep deprivation actually does to your brain, the neuroscience of dreaming, and why your circadian clock is more powerful than willpower." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>tailwind.config = { theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } } }</script>
+
+  <style>
+    /* ── Sleep Article Page 2 — Unique CSS Components ── */
+
+    /* Two-column comparison block */
+    .contrast-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin: 2rem 0;
+    }
+    @media (min-width: 540px) {
+      .contrast-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .contrast-card {
+      border-radius: 12px;
+      padding: 1rem 1.125rem;
+      border: 1px solid var(--rule, #e8e4de);
+    }
+    .contrast-card.negative {
+      background: rgba(239, 68, 68, 0.04);
+      border-color: rgba(239, 68, 68, 0.18);
+    }
+    .contrast-card.positive {
+      background: rgba(200, 151, 58, 0.05);
+      border-color: rgba(200, 151, 58, 0.22);
+    }
+    .contrast-card-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .contrast-card.negative .contrast-card-label { color: #dc2626; }
+    .contrast-card.positive .contrast-card-label { color: var(--accent, #c8973a); }
+    .contrast-card ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .contrast-card ul li {
+      font-size: 0.82rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.65;
+      padding: 0.25rem 0;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .contrast-card ul li:last-child { border-bottom: none; }
+    .contrast-card ul li::before {
+      content: '—';
+      flex-shrink: 0;
+      font-size: 0.7rem;
+      margin-top: 0.15rem;
+    }
+    .contrast-card.negative ul li::before { color: #dc2626; }
+    .contrast-card.positive ul li::before { color: var(--accent, #c8973a); }
+
+    /* Circadian arc visual box */
+    .circadian-block {
+      background: var(--ink, #0f0f0f);
+      border-radius: 16px;
+      padding: 1.25rem 1.125rem;
+      margin: 2rem 0;
+    }
+    @media (min-width: 640px) {
+      .circadian-block { padding: 1.5rem 1.75rem; }
+    }
+    .circadian-block .cb-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .circadian-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.875rem;
+      padding: 0.625rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .circadian-step:last-child { border-bottom: none; }
+    .circadian-time {
+      flex-shrink: 0;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      width: 52px;
+      padding-top: 2px;
+    }
+    .circadian-step p {
+      margin: 0 !important;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+    }
+    .circadian-step strong { color: rgba(255,255,255,0.95) !important; }
+
+    /* Bordered key-fact callout */
+    .keyfact-callout {
+      border-left: 4px solid var(--accent, #c8973a);
+      padding: 0.875rem 1.125rem;
+      margin: 1.75rem 0;
+      background: rgba(200,151,58,0.04);
+      border-radius: 0 10px 10px 0;
+    }
+    .keyfact-callout .kf-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .keyfact-callout p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Section divider */
+    .dream-rule {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+    .dream-rule::before, .dream-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule, #e8e4de);
+    }
+    .dream-rule span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      white-space: nowrap;
+    }
+
+    .article-body p strong { color: var(--ink, #0f0f0f); font-weight: 650; }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge">Science</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    The Science of Sleep — Sleep Debt, Dreams & Your Circadian Clock
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 10, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>4 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 2 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=1200&q=80"
+         alt="Sleep deprivation and circadian rhythm"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Neuroscience concept
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT — PAGE 2 -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          Understanding what sleep does is only half the picture. The other half — and in many ways the more practically urgent half — is understanding what happens when you don't get enough of it. The science here is unambiguous, and it is considerably more alarming than most people realize.
+        </p>
+
+        <h2>The Reality of Sleep Debt</h2>
+
+        <p>
+          Modern culture has a complicated relationship with sleep deprivation. Chronic sleep restriction has been normalized, even glamorized — the "I'll sleep when I'm dead" mentality frames tiredness as a badge of productive ambition. The neuroscience is blunt about how wrong this is: <strong>sleep debt is real, it accumulates, and its effects are far more severe than subjective tiredness suggests.</strong>
+        </p>
+
+        <p>
+          The most striking research finding in this area comes from the laboratory of sleep scientist David Dinges at the University of Pennsylvania. His team restricted subjects to six hours of sleep per night — a schedule considered perfectly normal by many professionals — for two weeks. Subjects were then given a battery of cognitive performance tests. The results were striking: their performance declined continuously across the study period, reaching the equivalent of <strong>two full nights of total sleep deprivation by the end.</strong>
+        </p>
+
+        <p>
+          The more disturbing finding: <strong>subjects did not accurately perceive their own decline.</strong> By day ten, they rated themselves as only slightly sleepy — even as their objective performance had cratered. Sleep loss corrupts the very metacognitive faculty you would rely on to detect it.
+        </p>
+
+        <!-- ── Contrast Grid: Sleep-Deprived vs Well-Rested ── -->
+        <div class="contrast-grid">
+          <div class="contrast-card negative">
+            <div class="contrast-card-label">⚠ Chronically Sleep-Deprived</div>
+            <ul>
+              <li>40% reduction in ability to form new memories</li>
+              <li>Elevated cortisol and inflammatory markers</li>
+              <li>Increased amyloid-beta accumulation</li>
+              <li>Impaired prefrontal cortex regulation of emotion</li>
+              <li>Reduced insulin sensitivity and appetite dysregulation</li>
+              <li>Suppressed immune response (3× more likely to develop a cold)</li>
+            </ul>
+          </div>
+          <div class="contrast-card positive">
+            <div class="contrast-card-label">✦ Consistently Well-Rested</div>
+            <ul>
+              <li>Peak memory consolidation and learning transfer</li>
+              <li>Optimal glymphatic waste clearance overnight</li>
+              <li>Regulated stress hormones and emotional baseline</li>
+              <li>Sharper prefrontal executive function and creativity</li>
+              <li>Stable metabolic function and appetite signals</li>
+              <li>Robust immune T-cell response and vaccination efficacy</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="dream-rule"><span>The Circadian System</span></div>
+
+        <h2>Your Circadian Clock: The 24-Hour Biological Metronome</h2>
+
+        <p>
+          Sleep does not happen in a vacuum. It is orchestrated by one of the most precisely engineered systems in biology: the <strong>circadian clock</strong> — an internal timekeeping mechanism that coordinates nearly every physiological process in your body to a 24-hour cycle. The discovery of its molecular machinery earned three scientists the 2017 Nobel Prize in Physiology or Medicine.
+        </p>
+
+        <p>
+          The master clock lives in a tiny brain region called the <strong>suprachiasmatic nucleus (SCN)</strong> — roughly 20,000 neurons tucked just above the optic chiasm. It receives light signals directly from the retina and uses them to synchronize the body's peripheral clocks — found in virtually every organ — to local time. When light hits specialized retinal cells called <strong>intrinsically photosensitive retinal ganglion cells (ipRGCs)</strong>, they signal the SCN to suppress melatonin production and prime the body for wakefulness.
+        </p>
+
+        <!-- ── Circadian Arc Block ── -->
+        <div class="circadian-block">
+          <div class="cb-title">🕐 Your Circadian Biology — 24 Hours</div>
+          <div class="circadian-step">
+            <div class="circadian-time">06:00</div>
+            <p><strong>Cortisol surge</strong> — the cortisol awakening response (CAR) peaks, jumpstarting metabolism and alertness. Body temperature begins rising.</p>
+          </div>
+          <div class="circadian-step">
+            <div class="circadian-time">10:00</div>
+            <p><strong>Peak cognitive alertness</strong> — working memory, executive function, and reaction time all reach daily highs. Best window for complex intellectual tasks.</p>
+          </div>
+          <div class="circadian-step">
+            <div class="circadian-time">14:30</div>
+            <p><strong>Post-lunch dip</strong> — a circadian trough unrelated to meal composition. Alertness drops briefly. 10–20 minute naps here are highly effective.</p>
+          </div>
+          <div class="circadian-step">
+            <div class="circadian-time">17:00</div>
+            <p><strong>Peak physical performance</strong> — reaction time, cardiovascular efficiency, and muscle strength reach their daily maximum. Optimal window for athletic training.</p>
+          </div>
+          <div class="circadian-step">
+            <div class="circadian-time">21:00</div>
+            <p><strong>Melatonin release begins</strong> — the SCN signals the pineal gland to secrete melatonin. Core body temperature begins dropping. Sleep pressure intensifies.</p>
+          </div>
+          <div class="circadian-step">
+            <div class="circadian-time">02:00</div>
+            <p><strong>Deepest sleep phase</strong> — slow-wave sleep dominates. Glymphatic clearance is most active. Growth hormone secretion peaks. Immune T-cell production elevated.</p>
+          </div>
+        </div>
+
+        <!-- ── Key Fact: Blue Light ── -->
+        <div class="keyfact-callout">
+          <div class="kf-label">⚡ Key Finding</div>
+          <p>Blue-spectrum light from screens — smartphones, tablets, laptops — is the most potent suppressor of melatonin production. <strong>Two hours of screen exposure before bed delays melatonin onset by approximately 90 minutes and reduces REM sleep in the first half of the night</strong>, even when subjects report feeling equally tired. The circadian disruption is physiological, not psychological.</p>
+        </div>
+
+        <h2>The Neuroscience of Dreaming</h2>
+
+        <p>
+          Dreams are one of the most ancient and persistently mysterious features of human experience. Every culture in recorded history has developed frameworks for interpreting them. Modern neuroscience doesn't resolve the mystery entirely, but it has replaced speculation with mechanism — and the mechanism turns out to be extraordinary.
+        </p>
+
+        <p>
+          Dreams occur primarily during REM sleep, when the brain is as electrically active as it is during waking. <strong>The key difference: the chemical environment is radically altered.</strong> During REM, the brain is nearly devoid of norepinephrine and serotonin — the neuromodulators that normally maintain reality-testing and logical coherence. In their absence, the prefrontal cortex loses its supervisory authority. The result is a consciousness that is vivid, emotionally intense, and structurally bizarre, yet experienced as entirely real.
+        </p>
+
+        <p>
+          Research by psychologist Matthew Walker and others at UC Berkeley has shown that REM sleep performs a specific emotional processing function: it strips the emotional charge from difficult memories while preserving their factual content. The hypothesis — the "overnight therapy" model — suggests that the brain during REM replays emotionally charged experiences in a neurochemical environment free of stress hormones, allowing the memory to be integrated and neutralized over time. People with PTSD, notably, show disrupted REM architecture and fail to complete this overnight emotional processing. <strong>Sleep may literally be how we heal from experience.</strong>
+        </p>
+
+        <!-- ── Key Fact: Dreams & Creativity ── -->
+        <div class="keyfact-callout">
+          <div class="kf-label">💡 Creativity & REM</div>
+          <p>Studies show that awakening subjects during REM sleep and giving them creative problem-solving tasks — finding remote word associations, solving insight puzzles — <strong>produces significantly better performance than either waking or NREM interruptions</strong>. The loosened associative logic of the dreaming mind is not noise; it is a specialized cognitive mode. Some researchers now believe creative insight is a direct product of REM-state pattern integration.</p>
+        </div>
+
+        <h2>Social Jetlag: The Hidden Epidemic</h2>
+
+        <p>
+          Chronobiology — the science of biological timing — has identified a modern epidemic that has no medication: <strong>social jetlag</strong>. The term, coined by chronobiologist Till Roenneberg, describes the misalignment between an individual's internal biological clock and the schedule imposed by social obligations — school start times, work hours, commute patterns.
+        </p>
+
+        <p>
+          The problem is structural. Roughly 40% of the population are biological "evening types" — their circadian clocks are naturally set 1–3 hours later than morning types. Forcing these individuals to wake at 6 AM for a 7 AM school or 8 AM office schedule is, biologically speaking, the equivalent of demanding they operate at 3 or 4 in the morning. Accumulated across a lifetime, this misalignment is associated with significantly higher rates of metabolic syndrome, depression, cardiovascular disease, and cognitive decline. <strong>The problem is not laziness. It is circadian biology.</strong>
+        </p>
+
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a href="index.html" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+            <div class="page-dot"></div>
+          </div>
+          <a href="page-3.html" class="btn-primary">
+            Continue to Page 3
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Architecture of Sleep</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">Sleep Debt & Dreaming</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Future of Sleep Science</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="the-science-of-sleep"
+    >
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>

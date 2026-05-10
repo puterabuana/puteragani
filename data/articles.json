@@ -1,6 +1,126 @@
 {
   "articles": [
     {
+      "id": "022",
+      "title": "The Subscription Economy: How Recurring Revenue Is Reshaping Business Forever",
+      "slug": "subscription-economy-recurring-revenue",
+      "category": "Business",
+      "tags": [
+        "Subscription Economy",
+        "SaaS",
+        "Recurring Revenue",
+        "Business Model",
+        "Entrepreneurship"
+      ],
+      "featured": true,
+      "trending": true,
+      "date": "2026-05-10",
+      "time": "23:45",
+      "author": "Putera Gani",
+      "readTime": "9 min",
+      "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=75",
+      "imageLarge": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+      "excerpt": "From Netflix to SaaS empires \u2014 how the shift from ownership to access is rewriting the rules of how companies make money.",
+      "content": "Something profound has happened to the way businesses make money. The transaction is dying. In its place, a new economic architecture is rising: one built not on one-time sales, but on ongoing relationships and perpetual access.",
+      "url": "articles/subscription-economy-recurring-revenue/index.html"
+    },
+    {
+      "id": "021",
+      "title": "Gut Health: Why Your Second Brain May Be Running Your Life",
+      "slug": "gut-health-second-brain",
+      "category": "Health",
+      "tags": [
+        "Gut Health",
+        "Microbiome",
+        "Mental Health",
+        "Nutrition",
+        "Neuroscience"
+      ],
+      "featured": true,
+      "trending": true,
+      "date": "2026-05-10",
+      "time": "22:30",
+      "author": "Putera Gani",
+      "readTime": "9 min",
+      "image": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=75",
+      "imageLarge": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80",
+      "excerpt": "Inside the gut-brain axis \u2014 how 100 trillion microbes quietly shape your mood, immunity, and mental health.",
+      "content": "The gut contains more neurons than your spinal cord, produces 95% of the body's serotonin, and talks directly to your brain. Neuroscience is only now catching up.",
+      "url": "articles/gut-health-second-brain/index.html"
+    },
+    {
+      "id": "020",
+      "title": "The Science of Sleep: What Happens Inside Your Brain While You Rest",
+      "slug": "the-science-of-sleep",
+      "category": "Science",
+      "tags": [
+        "Neuroscience",
+        "Sleep",
+        "Brain",
+        "Circadian Rhythm",
+        "Health"
+      ],
+      "featured": true,
+      "trending": true,
+      "date": "2026-05-10",
+      "time": "21:00",
+      "author": "Putera Gani",
+      "readTime": "10 min",
+      "image": "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&q=75",
+      "imageLarge": "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=800&q=80",
+      "excerpt": "Every night your brain runs a maintenance cycle no waking activity can replicate \u2014 and the neuroscience of why is extraordinary.",
+      "content": "While you sleep, your brain is running at full tilt \u2014 consolidating memories, flushing neurotoxic waste, and cycling through states as different from each other as waking life is from dreaming.",
+      "url": "articles/the-science-of-sleep/index.html"
+    },
+    {
+      "id": "019",
+      "title": "The Psychology of Color in Design: How Hues Shape Human Behavior",
+      "slug": "color-psychology-in-design",
+      "category": "Design",
+      "tags": [
+        "Color Theory",
+        "Design Psychology",
+        "Branding",
+        "UX",
+        "Visual Design"
+      ],
+      "featured": true,
+      "trending": true,
+      "date": "2026-05-10",
+      "time": "19:30",
+      "author": "Putera Gani",
+      "readTime": "9 min",
+      "image": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=600&q=75",
+      "imageLarge": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&q=80",
+      "excerpt": "Color is design's most silent persuader \u2014 triggering emotion and shaping decisions before a single word is consciously read.",
+      "content": "Before you read a single word on a website, your brain has already made a decision about how you feel \u2014 shaped entirely by color.",
+      "url": "articles/color-psychology-in-design/index.html"
+    },
+    {
+      "id": "018",
+      "title": "The Rise of Edge AI: Why the Future of Intelligence Is Offline",
+      "slug": "edge-ai-offline-intelligence",
+      "category": "Technology",
+      "tags": [
+        "Edge AI",
+        "On-Device AI",
+        "Privacy",
+        "Machine Learning",
+        "Silicon"
+      ],
+      "featured": true,
+      "trending": true,
+      "date": "2026-05-10",
+      "time": "16:45",
+      "author": "Putera Gani",
+      "readTime": "9 min",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=75",
+      "imageLarge": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "excerpt": "AI no longer needs the cloud to be powerful. On-device intelligence is rewriting the rules of privacy, speed, and connectivity forever.",
+      "content": "Your smartphone is now smarter than the supercomputers of fifteen years ago \u2014 and it no longer needs to phone home to prove it.",
+      "url": "articles/edge-ai-offline-intelligence/index.html"
+    },
+    {
       "id": "017",
       "title": "Why the Creator Economy Is Rewriting the Rules of Work",
       "slug": "creator-economy-work",
@@ -69,8 +189,8 @@
       "readTime": "7 min",
       "image": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=75",
       "imageLarge": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80",
-      "excerpt": "From ancient myths to digital narratives — how storytelling remains humanity's most powerful tool for connection, meaning-making, and cultural transmission.",
-      "content": "Before written language — before alphabets — there was story. We are creatures who make sense of the world through narrative.",
+      "excerpt": "From ancient myths to digital narratives \u2014 how storytelling remains humanity's most powerful tool for connection, meaning-making, and cultural transmission.",
+      "content": "Before written language \u2014 before alphabets \u2014 there was story. We are creatures who make sense of the world through narrative.",
       "url": "articles/the-art-of-storytelling-in-modern-society/index.html"
     },
     {
@@ -137,7 +257,7 @@
       "readTime": "10 min",
       "image": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=75",
       "imageLarge": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80",
-      "excerpt": "EQ isn't a buzzword — it's a measurable set of skills that shapes your relationships, career, and wellbeing. Here's what the science actually says.",
+      "excerpt": "EQ isn't a buzzword \u2014 it's a measurable set of skills that shapes your relationships, career, and wellbeing. Here's what the science actually says.",
       "content": "There is a certain type of person who fails every standardised test, struggles with formal education, and yet navigates the world with an almost uncanny effectiveness. Today, psychology finally has good language for this.",
       "url": "articles/memahami-kecerdasan-emosional/index.html"
     },
@@ -160,8 +280,8 @@
       "readTime": "10 min",
       "image": "https://images.unsplash.com/photo-1449247709967-d4461a6a6103?w=600&q=75",
       "imageLarge": "https://images.unsplash.com/photo-1449247709967-d4461a6a6103?w=800&q=80",
-      "excerpt": "Minimalism is not an aesthetic trend. It is a centuries-old philosophical tradition — and a serious response to the question of what makes a life worth living.",
-      "content": "Strip the Muji catalogues and capsule wardrobes away, and you find something considerably more demanding: a centuries-old insistence that most of what we accumulate does not add to life — it costs life.",
+      "excerpt": "Minimalism is not an aesthetic trend. It is a centuries-old philosophical tradition \u2014 and a serious response to the question of what makes a life worth living.",
+      "content": "Strip the Muji catalogues and capsule wardrobes away, and you find something considerably more demanding: a centuries-old insistence that most of what we accumulate does not add to life \u2014 it costs life.",
       "url": "articles/filosofi-minimalisme/index.html"
     },
     {
@@ -184,8 +304,8 @@
       "readTime": "9 min",
       "image": "https://images.unsplash.com/photo-1501139083538-0139583c060f?w=600&q=75",
       "imageLarge": "https://images.unsplash.com/photo-1501139083538-0139583c060f?w=800&q=80",
-      "excerpt": "Across cultures and centuries, humanity has shaped wildly different relationships with time — and those differences remake how we think, plan, and live our lives.",
-      "content": "There is a moment — familiar to anyone who has landed in a radically different culture — where the clock stops making sense. Not because it is broken, but because the entire social grammar around time has changed.",
+      "excerpt": "Across cultures and centuries, humanity has shaped wildly different relationships with time \u2014 and those differences remake how we think, plan, and live our lives.",
+      "content": "There is a moment \u2014 familiar to anyone who has landed in a radically different culture \u2014 where the clock stops making sense. Not because it is broken, but because the entire social grammar around time has changed.",
       "url": "articles/the-mythology-of-time/index.html"
     },
     {
@@ -207,7 +327,7 @@
       "readTime": "8 min",
       "image": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=75",
       "imageLarge": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80",
-      "excerpt": "From deep learning breakthroughs to the ethical questions keeping researchers up at night — a deep dive into the technology reshaping civilization as we know it.",
+      "excerpt": "From deep learning breakthroughs to the ethical questions keeping researchers up at night \u2014 a deep dive into the technology reshaping civilization as we know it.",
       "content": "Artificial intelligence is no longer science fiction. It is reshaping industries, economies, and the very nature of what it means to create.",
       "url": "articles/the-future-of-artificial-intelligence/index.html"
     },
@@ -277,7 +397,7 @@
       "image": "https://images.unsplash.com/photo-1586717799252-bd134ad00e26?w=600&q=75",
       "imageLarge": "https://images.unsplash.com/photo-1586717799252-bd134ad00e26?w=800&q=80",
       "excerpt": "How the craft of type-setting has evolved from Gutenberg's press to responsive variable fonts on modern screens.",
-      "content": "Before images, before color, before motion — there was text. And the way that text looks shapes how we feel about every word we read.",
+      "content": "Before images, before color, before motion \u2014 there was text. And the way that text looks shapes how we feel about every word we read.",
       "url": "articles/typography-in-the-digital-age/index.html"
     },
     {
@@ -299,7 +419,7 @@
       "readTime": "11 min",
       "image": "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=600&q=75",
       "imageLarge": "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=800&q=80",
-      "excerpt": "From direct air capture to fusion reactors — the technologies that could redefine humanity's relationship with the planet.",
+      "excerpt": "From direct air capture to fusion reactors \u2014 the technologies that could redefine humanity's relationship with the planet.",
       "content": "The climate emergency is no longer a future problem. It is today's emergency, demanding today's solutions.",
       "url": "articles/climate-crisis-innovators/index.html"
     },
@@ -322,7 +442,7 @@
       "readTime": "8 min",
       "image": "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&q=75",
       "imageLarge": "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&q=80",
-      "excerpt": "Smartphone apps and AI therapists are changing access to mental healthcare — but at what cost to human connection?",
+      "excerpt": "Smartphone apps and AI therapists are changing access to mental healthcare \u2014 but at what cost to human connection?",
       "content": "One in four people will experience a mental health condition in their lifetime. For most of history, the path to treatment was narrow and expensive.",
       "url": "articles/mental-health-technology/index.html"
     }

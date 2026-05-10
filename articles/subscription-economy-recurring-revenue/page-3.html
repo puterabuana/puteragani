@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Subscription Economy — Page 3: The Future of the Model — Putera Gani</title>
+  <meta name="description" content="What comes after the subscription wave? Hybrid models, usage-based pricing, and the companies already building the next era of recurring revenue." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>tailwind.config = { theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } } }</script>
+
+  <style>
+    /* ── PAGE 3 UNIQUE COMPONENTS: subscription-economy ── */
+
+    /* Future model spectrum — horizontal gradient track */
+    .model-spectrum {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 2.25rem 0;
+    }
+    .model-spectrum-header {
+      padding: 0.75rem 1.25rem;
+      background: var(--ink, #0f0f0f);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 700;
+    }
+    .model-row {
+      display: grid;
+      grid-template-columns: 130px 1fr auto;
+      gap: 0.75rem;
+      align-items: start;
+      padding: 0.875rem 1.25rem;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+      background: var(--paper, #fafaf8);
+    }
+    .model-row:last-child { border-bottom: none; }
+    .model-name {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+    }
+    .model-name span {
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      font-weight: 400;
+      color: var(--ink-muted, #6b6860);
+      margin-top: 2px;
+    }
+    .model-desc {
+      font-size: 0.8rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.55;
+    }
+    .model-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .badge-rising { background: rgba(200,151,58,0.1); color: var(--accent, #c8973a); border: 1px solid rgba(200,151,58,0.25); }
+    .badge-dominant { background: rgba(15,15,15,0.07); color: var(--ink, #0f0f0f); border: 1px solid rgba(15,15,15,0.15); }
+    .badge-emerging { background: rgba(99,190,130,0.1); color: #3a8a5c; border: 1px solid rgba(99,190,130,0.25); }
+
+    /* Opportunity callout — p3 highlight style */
+    .opp-callout {
+      background: linear-gradient(135deg, rgba(200,151,58,0.08) 0%, rgba(200,151,58,0.02) 100%);
+      border: 1px solid rgba(200,151,58,0.3);
+      border-left: 3px solid var(--accent, #c8973a);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin: 1.75rem 0;
+    }
+    .opp-callout .oc-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.61rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+    }
+    .opp-callout p { margin: 0 !important; font-size: 0.9375rem; line-height: 1.7; color: var(--ink, #0f0f0f); }
+
+    /* Company spotlight cards — grid */
+    .spotlight-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin: 2rem 0;
+    }
+    @media (max-width: 600px) { .spotlight-grid { grid-template-columns: 1fr; } }
+    .spotlight-card {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      padding: 1rem;
+      background: var(--paper, #fafaf8);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .spotlight-company {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--accent, #c8973a);
+      text-transform: uppercase;
+    }
+    .spotlight-model {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      line-height: 1.3;
+    }
+    .spotlight-note {
+      font-size: 0.73rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.5;
+    }
+
+    /* Final big verdict block — p3 */
+    .verdict-block {
+      background: var(--ink, #0f0f0f);
+      border-radius: 16px;
+      padding: 1.75rem 1.5rem;
+      margin: 2.5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .verdict-block::before {
+      content: '';
+      position: absolute;
+      bottom: -60px; right: -60px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(200,151,58,0.05);
+    }
+    .verdict-block::after {
+      content: '';
+      position: absolute;
+      top: -40px; left: -40px;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: rgba(200,151,58,0.04);
+    }
+    .verdict-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .verdict-block h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 0.875rem 0;
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+      position: relative;
+    }
+    .verdict-block p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.75;
+      position: relative;
+    }
+    .verdict-block strong { color: rgba(255,255,255,0.95) !important; }
+
+    /* Three-column takeaway grid — p3 */
+    .takeaway-trio {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--rule, #e8e4de);
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 2.25rem 0;
+    }
+    @media (max-width: 540px) { .takeaway-trio { grid-template-columns: 1fr; } }
+    .takeaway-cell {
+      background: var(--paper, #fafaf8);
+      padding: 1rem 0.875rem;
+      text-align: center;
+    }
+    .takeaway-icon { font-size: 1.25rem; margin-bottom: 0.4rem; }
+    .takeaway-head {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--ink, #0f0f0f);
+      margin-bottom: 0.3rem;
+    }
+    .takeaway-body {
+      font-size: 0.72rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.5;
+    }
+
+    .article-body p strong { color: var(--ink, #0f0f0f); font-weight: 650; }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge">Business</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    The Subscription Economy — What Comes Next: Hybrid Models, Usage Pricing &amp; the Companies Leading the Way
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 10, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>3 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 3 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1200&q=80"
+         alt="Future of subscription business — digital economy transformation"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Digital economy
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT — PAGE 3 -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          The subscription model is not the endpoint of this story. It is a phase. Like all dominant business models — the department store, the franchise system, the ad-supported media empire — subscriptions will evolve, fragment, and face competitive pressure from models that solve problems the flat-fee subscription structure creates. <strong>The future of recurring revenue looks less like Netflix and more like a spectrum.</strong>
+        </p>
+
+        <h2>Beyond the Flat Fee: Usage-Based Pricing</h2>
+
+        <p>
+          One of the fastest-growing alternatives to fixed-rate subscriptions is usage-based pricing — sometimes called consumption-based pricing or pay-as-you-go. The logic is seductive: rather than paying a flat monthly fee regardless of how much you use a service, <strong>you pay precisely for what you consume.</strong> Amazon Web Services built one of the most valuable technology companies in history on this principle.
+        </p>
+
+        <p>
+          Twilio, Stripe, Snowflake, and a generation of cloud infrastructure companies have extended this model into communications, payments, and data warehousing. For B2B buyers, the appeal is obvious: costs scale proportionally with the business, eliminating the painful overpayment of buying capacity before you need it or the dangerous undercapacity of buying less than you require.
+        </p>
+
+        <!-- ── Opportunity Callout ── -->
+        <div class="opp-callout">
+          <div class="oc-label">📡 Investor Signal</div>
+          <p>OpenView Venture Partners' annual SaaS benchmarking reports have consistently found that <strong>usage-based companies grow faster, retain customers better, and achieve higher net revenue retention</strong> than pure subscription counterparts — because the model naturally aligns the vendor's success with the customer's actual value received. When customers grow, revenue grows with them automatically.</p>
+        </div>
+
+        <h2>The Emerging Model Landscape</h2>
+
+        <p>
+          No single pricing architecture will dominate the next decade. What's emerging instead is a portfolio of models, each suited to different product types, customer relationships, and competitive environments.
+        </p>
+
+        <!-- ── Model Spectrum Table ── -->
+        <div class="model-spectrum">
+          <div class="model-spectrum-header">🗺️ Revenue Model Landscape — 2026 and Beyond</div>
+          <div class="model-row">
+            <div class="model-name">Flat Subscription<span>Fixed monthly/annual</span></div>
+            <div class="model-desc">Best for products used consistently at high frequency. Predictable for both parties, but creates fairness issues for light users.</div>
+            <div class="model-badge badge-dominant">Dominant</div>
+          </div>
+          <div class="model-row">
+            <div class="model-name">Usage-Based<span>Pay per consumption</span></div>
+            <div class="model-desc">Optimal for infrastructure and API products. Scales with customer success — but revenue becomes harder to forecast.</div>
+            <div class="model-badge badge-rising">Rising</div>
+          </div>
+          <div class="model-row">
+            <div class="model-name">Hybrid<span>Base + overage</span></div>
+            <div class="model-desc">Combines predictability with flexibility. A base plan covers core usage; consumption beyond that is billed incrementally.</div>
+            <div class="model-badge badge-rising">Rising</div>
+          </div>
+          <div class="model-row">
+            <div class="model-name">Outcome-Based<span>Pay for results</span></div>
+            <div class="model-desc">The frontier model — charge only when measurable outcomes occur. Requires deep product analytics and strong alignment with customer goals.</div>
+            <div class="model-badge badge-emerging">Emerging</div>
+          </div>
+        </div>
+
+        <h2>Companies Already Building the Next Era</h2>
+
+        <p>
+          The most interesting companies today are not picking one model and defending it. They're <strong>building pricing architectures that evolve with the customer relationship</strong> — using freemium to acquire, subscriptions to establish, and usage-based layers to grow alongside their customers.
+        </p>
+
+        <!-- ── Spotlight Cards ── -->
+        <div class="spotlight-grid">
+          <div class="spotlight-card">
+            <div class="spotlight-company">Notion</div>
+            <div class="spotlight-model">Freemium → Team Subscription</div>
+            <div class="spotlight-note">Individual free tier creates organic adoption. Teams convert at higher plan tiers as usage spreads through organizations.</div>
+          </div>
+          <div class="spotlight-card">
+            <div class="spotlight-company">Stripe</div>
+            <div class="spotlight-model">Pure Usage-Based</div>
+            <div class="spotlight-note">Zero subscription fee. Revenue grows directly with customer transaction volume. Perfect alignment of incentives.</div>
+          </div>
+          <div class="spotlight-card">
+            <div class="spotlight-company">HubSpot</div>
+            <div class="spotlight-model">Hybrid Tiered Model</div>
+            <div class="spotlight-note">Subscription tiers based on contact count and features, with usage charges for emails and add-on products. Revenue follows customer growth.</div>
+          </div>
+        </div>
+
+        <h2>The Bundling Wars and Their Aftermath</h2>
+
+        <p>
+          A second evolution underway is bundling — the strategy of combining multiple services into a single subscription to reduce effective churn and increase perceived value. Apple One bundles Apple Music, Apple TV+, iCloud, and Arcade. Amazon Prime wraps streaming, delivery, reading, gaming, and music into a single annual fee. <strong>The bundle is the most powerful retention tool in the subscription arsenal</strong> — because canceling the bundle means losing everything at once, a far more psychologically significant action than canceling a single service.
+        </p>
+
+        <p>
+          But bundling creates its own distortions. When a product is included in a bundle, it stops competing on merit — <strong>it competes on the strength of the bundle itself.</strong> This is good for the bundle owner and potentially catastrophic for competitors who can't match the breadth. It also raises genuine antitrust questions that regulators in the EU and US are beginning to ask seriously.
+        </p>
+
+        <!-- ── Three-Column Takeaway ── -->
+        <div class="takeaway-trio">
+          <div class="takeaway-cell">
+            <div class="takeaway-icon">📦</div>
+            <div class="takeaway-head">Bundle to Retain</div>
+            <div class="takeaway-body">Cross-product bundling raises switching costs and deepens the relationship beyond any single feature or content library.</div>
+          </div>
+          <div class="takeaway-cell">
+            <div class="takeaway-icon">📈</div>
+            <div class="takeaway-head">Price With Value</div>
+            <div class="takeaway-body">Usage-based layers let revenue scale with customer success — aligning the business model with the customer's actual outcomes.</div>
+          </div>
+          <div class="takeaway-cell">
+            <div class="takeaway-icon">🎯</div>
+            <div class="takeaway-head">Earn Renewal</div>
+            <div class="takeaway-body">The best retention strategy is a product so valuable that renewal is the obvious choice — not friction, dark patterns, or guilt.</div>
+          </div>
+        </div>
+
+        <h2>What This Means for Every Business</h2>
+
+        <p>
+          The subscription revolution is not exclusive to tech companies or media platforms. <strong>Every business with a recurring customer relationship is, in some sense, already in the subscription economy</strong> — whether or not it bills monthly. The question is whether it recognizes that and acts accordingly.
+        </p>
+
+        <p>
+          A local gym, a law firm, an accounting practice, a landscaping company — each of these has customers who return. The question is whether the business treats those returns as transactions or as subscriptions. The ones that treat them as subscriptions — that think about retention, lifetime value, and deepening relationships rather than just acquiring new customers — will structurally outperform the ones that don't. <strong>The mental model is more important than the billing mechanism.</strong>
+        </p>
+
+        <!-- ── Final Verdict Block ── -->
+        <div class="verdict-block">
+          <div class="verdict-label">🏁 Final Verdict</div>
+          <h3>The Subscription Economy Has Already Won.<br>Now the Hard Work Begins.</h3>
+          <p>The shift from ownership to access is not reversing. The subscription model has proven its fundamental superiority for businesses that can execute it well — <strong>predictable revenue, deep customer relationships, and compounding growth</strong> are real advantages. But the era of easy subscription growth, when novelty and content abundance could mask poor retention, is over. What comes next rewards businesses that genuinely earn their renewal every single month — not because cancellation is hard, but because <strong>staying is obviously worth it.</strong></p>
+        </div>
+
+      </div>
+
+      <!-- Pagination Buttons — Final Page -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a href="page-2.html" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+          </div>
+          <a href="../../index.html" class="btn-primary">
+            Back to All Articles
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Rise of Subscriptions</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Churn Problem</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">The Future of the Model</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="subscription-economy-recurring-revenue"
+    >
+      <!-- Injected by related.js -->
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>

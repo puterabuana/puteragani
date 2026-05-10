@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Color Psychology in Design — Page 2: Brand & Digital Color — Putera Gani</title>
+  <meta name="description" content="How world-class brands weaponize color, and what neuroscience says about color in digital interfaces." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>tailwind.config = { theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } } }</script>
+
+  <style>
+    /* ── Color Psychology — Page 2 Unique CSS ── */
+
+    /* Brand Case Study Card */
+    .brand-case {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1.75rem 0;
+    }
+    .brand-case-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.125rem;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    @media (min-width: 640px) {
+      .brand-case-header { padding: 1rem 1.5rem; }
+    }
+    .brand-color-dot {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+    .brand-case-meta h4 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.15rem 0;
+    }
+    .brand-case-meta span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+    }
+    .brand-case-body {
+      padding: 1rem 1.125rem;
+      background: var(--paper, #fafaf8);
+    }
+    @media (min-width: 640px) {
+      .brand-case-body { padding: 1rem 1.5rem; }
+    }
+    .brand-case-body p {
+      margin: 0 !important;
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Comparison Table */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--rule, #e8e4de);
+      font-size: 0.8125rem;
+    }
+    .compare-table thead {
+      background: var(--ink, #0f0f0f);
+    }
+    .compare-table thead th {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      font-weight: 600;
+    }
+    .compare-table thead th:first-child { color: var(--accent, #c8973a); }
+    .compare-table tbody tr {
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    .compare-table tbody tr:last-child { border-bottom: none; }
+    .compare-table tbody tr:nth-child(even) {
+      background: rgba(200,151,58,0.03);
+    }
+    .compare-table tbody td {
+      padding: 0.75rem 1rem;
+      color: var(--ink, #0f0f0f);
+      line-height: 1.5;
+    }
+    .compare-table tbody td:first-child {
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Accessibility Warning Banner */
+    .a11y-banner {
+      display: flex;
+      gap: 0.875rem;
+      align-items: flex-start;
+      background: rgba(231,76,60,0.06);
+      border: 1px solid rgba(231,76,60,0.2);
+      border-left: 3px solid #e74c3c;
+      border-radius: 12px;
+      padding: 1rem 1.125rem;
+      margin: 2rem 0;
+    }
+    @media (min-width: 640px) {
+      .a11y-banner { padding: 1.125rem 1.5rem; }
+    }
+    .a11y-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .a11y-banner-content h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #c0392b;
+      margin: 0 0 0.3rem 0;
+    }
+    .a11y-banner-content p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      line-height: 1.65;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Research callout block (dark) */
+    .research-block {
+      background: var(--ink, #0f0f0f);
+      border-radius: 14px;
+      padding: 1.25rem 1.125rem;
+      margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 640px) {
+      .research-block { padding: 1.5rem 1.75rem; }
+    }
+    .research-block::after {
+      content: '';
+      position: absolute;
+      bottom: -30px; left: -30px;
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      background: rgba(200,151,58,0.06);
+    }
+    .research-block .rb-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .research-block p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+    }
+    .research-block strong { color: #fff !important; }
+
+    /* Inline bold emphasis */
+    .article-body p strong {
+      color: var(--ink, #0f0f0f);
+      font-weight: 650;
+    }
+
+    /* Section divider */
+    .mid-divider {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+    .mid-divider::before, .mid-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule, #e8e4de);
+    }
+    .mid-divider span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge">Design</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    Color Psychology in Design — Brand Identity & Digital Interfaces
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 10, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>4 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 2 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80"
+         alt="Brand identity and color palette"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Brand Design
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT — PAGE 2 -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          The science of color perception is fascinating in the abstract, but it becomes genuinely useful — and genuinely powerful — when applied. Nowhere is that application more visible, more strategic, or more financially consequential than in brand identity. The world's most recognized brands spend years, sometimes decades, associating themselves with a single hue so thoroughly that the color itself becomes a trademark. This is not accident. It is deliberate design strategy executed at scale.
+        </p>
+
+        <h2>How Brands Claim a Color</h2>
+
+        <p>
+          Color ownership in branding is a competitive advantage with measurable ROI. When a color becomes synonymous with a brand, <strong>recognition happens before the logo renders, before the tagline loads, before a single word is processed.</strong> It is perception engineered at the speed of light — literally.
+        </p>
+
+        <!-- ── Brand Case Studies ── -->
+        <div class="brand-case">
+          <div class="brand-case-header">
+            <div class="brand-color-dot" style="background:#e8192c;"></div>
+            <div class="brand-case-meta">
+              <h4>Coca-Cola Red</h4>
+              <span>Consumer Goods · Urgency + Familiarity</span>
+            </div>
+          </div>
+          <div class="brand-case-body">
+            <p>Coca-Cola has used its distinctive red since the 1890s — so consistently that in many markets, this specific shade of red <em>is</em> Coca-Cola. Studies show the brand registers brand recognition among consumers even when the logo is obscured, triggered purely by the color. The warmth and urgency of red combines here with over a century of positive emotional conditioning.</p>
+          </div>
+        </div>
+
+        <div class="brand-case">
+          <div class="brand-case-header">
+            <div class="brand-color-dot" style="background:#1877f2;"></div>
+            <div class="brand-case-meta">
+              <h4>Meta / Facebook Blue</h4>
+              <span>Technology · Trust + Connection</span>
+            </div>
+          </div>
+          <div class="brand-case-body">
+            <p>Mark Zuckerberg famously chose blue partly because he is red-green colorblind — blue is the color he sees most clearly. But the choice proved strategically resonant: blue communicates trust and social safety, exactly what a platform asking billions of people to share their personal lives needed to project. The same logic explains why Twitter, LinkedIn, PayPal, and American Express all live in the blue spectrum.</p>
+          </div>
+        </div>
+
+        <div class="brand-case">
+          <div class="brand-case-header">
+            <div class="brand-color-dot" style="background:#ff9900;"></div>
+            <div class="brand-case-meta">
+              <h4>Amazon Orange</h4>
+              <span>E-Commerce · Call-to-Action Energy</span>
+            </div>
+          </div>
+          <div class="brand-case-body">
+            <p>Amazon's orange — used most prominently in the famous arrow smile and CTA buttons — is a precise calculated choice. Orange combines the urgency of red with the warmth and optimism of yellow, making it the highest-performing color for purchase buttons across A/B testing literature. On a white background, at the scale Amazon operates, that conversion lift translates to billions in annual revenue.</p>
+          </div>
+        </div>
+
+        <div class="mid-divider"><span>Digital Interfaces</span></div>
+
+        <h2>Color in Digital Design: The Rules Are Different</h2>
+
+        <p>
+          The principles that govern color psychology on physical products and print materials apply in digital interfaces, but with important modifications. Screens emit light rather than reflect it — which means the same hex value will appear dramatically different across monitor types, operating systems, and brightness settings. <strong>A designer working at 100% screen brightness on a calibrated Apple display is seeing something fundamentally different from a user on a budget Android phone at 60% brightness in afternoon sunlight.</strong>
+        </p>
+
+        <p>
+          Digital color must also work in dark mode. A carefully crafted color palette built for light backgrounds can become completely incoherent when inverted — insufficient contrast, lost hierarchy, broken emotional register. Modern design systems define color in semantic tokens rather than raw hex values precisely to handle this: <em>--color-background-primary</em> maps to white in light mode and near-black in dark mode, while the same token resolves correctly across the full range of user preferences.
+        </p>
+
+        <!-- ── Comparison Table ── -->
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Channel</th>
+              <th>Key Color Consideration</th>
+              <th>Critical Difference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Print</td>
+              <td>CMYK subtractive mixing</td>
+              <td>Colors look darker on-press than on screen</td>
+            </tr>
+            <tr>
+              <td>Screen (Light)</td>
+              <td>RGB additive, white base</td>
+              <td>Saturation appears higher; dark colors can feel heavy</td>
+            </tr>
+            <tr>
+              <td>Screen (Dark Mode)</td>
+              <td>Semantic token mapping</td>
+              <td>Saturated colors vibrate; reduce saturation 10–15%</td>
+            </tr>
+            <tr>
+              <td>Mobile Outdoors</td>
+              <td>High ambient light environments</td>
+              <td>Low-contrast palettes become unreadable in sunlight</td>
+            </tr>
+            <tr>
+              <td>Physical Product</td>
+              <td>Surface, finish, material</td>
+              <td>Matte desaturates; gloss intensifies the same hue</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ── Research Block ── -->
+        <div class="research-block">
+          <div class="rb-label">🔬 Research Finding</div>
+          <p>A 2023 Stanford Human-Computer Interaction study found that <strong>users report higher trust scores for interfaces using blue-dominant palettes</strong> versus identical interfaces in green or red. The effect was consistent across demographics and geographies — suggesting evolutionary trust associations with blue are more universal than cultural ones. Critically, the trust bump disappeared entirely when the blue hue had insufficient contrast against the background, pointing to accessibility as a trust variable, not just a compliance one.</p>
+        </div>
+
+        <h2>The Accessibility Dimension</h2>
+
+        <p>
+          Color psychology only works if the color can be seen. This seems obvious; the design industry has been surprisingly slow to internalize it. <strong>Approximately 8% of men and 0.5% of women have some form of color vision deficiency</strong> — most commonly an inability to distinguish red from green. That means in any audience of 100 users, statistically 4–5 people cannot perceive the most common color distinction in alert and status design: red for error, green for success.
+        </p>
+
+        <p>
+          This is not merely an ethical consideration, though it is that. It is a design quality problem. An interface that relies on color alone to convey meaning has failed a basic requirement of effective communication. <strong>Best practice pairs every color-coded message with a secondary signal</strong>: an icon, a text label, a shape change, a position shift. The WCAG AA standard requires a minimum contrast ratio of 4.5:1 for body text — a specification that eliminates a surprising proportion of the color combinations that designers reach for instinctively.
+        </p>
+
+        <!-- ── Accessibility Warning ── -->
+        <div class="a11y-banner">
+          <div class="a11y-icon">⚠️</div>
+          <div class="a11y-banner-content">
+            <h4>Never Convey Meaning with Color Alone</h4>
+            <p>WCAG 2.1 Success Criterion 1.4.1 explicitly requires that color not be used as the only visual means of conveying information, indicating an action, or distinguishing a visual element. Pair every color signal with a redundant non-color indicator: shape, pattern, label, or icon.</p>
+          </div>
+        </div>
+
+        <p>
+          Great color design is not just visually beautiful — it is legible, inclusive, and resilient across every viewing condition. Designers who master that full constraint set produce work that doesn't just look good in a Dribbble screenshot; <strong>it works for every human who encounters it, in every context, on every screen.</strong> Page 3 explores the practical framework for building a color system that achieves exactly that.
+        </p>
+
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a href="index.html" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+            <div class="page-dot"></div>
+          </div>
+          <a href="page-3.html" class="btn-primary">
+            Continue to Page 3
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Color & the Mind</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">Brand & Digital Color</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Applying It in Practice</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- Related Articles -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="color-psychology-in-design"
+    >
+      <!-- Injected by related.js -->
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>

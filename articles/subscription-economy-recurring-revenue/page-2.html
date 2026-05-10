@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Subscription Economy — Page 2: The Churn Problem — Putera Gani</title>
+  <meta name="description" content="Why subscriber fatigue is real, how churn quietly destroys subscription businesses, and what the smartest companies are doing about it." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>tailwind.config = { theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } } }</script>
+
+  <style>
+    /* ── PAGE 2 UNIQUE COMPONENTS: subscription-economy ── */
+
+    /* Churn meter — visual gauge */
+    .churn-meter-wrap {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 2.25rem 0;
+      background: var(--paper, #fafaf8);
+    }
+    .churn-meter-header {
+      padding: 0.75rem 1.25rem;
+      background: #f7f3ec;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      font-weight: 700;
+    }
+    .churn-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 1.25rem;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    .churn-row:last-child { border-bottom: none; }
+    .churn-category {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--ink, #0f0f0f);
+      width: 110px;
+      flex-shrink: 0;
+    }
+    .churn-bar-track {
+      flex: 1;
+      height: 8px;
+      background: var(--rule, #e8e4de);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .churn-bar-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, rgba(200,151,58,0.5), var(--accent, #c8973a));
+    }
+    .churn-pct {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent, #c8973a);
+      width: 36px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* Fatigue signal card grid */
+    .signal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 2rem 0;
+    }
+    @media (max-width: 480px) { .signal-grid { grid-template-columns: 1fr; } }
+    .signal-card {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      padding: 1rem;
+      background: var(--paper, #fafaf8);
+    }
+    .signal-icon {
+      font-size: 1.25rem;
+      margin-bottom: 0.4rem;
+      line-height: 1;
+    }
+    .signal-title {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin-bottom: 0.25rem;
+    }
+    .signal-desc {
+      font-size: 0.75rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.55;
+    }
+
+    /* Retention strategy steps — p2 */
+    .retain-step {
+      display: flex;
+      gap: 0.875rem;
+      align-items: flex-start;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    .retain-step:last-child { border-bottom: none; }
+    .retain-num {
+      flex-shrink: 0;
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      background: var(--ink, #0f0f0f);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent, #c8973a);
+      margin-top: 2px;
+    }
+    .retain-content h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.25rem 0;
+    }
+    .retain-content p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.65;
+    }
+    .retain-box {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      margin: 2rem 0;
+      background: var(--paper, #fafaf8);
+    }
+    .retain-box-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted, #6b6860);
+      margin-bottom: 0.875rem;
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* Regulatory warning block */
+    .reg-warning {
+      background: linear-gradient(135deg, rgba(200,151,58,0.06) 0%, transparent 100%);
+      border: 1px solid rgba(200,151,58,0.25);
+      border-left: 3px solid var(--accent, #c8973a);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin: 1.75rem 0;
+    }
+    .reg-warning .rw-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.61rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+    }
+    .reg-warning p { margin: 0 !important; font-size: 0.9375rem; line-height: 1.7; color: var(--ink, #0f0f0f); }
+
+    /* Dark quote block — p2 */
+    .dark-quote {
+      background: var(--ink, #0f0f0f);
+      border-radius: 14px;
+      padding: 1.5rem 1.5rem;
+      margin: 2rem 0;
+    }
+    .dark-quote p {
+      margin: 0 !important;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 3.5vw, 1.25rem);
+      font-weight: 600;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.6;
+      letter-spacing: -0.01em;
+    }
+    .dark-quote p em { color: var(--accent, #c8973a); font-style: normal; }
+    .dark-quote cite {
+      display: block;
+      margin-top: 0.75rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+    }
+
+    .article-body p strong { color: var(--ink, #0f0f0f); font-weight: 650; }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge">Business</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    The Subscription Economy — The Churn Problem, Subscriber Fatigue &amp; the Regulatory Reckoning
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 10, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>4 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 2 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&q=80"
+         alt="Subscription cancellation — subscriber fatigue and churn"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Business concept
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT — PAGE 2 -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          Every subscription business is, at its core, a <strong>leaky bucket.</strong> Revenue pours in from the top — new subscribers, promotional conversions, freemium upgrades. And it drains quietly from the bottom, month after month, in the form of cancellations, card failures, and silent non-renewals. The entire art of running a subscription company is keeping the bucket as full as possible. The term for the draining is churn, and it is the single most important variable in whether a subscription business thrives or slowly bleeds out.
+        </p>
+
+        <h2>The Mathematics of Churn</h2>
+
+        <p>
+          Churn sounds like an operational metric, but it's actually an <strong>existential one.</strong> A company with 5% monthly churn loses more than half its subscriber base every year. Compounded, this is catastrophic — even if new subscriber acquisition is strong, you are perpetually running to stand still. The economics only work when churn is low enough that lifetime value (LTV) consistently and comfortably exceeds customer acquisition cost (CAC).
+        </p>
+
+        <!-- ── Churn Meter: Industry Comparison ── -->
+        <div class="churn-meter-wrap">
+          <div class="churn-meter-header">📉 Average Monthly Churn Rate by Industry (2025)</div>
+          <div class="churn-row">
+            <div class="churn-category">Streaming</div>
+            <div class="churn-bar-track"><div class="churn-bar-fill" style="width:68%;"></div></div>
+            <div class="churn-pct">6.8%</div>
+          </div>
+          <div class="churn-row">
+            <div class="churn-category">D2C Products</div>
+            <div class="churn-bar-track"><div class="churn-bar-fill" style="width:80%;"></div></div>
+            <div class="churn-pct">8.0%</div>
+          </div>
+          <div class="churn-row">
+            <div class="churn-category">SaaS (SMB)</div>
+            <div class="churn-bar-track"><div class="churn-bar-fill" style="width:46%;"></div></div>
+            <div class="churn-pct">4.6%</div>
+          </div>
+          <div class="churn-row">
+            <div class="churn-category">SaaS (Enterprise)</div>
+            <div class="churn-bar-track"><div class="churn-bar-fill" style="width:10%;"></div></div>
+            <div class="churn-pct">1.0%</div>
+          </div>
+          <div class="churn-row">
+            <div class="churn-category">News / Media</div>
+            <div class="churn-bar-track"><div class="churn-bar-fill" style="width:54%;"></div></div>
+            <div class="churn-pct">5.4%</div>
+          </div>
+        </div>
+
+        <p>
+          Enterprise SaaS enjoys dramatically lower churn not by accident, but by design. When a company integrates Salesforce or Workday into its core operations, the switching cost becomes enormous — <strong>it is not a subscription, it is practically a utility.</strong> Consumer subscriptions enjoy no such lock-in. A Netflix subscriber can cancel in under three clicks. That asymmetry is one of the defining tensions in modern subscription strategy.
+        </p>
+
+        <h2>Subscriber Fatigue Is Real — and Getting Worse</h2>
+
+        <p>
+          For years, the streaming wars created a paradox. Each new platform — Disney+, HBO Max, Peacock, Paramount+, Apple TV+, Amazon, Spotify, YouTube Premium — competed for screen time and wallet space. <strong>The average American household now subscribes to more than five streaming services,</strong> and surveys consistently show people feel they are paying for more than they use.
+        </p>
+
+        <!-- ── Signal Cards: Warning Signs ── -->
+        <div class="signal-grid">
+          <div class="signal-card">
+            <div class="signal-icon">📱</div>
+            <div class="signal-title">Usage Guilt</div>
+            <div class="signal-desc">Subscribers forget they have services they rarely open — until the bill arrives. Guilt triggers cancellation decisions.</div>
+          </div>
+          <div class="signal-card">
+            <div class="signal-icon">💳</div>
+            <div class="signal-title">Wallet Pressure</div>
+            <div class="signal-desc">Inflation-era cost sensitivity makes consumers audit subscriptions more aggressively than at any prior point.</div>
+          </div>
+          <div class="signal-card">
+            <div class="signal-icon">🔄</div>
+            <div class="signal-title">Rotation Behavior</div>
+            <div class="signal-desc">Savvy users subscribe for one season of a show, cancel, then re-subscribe elsewhere. Loyalty is eroding.</div>
+          </div>
+          <div class="signal-card">
+            <div class="signal-icon">😤</div>
+            <div class="signal-title">Cancellation Friction</div>
+            <div class="signal-desc">Dark patterns — hidden cancel buttons, mandatory phone calls — generate resentment that accelerates eventual churn.</div>
+          </div>
+        </div>
+
+        <h2>The Regulatory Reckoning</h2>
+
+        <p>
+          Governments are paying attention. The United States Federal Trade Commission finalized its "Click to Cancel" rule in 2024, requiring subscription businesses to make cancellation as easy as sign-up. The European Union has gone further, mandating clear renewal reminders and easy exit pathways under consumer protection frameworks. <strong>The era of deliberately obscure cancellation flows is ending — legally, not just ethically.</strong>
+        </p>
+
+        <!-- ── Regulatory Warning Block ── -->
+        <div class="reg-warning">
+          <div class="rw-label">⚖️ Regulatory Signal</div>
+          <p>The FTC's "Click to Cancel" rule signals a broader regulatory posture: subscription businesses built on <strong>cancellation friction rather than genuine value</strong> are now operating with explicit legal risk. Companies that have used dark patterns as retention strategy need a fundamentally different approach — one built on the actual quality of what they're delivering.</p>
+        </div>
+
+        <h2>What Smart Companies Do Instead</h2>
+
+        <p>
+          The best subscription businesses don't fight churn through friction. They fight it through <strong>relentless value delivery and genuine relationship-building.</strong> The distinction matters because it changes almost every tactical decision downstream — from onboarding design to pricing strategy to how customer success teams are staffed.
+        </p>
+
+        <!-- ── Retention Strategy Steps ── -->
+        <div class="retain-box">
+          <div class="retain-box-title">🔒 Retention Playbook — What Actually Works</div>
+          <div class="retain-step">
+            <div class="retain-num">01</div>
+            <div class="retain-content">
+              <h4>Nail Onboarding</h4>
+              <p>Most churn is decided in the first 30 days. Companies that invest in structured onboarding — helping subscribers reach their first "aha moment" quickly — see dramatically higher retention across every time horizon.</p>
+            </div>
+          </div>
+          <div class="retain-step">
+            <div class="retain-num">02</div>
+            <div class="retain-content">
+              <h4>Build Switching Costs Legitimately</h4>
+              <p>The strongest retention comes from genuine integration into a customer's workflow or identity. Notion stores your notes. Strava holds your fitness history. Spotify has learned your taste over years. Data and history are powerful, ethical retention tools.</p>
+            </div>
+          </div>
+          <div class="retain-step">
+            <div class="retain-num">03</div>
+            <div class="retain-content">
+              <h4>Proactive Churn Intervention</h4>
+              <p>AI now allows companies to model churn risk before it happens — identifying disengaged subscribers weeks before they cancel and triggering personalized outreach, discounts, or feature education at exactly the right moment.</p>
+            </div>
+          </div>
+          <div class="retain-step">
+            <div class="retain-num">04</div>
+            <div class="retain-content">
+              <h4>Pricing Psychology</h4>
+              <p>Annual plans traded to monthly subscribers at a discount dramatically reduce churn, since a subscriber who has paid for a year is far less likely to cancel mid-cycle than one deciding each month whether to stay.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Dark Quote Block ── -->
+        <div class="dark-quote">
+          <p>"The best defense against churn is <em>not making it hard to leave.</em> It's making the service so valuable that leaving feels like losing something genuinely important. There is no shortcut. You have to earn it."</p>
+          <cite>— Recurring revenue playbook principle, widely cited in SaaS circles</cite>
+        </div>
+
+        <h2>The Consumer's Perspective</h2>
+
+        <p>
+          It is worth stepping back and acknowledging something that gets lost in the business analysis: <strong>the subscription model is not a neutral development for consumers.</strong> For many products, subscriptions mean perpetually paying for access to something that, under the old model, you would have owned outright. Adobe Photoshop can no longer be purchased once and used indefinitely. Microsoft Office requires an annual fee. Some gaming platforms require subscriptions to access games you've already purchased.
+        </p>
+
+        <p>
+          The consumer calculus is complicated. Subscriptions democratize access — you no longer need $600 to afford Photoshop; you need $10 a month. But they also <strong>eliminate ownership, create dependency, and transfer pricing power permanently to the company.</strong> The price you pay today is not the price you'll pay in five years. For consumers who use a product for decades, subscriptions may ultimately cost far more.
+        </p>
+
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a href="index.html" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+            <div class="page-dot"></div>
+          </div>
+          <a href="page-3.html" class="btn-primary">
+            Continue to Page 3
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Rise of Subscriptions</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">The Churn Problem</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Future of the Model</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="subscription-economy-recurring-revenue"
+    >
+      <!-- Injected by related.js -->
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>
