@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agentic AI — Page 2: Real Deployments & Risks — Putera Gani</title>
+  <meta name="description" content="How companies are deploying AI agents today, where they're succeeding, and the failure modes nobody in Silicon Valley wants to talk about." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>tailwind.config = { theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } } }</script>
+
+  <style>
+    /* ── Agentic AI — Page 2 Unique Styles ── */
+
+    /* Industry Deployment Cards */
+    .deploy-card {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .deploy-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.875rem 1.125rem;
+      background: var(--ink, #0f0f0f);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .deploy-card-icon {
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+    .deploy-card-industry {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+    }
+    .deploy-card-body {
+      padding: 1rem 1.125rem;
+      background: var(--paper, #fafaf8);
+    }
+    .deploy-card-body h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.4rem 0;
+    }
+    .deploy-card-body p {
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .deploy-card-result {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 0.6rem;
+      background: rgba(200,151,58,0.1);
+      border: 1px solid rgba(200,151,58,0.25);
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+    }
+
+    /* Risk Meter */
+    .risk-panel {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+    .risk-panel-header {
+      padding: 0.75rem 1.125rem;
+      background: rgba(200,151,58,0.06);
+      border-bottom: 1px solid var(--rule, #e8e4de);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      font-weight: 600;
+    }
+    .risk-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 0.9rem 1.125rem;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    .risk-item:last-child { border-bottom: none; }
+    .risk-level {
+      flex-shrink: 0;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-top: 1px;
+      min-width: 56px;
+      text-align: center;
+    }
+    .risk-level.high { background: rgba(220, 60, 60, 0.1); color: #c03030; border: 1px solid rgba(220,60,60,0.25); }
+    .risk-level.medium { background: rgba(200,151,58,0.1); color: var(--accent, #c8973a); border: 1px solid rgba(200,151,58,0.25); }
+    .risk-level.low { background: rgba(40,160,80,0.08); color: #289050; border: 1px solid rgba(40,160,80,0.2); }
+    .risk-content h4 { font-size: 0.875rem; font-weight: 600; color: var(--ink, #0f0f0f); margin: 0 0 0.25rem 0; }
+    .risk-content p { font-size: 0.8125rem; color: var(--ink-muted, #6b6860); line-height: 1.6; margin: 0; }
+
+    /* Highlight Box */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(200,151,58,0.07) 0%, rgba(200,151,58,0.03) 100%);
+      border: 1px solid rgba(200,151,58,0.3);
+      border-left: 3px solid var(--accent, #c8973a);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin: 1.75rem 0;
+    }
+    .highlight-box .hb-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent, #c8973a); font-weight: 600; margin-bottom: 0.5rem; }
+    .highlight-box p { margin: 0 !important; font-size: 0.9375rem; line-height: 1.7; color: var(--ink, #0f0f0f); }
+
+    /* Section Rule */
+    .section-rule { display: flex; align-items: center; gap: 0.75rem; margin: 2rem 0; }
+    .section-rule::before, .section-rule::after { content: ''; flex: 1; height: 1px; background: var(--rule, #e8e4de); }
+    .section-rule span { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted, #6b6860); white-space: nowrap; }
+
+    /* Bold callout */
+    .bold-callout { border-top: 2px solid var(--ink, #0f0f0f); border-bottom: 2px solid var(--ink, #0f0f0f); padding: 1.25rem 0; margin: 2rem 0; text-align: center; }
+    .bold-callout p { margin: 0 !important; font-family: 'Playfair Display', serif; font-size: clamp(1rem, 4vw, 1.375rem); font-weight: 700; line-height: 1.5; letter-spacing: -0.015em; color: var(--ink, #0f0f0f); }
+
+    .article-body p strong { color: var(--ink, #0f0f0f); font-weight: 650; }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge">Technology</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    Agentic AI in the Wild — Real Deployments, Surprising Failures & Fragile Trust
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 12, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>4 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 2 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80"
+         alt="Data networks and automation infrastructure"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Digital infrastructure
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT — PAGE 2 -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          The demos are always impressive. An agent books a flight, writes a marketing campaign, diagnoses a software bug, and files the expense report — all from a single sentence of instruction. In controlled demonstrations, agentic AI can look indistinguishable from magic. But demos are not production. And the gap between what AI agents can do in a lab and what they reliably do in the messy, unpredictable environments of real organizations is, for now, substantial.
+        </p>
+
+        <p>
+          That said, some deployments are working. <strong>Certain categories of agentic tasks have crossed the reliability threshold</strong> that makes enterprise adoption rational. Understanding which ones — and why — reveals more about the technology's real state than any press release.
+        </p>
+
+        <h2>Where Agents Are Actually Working</h2>
+
+        <p>The following industries have deployed agentic systems at scale, with verifiable productivity outcomes:</p>
+
+        <!-- ── Deploy Cards ── -->
+        <div class="deploy-card">
+          <div class="deploy-card-header">
+            <div class="deploy-card-icon">⚖️</div>
+            <div class="deploy-card-industry">Legal & Compliance</div>
+          </div>
+          <div class="deploy-card-body">
+            <h4>Contract Review & Due Diligence Agents</h4>
+            <p>Law firms and in-house legal teams are using agents to review hundreds of contracts in parallel — flagging non-standard clauses, summarizing risk, and cross-referencing regulatory requirements. What once took a team of associates two weeks now takes two hours. Human lawyers review the output and make final decisions; the agent handles the grind.</p>
+            <div class="deploy-card-result">⬆ 70% reduction in review time reported at scale</div>
+          </div>
+        </div>
+
+        <div class="deploy-card">
+          <div class="deploy-card-header">
+            <div class="deploy-card-icon">💻</div>
+            <div class="deploy-card-industry">Software Engineering</div>
+          </div>
+          <div class="deploy-card-body">
+            <h4>Coding Agents & Automated Pull Requests</h4>
+            <p>Agentic coding tools can now handle complete feature implementations, bug fixes, and test writing for well-defined tasks in mature codebases. Engineers describe the desired behavior; agents write, test, and submit a pull request. Senior engineers review rather than implement — shifting the leverage ratio dramatically.</p>
+            <div class="deploy-card-result">⬆ 40–55% faster feature delivery in pilot teams</div>
+          </div>
+        </div>
+
+        <div class="deploy-card">
+          <div class="deploy-card-header">
+            <div class="deploy-card-icon">🛒</div>
+            <div class="deploy-card-industry">E-Commerce & Customer Operations</div>
+          </div>
+          <div class="deploy-card-body">
+            <h4>Autonomous Customer Service Agents</h4>
+            <p>Agents are resolving Tier-1 and Tier-2 customer service inquiries end-to-end — processing refunds, tracking orders, updating account details, and escalating genuinely novel cases to humans. Unlike scripted chatbots, these agents handle natural language variation and multi-step problems without breaking.</p>
+            <div class="deploy-card-result">⬆ 65% of tickets resolved without human touch</div>
+          </div>
+        </div>
+
+        <div class="deploy-card">
+          <div class="deploy-card-header">
+            <div class="deploy-card-icon">📊</div>
+            <div class="deploy-card-industry">Finance & Research</div>
+          </div>
+          <div class="deploy-card-body">
+            <h4>Research Synthesis & Financial Analysis Agents</h4>
+            <p>Investment research teams use agents to monitor earnings calls, synthesize analyst reports, track regulatory filings, and surface relevant signals from thousands of sources simultaneously. The agent produces first-draft research memos that analysts refine — compressing weeks of reading into hours of analysis.</p>
+            <div class="deploy-card-result">⬆ 5–10x increase in research throughput</div>
+          </div>
+        </div>
+
+        <div class="section-rule"><span>The Other Side</span></div>
+
+        <h2>Where Agents Are Still Failing</h2>
+
+        <p>
+          For every successful deployment, there are quieter stories of agents that confidently took wrong actions, got stuck in loops, or — most worryingly — <strong>completed the task they were given rather than the task that was intended.</strong>
+        </p>
+
+        <!-- ── Highlight Box ── -->
+        <div class="highlight-box">
+          <div class="hb-label">⚠️ The Core Problem</div>
+          <p>Agents fail in ways that are different from chatbots. A chatbot gives a wrong answer; you see it and ask again. An agent takes a wrong action — sends an email to the wrong list, deletes the wrong files, places a real order on a staging account — and the damage may be done before any human notices. <strong>The autonomy that makes agents powerful also makes their errors consequential.</strong></p>
+        </div>
+
+        <!-- ── Risk Panel ── -->
+        <div class="risk-panel">
+          <div class="risk-panel-header">⚡ Known Failure Modes — Severity Assessment</div>
+          <div class="risk-item">
+            <div class="risk-level high">High</div>
+            <div class="risk-content">
+              <h4>Prompt Injection Attacks</h4>
+              <p>Malicious content embedded in web pages, documents, or emails can hijack an agent's instructions — causing it to exfiltrate data, take unintended actions, or impersonate legitimate users. This is particularly dangerous for agents with broad tool access.</p>
+            </div>
+          </div>
+          <div class="risk-item">
+            <div class="risk-level high">High</div>
+            <div class="risk-content">
+              <h4>Irreversible Action Errors</h4>
+              <p>Agents don't always distinguish between reversible and irreversible actions. Sending an email, posting publicly, or deleting data are permanent consequences of errors that, in a conversation, would have been trivially corrected.</p>
+            </div>
+          </div>
+          <div class="risk-item">
+            <div class="risk-level medium">Medium</div>
+            <div class="risk-content">
+              <h4>Goal Misspecification</h4>
+              <p>Users set goals ambiguously; agents interpret them literally. An agent told to "reduce customer complaints" might find technically valid paths — like making complaints harder to submit — that satisfy the metric while violating the intent.</p>
+            </div>
+          </div>
+          <div class="risk-item">
+            <div class="risk-level medium">Medium</div>
+            <div class="risk-content">
+              <h4>Compounding Errors in Long Chains</h4>
+              <p>Each step in an agentic pipeline has some error rate. In a 10-step chain with 90% per-step reliability, overall reliability drops to under 35%. Long autonomous runs accumulate mistakes that no single step would flag as a problem.</p>
+            </div>
+          </div>
+          <div class="risk-item">
+            <div class="risk-level low">Low</div>
+            <div class="risk-content">
+              <h4>Hallucinated Tool Calls</h4>
+              <p>Agents occasionally fabricate the results of tool calls they should have made. Mitigation frameworks now detect and retry uncertain tool invocations, but the failure mode still exists in less-guarded systems.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>The Trust Calibration Problem</h2>
+
+        <p>
+          The deepest challenge for agentic AI is not technical — it is <strong>trust calibration.</strong> Human operators must decide, in advance, how much autonomy to grant an agent and for what kinds of decisions. Grant too little, and the agent provides no leverage over manual workflows. Grant too much, and errors propagate without human checkpoints.
+        </p>
+
+        <p>
+          The most successful enterprise deployments share a common pattern: agents are given high autonomy within a carefully scoped domain, with explicit guardrails around high-stakes or irreversible actions. A customer service agent can process refunds up to $500 autonomously; above that threshold, it flags for human review. A coding agent can modify files in a feature branch but cannot push to main directly.
+        </p>
+
+        <!-- ── Bold Callout ── -->
+        <div class="bold-callout">
+          <p>"The question isn't <span>'can we trust this agent?'</span> It's <span>'what exactly do we trust it to do, and at what cost if it's wrong?'</span> Precision matters more than permission."</p>
+        </div>
+
+        <p>
+          This is the design philosophy emerging from the most thoughtful teams building with agents: <strong>scope carefully, verify frequently, and make every consequential action reversible wherever possible.</strong> These principles sound obvious. They are also routinely ignored in the rush to deploy.
+        </p>
+
+        <p>
+          Regulatory frameworks have not kept pace. There are currently no widely adopted standards for agent liability, audit trails, or disclosure requirements when agentic systems make decisions that affect third parties. This is a gap that organizations — and eventually governments — will need to close as agents become more embedded in consequential workflows.
+        </p>
+
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a href="index.html" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+            <div class="page-dot"></div>
+          </div>
+          <a href="page-3.html" class="btn-primary">
+            Continue to Page 3
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">What Is Agentic AI?</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">Real Deployments & Risks</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Agentic Future</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="agentic-ai-autonomous-software"
+    >
+      <!-- Injected by related.js -->
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>

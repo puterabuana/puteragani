@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Motion Design Language — Page 2: Micro-Interactions & Craft — Putera Gani</title>
+  <meta name="description" content="Deconstructing the micro-interactions that define the world's most admired interfaces — and how to build a vocabulary for critiquing motion design." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>tailwind.config = { theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } } }</script>
+
+  <style>
+    /* ── Motion Design Article — Page 2 Exclusive Styles ── */
+
+    /* Micro-interaction anatomy card */
+    .micro-anatomy {
+      background: var(--paper, #fafaf8);
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1.75rem 0;
+    }
+    .micro-anatomy-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.875rem 1.25rem;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+      background: rgba(200,151,58,0.04);
+    }
+    .micro-anatomy-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink, #0f0f0f);
+    }
+    .micro-anatomy-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      background: rgba(200,151,58,0.12);
+      color: var(--accent, #c8973a);
+      border: 1px solid rgba(200,151,58,0.25);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-weight: 600;
+    }
+    .micro-anatomy-body {
+      padding: 1rem 1.25rem;
+    }
+    .micro-anatomy-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    .micro-anatomy-row:last-child { border-bottom: none; }
+    .mar-key {
+      flex-shrink: 0;
+      min-width: 80px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--ink-muted, #6b6860);
+      letter-spacing: 0.04em;
+      padding-top: 1px;
+    }
+    .mar-val {
+      font-size: 0.8125rem;
+      color: var(--ink, #0f0f0f);
+      line-height: 1.55;
+    }
+    .mar-val strong { color: var(--ink, #0f0f0f); font-weight: 650; }
+
+    /* Comparison strip */
+    .compare-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--rule, #e8e4de);
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 1.75rem 0;
+    }
+    .compare-cell {
+      background: var(--paper, #fafaf8);
+      padding: 1rem 1.125rem;
+    }
+    .compare-cell-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .compare-cell-label.bad { color: #b55; }
+    .compare-cell-label.good { color: #4a7c59; }
+    .compare-cell ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .compare-cell ul li {
+      font-size: 0.8125rem;
+      color: var(--ink, #0f0f0f);
+      line-height: 1.55;
+      padding: 0.2rem 0;
+      padding-left: 1rem;
+      position: relative;
+    }
+    .compare-cell ul li::before {
+      position: absolute;
+      left: 0;
+      font-size: 0.7rem;
+    }
+    .compare-cell.bad-side ul li::before { content: '✕'; color: #b55; }
+    .compare-cell.good-side ul li::before { content: '✓'; color: #4a7c59; }
+
+    /* Timeline row */
+    .timeline-item {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-year {
+      flex-shrink: 0;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent, #c8973a);
+      min-width: 56px;
+      padding-top: 2px;
+    }
+    .timeline-text {
+      font-size: 0.8125rem;
+      color: var(--ink, #0f0f0f);
+      line-height: 1.65;
+    }
+    .timeline-text strong { color: var(--ink, #0f0f0f); font-weight: 650; }
+
+    /* Dark insight block */
+    .p2-insight {
+      background: var(--ink, #0f0f0f);
+      border-radius: 12px;
+      padding: 1.25rem 1.25rem;
+      margin: 2rem 0;
+    }
+    @media (min-width: 640px) {
+      .p2-insight { padding: 1.5rem 1.75rem; }
+    }
+    .p2-insight-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .p2-insight p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+    }
+    .p2-insight strong { color: #fff !important; }
+
+    /* Blockquote reuse via p2- prefix */
+    .p2-pullquote {
+      border-top: 2px solid var(--ink, #0f0f0f);
+      border-bottom: 2px solid var(--ink, #0f0f0f);
+      padding: 1.25rem 0;
+      margin: 2.25rem 0;
+      text-align: center;
+    }
+    .p2-pullquote p {
+      margin: 0 !important;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 3.5vw, 1.3rem);
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: -0.015em;
+      color: var(--ink, #0f0f0f);
+    }
+    .p2-pullquote p em { color: var(--accent, #c8973a); font-style: normal; }
+
+    /* Stat row */
+    .p2-stat-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      background: var(--rule, #e8e4de);
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 2.25rem 0;
+    }
+    @media (min-width: 480px) {
+      .p2-stat-row { grid-template-columns: repeat(3, 1fr); }
+    }
+    .p2-stat-cell {
+      background: var(--paper, #fafaf8);
+      padding: 1rem 0.875rem;
+      text-align: center;
+    }
+    .p2-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ink, #0f0f0f);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    @media (min-width: 480px) {
+      .p2-stat-num { font-size: 1.75rem; }
+    }
+    .p2-stat-num span { color: var(--accent, #c8973a); }
+    .p2-stat-label {
+      font-size: 0.7rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.4;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.03em;
+    }
+
+    /* Section divider */
+    .p2-rule {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+    .p2-rule::before, .p2-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule, #e8e4de);
+    }
+    .p2-rule span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge">Design</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    Motion Design Language — Micro-Interactions & the Art of Craft
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 12, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>4 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 2 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&q=80"
+         alt="UI design — interface details and micro-interactions"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Interface design
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT — PAGE 2 -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          Micro-interactions are the atoms of motion design. They are the small, contained moments that give an interface its texture — the brief animations that acknowledge a tap, confirm a toggle, celebrate a completion, or signal an error. Individually, they seem almost too small to matter. Collectively, they are the difference between an interface that feels alive and one that feels inert.
+        </p>
+
+        <p>
+          The term was popularized by designer and author Dan Saffer, who defined a micro-interaction as a contained product moment that revolves around a single use case. They have four components: a <strong>trigger</strong> that initiates the interaction, <strong>rules</strong> that determine what happens, <strong>feedback</strong> that communicates what is happening, and <strong>loops and modes</strong> that determine what happens over time and when the rules change.
+        </p>
+
+        <div class="p2-rule"><span>Anatomy of Excellence</span></div>
+
+        <h2>Dissecting the Masterclass: Three Interactions Worth Studying</h2>
+
+        <p>
+          The most productive way to build intuition for great motion design is systematic analysis. Not inspiration browsing — analysis. Break an interaction down to its components. Ask why each decision was made. What would happen if the duration were halved? If the easing were linear? If there were no animation at all?
+        </p>
+
+        <!-- ── Micro Anatomy Cards ── -->
+        <div class="micro-anatomy">
+          <div class="micro-anatomy-header">
+            <span class="micro-anatomy-title">Case Study 01 — The Like Button (Lottie / Twitter Heart)</span>
+            <span class="micro-anatomy-tag">Feedback Loop</span>
+          </div>
+          <div class="micro-anatomy-body">
+            <div class="micro-anatomy-row">
+              <span class="mar-key">Trigger</span>
+              <span class="mar-val">Single tap on heart icon</span>
+            </div>
+            <div class="micro-anatomy-row">
+              <span class="mar-key">Duration</span>
+              <span class="mar-val"><strong>~700ms</strong> — long enough to feel ceremonial, short enough to never feel slow</span>
+            </div>
+            <div class="micro-anatomy-row">
+              <span class="mar-key">Easing</span>
+              <span class="mar-val">Spring with mild overshoot on the heart scale — it briefly grows bigger than its final size before settling</span>
+            </div>
+            <div class="micro-anatomy-row">
+              <span class="mar-key">Particle burst</span>
+              <span class="mar-val">6–8 small dots explode outward then fade — borrowed from squash-and-stretch animation; conveys energy release</span>
+            </div>
+            <div class="micro-anatomy-row">
+              <span class="mar-key">Why it works</span>
+              <span class="mar-val">The overshoot and burst make the action feel <strong>consequential</strong>. Liking a post is trivial; the animation treats it as meaningful, which makes users feel their engagement matters.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="micro-anatomy">
+          <div class="micro-anatomy-header">
+            <span class="micro-anatomy-title">Case Study 02 — Pull-to-Refresh (iOS / Instagram)</span>
+            <span class="micro-anatomy-tag">Trigger + Feedback</span>
+          </div>
+          <div class="micro-anatomy-body">
+            <div class="micro-anatomy-row">
+              <span class="mar-key">Trigger</span>
+              <span class="mar-val">Drag gesture past a threshold — the action is discovered, not instructed</span>
+            </div>
+            <div class="micro-anatomy-row">
+              <span class="mar-key">Resistance</span>
+              <span class="mar-val">The list stretches with <strong>elastic deceleration</strong> — drag displacement lags behind finger position, communicating that you're reaching a limit</span>
+            </div>
+            <div class="micro-anatomy-row">
+              <span class="mar-key">Threshold signal</span>
+              <span class="mar-val">Spinner locks into position and begins rotating; tactile feedback (haptic) on some devices. The system "accepts" the command.</span>
+            </div>
+            <div class="micro-anatomy-row">
+              <span class="mar-key">Release</span>
+              <span class="mar-val">Content snaps back with spring easing; spinner continues until content loads. Motion communicates loading state without text.</span>
+            </div>
+            <div class="micro-anatomy-row">
+              <span class="mar-key">Why it works</span>
+              <span class="mar-val">The gestural physics teach the interaction without instructions. The elastic resistance is a <strong>physical metaphor for pulling on something</strong> — intuitive even to first-time users.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="micro-anatomy">
+          <div class="micro-anatomy-header">
+            <span class="micro-anatomy-title">Case Study 03 — Form Validation Error</span>
+            <span class="micro-anatomy-tag">Error State</span>
+          </div>
+          <div class="micro-anatomy-body">
+            <div class="micro-anatomy-row">
+              <span class="mar-key">Trigger</span>
+              <span class="mar-val">Submit attempt with invalid input</span>
+            </div>
+            <div class="micro-anatomy-row">
+              <span class="mar-key">Motion</span>
+              <span class="mar-val"><strong>Horizontal shake</strong> — 3–4 oscillations at ~60ms per oscillation, decaying amplitude</span>
+            </div>
+            <div class="micro-anatomy-row">
+              <span class="mar-key">Easing</span>
+              <span class="mar-val">No ease — linear oscillation, then exponential decay. Mimics a physical "no" head-shake or a door refusing to open.</span>
+            </div>
+            <div class="micro-anatomy-row">
+              <span class="mar-key">Why it works</span>
+              <span class="mar-val">The shake is universally understood as negation. It's pre-linguistic — no translation needed. It directs attention to the exact element that failed, faster than reading an error message.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Stats Row ── -->
+        <div class="p2-stat-row">
+          <div class="p2-stat-cell">
+            <div class="p2-stat-num">100<span>ms</span></div>
+            <div class="p2-stat-label">Upper limit for "instant" — below this, users perceive no delay</div>
+          </div>
+          <div class="p2-stat-cell">
+            <div class="p2-stat-num"><span>~</span>300<span>ms</span></div>
+            <div class="p2-stat-label">Sweet spot for transitions. Perceptible but never sluggish.</div>
+          </div>
+          <div class="p2-stat-cell">
+            <div class="p2-stat-num">1<span>s+</span></div>
+            <div class="p2-stat-label">Needs a progress indicator or users assume the app is frozen</div>
+          </div>
+        </div>
+
+        <h2>The Anti-Patterns: When Motion Works Against You</h2>
+
+        <p>
+          Every design principle has its opposite. Understanding what makes motion fail is just as important as knowing what makes it succeed — because the failure modes are far more common than the successes, and they tend to cluster in predictable patterns.
+        </p>
+
+        <!-- ── Compare Strip ── -->
+        <div class="compare-strip">
+          <div class="compare-cell bad-side">
+            <div class="compare-cell-label bad">✕ Anti-Patterns</div>
+            <ul>
+              <li>Duration too long — everything feels laggy</li>
+              <li>Linear easing — robotic, lifeless movement</li>
+              <li>All elements animate simultaneously</li>
+              <li>Same animation for every action type</li>
+              <li>Motion disabled when user said so</li>
+              <li>Bounce on destructive actions (delete, error)</li>
+            </ul>
+          </div>
+          <div class="compare-cell good-side">
+            <div class="compare-cell-label good">✓ Best Practice</div>
+            <ul>
+              <li>Duration scaled to distance and importance</li>
+              <li>Physics-based or custom cubic-bezier easing</li>
+              <li>Staggered entry with clear visual lead</li>
+              <li>Different motion vocabulary per action type</li>
+              <li>Always respects prefers-reduced-motion</li>
+              <li>Gravity-based easing for serious state changes</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="p2-rule"><span>The Consistency Problem</span></div>
+
+        <h2>Why Your App Feels Inconsistent (Even When It Isn't)</h2>
+
+        <p>
+          One of the most common problems in shipped products is <strong>motion inconsistency</strong> — not in the sense that individual animations are broken, but in the sense that they don't share a coherent vocabulary. The onboarding uses bouncy springs. The settings screen uses abrupt linear fades. The main navigation uses Material-style ripples. Each component was built by a different team at a different time using whichever animation library was at hand.
+        </p>
+
+        <p>
+          The result is an interface that doesn't feel like a unified object. It feels like a collection of parts. Users don't articulate this consciously — they just feel an ambient friction, a sense that the app doesn't quite <em>know what it is</em>. Motion inconsistency is one of the most reliable causes of products that look polished in screenshots but feel rough in use.
+        </p>
+
+        <!-- ── Pull Quote ── -->
+        <div class="p2-pullquote">
+          <p>"Consistency isn't about <em>sameness</em> — it's about <em>coherence.</em> Every motion in your product should feel like it was made by the same hands, with the same values, on the same day."</p>
+        </div>
+
+        <p>
+          This is precisely the problem that motion design systems solve — and why the best design organizations have invested heavily in them. A motion design system doesn't restrict creativity; it creates the shared constraints within which creativity has meaning. Just as a typographic system establishes scale, weight, and spacing without dictating what you write, a motion system establishes duration, easing, and choreography without dictating what you animate.
+        </p>
+
+        <!-- ── Historical Timeline ── -->
+        <div style="border: 1px solid var(--rule); border-radius:14px; padding: 1.125rem 1.25rem; margin: 1.75rem 0;">
+          <div style="font-family:'DM Mono',monospace; font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:0.875rem;">📅 Motion Design Systems — A Brief History</div>
+          <div class="timeline-item">
+            <div class="timeline-year">2013</div>
+            <div class="timeline-text">iOS 7 introduces <strong>physics-based spring animations</strong> as a system-wide metaphor. Objects gain mass and momentum. Designers worldwide copy the approach without understanding the theory.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2014</div>
+            <div class="timeline-text">Google's <strong>Material Design</strong> launches with explicit motion principles: responsive, natural, aware, intentional. The first public design language to codify animation as specification, not decoration.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2018</div>
+            <div class="timeline-text"><strong>Framer X</strong> launches, bringing production-fidelity motion prototyping to designers. The gap between design intent and engineering output begins to narrow significantly.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2020</div>
+            <div class="timeline-text">Apple introduces <strong>SF Symbols</strong> with built-in animation behaviors. For the first time, iconography and motion are specified together at the system level.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2024</div>
+            <div class="timeline-text">Figma launches <strong>Advanced Prototyping</strong> with smart animate, spring physics, and variable states — collapsing the designer-developer motion spec gap further than any previous tool.</div>
+          </div>
+        </div>
+
+        <!-- ── Dark Insight Block ── -->
+        <div class="p2-insight">
+          <div class="p2-insight-label">🔑 Key Takeaway</div>
+          <p>The difference between a product that feels merely functional and one that feels <strong>genuinely crafted</strong> often comes down to a few hundred milliseconds, distributed across dozens of micro-interactions, governed by a coherent set of values. <strong>Motion design is not a feature you add. It's a discipline you practice.</strong> Page 3 shows you how to build the system that makes it possible.</p>
+        </div>
+
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a href="index.html" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+            <div class="page-dot"></div>
+          </div>
+          <a href="page-3.html" class="btn-primary">
+            Continue to Page 3
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Motion as Language</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">Micro-Interactions & Craft</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Building Your Motion System</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- Related Articles -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="motion-design-language"
+    >
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>

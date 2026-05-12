@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agentic AI — Page 3: The Agentic Future — Putera Gani</title>
+  <meta name="description" content="What happens when AI agents run entire companies, negotiate with each other, and coordinate without human oversight? The long-term picture of autonomous software." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>tailwind.config = { theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } } }</script>
+
+  <style>
+    /* ── Agentic AI — Page 3 Unique Styles ── */
+
+    /* Timeline Component */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+      margin: 2rem 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.6rem;
+      top: 0.5rem;
+      bottom: 0.5rem;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent, #c8973a), rgba(200,151,58,0.15));
+    }
+    .timeline-item {
+      position: relative;
+      padding: 0 0 1.75rem 1.25rem;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot {
+      position: absolute;
+      left: -1.45rem;
+      top: 0.3rem;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--accent, #c8973a);
+      border: 2px solid var(--paper, #fafaf8);
+      box-shadow: 0 0 0 2px var(--accent, #c8973a);
+    }
+    .timeline-period {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .timeline-item h4 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.35rem 0;
+    }
+    .timeline-item p {
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* Action Checklist */
+    .action-list {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+    .action-list-header {
+      padding: 0.75rem 1.125rem;
+      background: rgba(200,151,58,0.06);
+      border-bottom: 1px solid var(--rule, #e8e4de);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      font-weight: 600;
+    }
+    .action-list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.875rem;
+      padding: 0.875rem 1.125rem;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    .action-list-item:last-child { border-bottom: none; }
+    .action-check {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      border-radius: 6px;
+      background: rgba(200,151,58,0.1);
+      border: 1px solid rgba(200,151,58,0.3);
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+      color: var(--accent, #c8973a);
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+    .action-list-content h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.2rem 0;
+    }
+    .action-list-content p {
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Highlight Box */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(200,151,58,0.07) 0%, rgba(200,151,58,0.03) 100%);
+      border: 1px solid rgba(200,151,58,0.3);
+      border-left: 3px solid var(--accent, #c8973a);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin: 1.75rem 0;
+    }
+    .highlight-box .hb-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent, #c8973a); font-weight: 600; margin-bottom: 0.5rem; }
+    .highlight-box p { margin: 0 !important; font-size: 0.9375rem; line-height: 1.7; color: var(--ink, #0f0f0f); }
+
+    /* Section Rule */
+    .section-rule { display: flex; align-items: center; gap: 0.75rem; margin: 2rem 0; }
+    .section-rule::before, .section-rule::after { content: ''; flex: 1; height: 1px; background: var(--rule, #e8e4de); }
+    .section-rule span { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted, #6b6860); white-space: nowrap; }
+
+    /* Bold Callout */
+    .bold-callout { border-top: 2px solid var(--ink, #0f0f0f); border-bottom: 2px solid var(--ink, #0f0f0f); padding: 1.25rem 0; margin: 2rem 0; text-align: center; }
+    .bold-callout p { margin: 0 !important; font-family: 'Playfair Display', serif; font-size: clamp(1rem, 4vw, 1.375rem); font-weight: 700; line-height: 1.5; letter-spacing: -0.015em; color: var(--ink, #0f0f0f); }
+
+    .article-body p strong { color: var(--ink, #0f0f0f); font-weight: 650; }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge">Technology</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    The Agentic Future — What Happens When Software Runs the Company
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 12, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>4 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 3 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80"
+         alt="Future technology and circuitry"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Future technology
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT — PAGE 3 -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          We have been here before — at the edge of a technological shift that seems, in retrospect, obvious, but which is difficult to see clearly from within. The printing press, the steam engine, the internet: each looked from the inside like incremental improvement until, suddenly, it didn't. The restructuring happened faster and more comprehensively than most people predicted. Then the new normal settled in and became invisible.
+        </p>
+
+        <p>
+          Agentic AI is that kind of shift. Not a tool that makes existing workflows 10% more efficient, but an architectural change in how organizations operate — <strong>one that will render some human roles redundant, transform others, and create categories of value that don't yet have names.</strong>
+        </p>
+
+        <h2>The Near-Term Horizon: 2026–2029</h2>
+
+        <p>
+          Within the next three years, the most immediate changes will be felt in knowledge-intensive industries where cognitive work can be decomposed into discrete, verifiable sub-tasks. The question is not whether agents will do parts of these jobs, but which parts, at what quality threshold, and how quickly organizations will restructure around the new human-agent division of labor.
+        </p>
+
+        <!-- ── Timeline ── -->
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-period">Now → 2027</div>
+            <h4>The Augmentation Wave</h4>
+            <p>Individual knowledge workers who adopt agents gain significant leverage. Developers ship more features. Analysts produce more research. Writers produce more content. The productivity gap between early adopters and laggards begins to compound. Organizations that don't adapt fall visibly behind.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-period">2027 → 2029</div>
+            <h4>Workflow Restructuring</h4>
+            <p>Companies restructure around agent-human teams. Headcount in repetitive cognitive roles contracts. New roles emerge: agent supervisors, AI workflow designers, trust and safety specialists. The org chart of a mid-sized company looks fundamentally different from its 2024 equivalent.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-period">2029 → 2032</div>
+            <h4>Multi-Agent Enterprises</h4>
+            <p>The leading edge: companies where entire business functions — marketing, customer success, recruiting, legal review — are run by coordinated networks of specialized agents with human principals setting direction and reviewing outcomes. The first "agent-native" companies go public.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-period">2032+</div>
+            <h4>The Unknown Territory</h4>
+            <p>Agents that can run extended research programs, autonomously identify and pursue business opportunities, and coordinate across organizations begin to raise questions about accountability, governance, and the nature of economic agency that our existing frameworks aren't built to handle.</p>
+          </div>
+        </div>
+
+        <div class="section-rule"><span>The Human Question</span></div>
+
+        <h2>What Remains Irreducibly Human</h2>
+
+        <p>
+          Every era of automation has brought this question, and every era has produced roughly the same answer: the tasks that remain human are those requiring judgment, accountability, physical presence, and genuine relationships. The specific contents of those categories shift — <strong>but the categories themselves persist.</strong>
+        </p>
+
+        <!-- ── Highlight Box ── -->
+        <div class="highlight-box">
+          <div class="hb-label">🧭 The Enduring Advantage</div>
+          <p>Agents are extraordinary at optimizing toward clearly specified goals within known domains. They are genuinely bad at <strong>figuring out what the goal should be</strong> in the first place — at navigating genuinely novel situations, building trust through sustained relationships, and taking moral responsibility for outcomes. These are not temporary limitations. They reflect something structural about how these systems work.</p>
+        </div>
+
+        <p>
+          The practical implication: the humans who will thrive are not necessarily those with the most specialized technical knowledge (agents can acquire domain knowledge rapidly), but those who are best at <strong>framing problems, evaluating outcomes, maintaining relationships, and navigating ambiguity.</strong> These are precisely the skills that traditional education undervalues.
+        </p>
+
+        <!-- ── Bold Callout ── -->
+        <div class="bold-callout">
+          <p>"Agentic AI is the greatest <span>leverage technology</span> in history for people who know what they want. It is nearly useless for people who don't."</p>
+        </div>
+
+        <h2>Governance: The Hard Problems Ahead</h2>
+
+        <p>
+          As agents become more capable and more embedded in consequential decisions, questions of governance become urgent. Who is liable when an agent takes an action that causes harm? How do you audit a decision made by a multi-agent pipeline where no single step clearly caused the outcome? How do you prevent a world where powerful agent infrastructure is controlled by a handful of organizations, amplifying their advantages over everyone else?
+        </p>
+
+        <p>
+          These are not purely technical problems and will not be solved by technical means alone. They require regulatory imagination, international coordination, and political will. They also require something rarer: <strong>the humility to acknowledge that we are making governance decisions now that will shape systems far more powerful than the ones we are governing.</strong>
+        </p>
+
+        <p>
+          The path forward isn't to slow down — agents will be built regardless, by someone, somewhere. It's to build with intention: designing audit trails into agentic systems from the start, maintaining meaningful human control over consequential irreversible decisions, and ensuring that the productivity gains agents enable are distributed broadly rather than captured narrowly.
+        </p>
+
+        <h2>What You Should Do — Right Now</h2>
+
+        <p>
+          The gap between organizations that understand agents and those that don't is widening every month. Here is a practical orientation for different roles:
+        </p>
+
+        <!-- ── Action Checklist ── -->
+        <div class="action-list">
+          <div class="action-list-header">🗺️ Your Agentic AI Starting Point — By Role</div>
+          <div class="action-list-item">
+            <div class="action-check">→</div>
+            <div class="action-list-content">
+              <h4>If you're a knowledge worker</h4>
+              <p>Identify the three most time-consuming repetitive parts of your job. There is likely an agent-based tool that handles at least one of them today. Start there. Learn by doing, not by reading about it.</p>
+            </div>
+          </div>
+          <div class="action-list-item">
+            <div class="action-check">→</div>
+            <div class="action-list-content">
+              <h4>If you're a manager or executive</h4>
+              <p>Run a structured pilot: pick one workflow, deploy an agent, measure outcomes honestly. Don't optimize for the demo — optimize for the 90th percentile performance in production. Extend from there.</p>
+            </div>
+          </div>
+          <div class="action-list-item">
+            <div class="action-check">→</div>
+            <div class="action-list-content">
+              <h4>If you're building software</h4>
+              <p>Agentic systems are the most significant architectural shift since the cloud. Build APIs that are agent-legible. Think about your product's surfaces as something agents will interact with, not just humans.</p>
+            </div>
+          </div>
+          <div class="action-list-item">
+            <div class="action-check">→</div>
+            <div class="action-list-content">
+              <h4>If you're in policy or governance</h4>
+              <p>The deployment is ahead of the regulation — that's normal for fast-moving technology. The priority: audit trails, liability frameworks, and mandatory disclosure when agentic systems make decisions affecting third parties.</p>
+            </div>
+          </div>
+          <div class="action-list-item">
+            <div class="action-check">→</div>
+            <div class="action-list-content">
+              <h4>If you're a student or early-career professional</h4>
+              <p>The half-life of specialized knowledge is shrinking. Invest in your ability to learn, frame problems, and evaluate agent outputs critically. The skill isn't knowing things — it's knowing what to do with agents that know things.</p>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          Agentic AI is not a future trend. It is a present reality, unevenly distributed. The organizations and individuals closing in on it now will compound that understanding for years. The ones waiting for the technology to "stabilize" will find, as in every prior technological transition, that by the time it feels safe to adopt, <strong>the advantage has already been captured by those who moved first.</strong>
+        </p>
+
+        <p>
+          The machines are not just learning to think. They are learning to act. And the question of how much we let them act — and under what conditions, with what accountability — may be the defining question of the decade ahead.
+        </p>
+
+      </div>
+
+      <!-- Final Pagination -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a href="page-2.html" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+          </div>
+          <a href="../../index.html" class="btn-accent">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Back to Homepage
+          </a>
+        </div>
+      </div>
+
+      <!-- Completion Banner -->
+      <div class="mt-10 rounded-2xl p-7 text-center" style="background: linear-gradient(135deg, #1a1510 0%, #0f0f0f 100%); border: 1px solid #2a2520;">
+        <div class="text-accent font-mono text-xs font-medium mb-3 tracking-widest uppercase">Article Complete</div>
+        <h3 class="font-display text-white text-xl font-semibold mb-2">Thanks for reading</h3>
+        <p style="color:rgba(255,255,255,0.5); font-size:0.875rem; margin-bottom:1.5rem;">
+          Enjoyed this piece? Subscribe for one curated story delivered to your inbox each week.
+        </p>
+        <div class="flex gap-3 max-w-sm mx-auto">
+          <input type="email" placeholder="your@email.com"
+                 style="flex:1; padding:0.6rem 1rem; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:8px; color:#fff; font-size:0.8125rem; outline:none; font-family:'DM Sans',sans-serif;"
+                 aria-label="Email address" />
+          <button class="btn-accent" style="white-space:nowrap;">Subscribe</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">What Is Agentic AI?</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Real Deployments & Risks</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">The Agentic Future</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">More to Read</div>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="agentic-ai-autonomous-software"
+    >
+      <!-- Injected by related.js -->
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>
