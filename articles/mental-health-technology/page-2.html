@@ -261,50 +261,18 @@
   </div>
 </div>
 
-<!-- RELATED ARTICLES -->
+<!-- ═══════════════════════════════════════════════════
+     RELATED ARTICLES — dynamic from articles.json
+     ═══════════════════════════════════════════════════ -->
 <div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
     <div class="section-label mb-8">Related Articles</div>
-    <div class="grid sm:grid-cols-3 gap-5">
-      <article class="article-card">
-        <a href="#" style="text-decoration:none;">
-          <div class="card-thumb">
-            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&q=70" alt="Quantum" loading="lazy" />
-            <div class="card-thumb-overlay"></div>
-          </div>
-        </a>
-        <div class="card-body">
-          <span class="category-badge" style="background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Science</span>
-          <h3 class="card-title" style="font-size:0.9rem;"><a href="#" style="text-decoration:none; color:inherit;">Quantum Computing Explained</a></h3>
-          <div class="card-meta"><span>10 min read</span></div>
-        </div>
-      </article>
-      <article class="article-card">
-        <a href="#" style="text-decoration:none;">
-          <div class="card-thumb">
-            <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=400&q=70" alt="Cities" loading="lazy" />
-            <div class="card-thumb-overlay"></div>
-          </div>
-        </a>
-        <div class="card-body">
-          <span class="category-badge" style="background:#fdf4ff; color:#9333ea; border-color:rgba(147,51,234,0.2);">Culture</span>
-          <h3 class="card-title" style="font-size:0.9rem;"><a href="#" style="text-decoration:none; color:inherit;">How Cities Shape the Human Mind</a></h3>
-          <div class="card-meta"><span>7 min read</span></div>
-        </div>
-      </article>
-      <article class="article-card">
-        <a href="#" style="text-decoration:none;">
-          <div class="card-thumb">
-            <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&q=70" alt="Web3" loading="lazy" />
-            <div class="card-thumb-overlay"></div>
-          </div>
-        </a>
-        <div class="card-body">
-          <span class="category-badge">Health</span>
-          <h3 class="card-title" style="font-size:0.9rem;"><a href="#" style="text-decoration:none; color:inherit;">The Web3 Illusion</a></h3>
-          <div class="card-meta"><span>9 min read</span></div>
-        </div>
-      </article>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="mental-health-technology"
+    >
+      <!-- Injected by related.js -->
     </div>
   </div>
 </div>
@@ -324,5 +292,6 @@
 </footer>
 
 <script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
 </body>
 </html>

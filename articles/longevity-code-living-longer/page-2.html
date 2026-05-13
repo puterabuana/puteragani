@@ -515,50 +515,18 @@
   </div>
 </div>
 
-<!-- RELATED ARTICLES -->
+<!-- ═══════════════════════════════════════════════════
+     RELATED ARTICLES — dynamic from articles.json
+     ═══════════════════════════════════════════════════ -->
 <div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
     <div class="section-label mb-8">Related Articles</div>
-    <div class="grid sm:grid-cols-3 gap-5">
-      <article class="article-card">
-        <a href="../../articles/gut-health-second-brain/index.html" style="text-decoration:none;">
-          <div class="card-thumb">
-            <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&q=70" alt="Gut Health" loading="lazy" />
-            <div class="card-thumb-overlay"></div>
-          </div>
-        </a>
-        <div class="card-body">
-          <span class="category-badge" style="background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Health</span>
-          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/gut-health-second-brain/index.html" style="text-decoration:none; color:inherit;">Gut Health: Your Second Brain</a></h3>
-          <div class="card-meta"><span>9 min read</span></div>
-        </div>
-      </article>
-      <article class="article-card">
-        <a href="../../articles/the-science-of-sleep/index.html" style="text-decoration:none;">
-          <div class="card-thumb">
-            <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=400&q=70" alt="Sleep Science" loading="lazy" />
-            <div class="card-thumb-overlay"></div>
-          </div>
-        </a>
-        <div class="card-body">
-          <span class="category-badge" style="background:#f0f9ff; color:#0284c7; border-color:rgba(2,132,199,0.2);">Science</span>
-          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/the-science-of-sleep/index.html" style="text-decoration:none; color:inherit;">The Science of Sleep</a></h3>
-          <div class="card-meta"><span>10 min read</span></div>
-        </div>
-      </article>
-      <article class="article-card">
-        <a href="../../articles/memahami-kecerdasan-emosional/index.html" style="text-decoration:none;">
-          <div class="card-thumb">
-            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&q=70" alt="Emotional Intelligence" loading="lazy" />
-            <div class="card-thumb-overlay"></div>
-          </div>
-        </a>
-        <div class="card-body">
-          <span class="category-badge" style="background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Health</span>
-          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/memahami-kecerdasan-emosional/index.html" style="text-decoration:none; color:inherit;">Understanding Emotional Intelligence</a></h3>
-          <div class="card-meta"><span>10 min read</span></div>
-        </div>
-      </article>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="longevity-code-living-longer"
+    >
+      <!-- Injected by related.js -->
     </div>
   </div>
 </div>
@@ -578,5 +546,6 @@
 </footer>
 
 <script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
 </body>
 </html>

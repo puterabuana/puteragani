@@ -534,69 +534,18 @@
   </div>
 </div>
 
-<!-- RELATED ARTICLES -->
-<div style="background:var(--paper-warm); border-top:1px solid var(--rule);">
+<!-- ═══════════════════════════════════════════════════
+     RELATED ARTICLES — dynamic from articles.json
+     ═══════════════════════════════════════════════════ -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
     <div class="section-label mb-8">Related Articles</div>
-    <div class="grid sm:grid-cols-3 gap-5">
-
-      <!-- Related 1: subscription-economy-recurring-revenue -->
-      <a href="../subscription-economy-recurring-revenue/index.html" class="article-card group" style="text-decoration:none;">
-        <div class="article-card-img-wrap">
-          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=75"
-               alt="The Subscription Economy"
-               class="article-card-img" loading="lazy" />
-        </div>
-        <div class="article-card-body">
-          <span class="category-badge" style="background:#fef9ee; color:#b45309; border-color:rgba(180,83,9,0.2); font-size:0.65rem; padding:2px 8px;">Business</span>
-          <h3 class="article-card-title">The Subscription Economy: How Recurring Revenue Is Reshaping Business Forever</h3>
-          <p class="article-card-excerpt">From Netflix to SaaS empires — how the shift from ownership to access is rewriting the rules of how companies make money.</p>
-          <div class="article-card-meta">
-            <span>May 10, 2026</span>
-            <span>·</span>
-            <span>9 min read</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Related 2: creator-economy-work -->
-      <a href="../creator-economy-work/index.html" class="article-card group" style="text-decoration:none;">
-        <div class="article-card-img-wrap">
-          <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&q=75"
-               alt="The Creator Economy"
-               class="article-card-img" loading="lazy" />
-        </div>
-        <div class="article-card-body">
-          <span class="category-badge" style="background:#fef9ee; color:#b45309; border-color:rgba(180,83,9,0.2); font-size:0.65rem; padding:2px 8px;">Business</span>
-          <h3 class="article-card-title">The Creator Economy Is Rewriting the Rules of Work</h3>
-          <p class="article-card-excerpt">Millions of people are building businesses from their knowledge, creativity, and audience — and the economics are unlike anything that came before.</p>
-          <div class="article-card-meta">
-            <span>May 8, 2026</span>
-            <span>·</span>
-            <span>8 min read</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Related 3: personal-branding-new-resume -->
-      <a href="../personal-branding-new-resume/index.html" class="article-card group" style="text-decoration:none;">
-        <div class="article-card-img-wrap">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=75"
-               alt="Personal Branding"
-               class="article-card-img" loading="lazy" />
-        </div>
-        <div class="article-card-body">
-          <span class="category-badge" style="background:#fef9ee; color:#b45309; border-color:rgba(180,83,9,0.2); font-size:0.65rem; padding:2px 8px;">Business</span>
-          <h3 class="article-card-title">Personal Branding Is the New Resume</h3>
-          <p class="article-card-excerpt">In a world where anyone can publish, your reputation is your most valuable professional asset — and building it is a skill you can learn.</p>
-          <div class="article-card-meta">
-            <span>May 6, 2026</span>
-            <span>·</span>
-            <span>7 min read</span>
-          </div>
-        </div>
-      </a>
-
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="art-of-pricing-business-strategy"
+    >
+      <!-- Injected by related.js -->
     </div>
   </div>
 </div>
@@ -616,5 +565,6 @@
 </footer>
 
 <script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
 </body>
 </html>

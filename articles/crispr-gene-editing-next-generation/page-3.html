@@ -542,50 +542,18 @@
   </div>
 </div>
 
-<!-- RELATED ARTICLES -->
+<!-- ═══════════════════════════════════════════════════
+     RELATED ARTICLES — dynamic from articles.json
+     ═══════════════════════════════════════════════════ -->
 <div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
-    <div class="section-label mb-8">More to Read</div>
-    <div class="grid sm:grid-cols-3 gap-5">
-      <article class="article-card">
-        <a href="../../articles/longevity-code-living-longer/index.html" style="text-decoration:none;">
-          <div class="card-thumb">
-            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=70" alt="Longevity Science" loading="lazy" />
-            <div class="card-thumb-overlay"></div>
-          </div>
-        </a>
-        <div class="card-body">
-          <span class="category-badge" style="background:#f0f9ff; color:#0284c7; border-color:rgba(2,132,199,0.2);">Science</span>
-          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/longevity-code-living-longer/index.html" style="text-decoration:none; color:inherit;">The Longevity Code: Living Longer</a></h3>
-          <div class="card-meta"><span>9 min read</span></div>
-        </div>
-      </article>
-      <article class="article-card">
-        <a href="../../articles/dark-matter-universe-explained/index.html" style="text-decoration:none;">
-          <div class="card-thumb">
-            <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&q=70" alt="Dark Matter" loading="lazy" />
-            <div class="card-thumb-overlay"></div>
-          </div>
-        </a>
-        <div class="card-body">
-          <span class="category-badge" style="background:#f0f9ff; color:#0284c7; border-color:rgba(2,132,199,0.2);">Science</span>
-          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/dark-matter-universe-explained/index.html" style="text-decoration:none; color:inherit;">The Dark Matter Problem</a></h3>
-          <div class="card-meta"><span>10 min read</span></div>
-        </div>
-      </article>
-      <article class="article-card">
-        <a href="../../articles/the-science-of-sleep/index.html" style="text-decoration:none;">
-          <div class="card-thumb">
-            <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=400&q=70" alt="The Science of Sleep" loading="lazy" />
-            <div class="card-thumb-overlay"></div>
-          </div>
-        </a>
-        <div class="card-body">
-          <span class="category-badge" style="background:#f0f9ff; color:#0284c7; border-color:rgba(2,132,199,0.2);">Science</span>
-          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/the-science-of-sleep/index.html" style="text-decoration:none; color:inherit;">The Science of Sleep</a></h3>
-          <div class="card-meta"><span>8 min read</span></div>
-        </div>
-      </article>
+    <div class="section-label mb-8">Related Articles</div>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="crispr-gene-editing-next-generation"
+    >
+      <!-- Injected by related.js -->
     </div>
   </div>
 </div>
@@ -605,5 +573,6 @@
 </footer>
 
 <script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
 </body>
 </html>

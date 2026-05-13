@@ -452,50 +452,18 @@
   </div>
 </div>
 
-<!-- RELATED ARTICLES -->
+<!-- ═══════════════════════════════════════════════════
+     RELATED ARTICLES — dynamic from articles.json
+     ═══════════════════════════════════════════════════ -->
 <div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
     <div class="section-label mb-8">Related Articles</div>
-    <div class="grid sm:grid-cols-3 gap-5">
-      <article class="article-card">
-        <a href="../../articles/agentic-ai-autonomous-software/index.html" style="text-decoration:none;">
-          <div class="card-thumb">
-            <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=400&q=70" alt="Agentic AI" loading="lazy" />
-            <div class="card-thumb-overlay"></div>
-          </div>
-        </a>
-        <div class="card-body">
-          <span class="category-badge">Technology</span>
-          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/agentic-ai-autonomous-software/index.html" style="text-decoration:none; color:inherit;">Agentic AI &amp; Autonomous Software</a></h3>
-          <div class="card-meta"><span>8 min read</span></div>
-        </div>
-      </article>
-      <article class="article-card">
-        <a href="../../articles/edge-ai-offline-intelligence/index.html" style="text-decoration:none;">
-          <div class="card-thumb">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=70" alt="Edge AI" loading="lazy" />
-            <div class="card-thumb-overlay"></div>
-          </div>
-        </a>
-        <div class="card-body">
-          <span class="category-badge">Technology</span>
-          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/edge-ai-offline-intelligence/index.html" style="text-decoration:none; color:inherit;">Edge AI &amp; Offline Intelligence</a></h3>
-          <div class="card-meta"><span>8 min read</span></div>
-        </div>
-      </article>
-      <article class="article-card">
-        <a href="../../articles/dark-matter-universe-explained/index.html" style="text-decoration:none;">
-          <div class="card-thumb">
-            <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&q=70" alt="Dark Matter" loading="lazy" />
-            <div class="card-thumb-overlay"></div>
-          </div>
-        </a>
-        <div class="card-body">
-          <span class="category-badge" style="background:#f0f9ff; color:#0284c7; border-color:rgba(2,132,199,0.2);">Science</span>
-          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/dark-matter-universe-explained/index.html" style="text-decoration:none; color:inherit;">The Dark Matter Problem</a></h3>
-          <div class="card-meta"><span>10 min read</span></div>
-        </div>
-      </article>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="spatial-computing-revolution"
+    >
+      <!-- Injected by related.js -->
     </div>
   </div>
 </div>
@@ -515,5 +483,6 @@
 </footer>
 
 <script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
 </body>
 </html>
