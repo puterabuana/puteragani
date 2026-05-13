@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRISPR 2.0 — Page 2: Next-Gen Tools &amp; Clinical Trials — Putera Gani</title>
+  <meta name="description" content="Base editing, prime editing, epigenome editing, and RNA editing — the four tools reshaping genetic medicine, and the clinical trials already underway." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>tailwind.config = { theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } } }</script>
+
+  <style>
+    /* ── CRISPR Article — Page 2 Unique Styles ── */
+
+    /* 2-column card grid */
+    .tool-card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.875rem;
+      margin: 1.75rem 0;
+    }
+    @media (min-width: 640px) {
+      .tool-card-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Card with left blue border */
+    .tool-card {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      padding: 1rem 1.125rem;
+      background: var(--paper, #fafaf8);
+      position: relative;
+      overflow: hidden;
+    }
+    .tool-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: #0284c7;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* Small uppercase label (blue) */
+    .tool-card-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #0284c7;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .tool-card h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.4rem 0;
+      letter-spacing: -0.01em;
+    }
+    .tool-card p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.6;
+    }
+
+    /* Bar chart container */
+    .trial-bar-wrap {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      padding: 1.125rem 1.25rem;
+      margin: 2rem 0;
+      background: var(--paper, #fafaf8);
+    }
+    .trial-bar-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted, #6b6860);
+      margin-bottom: 1rem;
+    }
+
+    /* Single bar row */
+    .trial-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .trial-row:last-child { margin-bottom: 0; }
+
+    /* Bar label */
+    .trial-name {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--ink, #0f0f0f);
+      width: 160px;
+      flex-shrink: 0;
+    }
+
+    /* Bar track */
+    .trial-track {
+      flex: 1;
+      height: 6px;
+      background: var(--rule, #e8e4de);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    /* Bar fill (blue) */
+    .trial-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: #0284c7;
+    }
+
+    /* Status text */
+    .trial-status {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--ink-muted, #6b6860);
+      width: 70px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* Dark callout block */
+    .trial-callout {
+      background: var(--ink, #0f0f0f);
+      border-radius: 14px;
+      padding: 1.25rem 1.125rem;
+      margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 640px) {
+      .trial-callout { padding: 1.5rem 1.75rem; }
+    }
+    .trial-callout::before {
+      content: '';
+      position: absolute;
+      top: -50px; right: -50px;
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      background: rgba(2,132,199,0.07);
+    }
+    .trial-callout .tc-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #38bdf8;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .trial-callout p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+    }
+    .trial-callout strong { color: #fff !important; }
+
+    /* Section divider */
+    .p2cr-rule {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+    .p2cr-rule::before, .p2cr-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule, #e8e4de);
+    }
+    .p2cr-rule span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge" style="background:#f0f9ff; color:#0284c7; border-color:rgba(2,132,199,0.2);">Science</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    CRISPR 2.0 — Next-Gen Tools &amp; Clinical Trials
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 13, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>10 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 2 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1200&q=80"
+         alt="Biotechnology laboratory — gene therapy clinical research"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Biotechnology lab
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT — PAGE 2 -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          The four tools of CRISPR 2.0 are not interchangeable. Each has a distinct mechanism, a distinct set of capabilities, and a distinct set of limitations. Understanding the differences between them is essential to understanding why the field is moving so quickly — and why the clinical pipeline looks so different from what was possible even five years ago.
+        </p>
+
+        <h2>The Four Tools of CRISPR 2.0</h2>
+
+        <p>
+          Base editing and prime editing address the problem of point mutations — single-letter errors in the DNA sequence. But the genome is more than a sequence of letters. It is also a three-dimensional structure wrapped around proteins called histones, decorated with chemical tags that control which genes are active in which cells. <strong>Epigenome editing</strong> targets this layer of regulation, switching genes on or off without changing the underlying DNA sequence at all. And RNA editing — the newest frontier — works not on the genome itself but on the messenger RNA molecules that carry genetic instructions from the nucleus to the cell's protein-making machinery.
+        </p>
+
+        <!-- ── Tool Card Grid ── -->
+        <div class="tool-card-grid">
+          <div class="tool-card">
+            <div class="tool-card-label">DNA Correction</div>
+            <h4>Base Editing</h4>
+            <p>Converts one DNA base to another (C→T or A→G) without a double-strand break. Developed by David Liu's lab in 2016. Covers ~30% of known pathogenic point mutations. Currently in clinical trials for sickle cell disease, T-cell leukemia, and hypercholesterolemia. The most clinically advanced CRISPR 2.0 technology.</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-card-label">Precision Rewriting</div>
+            <h4>Prime Editing</h4>
+            <p>Can make all 12 types of point mutation corrections plus small insertions and deletions — covering ~89% of known pathogenic variants. Uses a pegRNA and reverse transcriptase to write new sequences directly. More versatile than base editing but currently less efficient in vivo. Rapidly improving through iterative engineering of the prime editor protein.</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-card-label">Gene Regulation</div>
+            <h4>Epigenome Editing</h4>
+            <p>Uses a catalytically dead Cas9 (dCas9) fused to epigenetic effectors to add or remove chemical marks on DNA or histones. Can silence a gene without altering its sequence, or reactivate a silenced gene. Potentially reversible — a major advantage for therapeutic applications where permanent changes carry risk. Particularly promising for diseases caused by gene silencing rather than mutation.</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-card-label">Transient Correction</div>
+            <h4>RNA Editing</h4>
+            <p>Targets messenger RNA rather than genomic DNA, making corrections that are temporary and cell-division-independent. Uses ADAR enzymes (adenosine deaminases acting on RNA) guided by engineered RNA molecules. Because the edit is not permanent, it is inherently safer for some applications — but must be re-administered. Particularly relevant for acute conditions and for tissues where permanent editing carries unacceptable risk.</p>
+          </div>
+        </div>
+
+        <div class="p2cr-rule"><span>The Clinical Pipeline</span></div>
+
+        <h2>From Bench to Bedside: What's in Clinical Trials</h2>
+
+        <p>
+          The transition from laboratory tool to approved therapy is measured in years and billions of dollars. But the CRISPR 2.0 pipeline is moving faster than almost anyone predicted. The diseases being targeted span the full range of genetic medicine — from single-gene disorders with well-understood mutations to complex conditions where gene regulation, rather than sequence, is the primary problem.
+        </p>
+
+        <!-- ── Trial Bar Chart ── -->
+        <div class="trial-bar-wrap">
+          <div class="trial-bar-title">🧪 Diseases in Active CRISPR Clinical Trials (2026)</div>
+          <div class="trial-row">
+            <div class="trial-name">Sickle Cell Disease</div>
+            <div class="trial-track"><div class="trial-fill" style="width:92%;"></div></div>
+            <div class="trial-status">Phase 3</div>
+          </div>
+          <div class="trial-row">
+            <div class="trial-name">Beta-Thalassemia</div>
+            <div class="trial-track"><div class="trial-fill" style="width:88%;"></div></div>
+            <div class="trial-status">Phase 3</div>
+          </div>
+          <div class="trial-row">
+            <div class="trial-name">Transthyretin Amyloidosis</div>
+            <div class="trial-track"><div class="trial-fill" style="width:75%;"></div></div>
+            <div class="trial-status">Phase 2/3</div>
+          </div>
+          <div class="trial-row">
+            <div class="trial-name">Leber Congenital Amaurosis</div>
+            <div class="trial-track"><div class="trial-fill" style="width:62%;"></div></div>
+            <div class="trial-status">Phase 2</div>
+          </div>
+          <div class="trial-row">
+            <div class="trial-name">Huntington's Disease</div>
+            <div class="trial-track"><div class="trial-fill" style="width:45%;"></div></div>
+            <div class="trial-status">Phase 1/2</div>
+          </div>
+          <div class="trial-row">
+            <div class="trial-name">T-Cell Leukemia</div>
+            <div class="trial-track"><div class="trial-fill" style="width:38%;"></div></div>
+            <div class="trial-status">Phase 1</div>
+          </div>
+        </div>
+
+        <h2>The Sickle Cell Breakthrough: Casgevy</h2>
+
+        <p>
+          In November 2023, the FDA approved Casgevy — developed by Vertex Pharmaceuticals and CRISPR Therapeutics — making it the first CRISPR-based therapy to receive regulatory approval anywhere in the world. The approval was a landmark moment, not just for CRISPR but for the entire field of genetic medicine.
+        </p>
+
+        <p>
+          Casgevy works by editing patients' own stem cells ex vivo — outside the body. Stem cells are extracted from the patient's bone marrow, edited using CRISPR-Cas9 to reactivate fetal hemoglobin production (which compensates for the defective adult hemoglobin), and then reinfused. In clinical trials, 29 of 29 patients with severe sickle cell disease who received Casgevy were free of vaso-occlusive crises — the painful, life-threatening episodes that define the disease — for at least 12 months after treatment. The results were, by any measure, <strong>extraordinary</strong>.
+        </p>
+
+        <p>
+          But Casgevy also illustrates the current limitations of CRISPR therapy. The treatment requires a bone marrow transplant procedure, months of hospitalization, and a price tag of approximately $2.2 million per patient. It is a cure — but a cure accessible to very few. The next generation of CRISPR therapies aims to solve this problem through in vivo delivery: editing cells directly inside the body, without the need for extraction and reinfusion.
+        </p>
+
+        <div class="p2cr-rule"><span>The Delivery Problem</span></div>
+
+        <h2>Getting CRISPR Into the Right Cells</h2>
+
+        <p>
+          The most significant unsolved problem in CRISPR therapeutics is not the editing itself — it is delivery. A CRISPR system is a molecular machine that needs to reach the nucleus of a specific cell type, in a specific tissue, in a living human body. The bloodstream is a hostile environment. The immune system will attack foreign molecules. Most tissues are difficult to access. And the editing machinery must be delivered in sufficient quantity to achieve a therapeutic effect without causing toxicity.
+        </p>
+
+        <p>
+          Three delivery strategies dominate the current landscape. <strong>Lipid nanoparticles (LNPs)</strong> — the same technology used in mRNA COVID vaccines — can encapsulate CRISPR components and deliver them to the liver with high efficiency. This makes LNPs ideal for liver diseases, and several LNP-delivered CRISPR therapies are already in clinical trials. <strong>Adeno-associated viruses (AAVs)</strong> are engineered viral vectors that can reach a wider range of tissues, including muscle, eye, and brain — but their cargo capacity is limited, and they can trigger immune responses. <strong>Base editing in vivo</strong> — delivering the editing machinery directly to target tissues without ex vivo manipulation — is the frontier that most excites researchers, because it would make CRISPR therapy as simple as an injection.
+        </p>
+
+        <!-- ── Trial Callout ── -->
+        <div class="trial-callout">
+          <div class="tc-label">💉 In Vivo vs. Ex Vivo</div>
+          <p>The distinction between in vivo and ex vivo editing is the central strategic divide in CRISPR therapeutics. <strong>Ex vivo editing</strong> — removing cells, editing them in the lab, and reinfusing them — is technically mature but expensive, complex, and limited to cell types that can survive the process. <strong>In vivo editing</strong> — delivering CRISPR directly to target tissues inside the body — is the holy grail: simpler, cheaper, and applicable to any tissue. The liver is already accessible via LNPs. The eye, muscle, and brain are the next frontiers.</p>
+        </div>
+
+        <blockquote>
+          "We are not just treating disease. We are rewriting the instructions. The question is no longer whether we can do it — it's whether we can do it safely, equitably, and at scale."
+          <cite>— Dr. Fyodor Urnov, Innovative Genomics Institute, UC Berkeley</cite>
+        </blockquote>
+
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a href="index.html" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+            <div class="page-dot"></div>
+          </div>
+          <a href="page-3.html" class="btn-primary">
+            Continue to Page 3
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">How CRISPR Actually Works</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">Next-Gen Tools &amp; Clinical Trials</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Ethics, Access &amp; the Future</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div class="grid sm:grid-cols-3 gap-5">
+      <article class="article-card">
+        <a href="../../articles/longevity-code-living-longer/index.html" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=70" alt="Longevity Science" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge" style="background:#f0f9ff; color:#0284c7; border-color:rgba(2,132,199,0.2);">Science</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/longevity-code-living-longer/index.html" style="text-decoration:none; color:inherit;">The Longevity Code: Living Longer</a></h3>
+          <div class="card-meta"><span>9 min read</span></div>
+        </div>
+      </article>
+      <article class="article-card">
+        <a href="../../articles/dark-matter-universe-explained/index.html" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&q=70" alt="Dark Matter" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge" style="background:#f0f9ff; color:#0284c7; border-color:rgba(2,132,199,0.2);">Science</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/dark-matter-universe-explained/index.html" style="text-decoration:none; color:inherit;">The Dark Matter Problem</a></h3>
+          <div class="card-meta"><span>10 min read</span></div>
+        </div>
+      </article>
+      <article class="article-card">
+        <a href="../../articles/gut-health-second-brain/index.html" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&q=70" alt="Gut Health" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge" style="background:#f0f9ff; color:#0284c7; border-color:rgba(2,132,199,0.2);">Science</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/gut-health-second-brain/index.html" style="text-decoration:none; color:inherit;">Gut Health: Your Second Brain</a></h3>
+          <div class="card-meta"><span>8 min read</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

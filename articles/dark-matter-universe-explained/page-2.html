@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Dark Matter Problem — Page 2: Candidates &amp; The Search — Putera Gani</title>
+  <meta name="description" content="WIMPs, axions, sterile neutrinos — the leading dark matter candidates and the global experiments hunting for them." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>tailwind.config = { theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } } }</script>
+
+  <style>
+    /* ── Dark Matter Article — Page 2 Unique Styles ── */
+
+    /* Candidate Card Grid */
+    .candidate-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.875rem;
+      margin: 1.75rem 0;
+    }
+    @media (min-width: 640px) {
+      .candidate-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .candidate-card {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      padding: 1rem 1.125rem;
+      background: var(--paper, #fafaf8);
+      position: relative;
+      overflow: hidden;
+    }
+    .candidate-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: #0284c7;
+      border-radius: 3px 0 0 3px;
+    }
+    .candidate-card-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #0284c7;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .candidate-card h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.4rem 0;
+      letter-spacing: -0.01em;
+    }
+    .candidate-card p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.6;
+    }
+
+    /* Detection Method Bars */
+    .detection-bar-wrap {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      padding: 1.125rem 1.25rem;
+      margin: 2rem 0;
+      background: var(--paper, #fafaf8);
+    }
+    .detection-bar-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted, #6b6860);
+      margin-bottom: 1rem;
+    }
+    .detection-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .detection-row:last-child { margin-bottom: 0; }
+    .detection-name {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--ink, #0f0f0f);
+      width: 150px;
+      flex-shrink: 0;
+    }
+    .detection-track {
+      flex: 1;
+      height: 6px;
+      background: var(--rule, #e8e4de);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .detection-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: #0284c7;
+    }
+    .detection-status {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--ink-muted, #6b6860);
+      width: 60px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* Experiment Dark Callout */
+    .experiment-callout {
+      background: var(--ink, #0f0f0f);
+      border-radius: 14px;
+      padding: 1.25rem 1.25rem;
+      margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 640px) {
+      .experiment-callout { padding: 1.5rem 1.75rem; }
+    }
+    .experiment-callout::before {
+      content: '';
+      position: absolute;
+      top: -50px; right: -50px;
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      background: rgba(2,132,199,0.07);
+    }
+    .experiment-callout .ec-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #38bdf8;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .experiment-callout p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+    }
+    .experiment-callout strong { color: #fff !important; }
+
+    /* Experiments Comparison Table */
+    .experiments-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--rule, #e8e4de);
+      margin: 2rem 0;
+      font-size: 0.8125rem;
+    }
+    .experiments-table thead tr {
+      background: var(--ink, #0f0f0f);
+    }
+    .experiments-table thead th {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+    }
+    .experiments-table tbody tr {
+      border-bottom: 1px solid var(--rule, #e8e4de);
+      background: var(--paper, #fafaf8);
+    }
+    .experiments-table tbody tr:last-child { border-bottom: none; }
+    .experiments-table tbody tr:nth-child(even) {
+      background: rgba(2,132,199,0.03);
+    }
+    .experiments-table tbody td {
+      padding: 0.75rem 1rem;
+      color: var(--ink, #0f0f0f);
+      line-height: 1.5;
+      vertical-align: top;
+    }
+    .experiments-table tbody td:first-child {
+      font-weight: 600;
+      color: #0284c7;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      white-space: nowrap;
+    }
+
+    /* Section Divider */
+    .p2dm-rule {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+    .p2dm-rule::before, .p2dm-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule, #e8e4de);
+    }
+    .p2dm-rule span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge" style="background:#f0f9ff; color:#0284c7; border-color:rgba(2,132,199,0.2);">Science</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    The Dark Matter Problem — Candidates &amp; The Search
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 13, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>10 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 2 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=1200&q=80"
+         alt="Particle physics detector — searching for dark matter"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Particle physics
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT — PAGE 2 -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          The evidence for dark matter is overwhelming. But evidence for <em>existence</em> is not the same as evidence for <em>identity</em>. We know dark matter is there. We do not know what it is. That question — what is dark matter made of? — is one of the most important open problems in all of physics, and it has generated a remarkable diversity of theoretical proposals and experimental programs.
+        </p>
+
+        <h2>The Leading Candidates</h2>
+
+        <p>
+          Physicists have proposed dozens of dark matter candidates over the decades. The most credible ones share a common set of properties: they must be electrically neutral (otherwise they would interact with light), they must be stable over cosmological timescales, and they must have been produced in the right abundance in the early universe to account for the dark matter we observe today.
+        </p>
+
+        <!-- ── Candidate Cards ── -->
+        <div class="candidate-grid">
+          <div class="candidate-card">
+            <div class="candidate-card-label">Most Studied</div>
+            <h4>WIMPs</h4>
+            <p>Weakly Interacting Massive Particles were the dominant dark matter candidate for decades. With masses between 10 and 1,000 times that of a proton, WIMPs interact via the weak nuclear force — making them theoretically detectable. The "WIMP miracle" — the fact that a particle with weak-scale interactions naturally produces the right dark matter abundance — made them enormously attractive. Decades of null results have significantly constrained, though not eliminated, the WIMP parameter space.</p>
+          </div>
+          <div class="candidate-card">
+            <div class="candidate-card-label">Rising Contender</div>
+            <h4>Axions</h4>
+            <p>Originally proposed in 1977 to solve an unrelated problem in quantum chromodynamics (the strong CP problem), axions are extraordinarily light — potentially a trillion times lighter than an electron. They interact so weakly that they are almost impossible to detect, but their sheer number could account for all of dark matter. The ADMX experiment at the University of Washington is currently the leading axion search, using a microwave cavity to convert axions into detectable photons.</p>
+          </div>
+          <div class="candidate-card">
+            <div class="candidate-card-label">Neutrino Cousin</div>
+            <h4>Sterile Neutrinos</h4>
+            <p>Ordinary neutrinos interact via the weak force. Sterile neutrinos — hypothetical heavier cousins — would interact only through gravity, making them ideal dark matter candidates. They could decay into ordinary neutrinos and X-ray photons, producing a detectable signal. A tantalizing 3.5 keV X-ray line observed in galaxy clusters has been proposed as evidence, though its interpretation remains contested.</p>
+          </div>
+          <div class="candidate-card">
+            <div class="candidate-card-label">Primordial Origin</div>
+            <h4>Primordial Black Holes</h4>
+            <p>Before particle physics candidates dominated the field, some physicists proposed that dark matter could be composed of black holes formed in the early universe — before any stars existed. LIGO's detection of unexpectedly massive black hole mergers briefly revived this idea. Microlensing surveys have ruled out PBHs as the dominant component across most mass ranges, but a window remains open for black holes in the asteroid-mass range.</p>
+          </div>
+        </div>
+
+        <div class="p2dm-rule"><span>The Hunt</span></div>
+
+        <h2>Three Ways to Search</h2>
+
+        <p>
+          The experimental search for dark matter proceeds along three independent fronts. Each approach has different strengths and weaknesses, and together they cover a vast range of possible dark matter properties. The fact that none has yet succeeded is itself scientifically informative — it tells us where dark matter is <em>not</em>, progressively narrowing the possibilities.
+        </p>
+
+        <!-- ── Detection Bars ── -->
+        <div class="detection-bar-wrap">
+          <div class="detection-bar-title">🔍 Detection Strategy Progress</div>
+          <div class="detection-row">
+            <div class="detection-name">Direct Detection</div>
+            <div class="detection-track"><div class="detection-fill" style="width:78%;"></div></div>
+            <div class="detection-status">Active</div>
+          </div>
+          <div class="detection-row">
+            <div class="detection-name">Indirect Detection</div>
+            <div class="detection-track"><div class="detection-fill" style="width:65%;"></div></div>
+            <div class="detection-status">Active</div>
+          </div>
+          <div class="detection-row">
+            <div class="detection-name">Collider Production</div>
+            <div class="detection-track"><div class="detection-fill" style="width:55%;"></div></div>
+            <div class="detection-status">Active</div>
+          </div>
+          <div class="detection-row">
+            <div class="detection-name">Axion Searches</div>
+            <div class="detection-track"><div class="detection-fill" style="width:42%;"></div></div>
+            <div class="detection-status">Growing</div>
+          </div>
+          <div class="detection-row">
+            <div class="detection-name">Gravitational Waves</div>
+            <div class="detection-track"><div class="detection-fill" style="width:28%;"></div></div>
+            <div class="detection-status">Emerging</div>
+          </div>
+        </div>
+
+        <h2>Major Experiments and What They've Found</h2>
+
+        <p>
+          The global dark matter search involves dozens of experiments across multiple continents, each designed to probe a different region of parameter space. The scale of investment — billions of dollars, thousands of physicists, decades of effort — reflects both the importance of the question and the extraordinary difficulty of answering it.
+        </p>
+
+        <!-- ── Experiments Table ── -->
+        <div style="overflow-x:auto;">
+          <table class="experiments-table">
+            <thead>
+              <tr>
+                <th>Experiment</th>
+                <th>Location</th>
+                <th>Method</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>LUX-ZEPLIN</td>
+                <td>Sanford Underground, South Dakota</td>
+                <td>Liquid xenon direct detection — looks for WIMP-nucleus recoils</td>
+                <td>World's most sensitive WIMP detector; no signal detected</td>
+              </tr>
+              <tr>
+                <td>XENON1T / XENONnT</td>
+                <td>Gran Sasso, Italy</td>
+                <td>Liquid xenon; also sensitive to solar axions and neutrinos</td>
+                <td>Reported anomalous excess in 2020; attributed to tritium contamination</td>
+              </tr>
+              <tr>
+                <td>PandaX-4T</td>
+                <td>Jinping Underground, China</td>
+                <td>4-tonne liquid xenon; competitive WIMP sensitivity</td>
+                <td>No WIMP signal; published world-leading limits in 2021</td>
+              </tr>
+              <tr>
+                <td>ADMX</td>
+                <td>University of Washington</td>
+                <td>Microwave cavity resonator searching for axion-photon conversion</td>
+                <td>Scanning axion mass range; no detection yet</td>
+              </tr>
+              <tr>
+                <td>Fermi-LAT</td>
+                <td>Earth orbit (satellite)</td>
+                <td>Indirect detection — searches for gamma rays from dark matter annihilation</td>
+                <td>Galactic center excess remains unexplained; dark matter interpretation contested</td>
+              </tr>
+              <tr>
+                <td>LHC (ATLAS/CMS)</td>
+                <td>CERN, Geneva</td>
+                <td>Collider production — searches for missing energy signatures</td>
+                <td>No dark matter produced; strong constraints on many WIMP models</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>The Silence That Speaks</h2>
+
+        <p>
+          The most striking feature of the dark matter search is not what has been found — it is what has not. The LUX-ZEPLIN experiment, the most sensitive WIMP detector ever built, has probed interaction cross-sections so small that a WIMP passing through a light-year of lead would have only a 50% chance of interacting. It has found nothing.
+        </p>
+
+        <p>
+          This silence is scientifically valuable. Each null result eliminates a region of parameter space and forces theorists to reconsider their models. The original WIMP miracle — the elegant coincidence that made WIMPs so attractive — is now under serious pressure. Many physicists are shifting their attention to lighter, more weakly interacting candidates, or to entirely different frameworks.
+        </p>
+
+        <!-- ── Experiment Callout ── -->
+        <div class="experiment-callout">
+          <div class="ec-label">⚗️ The WIMP Miracle Under Pressure</div>
+          <p>For 30 years, the WIMP was the consensus dark matter candidate. The combination of theoretical elegance and experimental accessibility made it the obvious target. But after the LHC failed to produce supersymmetric particles — the theoretical framework that most naturally produces WIMPs — and after direct detection experiments pushed sensitivity to extraordinary levels without a signal, the field is <strong>genuinely open again</strong>. This is not a crisis. It is an invitation.</p>
+        </div>
+
+        <blockquote>
+          "Every time we rule out a model, we learn something. The universe is not obligated to give us the dark matter candidate we find most convenient."
+          <cite>— Dr. Priyamvada Natarajan, Yale University</cite>
+        </blockquote>
+
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a href="index.html" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+            <div class="page-dot"></div>
+          </div>
+          <a href="page-3.html" class="btn-primary">
+            Continue to Page 3
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Evidence for Dark Matter</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">Candidates &amp; The Search</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">What Comes Next</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div class="grid sm:grid-cols-3 gap-5">
+      <article class="article-card">
+        <a href="../../articles/quantum-computing-explained/index.html" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&q=70" alt="Quantum Computing" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge" style="background:#f0f9ff; color:#0284c7; border-color:rgba(2,132,199,0.2);">Science</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/quantum-computing-explained/index.html" style="text-decoration:none; color:inherit;">Quantum Computing Explained</a></h3>
+          <div class="card-meta"><span>9 min read</span></div>
+        </div>
+      </article>
+      <article class="article-card">
+        <a href="../../articles/climate-crisis-innovators/index.html" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=400&q=70" alt="Climate Science" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge" style="background:#f0f9ff; color:#0284c7; border-color:rgba(2,132,199,0.2);">Science</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/climate-crisis-innovators/index.html" style="text-decoration:none; color:inherit;">The Climate Crisis Innovators</a></h3>
+          <div class="card-meta"><span>8 min read</span></div>
+        </div>
+      </article>
+      <article class="article-card">
+        <a href="../../articles/the-future-of-artificial-intelligence/index.html" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=400&q=70" alt="Future of AI" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge" style="background:#f0f9ff; color:#0284c7; border-color:rgba(2,132,199,0.2);">Science</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/the-future-of-artificial-intelligence/index.html" style="text-decoration:none; color:inherit;">The Future of Artificial Intelligence</a></h3>
+          <div class="card-meta"><span>10 min read</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Dark Matter Problem — Page 3: What Comes Next — Putera Gani</title>
+  <meta name="description" content="Alternative theories, what a discovery would mean, and the philosophical implications of an invisible universe." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>tailwind.config = { theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } } }</script>
+
+  <style>
+    /* ── Dark Matter Article — Page 3 Unique Styles ── */
+
+    /* Alternative Theory Cards */
+    .theory-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+      margin: 1.75rem 0;
+    }
+    .theory-card {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      padding: 1rem 1.125rem;
+      background: var(--paper, #fafaf8);
+      transition: border-color 0.2s;
+    }
+    .theory-card:hover {
+      border-color: rgba(2,132,199,0.35);
+    }
+    .theory-icon-wrap {
+      flex-shrink: 0;
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      background: rgba(2,132,199,0.08);
+      border: 1px solid rgba(2,132,199,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.125rem;
+    }
+    .theory-content h4 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.3rem 0;
+      letter-spacing: -0.01em;
+    }
+    .theory-content p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.65;
+    }
+
+    /* Implication Contrast Cards */
+    .implication-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin: 1.75rem 0;
+    }
+    .implication-item {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--rule, #e8e4de);
+    }
+    .implication-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.875rem 1rem;
+      background: rgba(2,132,199,0.04);
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    .implication-body-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.875rem 1rem;
+      background: rgba(200,151,58,0.03);
+    }
+    .implication-tag {
+      flex-shrink: 0;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-top: 1px;
+    }
+    .tag-question {
+      background: rgba(2,132,199,0.1);
+      color: #0284c7;
+    }
+    .tag-impact {
+      background: rgba(200,151,58,0.12);
+      color: var(--accent, #c8973a);
+    }
+    .implication-header p, .implication-body-row p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Future Timeline Table */
+    .future-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--rule, #e8e4de);
+      margin: 2rem 0;
+      font-size: 0.8125rem;
+    }
+    .future-table thead tr {
+      background: var(--ink, #0f0f0f);
+    }
+    .future-table thead th {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+    }
+    .future-table tbody tr {
+      border-bottom: 1px solid var(--rule, #e8e4de);
+      background: var(--paper, #fafaf8);
+    }
+    .future-table tbody tr:last-child { border-bottom: none; }
+    .future-table tbody tr:nth-child(even) {
+      background: rgba(2,132,199,0.03);
+    }
+    .future-table tbody td {
+      padding: 0.75rem 1rem;
+      color: var(--ink, #0f0f0f);
+      line-height: 1.5;
+      vertical-align: top;
+    }
+    .future-table tbody td:first-child {
+      font-weight: 600;
+      color: #0284c7;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      white-space: nowrap;
+    }
+
+    /* Final Closing Panel */
+    .cosmos-closing {
+      background: linear-gradient(135deg, rgba(2,132,199,0.07) 0%, rgba(2,132,199,0.02) 100%);
+      border: 1px solid rgba(2,132,199,0.28);
+      border-radius: 14px;
+      padding: 1.25rem 1.25rem;
+      margin: 2rem 0;
+    }
+    @media (min-width: 640px) {
+      .cosmos-closing { padding: 1.5rem 1.75rem; }
+    }
+    .cosmos-closing .cc-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #0284c7;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .cosmos-closing p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Section Divider */
+    .p3dm-rule {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+    .p3dm-rule::before, .p3dm-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule, #e8e4de);
+    }
+    .p3dm-rule span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge" style="background:#f0f9ff; color:#0284c7; border-color:rgba(2,132,199,0.2);">Science</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    The Dark Matter Problem — What Comes Next
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 13, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>10 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 3 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=1200&q=80"
+         alt="The cosmos — stars and the future of cosmology"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Cosmos
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT — PAGE 3 -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          The decades-long failure to detect dark matter particles has done something unexpected: it has opened the field. Where once there was near-consensus around WIMPs, there is now a rich diversity of theoretical proposals, experimental strategies, and — crucially — a willingness to question whether the dark matter paradigm itself needs revision. Science at its most productive looks exactly like this.
+        </p>
+
+        <h2>When the Data Doesn't Fit: Alternative Theories</h2>
+
+        <p>
+          A minority of physicists have long argued that the dark matter problem might be solved not by adding new particles, but by modifying our theory of gravity. If Newton's and Einstein's laws of gravity are slightly wrong at very low accelerations — the regime relevant to galaxy rotation curves — then the anomalies might disappear without any invisible matter at all.
+        </p>
+
+        <!-- ── Theory Cards ── -->
+        <div class="theory-stack">
+          <div class="theory-card">
+            <div class="theory-icon-wrap">⚖️</div>
+            <div class="theory-content">
+              <h4>MOND — Modified Newtonian Dynamics</h4>
+              <p>Proposed by Mordehai Milgrom in 1983, MOND modifies Newton's second law at very low accelerations. It successfully predicts galaxy rotation curves from the distribution of visible matter alone — a remarkable achievement that dark matter models struggle to match with equal precision. However, MOND fails badly at the scale of galaxy clusters, cannot explain the Bullet Cluster observations, and has no satisfactory relativistic extension. Most physicists regard it as a useful empirical relation rather than a fundamental theory.</p>
+            </div>
+          </div>
+          <div class="theory-card">
+            <div class="theory-icon-wrap">🌀</div>
+            <div class="theory-content">
+              <h4>TeVeS and Relativistic MOND</h4>
+              <p>Jacob Bekenstein's Tensor-Vector-Scalar gravity (TeVeS) was an attempt to give MOND a relativistic foundation compatible with general relativity. It partially succeeded but required fine-tuning and struggled with gravitational wave observations. The detection of gravitational waves from a neutron star merger in 2017 — which arrived simultaneously with light — placed severe constraints on many modified gravity theories, including TeVeS variants.</p>
+            </div>
+          </div>
+          <div class="theory-card">
+            <div class="theory-icon-wrap">🔗</div>
+            <div class="theory-content">
+              <h4>Emergent Gravity</h4>
+              <p>Erik Verlinde's 2016 proposal suggests that gravity itself is not a fundamental force but an emergent phenomenon arising from the thermodynamics of quantum information. In his framework, the apparent effects of dark matter are a consequence of the way ordinary matter interacts with the quantum information content of spacetime. The theory makes testable predictions that differ from both standard dark matter and MOND, and several observational tests are underway.</p>
+            </div>
+          </div>
+          <div class="theory-card">
+            <div class="theory-icon-wrap">🌑</div>
+            <div class="theory-content">
+              <h4>Self-Interacting Dark Matter</h4>
+              <p>Rather than abandoning dark matter, some physicists propose that dark matter particles interact with each other — not just through gravity. Self-interacting dark matter (SIDM) could explain certain small-scale structure anomalies that standard cold dark matter models struggle with, such as the "core-cusp problem" in dwarf galaxies. SIDM remains within the dark matter paradigm but adds a rich internal physics to the dark sector.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p3dm-rule"><span>What Discovery Would Mean</span></div>
+
+        <h2>The Implications of Finding It</h2>
+
+        <p>
+          A confirmed dark matter detection would be one of the most consequential scientific events in history — comparable to the discovery of the electron, the confirmation of the atomic nucleus, or the detection of gravitational waves. The implications would cascade across physics, cosmology, and philosophy.
+        </p>
+
+        <!-- ── Implication Cards ── -->
+        <div class="implication-list">
+          <div class="implication-item">
+            <div class="implication-header">
+              <span class="implication-tag tag-question">Question</span>
+              <p>What would a WIMP detection tell us about the Standard Model of particle physics?</p>
+            </div>
+            <div class="implication-body-row">
+              <span class="implication-tag tag-impact">Impact</span>
+              <p>It would almost certainly confirm supersymmetry — the theoretical framework predicting a "superpartner" for every known particle. This would be the first physics beyond the Standard Model, opening an entirely new chapter in fundamental physics and potentially explaining other mysteries like the matter-antimatter asymmetry of the universe.</p>
+            </div>
+          </div>
+          <div class="implication-item">
+            <div class="implication-header">
+              <span class="implication-tag tag-question">Question</span>
+              <p>What would an axion detection mean for our understanding of the early universe?</p>
+            </div>
+            <div class="implication-body-row">
+              <span class="implication-tag tag-impact">Impact</span>
+              <p>Axions would solve two major problems simultaneously — dark matter and the strong CP problem. Their detection would confirm that the universe underwent a phase transition called the Peccei-Quinn symmetry breaking, providing a new window into the first microseconds after the Big Bang and potentially connecting dark matter to the physics of inflation.</p>
+            </div>
+          </div>
+          <div class="implication-item">
+            <div class="implication-header">
+              <span class="implication-tag tag-question">Question</span>
+              <p>What if dark matter turns out to be something entirely unexpected — outside all current theoretical frameworks?</p>
+            </div>
+            <div class="implication-body-row">
+              <span class="implication-tag tag-impact">Impact</span>
+              <p>This is arguably the most exciting possibility. History suggests that the most transformative discoveries are the ones nobody predicted. Dark matter could be a portal to an entirely new sector of physics — a "dark sector" with its own forces, particles, and interactions — that has been invisible to us simply because it doesn't couple to electromagnetism.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>The Future of the Search</h2>
+
+        <p>
+          The next decade will see a new generation of experiments come online, each pushing sensitivity to previously inaccessible regimes. The field is not stagnating — it is accelerating, driven by advances in detector technology, computing power, and theoretical creativity.
+        </p>
+
+        <!-- ── Future Timeline Table ── -->
+        <div style="overflow-x:auto;">
+          <table class="future-table">
+            <thead>
+              <tr>
+                <th>Experiment / Mission</th>
+                <th>Timeline</th>
+                <th>Target</th>
+                <th>Key Capability</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>LZ (LUX-ZEPLIN)</td>
+                <td>2026–2028</td>
+                <td>WIMPs</td>
+                <td>Full dataset; will probe WIMP cross-sections near the neutrino floor</td>
+              </tr>
+              <tr>
+                <td>ADMX-EFR</td>
+                <td>2026–2030</td>
+                <td>Axions</td>
+                <td>Extended frequency range; scanning higher axion masses</td>
+              </tr>
+              <tr>
+                <td>Rubin Observatory (LSST)</td>
+                <td>2025–2035</td>
+                <td>Dark matter structure</td>
+                <td>Maps dark matter distribution via weak lensing across billions of galaxies</td>
+              </tr>
+              <tr>
+                <td>Euclid Space Telescope</td>
+                <td>2024–2030</td>
+                <td>Dark matter + dark energy</td>
+                <td>3D map of dark matter across 10 billion years of cosmic history</td>
+              </tr>
+              <tr>
+                <td>CMB-S4</td>
+                <td>2030s</td>
+                <td>Light dark matter, neutrinos</td>
+                <td>Next-generation CMB survey; sensitive to sub-GeV dark matter candidates</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>The Philosophical Weight of the Invisible</h2>
+
+        <p>
+          There is something philosophically vertiginous about dark matter. For all of human history, we have assumed that the universe is, in principle, knowable through observation. We look up, we see stars, and we build models of what we see. Dark matter breaks that assumption at the most fundamental level: the majority of the universe is, by definition, <strong>beyond direct observation.</strong>
+        </p>
+
+        <p>
+          This is not merely a technical limitation. It is a statement about the nature of reality. The universe contains vast structures — halos, filaments, sheets of dark matter spanning hundreds of millions of light-years — that have never been and may never be directly seen. We infer their existence from their gravitational effects on the things we can see, the way a blind person might infer the shape of a room from the echoes of their footsteps.
+        </p>
+
+        <p>
+          And yet this invisible scaffolding is not peripheral. It is the dominant component of the universe's mass. It shaped the formation of every galaxy, every star, every planet. Without it, we would not exist. The atoms in your body were forged in stars that formed in dark matter halos that condensed from quantum fluctuations in the first fraction of a second after the Big Bang. Dark matter is not a curiosity at the edge of physics. It is the foundation on which everything visible is built.
+        </p>
+
+        <!-- ── Closing Panel ── -->
+        <div class="cosmos-closing">
+          <div class="cc-label">🌌 The Bottom Line</div>
+          <p>Dark matter is the universe's most important unsolved problem. It is not a gap in our knowledge waiting to be filled — it is a <strong>fundamental challenge to our understanding of what matter, gravity, and reality itself actually are.</strong> The search for it is one of the great intellectual adventures of our time. And the answer, when it comes, will change everything.</p>
+        </div>
+
+      </div>
+
+      <!-- Final Pagination -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a href="page-2.html" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+          </div>
+          <a href="../../index.html" class="btn-accent">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Back to Homepage
+          </a>
+        </div>
+      </div>
+
+      <!-- Completion Banner -->
+      <div class="mt-10 rounded-2xl p-7 text-center" style="background: linear-gradient(135deg, #1a1510 0%, #0f0f0f 100%); border: 1px solid #2a2520;">
+        <div class="text-accent font-mono text-xs font-medium mb-3 tracking-widest uppercase">Article Complete</div>
+        <h3 class="font-display text-white text-xl font-semibold mb-2">Thanks for reading</h3>
+        <p style="color:rgba(255,255,255,0.5); font-size:0.875rem; margin-bottom:1.5rem;">
+          Enjoyed this piece? Subscribe for one curated story delivered to your inbox each week.
+        </p>
+        <div class="flex gap-3 max-w-sm mx-auto">
+          <input type="email" placeholder="your@email.com"
+                 style="flex:1; padding:0.6rem 1rem; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:8px; color:#fff; font-size:0.8125rem; outline:none; font-family:'DM Sans',sans-serif;"
+                 aria-label="Email address" />
+          <button class="btn-accent" style="white-space:nowrap;">Subscribe</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Evidence for Dark Matter</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Candidates &amp; The Search</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">What Comes Next</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">More to Read</div>
+    <div class="grid sm:grid-cols-3 gap-5">
+      <article class="article-card">
+        <a href="../../articles/quantum-computing-explained/index.html" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&q=70" alt="Quantum Computing" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge" style="background:#f0f9ff; color:#0284c7; border-color:rgba(2,132,199,0.2);">Science</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/quantum-computing-explained/index.html" style="text-decoration:none; color:inherit;">Quantum Computing Explained</a></h3>
+          <div class="card-meta"><span>9 min read</span></div>
+        </div>
+      </article>
+      <article class="article-card">
+        <a href="../../articles/longevity-code-living-longer/index.html" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=70" alt="Longevity Science" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge" style="background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Health</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/longevity-code-living-longer/index.html" style="text-decoration:none; color:inherit;">The Longevity Code</a></h3>
+          <div class="card-meta"><span>9 min read</span></div>
+        </div>
+      </article>
+      <article class="article-card">
+        <a href="../../articles/climate-crisis-innovators/index.html" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=400&q=70" alt="Climate Science" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge" style="background:#f0f9ff; color:#0284c7; border-color:rgba(2,132,199,0.2);">Science</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/climate-crisis-innovators/index.html" style="text-decoration:none; color:inherit;">The Climate Crisis Innovators</a></h3>
+          <div class="card-meta"><span>8 min read</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

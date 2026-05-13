@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRISPR 2.0 — Page 3: Ethics, Access &amp; the Future — Putera Gani</title>
+  <meta name="description" content="Germline editing, the He Jiankui scandal, global equity, and the philosophical question of what it means to rewrite the human genome." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>tailwind.config = { theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } } }</script>
+
+  <style>
+    /* ── CRISPR Article — Page 3 Unique Styles ── */
+
+    /* Vertical stack of ethics cards */
+    .ethics-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+      margin: 1.75rem 0;
+    }
+
+    /* Individual card with icon */
+    .ethics-card {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      padding: 1rem 1.125rem;
+      background: var(--paper, #fafaf8);
+      transition: border-color 0.2s;
+    }
+    .ethics-card:hover {
+      border-color: rgba(2,132,199,0.35);
+    }
+
+    /* Icon container (blue tint) */
+    .ethics-icon-wrap {
+      flex-shrink: 0;
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      background: rgba(2,132,199,0.08);
+      border: 1px solid rgba(2,132,199,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.125rem;
+    }
+
+    /* Text area */
+    .ethics-content h4 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.3rem 0;
+      letter-spacing: -0.01em;
+    }
+    .ethics-content p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.65;
+    }
+
+    /* Debate/response card list */
+    .debate-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin: 1.75rem 0;
+    }
+
+    /* Individual debate item */
+    .debate-item {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--rule, #e8e4de);
+    }
+
+    /* Question row (light blue tint) */
+    .debate-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.875rem 1rem;
+      background: rgba(2,132,199,0.04);
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+
+    /* Answer row (light gold tint) */
+    .debate-body-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.875rem 1rem;
+      background: rgba(200,151,58,0.03);
+    }
+
+    /* Small badge */
+    .debate-tag {
+      flex-shrink: 0;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-top: 1px;
+    }
+    .debate-tag-q {
+      background: rgba(2,132,199,0.1);
+      color: #0284c7;
+    }
+    .debate-tag-a {
+      background: rgba(200,151,58,0.12);
+      color: var(--accent, #c8973a);
+    }
+    .debate-header p, .debate-body-row p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Future timeline table */
+    .future-timeline-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--rule, #e8e4de);
+      margin: 2rem 0;
+      font-size: 0.8125rem;
+    }
+    .future-timeline-table thead tr {
+      background: var(--ink, #0f0f0f);
+    }
+    .future-timeline-table thead th {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+    }
+    .future-timeline-table tbody tr {
+      border-bottom: 1px solid var(--rule, #e8e4de);
+      background: var(--paper, #fafaf8);
+    }
+    .future-timeline-table tbody tr:last-child { border-bottom: none; }
+    .future-timeline-table tbody tr:nth-child(even) {
+      background: rgba(2,132,199,0.03);
+    }
+    .future-timeline-table tbody td {
+      padding: 0.75rem 1rem;
+      color: var(--ink, #0f0f0f);
+      line-height: 1.5;
+      vertical-align: top;
+    }
+    .future-timeline-table tbody td:first-child {
+      font-weight: 600;
+      color: #0284c7;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      white-space: nowrap;
+    }
+
+    /* Final closing panel (blue tint) */
+    .crispr-closing {
+      background: linear-gradient(135deg, rgba(2,132,199,0.07) 0%, rgba(2,132,199,0.02) 100%);
+      border: 1px solid rgba(2,132,199,0.28);
+      border-radius: 14px;
+      padding: 1.25rem 1.25rem;
+      margin: 2rem 0;
+    }
+    @media (min-width: 640px) {
+      .crispr-closing { padding: 1.5rem 1.75rem; }
+    }
+    .crispr-closing .cc-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #0284c7;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .crispr-closing p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Section divider */
+    .p3cr-rule {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+    .p3cr-rule::before, .p3cr-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule, #e8e4de);
+    }
+    .p3cr-rule span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge" style="background:#f0f9ff; color:#0284c7; border-color:rgba(2,132,199,0.2);">Science</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    CRISPR 2.0 — Ethics, Access &amp; the Future
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 13, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>10 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 3 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=1200&q=80"
+         alt="Medical ethics and genomics — the future of genetic medicine"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Medical research
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT — PAGE 3 -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          The power to edit the human genome is not merely a scientific achievement. It is a civilizational one. Every technology of comparable consequence — nuclear fission, recombinant DNA, the internet — has generated ethical debates that outlasted the initial excitement. CRISPR is no different. But the ethical stakes here are uniquely intimate: we are talking about the possibility of changing what it means to be human, one base pair at a time.
+        </p>
+
+        <h2>The Four Ethical Fault Lines</h2>
+
+        <p>
+          The ethics of gene editing are not monolithic. They fracture along several distinct fault lines, each with its own logic, its own stakeholders, and its own urgency. Understanding these distinctions is essential to any serious engagement with the field.
+        </p>
+
+        <!-- ── Ethics Stack ── -->
+        <div class="ethics-stack">
+          <div class="ethics-card">
+            <div class="ethics-icon-wrap">🧬</div>
+            <div class="ethics-content">
+              <h4>Germline Editing</h4>
+              <p>Editing the germline — sperm, eggs, or early embryos — produces changes that are heritable: they will be passed to every subsequent generation. This is categorically different from somatic editing, which affects only the treated individual. Germline editing raises questions that somatic editing does not: Who consents on behalf of future generations? What happens if an edit has unforeseen consequences that propagate through a family line? The scientific community has reached near-consensus that germline editing for reproductive purposes is premature — but the consensus is not universal, and the technology is advancing faster than the governance frameworks.</p>
+            </div>
+          </div>
+          <div class="ethics-card">
+            <div class="ethics-icon-wrap">🤝</div>
+            <div class="ethics-content">
+              <h4>Consent and Autonomy</h4>
+              <p>Somatic gene editing — treating a living patient — raises familiar questions of informed consent that medicine has grappled with for decades. But germline editing and editing of embryos raises a consent problem that has no precedent: the individuals most affected by the edit — the future person and their descendants — cannot consent. This is not merely a procedural concern. It is a fundamental challenge to the liberal bioethical framework that has governed medicine since the Nuremberg Code. Some philosophers argue that preventing serious genetic disease is a sufficient justification; others contend that the inability to obtain consent is an absolute bar.</p>
+            </div>
+          </div>
+          <div class="ethics-card">
+            <div class="ethics-icon-wrap">🌍</div>
+            <div class="ethics-content">
+              <h4>Equity and Access</h4>
+              <p>Casgevy costs $2.2 million per patient. Even if the price falls dramatically over the next decade, gene therapies will remain among the most expensive medical interventions ever developed. The diseases they target — sickle cell disease, beta-thalassemia — disproportionately affect populations in sub-Saharan Africa, South Asia, and the Middle East, where healthcare systems cannot absorb costs of this magnitude. If CRISPR therapies remain accessible only to wealthy patients in wealthy countries, the technology will deepen existing health inequities rather than reduce them. This is not a hypothetical concern. It is already happening.</p>
+            </div>
+          </div>
+          <div class="ethics-card">
+            <div class="ethics-icon-wrap">⚠️</div>
+            <div class="ethics-content">
+              <h4>Dual-Use and Enhancement</h4>
+              <p>The same tools that can correct a disease-causing mutation can, in principle, be used to introduce traits that are not therapeutic — enhanced intelligence, altered physical characteristics, resistance to aging. The line between treatment and enhancement is not always clear. Correcting a mutation that causes deafness is treatment; selecting for above-average height is enhancement. But what about editing a gene variant associated with increased Alzheimer's risk? The dual-use problem is not unique to CRISPR, but CRISPR makes it more acute by lowering the technical barrier to germline modification.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p3cr-rule"><span>The He Jiankui Scandal</span></div>
+
+        <h2>When the Line Was Crossed</h2>
+
+        <p>
+          In November 2018, Chinese biophysicist He Jiankui announced at a Hong Kong conference that he had used CRISPR-Cas9 to edit the germline of human embryos, resulting in the birth of twin girls — Lulu and Nana — with edited CCR5 genes intended to confer resistance to HIV. The announcement sent shockwaves through the scientific community. He had not published his work in a peer-reviewed journal. He had not obtained proper ethical approval. He had not disclosed his plans to the broader scientific community. And he had done it in secret, in a country with regulatory frameworks that were, at the time, ambiguous about germline editing.
+        </p>
+
+        <p>
+          He was subsequently sentenced to three years in prison by a Chinese court. But the damage — and the lesson — extended far beyond his personal fate. The He Jiankui case demonstrated that the governance frameworks for germline editing were inadequate, that the scientific community's self-regulatory mechanisms had failed, and that the technology was advancing faster than the ethical and legal infrastructure needed to manage it. It also demonstrated something more uncomfortable: that the temptation to be first, to make history, to do what others had only theorized, is a powerful force that existing norms had not been sufficient to contain.
+        </p>
+
+        <p>
+          In the aftermath, the International Commission on the Clinical Use of Human Germline Genome Editing — convened by the National Academies of Sciences, Engineering, and Medicine and the Royal Society — concluded that it would be "irresponsible to proceed" with clinical germline editing until robust oversight mechanisms were in place. That conclusion remains the consensus position of the mainstream scientific community. But consensus is not law, and the technology continues to advance.
+        </p>
+
+        <div class="p3cr-rule"><span>The Central Debates</span></div>
+
+        <h2>Three Debates That Define the Field</h2>
+
+        <!-- ── Debate List ── -->
+        <div class="debate-list">
+          <div class="debate-item">
+            <div class="debate-header">
+              <span class="debate-tag debate-tag-q">Debate</span>
+              <p>Should somatic gene editing be treated differently from germline editing, given that only the treated individual is affected?</p>
+            </div>
+            <div class="debate-body-row">
+              <span class="debate-tag debate-tag-a">Consensus</span>
+              <p>Yes — the scientific and bioethical community broadly supports somatic editing for serious diseases, subject to standard clinical trial oversight. The heritable nature of germline editing creates a categorically different risk profile. Most regulatory frameworks now distinguish sharply between the two, permitting somatic editing in clinical trials while imposing a moratorium or strict prohibition on germline editing for reproductive purposes.</p>
+            </div>
+          </div>
+          <div class="debate-item">
+            <div class="debate-header">
+              <span class="debate-tag debate-tag-q">Debate</span>
+              <p>Where is the line between therapeutic gene editing and genetic enhancement — and who gets to draw it?</p>
+            </div>
+            <div class="debate-body-row">
+              <span class="debate-tag debate-tag-a">Contested</span>
+              <p>This is genuinely unresolved. The treatment-enhancement distinction is intuitive but philosophically unstable. Correcting a mutation that causes severe disease is clearly treatment. Editing for cosmetic traits is clearly enhancement. But the middle ground — editing for disease risk reduction, for longevity, for cognitive traits — is contested territory. Different ethical frameworks reach different conclusions, and there is no international consensus on where the line should be drawn or who has the authority to draw it.</p>
+            </div>
+          </div>
+          <div class="debate-item">
+            <div class="debate-header">
+              <span class="debate-tag debate-tag-q">Debate</span>
+              <p>How can the benefits of gene editing be distributed globally, given the enormous cost of current therapies?</p>
+            </div>
+            <div class="debate-body-row">
+              <span class="debate-tag debate-tag-a">Urgent</span>
+              <p>Several models are being explored: tiered pricing by country income level, public funding for manufacturing, open-source licensing of editing tools, and international partnerships to build local manufacturing capacity in low-income countries. The WHO's Human Genome Editing Registry is an attempt to create global transparency. But none of these mechanisms has yet produced equitable access at scale. The gap between what is technically possible and what is practically accessible remains enormous — and it is widening.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>The Road Ahead: Key Milestones 2026–2035</h2>
+
+        <p>
+          The next decade will be defined by the transition from proof-of-concept to routine clinical practice — and by the governance decisions that will determine who benefits and on what terms.
+        </p>
+
+        <!-- ── Future Timeline Table ── -->
+        <div style="overflow-x:auto;">
+          <table class="future-timeline-table">
+            <thead>
+              <tr>
+                <th>Timeframe</th>
+                <th>Expected Milestone</th>
+                <th>Significance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2026–2027</td>
+                <td>First in vivo base editing therapy approved (liver disease)</td>
+                <td>Eliminates need for ex vivo cell manipulation; dramatically reduces cost and complexity</td>
+              </tr>
+              <tr>
+                <td>2027–2028</td>
+                <td>Prime editing enters Phase 2 clinical trials</td>
+                <td>Expands correctable mutation range to ~89% of pathogenic variants</td>
+              </tr>
+              <tr>
+                <td>2028–2030</td>
+                <td>CRISPR therapies for neurological diseases (Huntington's, ALS)</td>
+                <td>First demonstration of safe, effective CNS delivery — the hardest delivery challenge</td>
+              </tr>
+              <tr>
+                <td>2030–2032</td>
+                <td>Epigenome editing enters clinical trials for cancer</td>
+                <td>Reversible gene silencing without permanent DNA changes — new paradigm for oncology</td>
+              </tr>
+              <tr>
+                <td>2032–2035</td>
+                <td>International germline editing governance framework established</td>
+                <td>First binding international treaty on heritable human genome editing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>What Does It Mean to Edit the Human Germline?</h2>
+
+        <p>
+          The deepest question raised by CRISPR 2.0 is not technical. It is philosophical. For the entirety of human history, the genome has been a given — the product of billions of years of evolution, shaped by selection pressures we did not choose and cannot fully understand. Mutations accumulated, some were harmful, some were neutral, some were beneficial. The genome was, in a meaningful sense, <em>ours</em> — inherited, not designed.
+        </p>
+
+        <p>
+          Germline editing changes that. It introduces intentionality into a process that was previously blind. It makes the genome, for the first time, a design space. And that shift carries implications that extend far beyond medicine. If we can edit out disease, can we edit in advantage? If we can correct a mutation that causes suffering, can we select for traits that confer benefit? The technology does not answer these questions. It forces us to ask them — and to answer them before the technology answers them for us.
+        </p>
+
+        <p>
+          The philosopher Michael Sandel has argued that there is something important in the "giftedness" of human life — the idea that we receive our children as they are, rather than designing them to specification. Others, like Julian Savulescu, argue that we have a moral obligation to give children the best possible start, and that gene editing is simply a more precise version of the prenatal care and nutrition we already provide. Both positions contain genuine insight. Neither is obviously correct.
+        </p>
+
+        <!-- ── Closing Panel ── -->
+        <div class="crispr-closing">
+          <div class="cc-label">🧬 The Bottom Line</div>
+          <p>CRISPR 2.0 is not a distant promise. It is a present reality, already in clinical trials, already producing cures for diseases that were previously incurable. The question is not whether this technology will reshape medicine — it already is. The question is whether we will build the governance frameworks, the equitable access mechanisms, and the ethical consensus needed to ensure that it reshapes medicine <strong>for everyone</strong>, not just for those who can afford it. That is the work of the next decade. And it is, in every sense, as important as the science itself.</p>
+        </div>
+
+      </div>
+
+      <!-- Final Pagination -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a href="page-2.html" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+          </div>
+          <a href="../../index.html" class="btn-accent">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Back to Homepage
+          </a>
+        </div>
+      </div>
+
+      <!-- Completion Banner -->
+      <div class="mt-10 rounded-2xl p-7 text-center" style="background: linear-gradient(135deg, #1a1510 0%, #0f0f0f 100%); border: 1px solid #2a2520;">
+        <div class="text-accent font-mono text-xs font-medium mb-3 tracking-widest uppercase">Article Complete</div>
+        <h3 class="font-display text-white text-xl font-semibold mb-2">Thanks for reading</h3>
+        <p style="color:rgba(255,255,255,0.5); font-size:0.875rem; margin-bottom:1.5rem;">
+          Enjoyed this piece? Subscribe for one curated story delivered to your inbox each week.
+        </p>
+        <div class="flex gap-3 max-w-sm mx-auto">
+          <input type="email" placeholder="your@email.com"
+                 style="flex:1; padding:0.6rem 1rem; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:8px; color:#fff; font-size:0.8125rem; outline:none; font-family:'DM Sans',sans-serif;"
+                 aria-label="Email address" />
+          <button class="btn-accent" style="white-space:nowrap;">Subscribe</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">How CRISPR Actually Works</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Next-Gen Tools &amp; Clinical Trials</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">Ethics, Access &amp; the Future</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">More to Read</div>
+    <div class="grid sm:grid-cols-3 gap-5">
+      <article class="article-card">
+        <a href="../../articles/longevity-code-living-longer/index.html" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=70" alt="Longevity Science" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge" style="background:#f0f9ff; color:#0284c7; border-color:rgba(2,132,199,0.2);">Science</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/longevity-code-living-longer/index.html" style="text-decoration:none; color:inherit;">The Longevity Code: Living Longer</a></h3>
+          <div class="card-meta"><span>9 min read</span></div>
+        </div>
+      </article>
+      <article class="article-card">
+        <a href="../../articles/dark-matter-universe-explained/index.html" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&q=70" alt="Dark Matter" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge" style="background:#f0f9ff; color:#0284c7; border-color:rgba(2,132,199,0.2);">Science</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/dark-matter-universe-explained/index.html" style="text-decoration:none; color:inherit;">The Dark Matter Problem</a></h3>
+          <div class="card-meta"><span>10 min read</span></div>
+        </div>
+      </article>
+      <article class="article-card">
+        <a href="../../articles/the-science-of-sleep/index.html" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=400&q=70" alt="The Science of Sleep" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge" style="background:#f0f9ff; color:#0284c7; border-color:rgba(2,132,199,0.2);">Science</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/the-science-of-sleep/index.html" style="text-decoration:none; color:inherit;">The Science of Sleep</a></h3>
+          <div class="card-meta"><span>8 min read</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

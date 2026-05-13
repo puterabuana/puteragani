@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>CRISPR 2.0: The Next Generation of Gene Editing That Could Cure Inherited Disease — Putera Gani</title>
+  <meta name="description" content="The original CRISPR was a revolution. Base editing, prime editing, and epigenome editing are something else entirely — precision medicine at the level of individual letters." />
+  <meta name="author" content="Putera Gani" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="article" />
+  <meta property="og:url"         content="https://puteragani.com/articles/crispr-gene-editing-next-generation/" />
+  <meta property="og:title"       content="CRISPR 2.0: The Next Generation of Gene Editing That Could Cure Inherited Disease" />
+  <meta property="og:description" content="The original CRISPR was a revolution. Base editing, prime editing, and epigenome editing are something else entirely — precision medicine at the level of individual letters." />
+  <meta property="og:image"       content="https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=800&q=80" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } }
+    }
+  </script>
+
+  <style>
+    /* ── CRISPR Article — Page 1 Unique Styles ── */
+
+    /* Highlight box with left blue border */
+    .crispr-panel {
+      background: linear-gradient(135deg, rgba(2,132,199,0.06) 0%, rgba(2,132,199,0.02) 100%);
+      border: 1px solid rgba(2,132,199,0.22);
+      border-left: 3px solid #0284c7;
+      border-radius: 12px;
+      padding: 1rem 1.125rem;
+      margin: 1.75rem 0;
+    }
+    @media (min-width: 640px) {
+      .crispr-panel { padding: 1.25rem 1.5rem; }
+    }
+    .crispr-panel .cp-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #0284c7;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .crispr-panel p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Dark background callout */
+    .crispr-dark-block {
+      background: var(--ink, #0f0f0f);
+      border-radius: 14px;
+      padding: 1.25rem 1.125rem;
+      margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 640px) {
+      .crispr-dark-block { padding: 1.5rem 1.75rem; }
+    }
+    .crispr-dark-block::after {
+      content: '';
+      position: absolute;
+      bottom: -30px; right: -30px;
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      background: rgba(2,132,199,0.07);
+    }
+    .crispr-dark-block .cdb-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #38bdf8;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .crispr-dark-block p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+    }
+    .crispr-dark-block strong { color: #fff !important; }
+
+    /* 3-column stat grid */
+    .genome-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      background: var(--rule, #e8e4de);
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 2.25rem 0;
+    }
+    @media (min-width: 480px) {
+      .genome-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* Individual stat cell */
+    .genome-cell {
+      background: var(--paper, #fafaf8);
+      padding: 1.125rem 0.875rem;
+      text-align: center;
+    }
+    .genome-cell-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .genome-cell-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--ink, #0f0f0f);
+      margin-bottom: 0.2rem;
+    }
+    .genome-cell-desc {
+      font-size: 0.7rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.4;
+    }
+
+    /* Numbered mechanism list container */
+    .crispr-step-list {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      padding: 1rem;
+      margin: 1.75rem 0;
+      background: var(--paper, #fafaf8);
+    }
+    @media (min-width: 640px) {
+      .crispr-step-list { padding: 1.25rem 1.5rem; }
+    }
+    .crispr-step-list-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted, #6b6860);
+      margin-bottom: 0.875rem;
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* Individual step row */
+    .crispr-step {
+      display: flex;
+      gap: 0.875rem;
+      align-items: flex-start;
+      padding: 0.875rem 0;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    @media (min-width: 640px) {
+      .crispr-step { gap: 1.125rem; }
+    }
+    .crispr-step:last-child { border-bottom: none; }
+
+    /* Step number badge (blue) */
+    .crispr-step-num {
+      flex-shrink: 0;
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      background: rgba(2,132,199,0.08);
+      border: 1px solid rgba(2,132,199,0.22);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #0284c7;
+      margin-top: 2px;
+    }
+
+    /* Step content */
+    .crispr-step-body h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.3rem 0;
+      letter-spacing: -0.01em;
+    }
+    @media (min-width: 640px) {
+      .crispr-step-body h4 { font-size: 0.9375rem; }
+    }
+    .crispr-step-body p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.65;
+    }
+    @media (min-width: 640px) {
+      .crispr-step-body p { font-size: 0.875rem; }
+    }
+
+    /* Centered pull quote */
+    .crispr-quote {
+      border-top: 2px solid var(--ink, #0f0f0f);
+      border-bottom: 2px solid var(--ink, #0f0f0f);
+      padding: 1.25rem 0;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    .crispr-quote p {
+      margin: 0 !important;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 4vw, 1.35rem);
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: -0.015em;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Section divider */
+    .crispr-rule {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+    .crispr-rule::before, .crispr-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule, #e8e4de);
+    }
+    .crispr-rule span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- ═══════════════════════════════════════════════════
+     NAVBAR
+     ═══════════════════════════════════════════════════ -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE HEADER
+     ═══════════════════════════════════════════════════ -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition: color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge" style="background:#f0f9ff; color:#0284c7; border-color:rgba(2,132,199,0.2);">Science</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    CRISPR 2.0: The Next Generation of Gene Editing That Could Cure Inherited Disease
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 13, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>10 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 1 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     HERO IMAGE
+     ═══════════════════════════════════════════════════ -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=1200&q=80"
+         alt="CRISPR gene editing — laboratory genomics research"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Genomics research
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE CONTENT — PAGE 1
+     ═══════════════════════════════════════════════════ -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <!-- Article Body -->
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          In 2012, Jennifer Doudna and Emmanuelle Charpentier published a paper that would win them the Nobel Prize and change the course of medicine. CRISPR-Cas9 gave scientists a tool to edit the genome with unprecedented precision — a molecular pair of scissors capable of cutting DNA at almost any location in the three-billion-letter code of human life. The scientific community reacted with a mixture of awe and urgency that is rare in any field.
+        </p>
+
+        <p>
+          Within a decade, CRISPR had moved from bacterial immune systems to clinical trials. It had been used to treat sickle cell disease, target cancer cells, and — controversially — edit the germline of human embryos. The technology was transformative. But it was also, in a precise technical sense, <strong>crude</strong>. The original CRISPR-Cas9 cuts both strands of the DNA double helix, triggering a cellular repair process that is inherently imprecise. It is a powerful tool, but not a surgical one.
+        </p>
+
+        <!-- ── CRISPR Panel ── -->
+        <div class="crispr-panel">
+          <div class="cp-label">🧬 The Core Insight</div>
+          <p>CRISPR-Cas9 works by exploiting a bacterial immune system. Bacteria use short RNA sequences to recognize and destroy viral DNA. Scientists repurposed this machinery: a guide RNA directs the Cas9 protein to a specific genomic location, where it cuts. The cell then attempts to repair the break — and that repair process is where both the power and the limitation of the original system lie.</p>
+        </div>
+
+        <h2>The Genome as a Text Document</h2>
+
+        <p>
+          The most useful metaphor for understanding gene editing is a word processor. Your genome is a document approximately three billion characters long, written in a four-letter alphabet: A, T, C, and G. Every cell in your body carries a complete copy of this document. Most of it is regulatory — instructions about when and where to activate other instructions. About 1.5% of it encodes proteins, the molecular machines that do the actual work of biology.
+        </p>
+
+        <p>
+          Inherited diseases are, at their most fundamental level, <strong>typos in this document</strong>. Sickle cell disease is caused by a single letter change — an A where there should be a T — in the gene encoding hemoglobin. Huntington's disease results from a repeated sequence that is too long. Cystic fibrosis arises from a three-letter deletion. The original CRISPR was like a word processor that could find a word and delete it, but couldn't reliably replace it with something else. CRISPR 2.0 can do the replacement — one letter at a time, with extraordinary accuracy.
+        </p>
+
+        <!-- ── Genome Grid ── -->
+        <div class="genome-grid">
+          <div class="genome-cell">
+            <div class="genome-cell-num" style="color:#0284c7;">3B</div>
+            <div class="genome-cell-label">Base Pairs</div>
+            <div class="genome-cell-desc">Letters in the complete human genome sequence</div>
+          </div>
+          <div class="genome-cell">
+            <div class="genome-cell-num" style="color:var(--accent);">~20K</div>
+            <div class="genome-cell-label">Protein-Coding Genes</div>
+            <div class="genome-cell-desc">Only ~1.5% of the genome encodes proteins directly</div>
+          </div>
+          <div class="genome-cell">
+            <div class="genome-cell-num" style="color:var(--ink);">$200</div>
+            <div class="genome-cell-label">Cost to Sequence</div>
+            <div class="genome-cell-desc">Down from $3 billion in 2003 — a 15-million-fold reduction</div>
+          </div>
+        </div>
+
+        <h2>How CRISPR-Cas9 Actually Works</h2>
+
+        <p>
+          The mechanism of CRISPR-Cas9 is elegant in its simplicity. A short RNA molecule — the guide RNA — is designed to match a specific sequence in the genome. This guide RNA binds to the Cas9 protein, forming a complex that scans the genome until it finds a matching sequence. When it does, Cas9 cuts both strands of the DNA double helix, creating what is called a <strong>double-strand break</strong>.
+        </p>
+
+        <p>
+          The cell responds to this break with one of two repair pathways. The first, non-homologous end joining (NHEJ), is fast but sloppy — it stitches the ends back together but often introduces small insertions or deletions that disrupt the gene. This is useful for knocking out a gene entirely. The second pathway, homology-directed repair (HDR), can incorporate a new DNA template provided by the researcher — but it is inefficient, occurring in only a small fraction of cells, and it works best in dividing cells, which excludes most of the body's tissues.
+        </p>
+
+        <p>
+          These limitations are not minor inconveniences. They are fundamental constraints that define what the original CRISPR can and cannot do. For many therapeutic applications — correcting a point mutation in a non-dividing cell like a neuron or a cardiomyocyte — the original system is simply not adequate.
+        </p>
+
+        <div class="crispr-rule"><span>CRISPR 2.0</span></div>
+
+        <h2>The Next Generation: Editing Without Cutting</h2>
+
+        <p>
+          The breakthrough insight behind CRISPR 2.0 was conceptually simple but technically demanding: what if you could edit the genome without making a double-strand break at all? In 2016, David Liu's laboratory at the Broad Institute published the first description of <strong>base editing</strong> — a system that can convert one DNA base to another directly, without cutting both strands of the helix.
+        </p>
+
+        <p>
+          Base editing works by fusing a modified, catalytically impaired Cas9 to a chemical enzyme called a deaminase. The Cas9 still finds the target sequence and binds to it, but instead of cutting, it unwinds a small bubble of single-stranded DNA. The deaminase then chemically converts one base to another — C to T, or A to G — with a precision that the original CRISPR cannot approach. No double-strand break. No reliance on error-prone repair pathways. Just a clean, direct chemical conversion.
+        </p>
+
+        <!-- ── Step List: How Base Editing Works ── -->
+        <div class="crispr-step-list">
+          <div class="crispr-step-list-title">⚙️ How Base Editing Works — 4 Steps</div>
+          <div class="crispr-step">
+            <div class="crispr-step-num">01</div>
+            <div class="crispr-step-body">
+              <h4>Guide RNA Targeting</h4>
+              <p>A guide RNA is designed to match the genomic sequence surrounding the target base. The guide RNA-Cas9 fusion complex scans the genome and binds to the complementary sequence, positioning the editing machinery precisely over the target location.</p>
+            </div>
+          </div>
+          <div class="crispr-step">
+            <div class="crispr-step-num">02</div>
+            <div class="crispr-step-body">
+              <h4>DNA Strand Displacement</h4>
+              <p>The modified Cas9 (nCas9 — a "nickase" that cuts only one strand) unwinds the DNA double helix, creating a small bubble of single-stranded DNA. This exposes the target base to the deaminase enzyme fused to the Cas9 protein.</p>
+            </div>
+          </div>
+          <div class="crispr-step">
+            <div class="crispr-step-num">03</div>
+            <div class="crispr-step-body">
+              <h4>Chemical Conversion</h4>
+              <p>The deaminase enzyme directly converts the target base. Cytosine base editors (CBEs) convert C to T (via a U intermediate). Adenine base editors (ABEs) convert A to G. Together, these two systems can make four of the twelve possible point mutation corrections — covering the majority of known pathogenic variants.</p>
+            </div>
+          </div>
+          <div class="crispr-step">
+            <div class="crispr-step-num">04</div>
+            <div class="crispr-step-body">
+              <h4>Mismatch Repair and Propagation</h4>
+              <p>After conversion, the cell's mismatch repair machinery resolves the resulting base mismatch, permanently installing the new base in both strands. The edit is heritable — every daughter cell will carry the corrected sequence. No double-strand break is required at any point in the process.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Pull Quote ── -->
+        <div class="crispr-quote">
+          <p>"Base editing is not an improvement on CRISPR. <span style="color:#0284c7;">It is a different technology</span> that happens to use some of the same components."</p>
+        </div>
+
+        <h2>Prime Editing: The Search-and-Replace Function</h2>
+
+        <p>
+          In 2019, David Liu's laboratory published a second landmark paper describing <strong>prime editing</strong> — a system that can make virtually any type of point mutation correction, small insertion, or small deletion without a double-strand break and without requiring a separate DNA template. If base editing is a pencil that can change one letter to another, prime editing is a word processor with a full find-and-replace function.
+        </p>
+
+        <p>
+          Prime editing uses a further-modified Cas9 fused to a reverse transcriptase enzyme, guided by a specially designed "pegRNA" (prime editing guide RNA) that carries both the targeting sequence and the desired edit as a template. The system nicks one strand of the DNA, then uses the reverse transcriptase to write the new sequence directly into the genome. The result is a system capable of correcting all 12 types of point mutations, as well as small insertions and deletions — covering an estimated 89% of known pathogenic human variants.
+        </p>
+
+        <!-- ── Dark Block ── -->
+        <div class="crispr-dark-block">
+          <div class="cdb-label">🔬 Why CRISPR 2.0 Is Categorically Different</div>
+          <p>The original CRISPR-Cas9 is a blunt instrument. It creates a wound and hopes the cell heals correctly. Base editing and prime editing are <strong>precision chemistry</strong> — they make specific, defined changes to specific, defined bases without triggering the cell's damage response. The difference is not one of degree. It is one of kind. CRISPR 1.0 disrupts. CRISPR 2.0 corrects. That distinction is the entire basis for the next generation of genetic medicine.</p>
+        </div>
+
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <div><!-- No previous on page 1 --></div>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot active"></div>
+            <div class="page-dot"></div>
+            <div class="page-dot"></div>
+          </div>
+          <a href="page-2.html" class="btn-primary">
+            Continue to Page 2
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sticky Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top: 80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">How CRISPR Actually Works</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Next-Gen Tools &amp; Clinical Trials</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Ethics, Access &amp; the Future</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     RELATED ARTICLES
+     ═══════════════════════════════════════════════════ -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="crispr-gene-editing-next-generation"
+    >
+      <!-- Injected by related.js -->
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>

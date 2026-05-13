@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Spatial Computing Revolution — Page 3: What Spatial Computing Changes — Putera Gani</title>
+  <meta name="description" content="Use cases across healthcare, architecture, education, and remote work — plus the challenges, the future timeline, and what it means when computing becomes environmental." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>tailwind.config = { theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } } }</script>
+
+  <style>
+    /* ── Spatial Computing Article — Page 3 Unique Styles ── */
+
+    /* Usecase Stack — vertical stack of use case cards */
+    .usecase-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+      margin: 1.75rem 0;
+    }
+
+    /* Usecase Card — individual use case card with icon */
+    .usecase-card {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      padding: 1rem 1.125rem;
+      background: var(--paper, #fafaf8);
+      transition: border-color 0.2s;
+    }
+    .usecase-card:hover {
+      border-color: rgba(200,151,58,0.4);
+    }
+
+    /* Usecase Icon Wrap — icon container */
+    .usecase-icon-wrap {
+      flex-shrink: 0;
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      background: rgba(200,151,58,0.1);
+      border: 1px solid rgba(200,151,58,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.125rem;
+    }
+
+    /* Usecase Content — text content area */
+    .usecase-content h4 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.3rem 0;
+      letter-spacing: -0.01em;
+    }
+    .usecase-content p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.65;
+    }
+
+    /* Challenge List — challenge/response card list */
+    .challenge-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin: 1.75rem 0;
+    }
+
+    /* Challenge Item — individual challenge item */
+    .challenge-item {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--rule, #e8e4de);
+    }
+
+    /* Challenge Header — challenge row (light red tint) */
+    .challenge-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.875rem 1rem;
+      background: rgba(239,68,68,0.04);
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+
+    /* Challenge Body Row — response row (light green tint) */
+    .challenge-body-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.875rem 1rem;
+      background: rgba(34,197,94,0.03);
+    }
+
+    /* Challenge Tag — small badge */
+    .challenge-tag {
+      flex-shrink: 0;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-top: 1px;
+    }
+    .tag-challenge {
+      background: rgba(239,68,68,0.1);
+      color: #dc2626;
+    }
+    .tag-response {
+      background: rgba(34,197,94,0.12);
+      color: #16a34a;
+    }
+    .challenge-header p, .challenge-body-row p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Spatial Closing — final closing panel */
+    .spatial-closing {
+      background: linear-gradient(135deg, rgba(200,151,58,0.08) 0%, rgba(200,151,58,0.02) 100%);
+      border: 1px solid rgba(200,151,58,0.3);
+      border-radius: 14px;
+      padding: 1.25rem 1.25rem;
+      margin: 2rem 0;
+    }
+    @media (min-width: 640px) {
+      .spatial-closing { padding: 1.5rem 1.75rem; }
+    }
+    .spatial-closing .sc-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c8973a;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .spatial-closing p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* P3SP Rule — section divider */
+    .p3sp-rule {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+    .p3sp-rule::before, .p3sp-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule, #e8e4de);
+    }
+    .p3sp-rule span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      white-space: nowrap;
+    }
+
+    /* Future Timeline Table */
+    .future-timeline-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--rule, #e8e4de);
+      margin: 2rem 0;
+      font-size: 0.8125rem;
+    }
+    .future-timeline-table thead tr {
+      background: var(--ink, #0f0f0f);
+    }
+    .future-timeline-table thead th {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+    }
+    .future-timeline-table tbody tr {
+      border-bottom: 1px solid var(--rule, #e8e4de);
+      background: var(--paper, #fafaf8);
+    }
+    .future-timeline-table tbody tr:last-child { border-bottom: none; }
+    .future-timeline-table tbody tr:nth-child(even) {
+      background: rgba(200,151,58,0.03);
+    }
+    .future-timeline-table tbody td {
+      padding: 0.75rem 1rem;
+      color: var(--ink, #0f0f0f);
+      line-height: 1.5;
+      vertical-align: top;
+    }
+    .future-timeline-table tbody td:first-child {
+      font-weight: 600;
+      color: #c8973a;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge">Technology</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    The Spatial Computing Revolution — What Spatial Computing Changes
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 13, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>9 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 3 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80"
+         alt="Spatial computing use cases — the future of human-computer interaction"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Mixed Reality
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT — PAGE 3 -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          The most important question about spatial computing is not which company will win the platform war or which headset has the best display. It is what happens to human experience — to work, to learning, to creativity, to social connection — when computing stops being something you do at a desk and becomes something that inhabits the same space you do.
+        </p>
+
+        <p>
+          The answer is not uniform. Spatial computing will transform some domains profoundly and leave others largely unchanged. Understanding which is which requires looking at where the technology's specific capabilities — depth, presence, persistence, natural interaction — create genuine advantages over flat-screen computing, and where they do not.
+        </p>
+
+        <h2>Five Domains Where Spatial Computing Changes Everything</h2>
+
+        <!-- ── Usecase Stack ── -->
+        <div class="usecase-stack">
+          <div class="usecase-card">
+            <div class="usecase-icon-wrap">🏥</div>
+            <div class="usecase-content">
+              <h4>Healthcare: Surgery, Training, and Patient Care</h4>
+              <p>Spatial computing's impact on medicine is already measurable. Surgeons using mixed reality overlays during procedures can visualize patient anatomy — blood vessels, tumors, nerve pathways — in three dimensions, registered to the patient's actual body in real time. The result is not just better visualization but a fundamentally different cognitive experience: instead of mentally translating a 2D scan into a 3D mental model, the surgeon sees the relevant anatomy directly. Studies at Johns Hopkins and the Cleveland Clinic have shown reductions in procedure time and improvements in precision for complex surgeries using spatial guidance. Medical education is equally transformed: instead of studying anatomy from textbooks or cadavers, students can walk through a full-scale human body, examining systems from the inside.</p>
+            </div>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-icon-wrap">🏗️</div>
+            <div class="usecase-content">
+              <h4>Architecture &amp; Design: Building Before Building</h4>
+              <p>The architecture, engineering, and construction industry has been among the earliest and most enthusiastic adopters of spatial computing — and for obvious reasons. The ability to walk through a building at full scale before a single foundation is poured changes the entire design process. Clients can experience spatial relationships, natural light, and material choices in a way that no rendering or physical model can replicate. Architects can identify design problems — a corridor that feels too narrow, a ceiling that feels oppressive, a view that is blocked — before they become expensive construction errors. Firms like Zaha Hadid Architects and Bjarke Ingels Group have integrated spatial review into their standard design workflow, using it not just for client presentations but for internal design critique.</p>
+            </div>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-icon-wrap">🎓</div>
+            <div class="usecase-content">
+              <h4>Education: Learning by Being There</h4>
+              <p>The educational case for spatial computing rests on a well-established principle from cognitive science: embodied learning — learning through physical experience and spatial engagement — produces stronger retention and deeper understanding than passive reading or watching. Spatial computing makes embodied learning possible for subjects that were previously inaccessible to it. Students can stand inside a Roman forum, walk the surface of Mars, observe a chemical reaction at the molecular level, or witness a historical event from multiple perspectives. The technology does not replace teachers or curriculum — it gives teachers a new medium that is uniquely suited to certain kinds of understanding. Early pilots in K-12 schools using spatial learning tools have shown significant improvements in engagement and retention for STEM subjects.</p>
+            </div>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-icon-wrap">💼</div>
+            <div class="usecase-content">
+              <h4>Remote Work: Presence Without Travel</h4>
+              <p>The pandemic demonstrated that remote work is possible at scale. It also demonstrated its limitations: the flatness of video calls, the absence of spatial cues, the difficulty of collaborative work on shared physical objects. Spatial computing addresses these limitations directly. Spatial collaboration tools — Apple's SharePlay in visionOS, Meta's Horizon Workrooms, Microsoft Mesh — allow remote participants to share a virtual space, manipulate shared 3D objects, and experience a degree of presence that video conferencing cannot replicate. The implications for global teams, for reducing business travel, and for enabling genuinely distributed organizations are significant. A design team in three different countries can review a physical product prototype together in a shared spatial environment, with each person experiencing the object at full scale.</p>
+            </div>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-icon-wrap">🎮</div>
+            <div class="usecase-content">
+              <h4>Entertainment: Immersion as the Medium</h4>
+              <p>Entertainment is where spatial computing's consumer potential is most immediately legible. Games that use the physical room as the play space, films experienced from inside the scene, live events attended as a spatial presence rather than a flat broadcast — these are not incremental improvements on existing entertainment formats. They are new formats entirely. The early spatial entertainment experiences — Apple Immersive Video, Meta's Horizon Worlds, location-based VR experiences — are rough drafts of what the medium will become. The creative vocabulary of spatial storytelling is still being invented, by filmmakers, game designers, and experience designers who are working out what it means to tell a story in a space rather than on a screen.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p3sp-rule"><span>The Real Obstacles</span></div>
+
+        <h2>The Challenges That Still Need Solving</h2>
+
+        <p>
+          Spatial computing's potential is real, but so are its current limitations. The technology has crossed the threshold of technical viability — the fundamental problems of display quality, processing power, and input latency have been solved. What remains are a different category of challenges: social, economic, and ergonomic. These are not trivial, and they will determine the pace of adoption more than any hardware specification.
+        </p>
+
+        <!-- ── Challenge List ── -->
+        <div class="challenge-list">
+          <div class="challenge-item">
+            <div class="challenge-header">
+              <span class="challenge-tag tag-challenge">Challenge</span>
+              <p>Price remains a significant barrier to mass-market adoption. The Apple Vision Pro at $3,499 is accessible only to early adopters and enterprise buyers. Even the Meta Quest 3 at $499 is a considered purchase for most consumers.</p>
+            </div>
+            <div class="challenge-body-row">
+              <span class="challenge-tag tag-response">Response</span>
+              <p>The price trajectory of spatial computing hardware mirrors that of every previous computing platform. The first iPhone cost $499 in 2007 dollars — roughly $750 today. The first iPad cost $499. Apple's Vision Pro successor is expected to be significantly cheaper, and the broader competitive pressure from Meta and Android XR will accelerate price compression. By 2028, a capable mixed reality headset at $299 is a realistic expectation.</p>
+            </div>
+          </div>
+          <div class="challenge-item">
+            <div class="challenge-header">
+              <span class="challenge-tag tag-challenge">Challenge</span>
+              <p>Comfort and form factor remain genuine obstacles. Current headsets are heavy, warm, and uncomfortable for extended wear. The Vision Pro weighs 600 grams and requires an external battery pack. No current device is comfortable enough for all-day use.</p>
+            </div>
+            <div class="challenge-body-row">
+              <span class="challenge-tag tag-response">Response</span>
+              <p>Display miniaturization, battery technology, and materials science are all advancing rapidly. The transition from current headsets to lightweight glasses-form-factor devices is a matter of engineering timeline, not fundamental physics. Apple, Meta, and Google are all actively developing glasses-form-factor devices. The consensus estimate among hardware engineers is that a socially acceptable, all-day-wearable spatial computing device is 4–6 years away from the current generation.</p>
+            </div>
+          </div>
+          <div class="challenge-item">
+            <div class="challenge-header">
+              <span class="challenge-tag tag-challenge">Challenge</span>
+              <p>Social acceptance and privacy concerns are the least technical but potentially most significant obstacles. Wearing a headset in public is socially awkward. Devices with outward-facing cameras raise legitimate privacy concerns for bystanders who may be recorded without consent.</p>
+            </div>
+            <div class="challenge-body-row">
+              <span class="challenge-tag tag-response">Response</span>
+              <p>Social norms around technology have shifted dramatically before — smartphones in restaurants, earbuds in public, video calls in coffee shops were all once considered unusual. The transition to glasses-form-factor devices will reduce the social friction significantly. Privacy concerns are real and will require both technical solutions (on-device processing, no persistent recording) and regulatory frameworks. The EU's AI Act and emerging XR-specific privacy legislation are beginning to address these questions.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>The Road Ahead: Key Milestones 2026–2032</h2>
+
+        <!-- ── Future Timeline Table ── -->
+        <div style="overflow-x:auto;">
+          <table class="future-timeline-table">
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Milestone</th>
+                <th>Significance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2026</td>
+                <td>Apple Vision Pro 2 + Samsung Android XR launch</td>
+                <td>First true platform competition; price compression begins; developer ecosystem expands significantly</td>
+              </tr>
+              <tr>
+                <td>2027</td>
+                <td>Sub-$500 mixed reality headsets from multiple manufacturers</td>
+                <td>Consumer market opens; mainstream adoption curve begins; app ecosystem reaches critical mass</td>
+              </tr>
+              <tr>
+                <td>2028</td>
+                <td>First spatial computing glasses (not headsets) ship</td>
+                <td>Form factor breakthrough; all-day wear becomes viable; social acceptance barrier drops significantly</td>
+              </tr>
+              <tr>
+                <td>2029</td>
+                <td>Persistent shared spatial layers in major cities</td>
+                <td>Public spatial computing infrastructure; navigation, information, and social layers overlaid on physical spaces</td>
+              </tr>
+              <tr>
+                <td>2030</td>
+                <td>Spatial computing surpasses smartphone as primary computing platform for knowledge workers</td>
+                <td>The desktop metaphor is retired; spatial computing becomes the default interface for professional work</td>
+              </tr>
+              <tr>
+                <td>2032</td>
+                <td>Neural interface integration begins</td>
+                <td>Direct brain-computer interfaces augment spatial computing; the boundary between thought and digital action begins to dissolve</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="p3sp-rule"><span>The Deeper Question</span></div>
+
+        <h2>When Computing Becomes Environmental</h2>
+
+        <p>
+          There is a philosophical dimension to spatial computing that goes beyond use cases and market projections. When computing becomes environmental — when digital information inhabits the same space as physical reality — something fundamental changes about the relationship between humans and technology.
+        </p>
+
+        <p>
+          The screen has always been a boundary. It marks the edge of the digital world and the beginning of the physical one. You look at a screen; you do not look through it. The screen is a frame, and frames create distance. They remind you that what you are seeing is a representation, not a reality. This distance is not always a disadvantage — it creates a kind of cognitive separation that can be useful, even protective.
+        </p>
+
+        <p>
+          Spatial computing dissolves that boundary. When digital objects exist in the same space as physical ones, when information is anchored to the walls of your room and the objects on your desk, when the people you are collaborating with appear to be sitting across from you even though they are on another continent — the frame disappears. The question of what is "real" becomes genuinely complicated in ways that previous computing paradigms never raised.
+        </p>
+
+        <p>
+          This is not a reason to be afraid of spatial computing. It is a reason to be thoughtful about it. The design choices made in the next five years — about how digital and physical information are layered, about what can be anchored where, about who controls the spatial layer of public spaces — will shape the human experience of reality in ways that are difficult to fully anticipate. The architects of spatial computing are not just building a new computing platform. They are building a new relationship between humans and the world they inhabit.
+        </p>
+
+        <!-- ── Spatial Closing ── -->
+        <div class="spatial-closing">
+          <div class="sc-label">🌐 The Bottom Line</div>
+          <p>Spatial computing is not a headset category. It is the next paradigm of computing — one that treats three-dimensional space as the interface, that makes the boundary between digital and physical information genuinely porous, and that will eventually be as invisible and ubiquitous as the smartphone is today. <strong>The transition is already underway. The question is not whether it will happen, but how thoughtfully we will navigate it.</strong></p>
+        </div>
+
+      </div>
+
+      <!-- Final Pagination -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a href="page-2.html" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+          </div>
+          <a href="../../index.html" class="btn-accent">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Back to Homepage
+          </a>
+        </div>
+      </div>
+
+      <!-- Completion Banner -->
+      <div class="mt-10 rounded-2xl p-7 text-center" style="background: linear-gradient(135deg, #1a1510 0%, #0f0f0f 100%); border: 1px solid #2a2520;">
+        <div class="text-accent font-mono text-xs font-medium mb-3 tracking-widest uppercase">Article Complete</div>
+        <h3 class="font-display text-white text-xl font-semibold mb-2">Thanks for reading</h3>
+        <p style="color:rgba(255,255,255,0.5); font-size:0.875rem; margin-bottom:1.5rem;">
+          Enjoyed this piece? Subscribe for one curated story delivered to your inbox each week.
+        </p>
+        <div class="flex gap-3 max-w-sm mx-auto">
+          <input type="email" placeholder="your@email.com"
+                 style="flex:1; padding:0.6rem 1rem; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:8px; color:#fff; font-size:0.8125rem; outline:none; font-family:'DM Sans',sans-serif;"
+                 aria-label="Email address" />
+          <button class="btn-accent" style="white-space:nowrap;">Subscribe</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The New Computing Paradigm</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Hardware, Platforms &amp; The Race</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">What Spatial Computing Changes</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">More to Read</div>
+    <div class="grid sm:grid-cols-3 gap-5">
+      <article class="article-card">
+        <a href="../../articles/agentic-ai-autonomous-software/index.html" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=400&q=70" alt="Agentic AI" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge">Technology</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/agentic-ai-autonomous-software/index.html" style="text-decoration:none; color:inherit;">Agentic AI &amp; Autonomous Software</a></h3>
+          <div class="card-meta"><span>8 min read</span></div>
+        </div>
+      </article>
+      <article class="article-card">
+        <a href="../../articles/edge-ai-offline-intelligence/index.html" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=70" alt="Edge AI" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge">Technology</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/edge-ai-offline-intelligence/index.html" style="text-decoration:none; color:inherit;">Edge AI &amp; Offline Intelligence</a></h3>
+          <div class="card-meta"><span>8 min read</span></div>
+        </div>
+      </article>
+      <article class="article-card">
+        <a href="../../articles/dark-matter-universe-explained/index.html" style="text-decoration:none;">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&q=70" alt="Dark Matter" loading="lazy" />
+            <div class="card-thumb-overlay"></div>
+          </div>
+        </a>
+        <div class="card-body">
+          <span class="category-badge" style="background:#f0f9ff; color:#0284c7; border-color:rgba(2,132,199,0.2);">Science</span>
+          <h3 class="card-title" style="font-size:0.9rem;"><a href="../../articles/dark-matter-universe-explained/index.html" style="text-decoration:none; color:inherit;">The Dark Matter Problem</a></h3>
+          <div class="card-meta"><span>10 min read</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>
