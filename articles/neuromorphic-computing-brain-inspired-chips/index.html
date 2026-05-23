@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI — Putera Gani</title>
+  <meta name="description" content="Silicon chips that think like neurons — neuromorphic computing is quietly dismantling everything we assumed about the limits of machine intelligence." />
+  <meta name="author" content="Putera Gani" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="article" />
+  <meta property="og:url"         content="https://puteragani.com/articles/neuromorphic-computing-brain-inspired-chips/" />
+  <meta property="og:title"       content="Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI" />
+  <meta property="og:description" content="Silicon chips that think like neurons — neuromorphic computing is quietly rewriting the rules of machine intelligence." />
+  <meta property="og:image"       content="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } }
+    }
+  </script>
+
+  <style>
+    /* ── Neuromorphic Article — Page 1 Unique Components ── */
+
+    /* Neuron Pulse Card */
+    .neuro-pulse-card {
+      position: relative;
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a1208 100%);
+      border: 1px solid rgba(200,151,58,0.2);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      overflow: hidden;
+    }
+    .neuro-pulse-card::after {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,151,58,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .neuro-pulse-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .neuro-pulse-card p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.72;
+    }
+    .neuro-pulse-card strong {
+      color: #fff !important;
+    }
+
+    /* Comparison Rail */
+    .compare-rail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--rule, #e8e4de);
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+    .compare-cell {
+      background: var(--paper, #fafaf8);
+      padding: 1.125rem 1rem;
+    }
+    .compare-cell-head {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .compare-cell-head.vs-left { color: #3b82f6; }
+    .compare-cell-head.vs-right { color: var(--accent, #c8973a); }
+    .compare-cell ul {
+      list-style: none;
+      padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 0.45rem;
+    }
+    .compare-cell ul li {
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.5;
+      display: flex; align-items: flex-start; gap: 6px;
+    }
+    .compare-cell ul li::before {
+      content: '→';
+      color: var(--accent, #c8973a);
+      flex-shrink: 0;
+      font-size: 0.75rem;
+      margin-top: 1px;
+    }
+
+    /* Spike Timeline */
+    .spike-timeline {
+      margin: 2rem 0;
+      border-left: 2px solid var(--rule, #e8e4de);
+      padding-left: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .spike-event {
+      position: relative;
+    }
+    .spike-event::before {
+      content: '';
+      position: absolute;
+      left: -1.75rem;
+      top: 5px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent, #c8973a);
+      border: 2px solid var(--paper, #fafaf8);
+      box-shadow: 0 0 0 1px var(--accent, #c8973a);
+    }
+    .spike-year {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--accent, #c8973a);
+      margin-bottom: 0.2rem;
+    }
+    .spike-event h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.25rem;
+    }
+    .spike-event p {
+      margin: 0 !important;
+      font-size: 0.8rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.6;
+    }
+
+    /* Metric Badge Row */
+    .metric-band {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 2rem 0;
+    }
+    .metric-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      min-width: 90px;
+      background: var(--paper, #fafaf8);
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      padding: 0.875rem 0.5rem;
+      text-align: center;
+    }
+    .metric-badge .mb-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--ink, #0f0f0f);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .metric-badge .mb-val span { color: var(--accent, #c8973a); }
+    .metric-badge .mb-lbl {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.04em;
+      color: var(--ink-muted, #6b6860);
+      margin-top: 0.3rem;
+      line-height: 1.35;
+    }
+
+    /* Section Divider */
+    .neuro-rule {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+    .neuro-rule::before, .neuro-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule, #e8e4de);
+    }
+    .neuro-rule span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      white-space: nowrap;
+    }
+
+    /* Inline bold */
+    .article-body p strong {
+      color: var(--ink, #0f0f0f);
+      font-weight: 650;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- ═══════════════════════════════════════════════════
+     NAVBAR
+     ═══════════════════════════════════════════════════ -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE HEADER
+     ═══════════════════════════════════════════════════ -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+
+  <!-- Back Link + Category -->
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition: color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge">Technology</span>
+  </div>
+
+  <!-- Title -->
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI
+  </h1>
+
+  <!-- Meta -->
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 23, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>9 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <!-- Page Indicator -->
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 1 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     HERO IMAGE
+     ═══════════════════════════════════════════════════ -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80"
+         alt="Neuromorphic chip — circuit board close-up"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Circuit architecture
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE CONTENT — PAGE 1
+     ═══════════════════════════════════════════════════ -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <!-- Article Body -->
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <!-- ── Opening Hook ── -->
+        <p>
+          The human brain runs on roughly <strong>20 watts of power</strong> — about as much as a dim light bulb. In that same envelope, it performs real-time sensory processing, emotional reasoning, long-term memory consolidation, and language. Meanwhile, the data centers powering modern AI consume megawatts, generate enormous heat, and still fall embarrassingly short of biological cognition on tasks that feel effortless to a three-year-old.
+        </p>
+
+        <p>
+          Something is deeply wrong with the way we build thinking machines. And a growing community of researchers, chip designers, and neuroscientists believes they've found the alternative — <strong>neuromorphic computing</strong>, silicon architecture modeled not on the von Neumann logic of traditional computers, but on the actual electrochemical dynamics of the biological brain.
+        </p>
+
+        <!-- ── Neuro Pulse Card: Core Premise ── -->
+        <div class="neuro-pulse-card">
+          <div class="neuro-pulse-label">⚡ The Core Premise</div>
+          <p>Neuromorphic chips process information the way neurons do — through <strong>spikes</strong>: discrete electrical pulses that fire only when needed, encoding data in the timing and pattern of signals rather than in continuous voltage. The result is hardware that is orders of magnitude more energy-efficient for certain tasks, particularly those involving real-time sensory input and pattern recognition.</p>
+        </div>
+
+        <h2>Why the Von Neumann Architecture Is a Dead End</h2>
+
+        <p>
+          Every conventional computer you have ever used — from the smartphone in your pocket to the supercluster running a language model — shares the same basic architecture: a processor, a memory bank, and a bus shuttling data between them. This design, formalized by mathematician John von Neumann in 1945, was a masterpiece of engineering for its time. It has scaled remarkably well for eight decades.
+        </p>
+
+        <p>
+          But it has a structural ceiling. The processor is hungry; the memory is remote; the bus between them is a bottleneck. Every operation — even simple addition — requires ferrying data back and forth across this gap, consuming energy and time. As AI workloads have exploded in complexity, this bottleneck has become existential. <strong>Modern AI training runs are not slow because processors are weak. They're slow because moving data costs more than computing it.</strong>
+        </p>
+
+        <!-- ── Comparison Rail ── -->
+        <div class="compare-rail">
+          <div class="compare-cell">
+            <div class="compare-cell-head vs-left">Traditional Computing</div>
+            <ul>
+              <li>Sequential clock-driven processing</li>
+              <li>Data shuttles constantly between CPU and RAM</li>
+              <li>Always-on power draw, even at idle</li>
+              <li>Requires floating-point precision for every calculation</li>
+              <li>Scales with transistor count and clock speed</li>
+            </ul>
+          </div>
+          <div class="compare-cell">
+            <div class="compare-cell-head vs-right">Neuromorphic Computing</div>
+            <ul>
+              <li>Event-driven: computes only when a spike arrives</li>
+              <li>Memory and processing co-located in synaptic weights</li>
+              <li>Near-zero idle power — silent circuits sleep</li>
+              <li>Sparse, stochastic representations tolerate noise</li>
+              <li>Scales with connectivity and synaptic density</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="neuro-rule"><span>A Brief History of Spikes</span></div>
+
+        <p>
+          The intellectual roots of neuromorphic computing trace back to Caltech physicist Carver Mead, who coined the term in 1990 after years of building analog VLSI circuits that mimicked the electrical behavior of neurons. Mead's insight was radical for its era: instead of fighting physics to make digital logic faster, <strong>design circuits that embrace the analog, continuous, noisy reality of how biological systems actually compute.</strong>
+        </p>
+
+        <!-- ── Spike Timeline ── -->
+        <div class="spike-timeline">
+          <div class="spike-event">
+            <div class="spike-year">1990</div>
+            <h4>Carver Mead coins "neuromorphic"</h4>
+            <p>Mead publishes foundational work on analog VLSI circuits that mimic neural dynamics, planting the seed of the field.</p>
+          </div>
+          <div class="spike-event">
+            <div class="spike-year">2005</div>
+            <h4>IBM launches DARPA SyNAPSE project</h4>
+            <p>Backed by DARPA funding, IBM begins a decade-long effort to build chips with synaptic density approaching biological cortex.</p>
+          </div>
+          <div class="spike-event">
+            <div class="spike-year">2014</div>
+            <h4>TrueNorth debuts: 1 million neurons</h4>
+            <p>IBM releases the TrueNorth chip — 4,096 neurosynaptic cores, 256 million programmable synapses, running at 70mW. A milestone.</p>
+          </div>
+          <div class="spike-event">
+            <div class="spike-year">2018</div>
+            <h4>Intel ships Loihi</h4>
+            <p>Intel's first neuromorphic research chip features on-chip learning, 130,000 neurons, and real-time adaptation without a training server.</p>
+          </div>
+          <div class="spike-event">
+            <div class="spike-year">2024</div>
+            <h4>Loihi 3 and BrainScaleS-2 push the frontier</h4>
+            <p>Intel and the Human Brain Project each release second-generation systems with million-plus neuron capacity and wafer-scale integration experiments.</p>
+          </div>
+        </div>
+
+        <h2>What Neuromorphic Chips Actually Do</h2>
+
+        <p>
+          A neuromorphic chip replaces the clock-driven, binary logic of conventional hardware with a network of <strong>artificial neurons and synapses</strong> whose behavior is modeled on biological counterparts. When a neuron accumulates enough incoming signal — from other neurons via weighted synaptic connections — it "fires," emitting a brief spike of electrical activity that propagates forward. When it doesn't, it stays silent, consuming almost no power.
+        </p>
+
+        <p>
+          This event-driven model has a profound consequence: <strong>computation is intrinsically sparse.</strong> At any given moment, most of the chip is idle. Only the neurons whose inputs have crossed threshold are doing any work. In biological neural tissue, this sparsity is around 1–5% of neurons active at a time — a regime that makes the brain's energy budget possible, and that neuromorphic engineers are working to replicate in silicon.
+        </p>
+
+        <!-- ── Metric Band ── -->
+        <div class="metric-band">
+          <div class="metric-badge">
+            <div class="mb-val">20<span>W</span></div>
+            <div class="mb-lbl">Human brain power budget</div>
+          </div>
+          <div class="metric-badge">
+            <div class="mb-val"><span>~</span>1MW</div>
+            <div class="mb-lbl">GPT-4 scale training run</div>
+          </div>
+          <div class="metric-badge">
+            <div class="mb-val">70<span>mW</span></div>
+            <div class="mb-lbl">IBM TrueNorth at full operation</div>
+          </div>
+          <div class="metric-badge">
+            <div class="mb-val">1<span>–5%</span></div>
+            <div class="mb-lbl">Neurons active at once in bio tissue</div>
+          </div>
+        </div>
+
+        <!-- ── Neuro Pulse Card: Why This Matters Now ── -->
+        <div class="neuro-pulse-card">
+          <div class="neuro-pulse-label">🔬 Why This Matters Now</div>
+          <p>The energy cost of running large-scale AI is becoming untenable. Estimates suggest AI data centers could account for <strong>10% of global electricity consumption by 2030</strong> on current trajectories. Neuromorphic architectures offer a path to capabilities that are qualitatively different — not just more efficient versions of what we have, but hardware that can run inference on a coin cell battery at the edge of a sensor network, or adapt its behavior in real time without phoning home to a server farm.</p>
+        </div>
+
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <div><!-- No previous on page 1 --></div>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot active"></div>
+            <div class="page-dot"></div>
+            <div class="page-dot"></div>
+          </div>
+          <a href="page-2.html" class="btn-primary">
+            Continue to Page 2
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sticky Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top: 80px;">
+        <!-- Article Info -->
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">The Architecture Problem</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Real-World Applications</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Road to Cognitive Chips</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Share -->
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     RELATED ARTICLES
+     ═══════════════════════════════════════════════════ -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="neuromorphic-computing-brain-inspired-chips"
+    >
+      <!-- Injected by related.js -->
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>

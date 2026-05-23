@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neuromorphic Computing — Page 2: Real-World Applications — Putera Gani</title>
+  <meta name="description" content="From edge robotics to cochlear implants — how neuromorphic chips are moving out of labs and into the real world." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>tailwind.config = { theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } } }</script>
+
+  <style>
+    /* ── Neuromorphic Article — Page 2 Unique Components ── */
+
+    /* Application Mosaic Card */
+    .app-mosaic {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    @media (min-width: 560px) {
+      .app-mosaic { grid-template-columns: 1fr 1fr; }
+    }
+    .app-tile {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      padding: 1.125rem 1rem;
+      background: var(--paper, #fafaf8);
+      transition: border-color 0.2s;
+    }
+    .app-tile:hover { border-color: rgba(200,151,58,0.4); }
+    .app-tile-icon {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+    .app-tile h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.35rem;
+    }
+    .app-tile p {
+      margin: 0 !important;
+      font-size: 0.8rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.6;
+    }
+
+    /* Quote Slab */
+    .quote-slab {
+      border-left: 3px solid var(--accent, #c8973a);
+      padding: 1rem 1.25rem;
+      margin: 2rem 0;
+      background: rgba(200,151,58,0.04);
+      border-radius: 0 10px 10px 0;
+    }
+    .quote-slab p {
+      margin: 0 !important;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+      font-style: italic;
+      line-height: 1.65;
+      color: var(--ink, #0f0f0f);
+    }
+    .quote-slab cite {
+      display: block;
+      margin-top: 0.6rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      color: var(--ink-muted, #6b6860);
+      font-style: normal;
+    }
+
+    /* Callout Banner */
+    .callout-banner {
+      background: var(--ink, #0f0f0f);
+      border-radius: 14px;
+      padding: 1.25rem 1.125rem;
+      margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 640px) {
+      .callout-banner { padding: 1.5rem 1.75rem; }
+    }
+    .callout-banner::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: rgba(200,151,58,0.08);
+    }
+    .callout-banner .cb-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .callout-banner p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+    }
+    .callout-banner strong { color: #fff !important; }
+
+    /* Challenge Grid */
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      margin: 1.75rem 0;
+    }
+    .challenge-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.875rem;
+      padding: 0.875rem 1rem;
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 10px;
+      background: var(--paper, #fafaf8);
+    }
+    .challenge-icon {
+      flex-shrink: 0;
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      background: rgba(200,151,58,0.08);
+      border: 1px solid rgba(200,151,58,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.875rem;
+    }
+    .challenge-row h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.25rem;
+    }
+    .challenge-row p {
+      margin: 0 !important;
+      font-size: 0.8rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.6;
+    }
+
+    /* Section divider */
+    .page2-rule {
+      display: flex; align-items: center; gap: 0.75rem; margin: 2rem 0;
+    }
+    .page2-rule::before, .page2-rule::after {
+      content: ''; flex: 1; height: 1px; background: var(--rule, #e8e4de);
+    }
+    .page2-rule span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--ink-muted, #6b6860); white-space: nowrap;
+    }
+
+    .article-body p strong { color: var(--ink, #0f0f0f); font-weight: 650; }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge">Technology</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    Neuromorphic Computing — Where It's Being Deployed Right Now
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 23, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>3 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 2 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&q=80"
+         alt="Robot and technology — neuromorphic applications"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Robotics & AI
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT — PAGE 2 -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          For most of its history, neuromorphic computing has been a laboratory curiosity — theoretically compelling, practically limited. That is changing with extraordinary speed. Chips like Intel's Loihi series, BrainScaleS-2 from Heidelberg University, and an emerging wave of commercial offerings are leaving research papers and entering products. The applications cluster around a consistent theme: <strong>situations where conventional AI is too slow, too hungry, or too dependent on the cloud to function.</strong>
+        </p>
+
+        <h2>The Edge Intelligence Revolution</h2>
+
+        <p>
+          The most immediate and commercially significant application is edge inference — running AI computation directly on a device, sensor, or robot rather than relaying data to a remote server. This matters because the internet of things is generating data far faster than bandwidth can transport it, and because many real-world AI applications require response times below the latency of a cloud round-trip.
+        </p>
+
+        <p>
+          A neuromorphic chip sitting inside a smart sensor can process acoustic patterns, vibration signatures, or visual motion locally and continuously — <strong>firing an alert only when something anomalous is detected, and sleeping silently the rest of the time.</strong> The energy budget for always-on edge intelligence drops from milliamps to microamps. Devices that once required wired power can run for years on a small battery.
+        </p>
+
+        <!-- ── Application Mosaic ── -->
+        <div class="app-mosaic">
+          <div class="app-tile">
+            <div class="app-tile-icon">🤖</div>
+            <h4>Autonomous Robotics</h4>
+            <p>Neuromorphic vision sensors enable robots to react to moving objects in microseconds — far faster than frame-based cameras processed by conventional AI, critical for safety in human environments.</p>
+          </div>
+          <div class="app-tile">
+            <div class="app-tile-icon">🦻</div>
+            <h4>Hearing & Prosthetics</h4>
+            <p>Next-generation cochlear implants and hearing aids use spiking neural networks to process audio with a fidelity and naturalness that classical signal processing cannot match at comparable power.</p>
+          </div>
+          <div class="app-tile">
+            <div class="app-tile-icon">🛰️</div>
+            <h4>Satellite & Space Systems</h4>
+            <p>The European Space Agency is exploring neuromorphic chips for onboard image classification — satellites that recognize cloud cover, wildfire, or flood patterns without downlinking raw data.</p>
+          </div>
+          <div class="app-tile">
+            <div class="app-tile-icon">🧬</div>
+            <h4>Neural Interfaces</h4>
+            <p>Brain-computer interface companies are evaluating neuromorphic coprocessors that can decode neural spike trains in real time with the low latency needed for motor prosthetics.</p>
+          </div>
+          <div class="app-tile">
+            <div class="app-tile-icon">🏭</div>
+            <h4>Industrial Anomaly Detection</h4>
+            <p>Vibration and acoustic sensors using neuromorphic inference detect bearing failures, pressure anomalies, and process drift in factory equipment — autonomously, millisecond by millisecond.</p>
+          </div>
+          <div class="app-tile">
+            <div class="app-tile-icon">🚗</div>
+            <h4>Automotive Perception</h4>
+            <p>Event cameras — image sensors that output spikes rather than frames — paired with neuromorphic processors offer collision detection latencies below 1ms, unachievable with conventional vision systems.</p>
+          </div>
+        </div>
+
+        <div class="page2-rule"><span>The Case for Spiking Neural Nets</span></div>
+
+        <h2>Why Spiking Networks Change the Equation</h2>
+
+        <p>
+          The software running on neuromorphic hardware is fundamentally different from the deep learning models running on GPUs. Rather than manipulating floating-point matrices through layers of multiplication, <strong>Spiking Neural Networks (SNNs) communicate through binary spike events</strong> — a far more efficient encoding for temporal data like audio, video motion, and sensor streams.
+        </p>
+
+        <p>
+          SNNs carry timing information natively. When you speak a word, the temporal pattern of pressure waves carries meaning. Conventional digital audio processing discards much of this temporal structure by quantizing into frames. A spiking network trained on cochlear-like spike encodings captures the fine-grained timing relationships that give speech its richness — and does so with a fraction of the computation.
+        </p>
+
+        <!-- ── Quote Slab ── -->
+        <div class="quote-slab">
+          <p>"We're not trying to compete with GPUs on the problems GPUs are good at. We're trying to solve the problems GPUs can't touch — always-on sensing, sub-millisecond reaction, ten-year battery life on a coin cell."</p>
+          <cite>— Mike Davies, Intel Neuromorphic Research Lab</cite>
+        </div>
+
+        <h2>The Challenges That Remain</h2>
+
+        <p>
+          Neuromorphic computing's potential is immense, but the field is not without significant obstacles. These are not insurmountable barriers — but they are real, and honest assessment requires naming them.
+        </p>
+
+        <!-- ── Challenge Grid ── -->
+        <div class="challenge-grid">
+          <div class="challenge-row">
+            <div class="challenge-icon">🧩</div>
+            <div>
+              <h4>Programming Abstraction Gap</h4>
+              <p>Writing software for neuromorphic hardware requires thinking in spike patterns and temporal dynamics — a paradigm shift from conventional deep learning frameworks. There is no "PyTorch for Loihi" yet that normalizes access for the broader AI community.</p>
+            </div>
+          </div>
+          <div class="challenge-row">
+            <div class="challenge-icon">📐</div>
+            <div>
+              <h4>Benchmarking Ambiguity</h4>
+              <p>Comparing neuromorphic and conventional architectures is genuinely hard. Different hardware makes different trade-offs across accuracy, latency, power, and programmability — and no agreed standard metric exists yet for the tasks neuromorphic chips target.</p>
+            </div>
+          </div>
+          <div class="challenge-row">
+            <div class="challenge-icon">🏭</div>
+            <div>
+              <h4>Manufacturing Maturity</h4>
+              <p>Neuromorphic chips require novel manufacturing processes — analog circuits, memristive devices, and in some cases three-dimensional stacking — that are harder to mass-produce than standard CMOS logic. Yields and unit costs remain high outside research volumes.</p>
+            </div>
+          </div>
+          <div class="challenge-row">
+            <div class="challenge-icon">📚</div>
+            <div>
+              <h4>Training Data & Algorithms</h4>
+              <p>The vast library of pretrained models, datasets, and training recipes that makes conventional deep learning so powerful doesn't transfer to SNNs. Conversion tools exist but are imperfect — and native SNN training remains an open research problem.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Callout Banner ── -->
+        <div class="callout-banner">
+          <div class="cb-label">💡 The Bigger Picture</div>
+          <p>Despite these friction points, the trajectory is clear. Intel's Loihi program has grown from a research experiment to a deployed commercial offering in under a decade. <strong>The barriers to neuromorphic adoption are engineering challenges, not fundamental physics.</strong> And as the energy cost of conventional AI becomes politically and economically untenable, the pressure to overcome those barriers is only intensifying. The question isn't whether neuromorphic chips will scale — it's how fast.</p>
+        </div>
+
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a href="index.html" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+            <div class="page-dot"></div>
+          </div>
+          <a href="page-3.html" class="btn-primary">
+            Continue to Page 3
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Architecture Problem</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">Real-World Applications</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Road to Cognitive Chips</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="neuromorphic-computing-brain-inspired-chips"
+    >
+      <!-- Injected by related.js -->
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>

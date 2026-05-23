@@ -1,6 +1,30 @@
 {
   "articles": [
     {
+      "id": "030",
+      "title": "Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI",
+      "slug": "neuromorphic-computing-brain-inspired-chips",
+      "category": "Technology",
+      "tags": [
+        "Neuromorphic Computing",
+        "AI Hardware",
+        "Spiking Neural Networks",
+        "Edge AI",
+        "Semiconductors"
+      ],
+      "featured": true,
+      "trending": true,
+      "date": "2026-05-23",
+      "time": "19:00",
+      "author": "Putera Gani",
+      "readTime": "9 min",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=75",
+      "imageLarge": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "excerpt": "The brain runs on 20 watts. AI data centers consume megawatts. Neuromorphic chips are finally closing that impossible gap.",
+      "content": "The human brain runs on roughly 20 watts of power — about as much as a dim light bulb. Meanwhile, the data centers powering modern AI consume megawatts and still fall short of biological cognition on tasks effortless to a three-year-old.",
+      "url": "articles/neuromorphic-computing-brain-inspired-chips/index.html"
+    },
+    {
       "id": "029",
       "title": "The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make",
       "slug": "art-of-pricing-business-strategy",
