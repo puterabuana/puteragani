@@ -1,6 +1,29 @@
 {
   "articles": [
     {
+      "id": "031",
+      "title": "The Rise of the CFO as Chief Future Officer",
+      "slug": "rise-of-the-cfo-future-officer",
+      "category": "Business",
+      "tags": [
+        "Business",
+        "Finance",
+        "Leadership",
+        "Strategy",
+        "AI"
+      ],
+      "featured": true,
+      "trending": true,
+      "date": "2026-05-24T15:42:00+07:00",
+      "author": "Putera Gani",
+      "readTime": "9 min",
+      "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=75",
+      "imageLarge": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80",
+      "excerpt": "The modern CFO has evolved from scorekeeper to strategist — navigating AI disruption, geopolitical volatility, and the uncertain terrain of tomorrow's economy.",
+      "content": "Something fundamental has shifted in the corner office. The Chief Financial Officer — for decades the company's meticulous scorekeeper — is now expected to engineer the future.",
+      "url": "articles/rise-of-the-cfo-future-officer/index.html"
+    },
+    {
       "id": "030",
       "title": "Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI",
       "slug": "neuromorphic-computing-brain-inspired-chips",
