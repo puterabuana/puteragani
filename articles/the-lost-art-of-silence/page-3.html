@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Lost Art of Silence — Page 3: Reclaiming the Pause — Putera Gani</title>
+  <meta name="description" content="How to bring deliberate silence back into modern life — practical frameworks, cultural lessons, and the quiet revolution already underway." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>tailwind.config = { theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } } }</script>
+
+  <style>
+    /* ── Silence Article — Page 3 Unique Components ── */
+
+    /* Practice Framework Cards */
+    .practice-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    @media (min-width: 560px) {
+      .practice-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .practice-card {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      padding: 1.125rem 1.25rem;
+      background: var(--paper, #fafaf8);
+      position: relative;
+      overflow: hidden;
+    }
+    .practice-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent, #c8973a), transparent);
+    }
+    .pc-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: rgba(200,151,58,0.15);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.04em;
+    }
+    .pc-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--ink, #0f0f0f);
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
+    }
+    .pc-duration {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      background: rgba(200,151,58,0.08);
+      border: 1px solid rgba(200,151,58,0.2);
+      border-radius: 20px;
+      padding: 2px 8px;
+      margin-bottom: 0.625rem;
+    }
+    .pc-desc {
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.65;
+    }
+
+    /* Closing Meditation Block */
+    .meditation-block {
+      background: linear-gradient(135deg, rgba(200,151,58,0.06) 0%, rgba(200,151,58,0.02) 100%);
+      border: 1px solid rgba(200,151,58,0.25);
+      border-radius: 16px;
+      padding: 1.5rem 1.5rem;
+      margin: 2.5rem 0;
+      text-align: center;
+    }
+    .meditation-block .mb-icon {
+      font-size: 2rem;
+      margin-bottom: 0.875rem;
+    }
+    .meditation-block h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.1rem, 3vw, 1.35rem);
+      font-weight: 700;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.75rem 0;
+      letter-spacing: -0.02em;
+    }
+    .meditation-block p {
+      margin: 0 !important;
+      font-size: 0.9rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.75;
+      max-width: 420px;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    /* Movement Spotlight */
+    .movement-row {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.125rem 0;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    .movement-row:last-child { border-bottom: none; }
+    .mr-dot {
+      flex-shrink: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent, #c8973a);
+      margin-top: 5px;
+    }
+    .mr-body h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.25rem 0;
+    }
+    .mr-body p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.65;
+    }
+
+    /* Highlight Box */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(200,151,58,0.07) 0%, rgba(200,151,58,0.03) 100%);
+      border: 1px solid rgba(200,151,58,0.3);
+      border-left: 3px solid var(--accent, #c8973a);
+      border-radius: 12px;
+      padding: 1rem 1rem;
+      margin: 1.75rem 0;
+    }
+    @media (min-width: 640px) {
+      .highlight-box { padding: 1.25rem 1.5rem; }
+    }
+    .highlight-box .hb-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .highlight-box p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Bold Callout */
+    .bold-callout {
+      border-top: 2px solid var(--ink, #0f0f0f);
+      border-bottom: 2px solid var(--ink, #0f0f0f);
+      padding: 1.25rem 0;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    .bold-callout p {
+      margin: 0 !important;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 4vw, 1.375rem);
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: -0.015em;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Section Divider */
+    .section-rule {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+    .section-rule::before, .section-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule, #e8e4de);
+    }
+    .section-rule span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      white-space: nowrap;
+    }
+
+    /* Inline bold */
+    .article-body p strong {
+      color: var(--ink, #0f0f0f);
+      font-weight: 650;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge">Culture</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    The Lost Art of Silence — Reclaiming the Pause in a World That Forgot How
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 25, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>4 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 3 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=1200&q=80"
+         alt="Person sitting alone in nature — stillness and reflection"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Solitude in nature
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT — PAGE 3 -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          Knowing that silence is valuable is not the same as knowing how to find it — or, more precisely, how to be in it once you do. This is the challenge that makes the cultural traditions explored on Page 1 so instructive. Silence, in Finnish culture or Japanese aesthetics, is not something that happens to you in a quiet room. It is a <strong>practiced orientation toward the world</strong> — a skill refined over generations, with social structures designed to support it.
+        </p>
+
+        <p>
+          For those of us formed in noisier cultures, reclaiming silence requires something more deliberate. It requires, to begin with, <strong>distinguishing between the kinds of silence available to us.</strong>
+        </p>
+
+        <h2>Not All Silence Is the Same</h2>
+
+        <p>
+          Researchers now distinguish several qualitatively different forms of silence, each with distinct effects on the nervous system. External silence — the absence of ambient sound — is the most familiar. But there is also what might be called <em>social silence</em>: the shared quiet between people that, as we have seen, cultures like Finland's have preserved as an art form. And there is <em>inner silence</em> — the cessation of compulsive internal monologue — which meditation traditions across Asia, the Americas, and the Middle East have long understood to be both the most valuable and most difficult to achieve.
+        </p>
+
+        <!-- ── Highlight Box ── -->
+        <div class="highlight-box">
+          <div class="hb-label">🔍 Key Distinction</div>
+          <p>External silence is a prerequisite but not a guarantee of inner quiet. Many people sit in genuinely quiet rooms and experience the loudest internal noise of their lives. The cultures that most benefit from silence have practices — sauna ritual, tea ceremony, meditation, forest bathing — that <strong>support the transition from external quiet to internal stillness</strong>. The environment matters; so does what you bring to it.</p>
+        </div>
+
+        <div class="section-rule"><span>The Quiet Revolution</span></div>
+
+        <p>
+          Against the dominant trend of noise saturation, a counter-movement has been quietly building for more than a decade. It is not yet a mass phenomenon, but its footprints are visible across industries and cultures — a growing recognition that <strong>silence has become a scarce resource, and that its scarcity has costs.</strong>
+        </p>
+
+        <!-- ── Movement Rows ── -->
+        <div style="margin: 1.75rem 0;">
+          <div class="movement-row">
+            <div class="mr-dot"></div>
+            <div class="mr-body">
+              <h4>The Sound Spa Industry</h4>
+              <p>Anechoic chambers — rooms engineered to absorb virtually all ambient sound — have moved from acoustic laboratories to luxury wellness centers. Charging hundreds of dollars per hour, "silence experiences" are sold in urban centers as a premium mental reset, revealing a market for the merely-absent that would have seemed absurd two decades ago.</p>
+            </div>
+          </div>
+          <div class="movement-row">
+            <div class="mr-dot"></div>
+            <div class="mr-body">
+              <h4>Nordic Silence Tourism</h4>
+              <p>Finland, Sweden, and Norway have begun marketing "silence tourism" — retreats, cabins, and forest experiences explicitly sold on the absence of stimulation. Finland's tourist board ran an entire campaign under the tagline "Silence, Please." It was their most successful international campaign in years.</p>
+            </div>
+          </div>
+          <div class="movement-row">
+            <div class="mr-dot"></div>
+            <div class="mr-body">
+              <h4>Contemplative Architecture</h4>
+              <p>A growing movement in architecture and urban design is explicitly incorporating silence as a design goal. "Quiet zones" in cities, acoustic refuges in parks, and library designs that treat noise suppression as a primary metric rather than an afterthought represent a structural recognition that quiet requires intention, not just absence of loudspeakers.</p>
+            </div>
+          </div>
+          <div class="movement-row">
+            <div class="mr-dot"></div>
+            <div class="mr-body">
+              <h4>Corporate Quiet Hours</h4>
+              <p>A number of companies — particularly in Scandinavia and Japan — have institutionalized "quiet hours" during which meetings, messaging, and music in shared spaces are prohibited. The initial evidence on focus, creativity output, and employee reported wellbeing has been positive enough that the practice is spreading.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Bold Callout ── -->
+        <div class="bold-callout">
+          <p>"In an attention economy that profits from noise, <span>choosing silence is a political act.</span> It is also, increasingly, a survival skill."</p>
+        </div>
+
+        <h2>Six Practices Worth Borrowing</h2>
+
+        <p>
+          The most actionable lesson from the cultures we have examined is that silence doesn't arrive — it is structured. Here are six practices drawn from cultural traditions and contemporary research, calibrated for people embedded in modern life who cannot move to a Finnish forest (yet).
+        </p>
+
+        <!-- ── Practice Grid ── -->
+        <div class="practice-grid">
+          <div class="practice-card">
+            <div class="pc-number">01</div>
+            <div class="pc-title">The Morning Threshold</div>
+            <div class="pc-duration">15–20 minutes</div>
+            <div class="pc-desc">Borrowed from Japanese <em>ma</em>: spend the first fifteen minutes of each day without input — no phone, no music, no news. Coffee is fine. The brain is in a uniquely receptive state at waking; defending that threshold determines the cognitive texture of the day.</div>
+          </div>
+          <div class="practice-card">
+            <div class="pc-number">02</div>
+            <div class="pc-title">The Social Pause</div>
+            <div class="pc-duration">In conversation</div>
+            <div class="pc-desc">Before responding to anything important — a question, a proposal, an emotion — count silently to four. This is not hesitation; it is, in Apache tradition, the honoring of what was said. It changes the quality of what you say next and how it lands.</div>
+          </div>
+          <div class="practice-card">
+            <div class="pc-number">03</div>
+            <div class="pc-title">The Commute Reversal</div>
+            <div class="pc-duration">Daily commute</div>
+            <div class="pc-desc">One commute per week without headphones, podcasts, or audio. Not as punishment but as observation. What do you notice? What does your mind reach for in the absence of input? The answers are diagnostic of what you've been using noise to avoid.</div>
+          </div>
+          <div class="practice-card">
+            <div class="pc-number">04</div>
+            <div class="pc-title">The Finnish Meal</div>
+            <div class="pc-duration">One meal weekly</div>
+            <div class="pc-desc">One meal per week eaten without screens, without music, without podcasts — in company or alone. Attention given to food, to taste, to the presence of other people. The Finns consider this ordinary; it is now sufficiently rare to be radical.</div>
+          </div>
+          <div class="practice-card">
+            <div class="pc-number">05</div>
+            <div class="pc-title">Forest Bathing (Shinrin-yoku)</div>
+            <div class="pc-duration">90 minutes monthly</div>
+            <div class="pc-desc">Japanese forest bathing — slow, purposeless walking in natural environments — produces measurable drops in cortisol, blood pressure, and self-reported stress. The key is purposelessness: no goal, no destination, no podcast. Just movement and attention.</div>
+          </div>
+          <div class="practice-card">
+            <div class="pc-number">06</div>
+            <div class="pc-title">The Scheduled Nothing</div>
+            <div class="pc-duration">Weekly block</div>
+            <div class="pc-desc">Block ninety minutes per week in your calendar as "nothing." No agenda, no productivity goal, no learning objective. Sit with discomfort until it passes. This is training in tolerating your own mind — and research suggests it is one of the most cognitively valuable things you can do.</div>
+          </div>
+        </div>
+
+        <h2>What We Are Listening For</h2>
+
+        <p>
+          There is a Zen story about a student who asks a master: "What does enlightenment sound like?" The master answers: "The sound of one hand clapping." The joke, if it is one, is that the sound requires silence to be heard. You cannot hear one hand clapping over the noise of everything else.
+        </p>
+
+        <p>
+          What the world's quietest cultures understand is that silence is not neutral. It is not the absence of meaning but its condition. The Finnish sitting together saying nothing. The Japanese honoring a proposal with a pause. The Apache respecting a reunion with quiet. These are not failures of communication. They are its most sophisticated expressions — the acknowledgment that some things, some moments, some people are <strong>too important to reduce to words before they've had time to become real.</strong>
+        </p>
+
+        <p>
+          We live in a civilization that has declared war on that space. We fill it with content, commentary, and noise because we have confused productivity with presence and stimulation with thought. The evidence — neurological, epidemiological, cultural — is now clear: we are paying a price. And the solution, as the Finns knew all along, is not complicated. It simply requires doing less, and letting that be enough.
+        </p>
+
+        <!-- ── Meditation Block / Closing ── -->
+        <div class="meditation-block">
+          <div class="mb-icon">🤫</div>
+          <h3>A Closing Invitation</h3>
+          <p>Put this article down. Close the tab. Sit — for five minutes — with nothing playing and nowhere to look. Notice what happens. That discomfort, or that peace, is your relationship with silence. It can be changed. It's worth changing.</p>
+        </div>
+
+      </div>
+
+      <!-- Pagination Buttons — Page 3 (no next) -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a href="page-2.html" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+
+        <div class="flex items-center gap-3">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+          </div>
+          <a href="../../culture.html" class="btn-primary">
+            More Culture Articles
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Noise We Made</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Biology of Quiet</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">Reclaiming the Pause</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div id="related-articles" class="grid sm:grid-cols-3 gap-5" data-current-slug="the-lost-art-of-silence">
+      <!-- Injected by related.js -->
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>
