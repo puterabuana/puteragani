@@ -1,6 +1,30 @@
 {
   "articles": [
     {
+      "id": "033",
+      "title": "The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design",
+      "slug": "white-space-manifesto-design",
+      "category": "Design",
+      "tags": [
+        "Design",
+        "White Space",
+        "Typography",
+        "Visual Design",
+        "UX",
+        "Minimalism"
+      ],
+      "featured": true,
+      "trending": true,
+      "date": "2026-05-26T21:00:00+07:00",
+      "author": "Putera Gani",
+      "readTime": "9 min",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75",
+      "imageLarge": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+      "excerpt": "Empty space isn't wasted space — it's the silent architecture that makes everything else legible, trustworthy, and worth looking at.",
+      "content": "Open any design brief and you will find the same anxious instinct: fill it. Fill the header, the sidebar, the footer. Fill every centimeter of available surface until the canvas screams.",
+      "url": "articles/white-space-manifesto-design/index.html"
+    },
+    {
       "id": "032",
       "title": "The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten",
       "slug": "the-lost-art-of-silence",

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design — Putera Gani</title>
+  <meta name="description" content="The most overlooked element in every great design isn't what's there — it's what isn't. A deep dive into the philosophy and science of empty space." />
+  <meta name="author" content="Putera Gani" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="article" />
+  <meta property="og:url"         content="https://puteragani.com/articles/white-space-manifesto-design/" />
+  <meta property="og:title"       content="The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design" />
+  <meta property="og:description" content="Empty space isn't wasted space — it's the silent architecture that makes everything else work." />
+  <meta property="og:image"       content="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } }
+    }
+  </script>
+
+  <style>
+    /* ── White Space Article — Page 1 Unique Components ── */
+
+    /* Breath Box — visual pause element */
+    .breath-box {
+      background: linear-gradient(160deg, rgba(200,151,58,0.06) 0%, rgba(200,151,58,0.02) 100%);
+      border: 1px solid rgba(200,151,58,0.28);
+      border-left: 3px solid var(--accent, #c8973a);
+      border-radius: 12px;
+      padding: 1rem 1rem;
+      margin: 1.75rem 0;
+    }
+    @media (min-width: 640px) {
+      .breath-box { padding: 1.25rem 1.5rem; }
+    }
+    .breath-box .bb-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .breath-box p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Contrast Block — dark background for impact statements */
+    .contrast-block {
+      background: var(--ink, #0f0f0f);
+      border-radius: 14px;
+      padding: 1.25rem 1.125rem;
+      margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 640px) {
+      .contrast-block { padding: 1.5rem 1.75rem; }
+    }
+    .contrast-block::before {
+      content: '';
+      position: absolute;
+      bottom: -30px; left: -30px;
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      background: rgba(200,151,58,0.07);
+    }
+    .contrast-block .cb-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .contrast-block p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+    }
+    .contrast-block strong { color: #fff !important; }
+
+    /* Principle List — numbered design principles */
+    .principle-item {
+      display: flex;
+      gap: 0.875rem;
+      align-items: flex-start;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    @media (min-width: 640px) {
+      .principle-item { gap: 1.125rem; }
+    }
+    .principle-item:last-child { border-bottom: none; }
+    .principle-num {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: var(--accent-pale, rgba(200,151,58,0.08));
+      border: 1px solid rgba(200,151,58,0.22);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent, #c8973a);
+      margin-top: 2px;
+    }
+    .principle-content h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.3rem 0;
+      letter-spacing: -0.01em;
+    }
+    @media (min-width: 640px) {
+      .principle-content h4 { font-size: 0.9375rem; }
+    }
+    .principle-content p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.65;
+    }
+    @media (min-width: 640px) {
+      .principle-content p { font-size: 0.875rem; }
+    }
+
+    /* Ratio Display — visual stat grid for design metrics */
+    .ratio-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      background: var(--rule, #e8e4de);
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 2.25rem 0;
+    }
+    @media (min-width: 480px) {
+      .ratio-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .ratio-cell {
+      background: var(--paper, #fafaf8);
+      padding: 1rem 0.875rem;
+      text-align: center;
+    }
+    .ratio-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ink, #0f0f0f);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    @media (min-width: 480px) {
+      .ratio-num { font-size: 1.75rem; }
+    }
+    .ratio-num span { color: var(--accent, #c8973a); }
+    .ratio-label {
+      font-size: 0.7rem;
+      color: var(--ink-muted, #6b6860);
+      letter-spacing: 0.04em;
+      line-height: 1.4;
+    }
+
+    /* Pull Quote Divider */
+    .pull-divider {
+      border-top: 2px solid var(--ink, #0f0f0f);
+      border-bottom: 2px solid var(--ink, #0f0f0f);
+      padding: 1.25rem 0;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    .pull-divider p {
+      margin: 0 !important;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 4vw, 1.375rem);
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: -0.015em;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Inline tag */
+    .design-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(200,151,58,0.1);
+      border: 1px solid rgba(200,151,58,0.25);
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Principle wrapper box */
+    .principle-box {
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      padding: 1rem 1rem;
+      margin: 1.75rem 0;
+      background: var(--paper, #fafaf8);
+    }
+    @media (min-width: 640px) {
+      .principle-box { padding: 1.25rem 1.5rem; }
+    }
+    .principle-box-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted, #6b6860);
+      margin-bottom: 0.875rem;
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* Article body base */
+    .article-body p strong {
+      color: var(--ink, #0f0f0f);
+      font-weight: 650;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- ═══════════════════════════════════════════════════
+     NAVBAR
+     ═══════════════════════════════════════════════════ -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE HEADER
+     ═══════════════════════════════════════════════════ -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+
+  <!-- Back Link + Category -->
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition: color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge">Design</span>
+  </div>
+
+  <!-- Title -->
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design
+  </h1>
+
+  <!-- Meta -->
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 26, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>9 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <!-- Page Indicator -->
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 1 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     HERO IMAGE
+     ═══════════════════════════════════════════════════ -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80"
+         alt="White space in design — minimal composition"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Minimal design
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE CONTENT — PAGE 1
+     ═══════════════════════════════════════════════════ -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <!-- Article Body -->
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <!-- ── Opening Hook ── -->
+        <p>
+          Open any design brief and you will find the same anxious instinct: <strong>fill it</strong>. Fill the header with a tagline, the sidebar with promotions, the footer with links. Fill every square centimeter of available surface until the canvas screams. This impulse is deeply human — we equate fullness with value, abundance with quality, density with effort.
+        </p>
+
+        <p>
+          It is also, in almost every case, <strong>exactly wrong.</strong>
+        </p>
+
+        <!-- ── Breath Box: Core Premise ── -->
+        <div class="breath-box">
+          <div class="bb-label">📐 The Designer's Paradox</div>
+          <p>The most valuable element in any composition is often the one that contains <strong>nothing at all</strong>. White space — the empty areas between and around design elements — is not wasted real estate. It is the <em>architecture of clarity</em>, the silent force that makes everything else legible, breathable, and worth looking at.</p>
+        </div>
+
+        <h2>The Misunderstood Concept</h2>
+
+        <p>
+          White space is a term that designers borrowed from print typography, where the unmarked areas of a page were literally white. But the concept has always been about <strong>emptiness, not color</strong>. The background of a website can be midnight black, the breathing room around a button can be deep teal — what matters is not the hue but the absence of content. A better term, used in Japanese design philosophy, is <em>ma</em> — the intentional, meaningful pause.
+        </p>
+
+        <p>
+          In Japanese aesthetics, <em>ma</em> is not the space between things. It is the space that <em>creates</em> things — the silence that gives music its rhythm, the gap between columns that gives architecture its gravity, the margin around text that gives words their weight. The West largely rediscovered this principle through the minimalist movement of the 1960s and the Swiss International Style. But it has been at the core of thoughtful visual composition for millennia.
+        </p>
+
+        <!-- ── Ratio Grid: Visual Reading Break ── -->
+        <div class="ratio-grid">
+          <div class="ratio-cell">
+            <div class="ratio-num">20<span>%</span></div>
+            <div class="ratio-label">More reading comprehension with generous line spacing</div>
+          </div>
+          <div class="ratio-cell">
+            <div class="ratio-num"><span>+</span>30<span>%</span></div>
+            <div class="ratio-label">Higher brand perception score for luxury brands using white space</div>
+          </div>
+          <div class="ratio-cell">
+            <div class="ratio-num">3<span>×</span></div>
+            <div class="ratio-label">Longer time-on-page for editorial layouts with open composition</div>
+          </div>
+        </div>
+
+        <div class="section-rule"><span>The Science</span></div>
+
+        <p>
+          There is now substantial research behind what designers have long known intuitively. The human visual system does not process a composition as a neutral scanner — it <strong>prioritizes, groups, and interprets</strong> based on spatial relationships. The Gestalt principles of visual perception — proximity, similarity, figure-ground — all depend fundamentally on the presence and quality of empty space.
+        </p>
+
+        <p>
+          When elements are given room to breathe, the brain processes them as intentional, considered, and trustworthy. When elements are crammed together, the brain enters a cognitive mode associated with <strong>anxiety and effort</strong> — the same mode activated by cluttered physical environments. This is not metaphor. Studies using eye-tracking and cortisol measurement confirm that cluttered interfaces induce measurable stress responses, while spacious layouts correlate with relaxation and extended engagement.
+        </p>
+
+        <!-- ── Pull Divider ── -->
+        <div class="pull-divider">
+          <p>"Empty space is not the absence of design. It is design — the most deliberate kind, requiring the most courage to defend."</p>
+        </div>
+
+        <h2>Three Kinds of White Space</h2>
+
+        <p>
+          Designers commonly distinguish between macro and micro white space, but a more useful taxonomy recognizes three distinct types — each with different functions and different failure modes.
+        </p>
+
+        <div class="principle-box">
+          <div class="principle-box-title">Types of White Space in Design</div>
+          <div class="principle-item">
+            <div class="principle-num">01</div>
+            <div class="principle-content">
+              <h4>Micro White Space</h4>
+              <p>The space between individual characters, words, lines of text, and small UI elements. This is the domain of typography and fine detail — letter-spacing, line-height, padding on buttons. Poor micro white space makes text feel airless and unreadable even when the macro layout is generous.</p>
+            </div>
+          </div>
+          <div class="principle-item">
+            <div class="principle-num">02</div>
+            <div class="principle-content">
+              <h4>Macro White Space</h4>
+              <p>The large-scale breathing room between major sections of a layout — the margins around a hero, the space separating a headline from body copy, the padding above a footer. Macro white space establishes the rhythm and pacing of a design and determines whether it feels luxurious or cramped.</p>
+            </div>
+          </div>
+          <div class="principle-item">
+            <div class="principle-num">03</div>
+            <div class="principle-content">
+              <h4>Active White Space</h4>
+              <p>Asymmetric or irregular empty areas used deliberately to direct the eye, create tension, or establish a focal point. Unlike passive white space — which simply prevents crowding — active white space is a compositional tool, guiding the viewer's gaze and communicating hierarchy through the strategic placement of emptiness.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Contrast Block ── -->
+        <div class="contrast-block">
+          <div class="cb-label">💡 The Client Problem</div>
+          <p>The single most common fight in a designer's career is defending white space to a client who sees it as <strong>wasted money</strong>. "We're paying for that space — we should use it." This argument misunderstands what design is. You are not paying for a billboard where maximum ink equals maximum value. You are paying for <em>communication</em>. And nothing communicates premium quality, intelligence, and confidence more reliably than the willingness to leave space empty.</p>
+        </div>
+
+        <h2>Why It Signals Quality</h2>
+
+        <p>
+          Consider the environments where we expect to feel that something is valuable: the gallery, the boutique, the fine restaurant. In each, the defining aesthetic is <strong>space</strong>. A gallery with paintings stacked floor to ceiling signals a storage room. A boutique with every surface covered in merchandise signals a discount store. A restaurant with tables inches apart signals a canteen. The sparse arrangement communicates: what is here has been selected, considered, and is worth your full attention.
+        </p>
+
+        <p>
+          Luxury brands have known this for decades. Apple's product pages, Hermès's windows, the interior of any serious watchmaker's boutique — they share a common grammar of generous emptiness around precious objects. The white space is not incidental. It is the <strong>primary signal of value</strong>. It says: we have the confidence not to compete for your attention at every point. We trust that what we offer is worth seeking out.
+        </p>
+
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <div><!-- No previous on page 1 --></div>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot active"></div>
+            <div class="page-dot"></div>
+            <div class="page-dot"></div>
+          </div>
+          <a href="page-2.html" class="btn-primary">
+            Continue to Page 2
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sticky Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top: 80px;">
+        <!-- Article Info -->
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">The Philosophy of Emptiness</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Rules, Ratios & Real Examples</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Applying It to Your Work</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Share -->
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     RELATED ARTICLES — dynamic from articles.json
+     ═══════════════════════════════════════════════════ -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="white-space-manifesto-design"
+    >
+      <!-- Injected by related.js -->
+    </div>
+  </div>
+</div>
+
+<!-- Footer (simplified on article pages) -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>
