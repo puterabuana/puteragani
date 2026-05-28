@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Inflammation Equation — Page 2: Brain, Aging & the Inflammaging Crisis — Putera Gani</title>
+  <meta name="description" content="How chronic inflammation drives depression, Alzheimer's, and the biology of aging — and why researchers are calling it the defining health crisis of our era." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>tailwind.config = { theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } } }</script>
+
+  <style>
+    /* ── Inflammation Article — Page 2 Unique Styles ── */
+
+    /* Brain Region Card */
+    .neuro-card {
+      background: var(--paper, #fafaf8);
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      padding: 1rem 1.125rem;
+      margin-bottom: 0.875rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .neuro-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--accent, #c8973a);
+      opacity: 0.6;
+    }
+    .neuro-card h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+      margin: 0 0 0.3rem 0.875rem;
+      letter-spacing: -0.01em;
+    }
+    .neuro-card p {
+      margin: 0 !important;
+      font-size: 0.8125rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.65;
+      padding-left: 0.875rem;
+    }
+
+    /* Biomarker Table */
+    .biomarker-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--rule, #e8e4de);
+      margin: 1.75rem 0;
+      font-size: 0.8125rem;
+    }
+    .biomarker-table thead {
+      background: var(--ink, #0f0f0f);
+    }
+    .biomarker-table thead th {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      font-weight: 500;
+    }
+    .biomarker-table tbody tr {
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    .biomarker-table tbody tr:last-child {
+      border-bottom: none;
+    }
+    .biomarker-table tbody tr:nth-child(even) {
+      background: rgba(200,151,58,0.03);
+    }
+    .biomarker-table tbody td {
+      padding: 0.75rem 1rem;
+      color: var(--ink, #0f0f0f);
+      line-height: 1.5;
+    }
+    .biomarker-table td:first-child {
+      font-weight: 600;
+      color: var(--ink, #0f0f0f);
+    }
+    .biomarker-table td:last-child {
+      color: var(--ink-muted, #6b6860);
+      font-size: 0.775rem;
+    }
+    .bm-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.65rem;
+      font-family: 'DM Mono', monospace;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .bm-badge.high { background: rgba(200,80,60,0.1); color: #c8503c; }
+    .bm-badge.moderate { background: rgba(200,151,58,0.12); color: var(--accent, #c8973a); }
+    .bm-badge.emerging { background: rgba(60,130,200,0.1); color: #3c82c8; }
+
+    /* Research Highlight Box */
+    .research-box {
+      background: linear-gradient(135deg, rgba(200,151,58,0.06) 0%, rgba(200,151,58,0.02) 100%);
+      border: 1px solid rgba(200,151,58,0.25);
+      border-left: 3px solid var(--accent, #c8973a);
+      border-radius: 12px;
+      padding: 1rem 1.125rem;
+      margin: 1.75rem 0;
+    }
+    @media (min-width: 640px) {
+      .research-box { padding: 1.25rem 1.5rem; }
+    }
+    .research-box .rb-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .research-box p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--ink, #0f0f0f);
+    }
+
+    /* Aging Timeline Visual */
+    .age-timeline {
+      margin: 1.75rem 0;
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .age-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border-bottom: 1px solid var(--rule, #e8e4de);
+    }
+    .age-row:last-child { border-bottom: none; }
+    .age-label {
+      flex-shrink: 0;
+      width: 72px;
+      padding: 0.875rem 0.75rem;
+      background: var(--ink, #0f0f0f);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent, #c8973a);
+      text-align: center;
+    }
+    .age-bar-wrap {
+      flex: 1;
+      padding: 0.875rem 1rem;
+      background: var(--paper, #fafaf8);
+    }
+    .age-bar-track {
+      height: 6px;
+      background: var(--rule, #e8e4de);
+      border-radius: 3px;
+      margin-bottom: 0.4rem;
+      overflow: hidden;
+    }
+    .age-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, rgba(200,151,58,0.4), var(--accent, #c8973a));
+    }
+    .age-bar-desc {
+      font-size: 0.775rem;
+      color: var(--ink-muted, #6b6860);
+      line-height: 1.4;
+    }
+
+    /* Inflam Rule */
+    .inflam-rule-p2 {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+    .inflam-rule-p2::before, .inflam-rule-p2::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule, #e8e4de);
+    }
+    .inflam-rule-p2 span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted, #6b6860);
+      white-space: nowrap;
+    }
+
+    /* Dark insight block */
+    .dark-insight {
+      background: var(--ink, #0f0f0f);
+      border-radius: 14px;
+      padding: 1.25rem 1.125rem;
+      margin: 2rem 0;
+    }
+    @media (min-width: 640px) {
+      .dark-insight { padding: 1.5rem 1.75rem; }
+    }
+    .dark-insight .di-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #c8973a);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .dark-insight p {
+      margin: 0 !important;
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+    }
+    .dark-insight strong { color: #fff !important; }
+
+    .article-body p strong { color: var(--ink, #0f0f0f); font-weight: 650; }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge">Health</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    The Inflammation Equation — Neuroinflammation, Aging & the Inflammaging Crisis
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>May 28, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>4 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 2 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=1200&q=80"
+         alt="Brain scan and neuroinflammation research"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Neuroscience research
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT — PAGE 2 -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          If you thought inflammation was merely a joint problem — the domain of arthritis sufferers and sports injury clinics — the emerging neuroscience will recalibrate your intuitions completely. The brain, long considered immunologically isolated behind the blood-brain barrier, is now understood to be <strong>profoundly vulnerable to systemic inflammation.</strong> The implications reach from depression to dementia, and they are among the most consequential findings in modern medicine.
+        </p>
+
+        <h2>The Inflamed Brain: Depression's Inflammatory Roots</h2>
+
+        <p>
+          For most of the 20th century, depression was understood through the lens of neurotransmitter deficits — too little serotonin, too little dopamine. Antidepressants were designed accordingly, and while they help millions, a frustrating reality persists: <strong>roughly 30% of depression patients don't respond to standard treatments.</strong> Researchers began asking why. The inflammatory hypothesis offers a compelling answer.
+        </p>
+
+        <p>
+          When systemic inflammation rises, cytokines — particularly IL-6 and TNF-α — cross the blood-brain barrier and activate the brain's own immune cells, called microglia. Activated microglia trigger neuroinflammation, altering neurotransmitter metabolism, disrupting the tryptophan pathway that produces serotonin, and interfering with neuroplasticity — the brain's ability to form new connections. The result looks and feels, neurologically speaking, identical to what we call depression.
+        </p>
+
+        <!-- ── Brain Regions Affected ── -->
+        <p>Neuroinflammation has been documented to cause measurable changes in specific brain regions:</p>
+
+        <div class="my-5">
+          <div class="neuro-card">
+            <h4>Prefrontal Cortex</h4>
+            <p>The seat of decision-making and emotional regulation shows reduced activity under inflammatory load — contributing to the flat affect, impaired planning, and emotional blunting characteristic of depression.</p>
+          </div>
+          <div class="neuro-card">
+            <h4>Hippocampus</h4>
+            <p>The brain's memory consolidation center is particularly vulnerable. Neuroinflammation suppresses neurogenesis — the growth of new neurons — in the hippocampus, which may explain both memory symptoms in depression and its link to Alzheimer's risk.</p>
+          </div>
+          <div class="neuro-card">
+            <h4>Amygdala</h4>
+            <p>Inflammation heightens amygdala reactivity to perceived threats, creating the hypervigilance and catastrophic thinking patterns common to both depression and anxiety disorders.</p>
+          </div>
+          <div class="neuro-card">
+            <h4>Anterior Cingulate Cortex</h4>
+            <p>A region that processes physical and social pain alike — inflamed versions show abnormal activation patterns linked to the anhedonia (inability to feel pleasure) that makes depression so debilitating.</p>
+          </div>
+        </div>
+
+        <!-- ── Research Highlight ── -->
+        <div class="research-box">
+          <div class="rb-label">🔬 Key Research Finding</div>
+          <p>A landmark 2023 meta-analysis across 82 studies found that individuals with elevated CRP levels were <strong>45% more likely to develop major depression</strong> — and that this relationship held even after controlling for lifestyle factors. More striking: treating inflammation directly, with anti-inflammatory drugs, showed antidepressant effects in a subset of patients. The brain and the immune system are in constant conversation.</p>
+        </div>
+
+        <div class="inflam-rule-p2"><span>Alzheimer's & The Neuroinflammation Connection</span></div>
+
+        <h2>Alzheimer's: A Disease of Fire, Not Just Plaques</h2>
+
+        <p>
+          The amyloid hypothesis — the idea that Alzheimer's disease is caused by accumulation of amyloid-beta plaques in the brain — dominated research for three decades. But a troubling problem persisted: many people with extensive plaque buildup showed <strong>no cognitive decline whatsoever.</strong> And drugs that successfully cleared plaques often failed to prevent disease progression.
+        </p>
+
+        <p>
+          The emerging consensus is more nuanced: plaques may be a triggering event, but the actual neurodegeneration is driven by the <strong>inflammatory response to those plaques.</strong> Microglia, the brain's immune sentinels, become chronically activated trying to clear amyloid. In doing so, they release inflammatory signals that damage synapses, destroy healthy neurons, and accelerate exactly the cognitive decline they were recruited to prevent.
+        </p>
+
+        <blockquote>
+          "Alzheimer's may not be a disease of amyloid. It may be a disease of immune dysregulation — a brain that cannot resolve its own inflammation, trapped in a cycle that destroys what it was trying to protect."
+        </blockquote>
+
+        <p>
+          This reframing is not academic. It shifts the therapeutic target from clearing plaques to <strong>modulating microglial activation</strong> — and has reopened entire avenues of drug development that plaque-centric models had closed off.
+        </p>
+
+        <h2>Inflammaging: The Biology of Getting Old</h2>
+
+        <p>
+          In 2000, immunologist Claudio Franceschi introduced a term that has since become one of the most debated concepts in gerontology: <strong>inflammaging</strong> — the chronic, low-grade inflammatory state that accumulates with age and may be the primary driver of the physical decline we associate with growing old.
+        </p>
+
+        <p>
+          Inflammaging is not simply the result of disease. It appears to be a feature of aging itself — driven by the accumulation of senescent cells (damaged cells that refuse to die and instead secrete inflammatory molecules), the gradual degradation of gut microbiome diversity, increased intestinal permeability, and the progressive exhaustion of regulatory immune cells that normally dampen inflammation.
+        </p>
+
+        <!-- ── Age Timeline ── -->
+        <div class="age-timeline">
+          <div class="age-row">
+            <div class="age-label">20s–30s</div>
+            <div class="age-bar-wrap">
+              <div class="age-bar-track"><div class="age-bar-fill" style="width:15%;"></div></div>
+              <div class="age-bar-desc">Baseline inflammatory tone low. Immune system resolves acute inflammation rapidly and cleanly.</div>
+            </div>
+          </div>
+          <div class="age-row">
+            <div class="age-label">40s–50s</div>
+            <div class="age-bar-wrap">
+              <div class="age-bar-track"><div class="age-bar-fill" style="width:38%;"></div></div>
+              <div class="age-bar-desc">Senescent cell accumulation begins. Resolution capacity declines. Subclinical inflammation measurable in blood markers.</div>
+            </div>
+          </div>
+          <div class="age-row">
+            <div class="age-label">60s–70s</div>
+            <div class="age-bar-wrap">
+              <div class="age-bar-track"><div class="age-bar-fill" style="width:62%;"></div></div>
+              <div class="age-bar-desc">Inflammaging becomes clinically significant. CRP, IL-6 elevations correlate strongly with cardiovascular and cognitive risk.</div>
+            </div>
+          </div>
+          <div class="age-row">
+            <div class="age-label">80s+</div>
+            <div class="age-bar-wrap">
+              <div class="age-bar-track"><div class="age-bar-fill" style="width:85%;"></div></div>
+              <div class="age-bar-desc">High inflammaging load. Frailty, sarcopenia, and multi-system decline correlate directly with systemic inflammatory burden.</div>
+            </div>
+          </div>
+        </div>
+
+        <h2>Biomarkers: Measuring the Fire Within</h2>
+
+        <p>
+          One of the most significant practical advances of the past decade is the development of accessible blood tests that can <strong>quantify inflammatory status</strong> — translating this research from the laboratory into clinical practice. Not all biomarkers are equal in what they reveal:
+        </p>
+
+        <!-- ── Biomarker Table ── -->
+        <table class="biomarker-table">
+          <thead>
+            <tr>
+              <th>Marker</th>
+              <th>What It Measures</th>
+              <th>Risk Level</th>
+              <th>Clinical Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>hs-CRP</td>
+              <td>General systemic inflammation; liver-produced acute-phase protein</td>
+              <td><span class="bm-badge high">High Utility</span></td>
+              <td>Widely available, standard test</td>
+            </tr>
+            <tr>
+              <td>IL-6</td>
+              <td>Key pro-inflammatory cytokine; strongly linked to aging and disease</td>
+              <td><span class="bm-badge high">High Utility</span></td>
+              <td>Available; not yet routine</td>
+            </tr>
+            <tr>
+              <td>TNF-α</td>
+              <td>Master inflammatory signal; elevated in obesity, metabolic disease</td>
+              <td><span class="bm-badge moderate">Moderate</span></td>
+              <td>Research and specialist use</td>
+            </tr>
+            <tr>
+              <td>Fibrinogen</td>
+              <td>Clotting factor doubled as inflammation marker; cardiovascular predictor</td>
+              <td><span class="bm-badge moderate">Moderate</span></td>
+              <td>Available in extended panels</td>
+            </tr>
+            <tr>
+              <td>GlycA</td>
+              <td>Novel composite inflammatory marker; strong chronic disease predictor</td>
+              <td><span class="bm-badge emerging">Emerging</span></td>
+              <td>Specialized labs only</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          What this panel reveals — for the first time in medical history — is the ability to see chronic inflammation <strong>years before symptoms appear.</strong> A 45-year-old with persistently elevated hs-CRP and IL-6 has a measurable, quantifiable risk that can be addressed through lifestyle, nutrition, and increasingly through targeted therapeutics — <em>before</em> a heart attack, a diagnosis of dementia, or a cancer screening catches what the inflammation already wrote in the blood.
+        </p>
+
+        <!-- ── Dark Insight Block ── -->
+        <div class="dark-insight">
+          <div class="di-label">🔑 The Key Takeaway</div>
+          <p>The old model of disease was reactive: you get sick, you treat the illness. The inflammatory model inverts this. <strong>Disease is the last chapter of a long inflammatory story.</strong> The question medicine is now asking — and increasingly answering — is whether we can read that story early enough to change the ending. On Page 3, we cover what the evidence actually says you can do about it.</p>
+        </div>
+
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a href="index.html" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+            <div class="page-dot"></div>
+          </div>
+          <a href="page-3.html" class="btn-primary">
+            Continue to Page 3
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Silent Fire</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">Brain, Aging & Disease</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">What You Can Do</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="inflammation-equation-chronic-disease"
+    >
+      <!-- Injected by related.js -->
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>
