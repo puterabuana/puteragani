@@ -1,6 +1,31 @@
 {
   "articles": [
     {
+      "id": "035",
+      "title": "The Operator Economy: Why Execution Is Becoming the New Competitive Moat",
+      "slug": "operator-economy-execution-moat",
+      "category": "Business",
+      "tags": [
+        "Business",
+        "Operations",
+        "Strategy",
+        "AI",
+        "Leadership",
+        "Execution"
+      ],
+      "featured": true,
+      "trending": true,
+      "date": "2026-06-07T22:02:32+07:00",
+      "time": "22:02",
+      "author": "Putera Gani",
+      "readTime": "9 min",
+      "image": "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&q=75",
+      "imageLarge": "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&q=80",
+      "excerpt": "AI made ideas cheaper than ever, so the rare business advantage is shifting toward operators who can turn clarity into disciplined execution.",
+      "content": "Every business age has a scarce resource. In the industrial age, it was capital equipment. In the internet age, it was distribution. In the platform age, it was data. Now a stranger scarcity is appearing in plain sight: the ability to turn good ideas into reliable motion.",
+      "url": "articles/operator-economy-execution-moat/index.html"
+    },
+    {
       "id": "034",
       "title": "The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing",
       "slug": "inflammation-equation-chronic-disease",

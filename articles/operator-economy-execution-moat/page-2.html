@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Operator Economy - Page 2: The AI Operating Model - Putera Gani</title>
+  <meta name="description" content="How AI changes the operating model of modern companies, and why speed without judgment can become expensive chaos." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script>tailwind.config = { theme: { extend: { colors: { ink: '#0f0f0f', paper: '#fafaf8', accent: '#c8973a' } } } }</script>
+  <style>
+    :root {
+      --ink: #0f0f0f;
+      --paper: #fafaf8;
+      --accent: #c8973a;
+    }
+
+    .ai-ops-lens {
+      background: #fff;
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 14px;
+      margin: 2rem 0;
+      padding: 1.2rem;
+    }
+    @media (min-width: 640px) {
+      .ai-ops-lens { padding: 1.4rem 1.65rem; }
+    }
+    .ai-ops-lens-title {
+      color: var(--ink-muted, #6b6860);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .ai-ops-lens-row {
+      align-items: flex-start;
+      border-top: 1px solid var(--rule, #e8e4de);
+      display: grid;
+      gap: 0.5rem;
+      grid-template-columns: 86px 1fr;
+      padding: 0.95rem 0;
+    }
+    .ai-ops-lens-row:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+    .ai-ops-lens-label {
+      color: var(--accent);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .ai-ops-lens-row p {
+      color: var(--ink-muted, #6b6860);
+      font-size: 0.88rem;
+      line-height: 1.65;
+      margin: 0 !important;
+    }
+
+    .judgment-warning {
+      background: linear-gradient(135deg, rgba(15,15,15,0.98), rgba(40,33,22,0.98));
+      border: 1px solid rgba(200,151,58,0.22);
+      border-radius: 14px;
+      margin: 2rem 0;
+      padding: 1.25rem;
+    }
+    @media (min-width: 640px) {
+      .judgment-warning { padding: 1.45rem 1.75rem; }
+    }
+    .judgment-warning .judgment-label {
+      color: var(--accent);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.65rem;
+      text-transform: uppercase;
+    }
+    .judgment-warning p {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.94rem;
+      line-height: 1.72;
+      margin: 0 !important;
+    }
+    .judgment-warning strong { color: #fff !important; }
+
+    .automation-boundary-grid {
+      display: grid;
+      gap: 0.9rem;
+      grid-template-columns: 1fr;
+      margin: 2rem 0;
+    }
+    @media (min-width: 700px) {
+      .automation-boundary-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .automation-boundary-card {
+      background: var(--paper);
+      border: 1px solid var(--rule, #e8e4de);
+      border-radius: 12px;
+      padding: 1.1rem;
+    }
+    .automation-boundary-card h4 {
+      color: var(--ink);
+      font-size: 0.93rem;
+      font-weight: 700;
+      margin: 0 0 0.45rem;
+    }
+    .automation-boundary-card p {
+      color: var(--ink-muted, #6b6860);
+      font-size: 0.86rem;
+      line-height: 1.62;
+      margin: 0 !important;
+    }
+
+    .velocity-scale {
+      background: rgba(200,151,58,0.08);
+      border: 1px solid rgba(200,151,58,0.24);
+      border-radius: 14px;
+      margin: 2rem 0;
+      padding: 1.15rem;
+    }
+    .velocity-scale-track {
+      background: rgba(15,15,15,0.1);
+      border-radius: 999px;
+      height: 10px;
+      margin: 1rem 0 0.75rem;
+      overflow: hidden;
+    }
+    .velocity-scale-fill {
+      background: linear-gradient(90deg, var(--accent), var(--ink));
+      border-radius: 999px;
+      height: 100%;
+      width: 72%;
+    }
+    .velocity-scale-caption {
+      color: var(--ink-muted, #6b6860);
+      display: flex;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.66rem;
+      justify-content: space-between;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
+        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
+        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
+        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
+        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+      </nav>
+      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE HEADER -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge">Business</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    The Operator Economy - The AI Operating Model
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>June 7, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>3 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 2 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+        <div class="page-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img"
+         src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80"
+         alt="Team workshop with business planning notes"
+         loading="eager" />
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Operating model
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE CONTENT - PAGE 2 -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          The temptation with AI is to treat it as a productivity layer: faster writing, faster research, faster analysis, faster support. That is useful, but it is also the shallowest version of the opportunity. The deeper question is operational: <strong>how should a company change when its thinking tools become dramatically more capable?</strong>
+        </p>
+
+        <p>
+          The answer is not to automate everything. Automation without judgment simply accelerates mess. A broken handoff becomes a faster broken handoff. A vague brief becomes a faster vague brief. A bad incentive becomes a faster bad incentive. The real advantage comes from redesigning the work around clearer decisions.
+        </p>
+
+        <div class="judgment-warning">
+          <div class="judgment-label">Core Warning</div>
+          <p>AI increases the speed of output, but business value still depends on <strong>the quality of the operating context</strong>: who decides, what standard is used, when work ships, and how learning returns to the system.</p>
+        </div>
+
+        <h2>Automate Tasks, Not Accountability</h2>
+
+        <p>
+          The most durable AI adoption will happen in companies that separate work into two categories: tasks that can be compressed and responsibilities that must remain owned. Drafting a first version of a sales email can be compressed. Owning the promise made to the customer cannot. Summarizing support tickets can be compressed. Deciding what those tickets reveal about product quality cannot.
+        </p>
+
+        <p>
+          This distinction matters because many organizations confuse automation with delegation. They remove human effort without replacing human accountability. Then quality drifts, customers notice, and the apparent efficiency gain becomes brand debt. Strong operators use AI to reduce friction, not to blur responsibility.
+        </p>
+
+        <div class="automation-boundary-grid">
+          <div class="automation-boundary-card">
+            <h4>Good automation</h4>
+            <p>Compresses repetitive work, improves consistency, and gives humans better information before consequential decisions.</p>
+          </div>
+          <div class="automation-boundary-card">
+            <h4>Bad automation</h4>
+            <p>Hides weak ownership, multiplies low-quality output, and makes mistakes harder to trace after customers feel them.</p>
+          </div>
+        </div>
+
+        <h2>The New Role of Management</h2>
+
+        <p>
+          Management in the operator economy becomes less about supervising activity and more about designing decision environments. The old question was, "Is the team working?" The better question is, "Is the team learning from the right work fast enough to improve the business?"
+        </p>
+
+        <p>
+          This changes the texture of leadership. Managers must become clearer about standards. They must define what good looks like before AI multiplies versions of mediocre. They must make review cycles tighter, because waiting two weeks to inspect AI-accelerated work means the organization can travel very far in the wrong direction.
+        </p>
+
+        <div class="ai-ops-lens">
+          <div class="ai-ops-lens-title">Three Management Lenses</div>
+          <div class="ai-ops-lens-row">
+            <div class="ai-ops-lens-label">Input</div>
+            <p>Are teams feeding AI with enough customer truth, business context, and strategic constraint?</p>
+          </div>
+          <div class="ai-ops-lens-row">
+            <div class="ai-ops-lens-label">Output</div>
+            <p>Is the work useful enough to ship, or merely polished enough to look impressive in a document?</p>
+          </div>
+          <div class="ai-ops-lens-row">
+            <div class="ai-ops-lens-label">Loop</div>
+            <p>Does each shipped action produce learning that improves the next prompt, playbook, campaign, product, or decision?</p>
+          </div>
+        </div>
+
+        <h2>Speed Is Not the Same as Velocity</h2>
+
+        <p>
+          AI gives teams more speed. Operators create velocity. Speed is movement. Velocity is movement in a chosen direction. A company can launch more campaigns, publish more posts, build more features, and schedule more meetings while becoming less coherent as a business.
+        </p>
+
+        <p>
+          This is the hidden danger of the AI era: activity becomes easier to manufacture than progress. The companies that win will not be the ones with the most generated output. They will be the ones with the clearest operating thesis and the discipline to keep every tool pointed at it.
+        </p>
+
+        <div class="velocity-scale">
+          <div class="ai-ops-lens-title" style="margin-bottom:0;">Operator Signal</div>
+          <div class="velocity-scale-track"><div class="velocity-scale-fill"></div></div>
+          <div class="velocity-scale-caption">
+            <span>Raw speed</span>
+            <span>Strategic velocity</span>
+          </div>
+        </div>
+
+        <p>
+          In practical terms, that means fewer disconnected experiments and more deliberate operating loops. It means AI belongs inside a rhythm: weekly priorities, customer feedback, performance review, decision logs, and direct ownership. Without that rhythm, AI is just another source of noise.
+        </p>
+
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a href="index.html" class="btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+            <div class="page-dot"></div>
+          </div>
+          <a href="page-3.html" class="btn-primary">
+            Continue to Page 3
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">Introduction & Background</span>
+            </a>
+            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">Challenges & Debates</span>
+            </a>
+            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Road Ahead</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- RELATED ARTICLES - dynamic from articles.json -->
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="operator-economy-execution-moat"
+    >
+      <!-- Injected by related.js -->
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>
