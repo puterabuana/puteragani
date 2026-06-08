@@ -210,10 +210,28 @@ const ArticleEngine = (() => {
   }
 
   /* ── Render featured hero ── */
+  function pickFeaturedArticle(articles) {
+    const candidates = articles;
+    if (!candidates.length) return null;
+
+    const storageKey = 'puteragani-featured-story-id';
+    try {
+      const savedId = sessionStorage.getItem(storageKey);
+      const saved = candidates.find(function(a) { return String(a.id) === savedId; });
+      if (saved) return saved;
+
+      const picked = candidates[Math.floor(Math.random() * candidates.length)];
+      sessionStorage.setItem(storageKey, String(picked.id));
+      return picked;
+    } catch (e) {
+      return candidates[Math.floor(Math.random() * candidates.length)];
+    }
+  }
+
   function renderFeatured(articles) {
     const heroSection = document.getElementById('featured-section');
     if (!heroSection) return;
-    const featured = articles.find(function(a) { return a.featured; }) || articles[0];
+    const featured = pickFeaturedArticle(articles);
     if (!featured) { heroSection.style.display = 'none'; return; }
     const url = featured.slug ? 'articles/' + featured.slug + '/index.html' : (featured.url || '#');
     heroSection.innerHTML = '\n      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">\n        <div class="grid lg:grid-cols-2 gap-12 items-center">\n          <div class="animate-fade-up">\n            <div class="hero-tag mb-5">\n              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="currentColor">\n                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>\n              </svg>\n              Featured Story\n            </div>\n            <h1 class="font-display text-white mb-5 leading-tight" style="font-size:clamp(2rem,4vw,3rem); font-weight:700; letter-spacing:-0.02em;">' + escapeHtml(featured.title) + '</h1>\n            <p class="text-base mb-8" style="color:rgba(255,255,255,0.65); line-height:1.75; max-width:520px;">' + escapeHtml(featured.excerpt) + '</p>\n            <div class="flex flex-wrap items-center gap-4">\n              <a href="' + url + '" class="btn-accent">\n                Read Story\n                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>\n              </a>\n              <div class="flex items-center gap-3" style="color:rgba(255,255,255,0.45); font-size:0.8125rem;">\n                <span>' + escapeHtml(featured.readTime) + ' read</span>\n                <span style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.3);"></span>\n                <span>' + escapeHtml(featured.category) + '</span>\n              </div>\n            </div>\n          </div>\n          <div class="hero-img-wrap animate-fade-up delay-200" style="height:420px;">\n            <img src="' + escapeHtml(featured.imageLarge || featured.image) + '" alt="' + escapeHtml(featured.title) + '" loading="eager"\n              onerror="this.src=\'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&q=80\'" />\n            <div class="hero-img-overlay"></div>\n          </div>\n        </div>\n      </div>';
