@@ -51,6 +51,14 @@
   function dataPath()       { return `${ROOT}data/articles.json`; }
   function articleUrl(slug) { return `${ROOT}articles/${slug}/index.html`; }
 
+  function escapeHtml(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
   /* ── Render one related card ── */
   function renderRelatedCard(article) {
     const s   = CATEGORY_STYLES[article.category] || CATEGORY_STYLES.Technology;
@@ -60,8 +68,8 @@
         <article class="article-card related-card" style="cursor:pointer;display:flex;flex-direction:column;height:100%;">
           <div class="card-thumb">
             <img
-              src="${article.image}"
-              alt="${article.title}"
+              src="${escapeHtml(article.image)}"
+              alt="${escapeHtml(article.title)}"
               loading="lazy"
               width="400" height="250"
               onerror="this.src='https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400&q=70'"
@@ -70,13 +78,13 @@
           </div>
           <div class="card-body">
             <span class="category-badge" style="background:${s.bg};color:${s.color};border-color:${s.border};">
-              ${article.category}
+              ${escapeHtml(article.category)}
             </span>
             <h3 class="card-title" style="font-size:0.9rem;">
-              ${article.title}
+              ${escapeHtml(article.title)}
             </h3>
             <div class="card-meta">
-              <span>${article.readTime} read</span>
+              <span>${escapeHtml(article.readTime)} read</span>
             </div>
           </div>
         </article>

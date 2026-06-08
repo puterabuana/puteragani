@@ -32,14 +32,31 @@ const ArticleEngine = (() => {
     Health:     { bg: '#fef2f2',             color: '#dc2626',            border: 'rgba(220,38,38,0.2)'   },
   };
 
-  function formatDate(isoDate) {
-    if (!isoDate) return '';
-    return new Date(isoDate + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+  function parseArticleDate(articleOrDate, maybeTime) {
+    const dateValue = typeof articleOrDate === 'object' && articleOrDate !== null
+      ? articleOrDate.date
+      : articleOrDate;
+    const timeValue = typeof articleOrDate === 'object' && articleOrDate !== null
+      ? articleOrDate.time
+      : maybeTime;
+
+    if (!dateValue) return new Date('1970-01-01T00:00:00');
+    const rawDate = String(dateValue);
+    const dateStr = rawDate.includes('T')
+      ? rawDate
+      : rawDate + 'T' + (timeValue || '00:00') + ':00';
+    return new Date(dateStr);
+  }
+
+  function formatDate(articleOrDate, maybeTime) {
+    const date = parseArticleDate(articleOrDate, maybeTime);
+    if (Number.isNaN(date.getTime())) return '';
+    return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
   }
 
   function categoryBadge(cat) {
     const s = CATEGORY_STYLES[cat] || CATEGORY_STYLES.Technology;
-    return `<span class="category-badge" style="background:${s.bg}; color:${s.color}; border-color:${s.border};">${cat}</span>`;
+    return `<span class="category-badge" style="background:${s.bg}; color:${s.color}; border-color:${s.border};">${escapeHtml(cat)}</span>`;
   }
 
   /* ════════════════════════════════════════════════════════════
@@ -52,8 +69,7 @@ const ArticleEngine = (() => {
    * Falls back gracefully if time is missing.
    */
   function toDateTime(article) {
-    const dateStr = (article.date || '1970-01-01') + 'T' + (article.time || '00:00') + ':00';
-    return new Date(dateStr);
+    return parseArticleDate(article);
   }
 
   /**
@@ -177,20 +193,20 @@ const ArticleEngine = (() => {
 
   /* ── Standard article card (homepage, no search context) ── */
   function renderCard(article) {
-    const date = formatDate(article.date);
+    const date = formatDate(article);
     const url  = article.slug ? 'articles/' + article.slug + '/index.html' : (article.url || '#');
-    return '\n      <article class="article-card" data-id="' + article.id + '" data-category="' + article.category + '">\n        <a href="' + url + '" style="text-decoration:none;" aria-label="Read: ' + escapeHtml(article.title) + '">\n          <div class="card-thumb">\n            <img src="' + article.image + '" alt="' + escapeHtml(article.title) + '" loading="lazy" width="600" height="375"\n              onerror="this.src=\'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&q=75\'" />\n            <div class="card-thumb-overlay"></div>\n          </div>\n        </a>\n        <div class="card-body">\n          ' + categoryBadge(article.category) + '\n          <h2 class="card-title">\n            <a href="' + url + '" style="text-decoration:none; color:inherit;">' + escapeHtml(article.title) + '</a>\n          </h2>\n          <p class="card-desc">' + escapeHtml(article.excerpt) + '</p>\n          <div class="card-meta">\n            <span>' + date + '</span>\n            <span class="card-meta-dot"></span>\n            <span>' + article.readTime + ' read</span>\n          </div>\n          <a href="' + url + '" class="btn-primary mt-4" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">\n            Read More\n            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">\n              <path d="M5 12h14M12 5l7 7-7 7"/>\n            </svg>\n          </a>\n        </div>\n      </article>';
+    return '\n      <article class="article-card" data-id="' + escapeHtml(article.id) + '" data-category="' + escapeHtml(article.category) + '">\n        <a href="' + url + '" style="text-decoration:none;" aria-label="Read: ' + escapeHtml(article.title) + '">\n          <div class="card-thumb">\n            <img src="' + escapeHtml(article.image) + '" alt="' + escapeHtml(article.title) + '" loading="lazy" width="600" height="375"\n              onerror="this.src=\'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&q=75\'" />\n            <div class="card-thumb-overlay"></div>\n          </div>\n        </a>\n        <div class="card-body">\n          ' + categoryBadge(article.category) + '\n          <h2 class="card-title">\n            <a href="' + url + '" style="text-decoration:none; color:inherit;">' + escapeHtml(article.title) + '</a>\n          </h2>\n          <p class="card-desc">' + escapeHtml(article.excerpt) + '</p>\n          <div class="card-meta">\n            <span>' + date + '</span>\n            <span class="card-meta-dot"></span>\n            <span>' + escapeHtml(article.readTime) + ' read</span>\n          </div>\n          <a href="' + url + '" class="btn-primary mt-4" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">\n            Read More\n            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">\n              <path d="M5 12h14M12 5l7 7-7 7"/>\n            </svg>\n          </a>\n        </div>\n      </article>';
   }
 
   /* ── Search result card — highlighted title + dynamic snippet ── */
   function renderSearchCard(article, query) {
-    const date              = formatDate(article.date);
+    const date              = formatDate(article);
     const url               = article.slug ? 'articles/' + article.slug + '/index.html' : (article.url || '#');
     const snippet           = getBestSnippet(article, query);
     const highlightedTitle  = highlightKeyword(article.title, query);
     const highlightedSnippet = highlightKeyword(snippet, query);
 
-    return '\n      <article class="article-card" data-id="' + article.id + '" data-category="' + article.category + '">\n        <a href="' + url + '" style="text-decoration:none;" aria-label="Read: ' + escapeHtml(article.title) + '">\n          <div class="card-thumb">\n            <img src="' + article.image + '" alt="' + escapeHtml(article.title) + '" loading="lazy" width="600" height="375"\n              onerror="this.src=\'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&q=75\'" />\n            <div class="card-thumb-overlay"></div>\n          </div>\n        </a>\n        <div class="card-body">\n          ' + categoryBadge(article.category) + '\n          <h2 class="card-title">\n            <a href="' + url + '" style="text-decoration:none; color:inherit;">' + highlightedTitle + '</a>\n          </h2>\n          <p class="card-desc">' + highlightedSnippet + '</p>\n          <div class="card-meta">\n            <span>' + date + '</span>\n            <span class="card-meta-dot"></span>\n            <span>' + article.readTime + ' read</span>\n          </div>\n          <a href="' + url + '" class="btn-primary mt-4" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">\n            Read More\n            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">\n              <path d="M5 12h14M12 5l7 7-7 7"/>\n            </svg>\n          </a>\n        </div>\n      </article>';
+    return '\n      <article class="article-card" data-id="' + escapeHtml(article.id) + '" data-category="' + escapeHtml(article.category) + '">\n        <a href="' + url + '" style="text-decoration:none;" aria-label="Read: ' + escapeHtml(article.title) + '">\n          <div class="card-thumb">\n            <img src="' + escapeHtml(article.image) + '" alt="' + escapeHtml(article.title) + '" loading="lazy" width="600" height="375"\n              onerror="this.src=\'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&q=75\'" />\n            <div class="card-thumb-overlay"></div>\n          </div>\n        </a>\n        <div class="card-body">\n          ' + categoryBadge(article.category) + '\n          <h2 class="card-title">\n            <a href="' + url + '" style="text-decoration:none; color:inherit;">' + highlightedTitle + '</a>\n          </h2>\n          <p class="card-desc">' + highlightedSnippet + '</p>\n          <div class="card-meta">\n            <span>' + date + '</span>\n            <span class="card-meta-dot"></span>\n            <span>' + escapeHtml(article.readTime) + ' read</span>\n          </div>\n          <a href="' + url + '" class="btn-primary mt-4" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">\n            Read More\n            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">\n              <path d="M5 12h14M12 5l7 7-7 7"/>\n            </svg>\n          </a>\n        </div>\n      </article>';
   }
 
   /* ── Render featured hero ── */
@@ -200,7 +216,7 @@ const ArticleEngine = (() => {
     const featured = articles.find(function(a) { return a.featured; }) || articles[0];
     if (!featured) { heroSection.style.display = 'none'; return; }
     const url = featured.slug ? 'articles/' + featured.slug + '/index.html' : (featured.url || '#');
-    heroSection.innerHTML = '\n      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">\n        <div class="grid lg:grid-cols-2 gap-12 items-center">\n          <div class="animate-fade-up">\n            <div class="hero-tag mb-5">\n              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="currentColor">\n                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>\n              </svg>\n              Featured Story\n            </div>\n            <h1 class="font-display text-white mb-5 leading-tight" style="font-size:clamp(2rem,4vw,3rem); font-weight:700; letter-spacing:-0.02em;">' + escapeHtml(featured.title) + '</h1>\n            <p class="text-base mb-8" style="color:rgba(255,255,255,0.65); line-height:1.75; max-width:520px;">' + escapeHtml(featured.excerpt) + '</p>\n            <div class="flex flex-wrap items-center gap-4">\n              <a href="' + url + '" class="btn-accent">\n                Read Story\n                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>\n              </a>\n              <div class="flex items-center gap-3" style="color:rgba(255,255,255,0.45); font-size:0.8125rem;">\n                <span>' + featured.readTime + ' read</span>\n                <span style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.3);"></span>\n                <span>' + escapeHtml(featured.category) + '</span>\n              </div>\n            </div>\n          </div>\n          <div class="hero-img-wrap animate-fade-up delay-200" style="height:420px;">\n            <img src="' + (featured.imageLarge || featured.image) + '" alt="' + escapeHtml(featured.title) + '" loading="eager"\n              onerror="this.src=\'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&q=80\'" />\n            <div class="hero-img-overlay"></div>\n          </div>\n        </div>\n      </div>';
+    heroSection.innerHTML = '\n      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">\n        <div class="grid lg:grid-cols-2 gap-12 items-center">\n          <div class="animate-fade-up">\n            <div class="hero-tag mb-5">\n              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="currentColor">\n                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>\n              </svg>\n              Featured Story\n            </div>\n            <h1 class="font-display text-white mb-5 leading-tight" style="font-size:clamp(2rem,4vw,3rem); font-weight:700; letter-spacing:-0.02em;">' + escapeHtml(featured.title) + '</h1>\n            <p class="text-base mb-8" style="color:rgba(255,255,255,0.65); line-height:1.75; max-width:520px;">' + escapeHtml(featured.excerpt) + '</p>\n            <div class="flex flex-wrap items-center gap-4">\n              <a href="' + url + '" class="btn-accent">\n                Read Story\n                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>\n              </a>\n              <div class="flex items-center gap-3" style="color:rgba(255,255,255,0.45); font-size:0.8125rem;">\n                <span>' + escapeHtml(featured.readTime) + ' read</span>\n                <span style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.3);"></span>\n                <span>' + escapeHtml(featured.category) + '</span>\n              </div>\n            </div>\n          </div>\n          <div class="hero-img-wrap animate-fade-up delay-200" style="height:420px;">\n            <img src="' + escapeHtml(featured.imageLarge || featured.image) + '" alt="' + escapeHtml(featured.title) + '" loading="eager"\n              onerror="this.src=\'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&q=80\'" />\n            <div class="hero-img-overlay"></div>\n          </div>\n        </div>\n      </div>';
   }
 
   /* ── Render trending sidebar ── */
@@ -211,7 +227,7 @@ const ArticleEngine = (() => {
     if (!trending.length) { var w = trendingList.closest('.trending-widget'); if(w) w.remove(); return; }
     trendingList.innerHTML = trending.map(function(a, i) {
       const url = a.slug ? 'articles/' + a.slug + '/index.html' : (a.url || '#');
-      return '\n        <a href="' + url + '" class="trending-item" style="text-decoration:none;">\n          <span class="trending-num">' + String(i+1).padStart(2,'0') + '</span>\n          <div>\n            <div class="trending-title">' + escapeHtml(a.title) + '</div>\n            <div style="font-size:0.7rem; color:var(--ink-muted); margin-top:3px;">' + escapeHtml(a.category) + ' · ' + a.readTime + '</div>\n          </div>\n        </a>';
+      return '\n        <a href="' + url + '" class="trending-item" style="text-decoration:none;">\n          <span class="trending-num">' + String(i+1).padStart(2,'0') + '</span>\n          <div>\n            <div class="trending-title">' + escapeHtml(a.title) + '</div>\n            <div style="font-size:0.7rem; color:var(--ink-muted); margin-top:3px;">' + escapeHtml(a.category) + ' · ' + escapeHtml(a.readTime) + '</div>\n          </div>\n        </a>';
     }).join('');
   }
 

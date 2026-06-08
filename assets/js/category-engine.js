@@ -54,28 +54,53 @@ const CategoryEngine = (() => {
   }
 
   /* ── Format ISO date ── */
-  function formatDate(iso) {
-    if (!iso) return '';
-    return new Date(iso + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+  function escapeHtml(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function parseArticleDate(articleOrDate, maybeTime) {
+    const dateValue = typeof articleOrDate === 'object' && articleOrDate !== null
+      ? articleOrDate.date
+      : articleOrDate;
+    const timeValue = typeof articleOrDate === 'object' && articleOrDate !== null
+      ? articleOrDate.time
+      : maybeTime;
+
+    if (!dateValue) return new Date('1970-01-01T00:00:00');
+    const rawDate = String(dateValue);
+    const dateStr = rawDate.includes('T')
+      ? rawDate
+      : rawDate + 'T' + (timeValue || '00:00') + ':00';
+    return new Date(dateStr);
+  }
+
+  function formatDate(articleOrDate, maybeTime) {
+    const date = parseArticleDate(articleOrDate, maybeTime);
+    if (Number.isNaN(date.getTime())) return '';
+    return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
   }
 
   /* ── Category badge HTML ── */
   function badge(cat) {
     const s = (CATEGORY_CONFIG[cat] || CATEGORY_CONFIG.Technology).style;
-    return `<span class="category-badge" style="background:${s.bg};color:${s.color};border-color:${s.border};">${cat}</span>`;
+    return `<span class="category-badge" style="background:${s.bg};color:${s.color};border-color:${s.border};">${escapeHtml(cat)}</span>`;
   }
 
   /* ── Render one article card ── */
   function renderCard(article, prefix) {
-    const date = formatDate(article.date);
+    const date = formatDate(article);
     const url  = `${prefix}articles/${article.slug}/index.html`;
     return `
       <article class="article-card">
-        <a href="${url}" style="text-decoration:none;" aria-label="Read: ${article.title}">
+        <a href="${url}" style="text-decoration:none;" aria-label="Read: ${escapeHtml(article.title)}">
           <div class="card-thumb">
             <img
-              src="${article.image}"
-              alt="${article.title}"
+              src="${escapeHtml(article.image)}"
+              alt="${escapeHtml(article.title)}"
               loading="lazy" width="600" height="375"
               onerror="this.src='https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&q=75'"
             />
@@ -85,13 +110,13 @@ const CategoryEngine = (() => {
         <div class="card-body">
           ${badge(article.category)}
           <h2 class="card-title">
-            <a href="${url}" style="text-decoration:none;color:inherit;">${article.title}</a>
+            <a href="${url}" style="text-decoration:none;color:inherit;">${escapeHtml(article.title)}</a>
           </h2>
-          <p class="card-desc">${article.excerpt}</p>
+          <p class="card-desc">${escapeHtml(article.excerpt)}</p>
           <div class="card-meta">
             <span>${date}</span>
             <span class="card-meta-dot"></span>
-            <span>${article.readTime} read</span>
+            <span>${escapeHtml(article.readTime)} read</span>
           </div>
           <a href="${url}" class="btn-primary mt-4" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">
             Read More
@@ -192,8 +217,8 @@ const CategoryEngine = (() => {
       <a href="${prefix}articles/${a.slug}/index.html" class="trending-item" style="text-decoration:none;">
         <span class="trending-num">${String(i+1).padStart(2,'0')}</span>
         <div>
-          <div class="trending-title">${a.title}</div>
-          <div style="font-size:0.7rem;color:var(--ink-muted);margin-top:3px;">${a.category} · ${a.readTime}</div>
+          <div class="trending-title">${escapeHtml(a.title)}</div>
+          <div style="font-size:0.7rem;color:var(--ink-muted);margin-top:3px;">${escapeHtml(a.category)} · ${escapeHtml(a.readTime)}</div>
         </div>
       </a>`).join('');
   }
@@ -203,13 +228,13 @@ const CategoryEngine = (() => {
     const wrap = document.getElementById('cat-sidebar-categories');
     if (!wrap) return;
     const cats = [...new Set(articles.map(a => a.category))].sort();
-    const pageMap = { Technology:'technology.html', Design:'design.html', Science:'science.html', Culture:'culture.html', Business:'business.html', Health:'health.html' };
+    const pageMap = { Technology:'technology.html', Design:'design.html', Science:'science.html', Culture:'culture.html', Business:'category/business/index.html', Health:'category/health/index.html' };
     wrap.innerHTML = cats.map(cat => {
       const s    = (CATEGORY_CONFIG[cat] || CATEGORY_CONFIG.Technology).style;
       const href = pageMap[cat]
         ? `${prefix}${pageMap[cat]}`
         : `${prefix}category/${cat.toLowerCase()}/index.html`;
-      return `<a href="${href}" class="category-badge" style="text-decoration:none;background:${s.bg};color:${s.color};border-color:${s.border};">${cat}</a>`;
+      return `<a href="${href}" class="category-badge" style="text-decoration:none;background:${s.bg};color:${s.color};border-color:${s.border};">${escapeHtml(cat)}</a>`;
     }).join('');
   }
 
@@ -238,7 +263,7 @@ const CategoryEngine = (() => {
       // Filter + sort newest first
       const filtered = all
         .filter(a => a.category === category)
-        .sort((a, b) => new Date(b.date) - new Date(a.date));
+        .sort((a, b) => parseArticleDate(b) - parseArticleDate(a));
 
       // Update meta + hero + label
       updateMeta(category, filtered.length, config);
