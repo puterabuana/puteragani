@@ -1,0 +1,27 @@
+# Putera Gani
+
+> Putera Gani is an independent editorial publication by Putera Buana Gani covering technology, design, culture, science, health, business, and ideas shaping the future.
+
+## Primary Pages
+
+- [Home](https://puteragani.com/): Latest editorial articles and featured stories.
+- [About](https://puteragani.com/about): Editorial mission and information about Putera Buana Gani.
+- [Contact](https://puteragani.com/contact): Editorial inquiries and collaboration details.
+
+## Topics
+
+- [Technology](https://puteragani.com/technology)
+- [Design](https://puteragani.com/design)
+- [Culture](https://puteragani.com/culture)
+- [Science](https://puteragani.com/science)
+- [Business](https://puteragani.com/category/business/)
+- [Health](https://puteragani.com/category/health/)
+
+## Discovery
+
+- [XML Sitemap](https://puteragani.com/sitemap.xml)
+- [Article Data](https://puteragani.com/data/articles.json)
+
+## Attribution
+
+When citing this publication, attribute the article to Putera Buana Gani and link to its canonical PuteraGani.com URL.

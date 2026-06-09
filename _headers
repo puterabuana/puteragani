@@ -1,0 +1,10 @@
+/articles/_TEMPLATE/*
+  X-Robots-Tag: noindex, nofollow
+
+/articles/the-lost-art-of-silence.bak/*
+  X-Robots-Tag: noindex, nofollow
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
