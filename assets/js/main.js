@@ -44,6 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const isOpen = mobileSearchBar.classList.toggle('open');
       mobileSearchBtn.setAttribute('aria-expanded', isOpen);
       mobileSearchBtn.classList.toggle('active', isOpen);
+      mobileSearchBar.setAttribute('aria-hidden', String(!isOpen));
+      mobileSearchInput.disabled = !isOpen;
 
       if (isOpen) {
         // Close nav menu if open

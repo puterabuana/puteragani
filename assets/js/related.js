@@ -20,10 +20,10 @@
   const CATEGORY_STYLES = {
     Technology: { bg: 'var(--accent-pale)',  color: 'var(--accent-dark)', border: 'rgba(200,151,58,0.25)' },
     Design:     { bg: '#f0f7ff',             color: '#2563eb',            border: 'rgba(37,99,235,0.2)'   },
-    Science:    { bg: '#f0fdf4',             color: '#16a34a',            border: 'rgba(22,163,74,0.2)'   },
+    Science:    { bg: '#f0fdf4',             color: '#166534',            border: 'rgba(22,101,52,0.2)'   },
     Culture:    { bg: '#fdf4ff',             color: '#9333ea',            border: 'rgba(147,51,234,0.2)'  },
-    Business:   { bg: '#fff7ed',             color: '#ea580c',            border: 'rgba(234,88,12,0.2)'   },
-    Health:     { bg: '#fef2f2',             color: '#dc2626',            border: 'rgba(220,38,38,0.2)'   },
+    Business:   { bg: '#fff7ed',             color: '#9a3412',            border: 'rgba(154,52,18,0.2)'   },
+    Health:     { bg: '#fef2f2',             color: '#b91c1c',            border: 'rgba(185,28,28,0.2)'   },
   };
 
   /*

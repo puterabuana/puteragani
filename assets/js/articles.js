@@ -26,10 +26,10 @@ const ArticleEngine = (() => {
   const CATEGORY_STYLES = {
     Technology: { bg: 'var(--accent-pale)',  color: 'var(--accent-dark)', border: 'rgba(200,151,58,0.25)' },
     Design:     { bg: '#f0f7ff',             color: '#2563eb',            border: 'rgba(37,99,235,0.2)'   },
-    Science:    { bg: '#f0fdf4',             color: '#16a34a',            border: 'rgba(22,163,74,0.2)'   },
+    Science:    { bg: '#f0fdf4',             color: '#166534',            border: 'rgba(22,101,52,0.2)'   },
     Culture:    { bg: '#fdf4ff',             color: '#9333ea',            border: 'rgba(147,51,234,0.2)'  },
-    Business:   { bg: '#fff7ed',             color: '#ea580c',            border: 'rgba(234,88,12,0.2)'   },
-    Health:     { bg: '#fef2f2',             color: '#dc2626',            border: 'rgba(220,38,38,0.2)'   },
+    Business:   { bg: '#fff7ed',             color: '#9a3412',            border: 'rgba(154,52,18,0.2)'   },
+    Health:     { bg: '#fef2f2',             color: '#b91c1c',            border: 'rgba(185,28,28,0.2)'   },
   };
 
   function parseArticleDate(articleOrDate, maybeTime) {
@@ -518,41 +518,21 @@ const ArticleEngine = (() => {
 
   /* ── Public init ── */
   async function init() {
-    showSkeleton();
     try {
       const articles = await fetchArticles();
       STATE.all      = articles;
       STATE.filtered = [...articles].sort(function(a, b) { return toDateTime(b) - toDateTime(a); });
 
-      renderFeatured(articles);
       renderTrending(articles);
       renderCategoryFilter(articles);
       renderSidebarCategories(articles);
 
       const grid = document.getElementById('article-grid');
-      if (grid) grid.innerHTML = '';
-      STATE.displayed = 0;
-
-      const initialSlice = STATE.filtered.slice(0, STATE.INITIAL);
-      const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry, i) {
-          if (entry.isIntersecting) {
-            entry.target.style.animationDelay = (i * 0.07) + 's';
-            entry.target.classList.add('animate-fade-up');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-
-      initialSlice.forEach(function(article) {
-        const div = document.createElement('div');
-        div.innerHTML = renderCard(article).trim();
-        const card = div.firstChild;
-        card.style.opacity = '0';
-        grid.appendChild(card);
-        observer.observe(card);
-      });
-      STATE.displayed = initialSlice.length;
+      const staticCards = grid ? grid.querySelectorAll('.article-card').length : 0;
+      STATE.displayed = staticCards
+        ? Math.min(staticCards + 1, STATE.filtered.length)
+        : 0;
+      if (!staticCards) renderGrid(true);
 
       updateLoadMore();
       initSearch();
@@ -560,7 +540,6 @@ const ArticleEngine = (() => {
 
     } catch (err) {
       console.error('[ArticleEngine] Failed to load articles:', err);
-      showError(err.message || 'An unexpected error occurred.');
     }
   }
 

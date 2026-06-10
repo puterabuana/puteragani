@@ -24,7 +24,7 @@ const CategoryEngine = (() => {
       desc:   'The principles, craft, and culture of design — from timeless typography to the future of digital experience.',
     },
     Science: {
-      style:  { bg: '#f0fdf4', color: '#16a34a', border: 'rgba(22,163,74,0.2)' },
+      style:  { bg: '#f0fdf4', color: '#166534', border: 'rgba(22,101,52,0.2)' },
       icon:   '<path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/>',
       desc:   'Quantum breakthroughs, climate science, neuroscience, and the discoveries pushing the boundaries of human knowledge.',
     },
@@ -34,12 +34,12 @@ const CategoryEngine = (() => {
       desc:   'Cities, creativity, identity, and the social forces shaping how we live, think, and connect with one another.',
     },
     Business: {
-      style:  { bg: '#fff7ed', color: '#ea580c', border: 'rgba(234,88,12,0.2)' },
+      style:  { bg: '#fff7ed', color: '#9a3412', border: 'rgba(154,52,18,0.2)' },
       icon:   '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
       desc:   'The creator economy, entrepreneurship, leadership, and the new rules of work in an era of rapid transformation.',
     },
     Health: {
-      style:  { bg: '#fef2f2', color: '#dc2626', border: 'rgba(220,38,38,0.2)' },
+      style:  { bg: '#fef2f2', color: '#b91c1c', border: 'rgba(185,28,28,0.2)' },
       icon:   '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
       desc:   'Mental health, wellness technology, medical breakthroughs, and the science of living well in a demanding world.',
     },

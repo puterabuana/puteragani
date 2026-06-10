@@ -11,11 +11,11 @@
 :root {
   --ink:        #0f0f0f;
   --ink-soft:   #3d3d3d;
-  --ink-muted:  #7a7a7a;
+  --ink-muted:  #686868;
   --paper:      #fafaf8;
   --paper-warm: #f4f2ee;
   --accent:     #c8973a;
-  --accent-dark:#a07830;
+  --accent-dark:#76501c;
   --accent-pale:#fdf3e3;
   --rule:       #e4e1da;
   --shadow-sm:  0 2px 8px rgba(0,0,0,0.06);
@@ -288,7 +288,7 @@ body {
   gap: 8px;
   padding: 0.65rem 1.5rem;
   background: var(--accent);
-  color: #fff;
+  color: var(--ink);
   font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -300,6 +300,7 @@ body {
 }
 .btn-accent:hover {
   background: var(--accent-dark);
+  color: #fff;
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(160,120,48,0.32);
 }
@@ -443,7 +444,7 @@ body {
   font-family: 'DM Mono', monospace;
   font-size: 0.75rem;
   font-weight: 500;
-  color: var(--accent);
+  color: var(--accent-dark);
   line-height: 1.4;
   flex-shrink: 0;
   padding-top: 2px;

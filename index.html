@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script async
-src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9126900244627260"
-crossorigin="anonymous"></script>
+  <script defer src="assets/js/ads-loader.js"></script>
 
   <!-- ═══════════════════════════════════
        SEO Meta Tags
@@ -30,7 +28,9 @@ crossorigin="anonymous"></script>
 <!-- SEO-ENHANCEMENT:START -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&amp;family=DM+Mono:wght@400;500&amp;display=swap" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=DM+Sans:wght@400;500;600&amp;family=DM+Mono:wght@500&amp;display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=DM+Sans:wght@400;500;600&amp;family=DM+Mono:wght@500&amp;display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=DM+Sans:wght@400;500;600&amp;family=DM+Mono:wght@500&amp;display=swap" /></noscript>
 <meta name="description" content="Read independent, in-depth articles from Putera Gani about technology, design, culture, science, health, business, and ideas shaping the future." />
 <meta name="author" content="Putera Buana Gani" />
 <link rel="canonical" href="https://puteragani.com/" />
@@ -104,6 +104,7 @@ crossorigin="anonymous"></script>
 }
 </script>
 <!-- SEO-ENHANCEMENT:END -->
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=640&amp;q=62&amp;auto=format&amp;fit=crop" fetchpriority="high" data-homepage-hero-preload />
 </head>
 <body>
 
@@ -204,6 +205,7 @@ crossorigin="anonymous"></script>
         autocorrect="off"
         autocapitalize="off"
         spellcheck="false"
+        disabled
         style="width:100%;"
       />
       <button id="mobile-search-clear" aria-label="Clear search" style="display:none; position:absolute; right:0.85rem; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; color:var(--ink-muted); padding:4px; border-radius:50%; transition:color 0.2s;">
@@ -272,7 +274,7 @@ crossorigin="anonymous"></script>
           <a href="articles/operator-economy-execution-moat/index.html" class="btn-accent">Read Story</a>
         </div>
         <div class="hero-img-wrap" style="height:420px;">
-          <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&q=80" alt="The Operator Economy: Why Execution Is Becoming the New Competitive Moat" width="800" height="500" fetchpriority="high" />
+          <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=640&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Operator Economy: Why Execution Is Becoming the New Competitive Moat" width="640" height="400" fetchpriority="high" decoding="async" />
           <div class="hero-img-overlay"></div>
         </div>
       </div>
@@ -298,24 +300,10 @@ crossorigin="anonymous"></script>
 
         <!-- Article Grid — rendered from JSON -->
         <div id="article-grid" class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
-<article class="article-card" data-id="035" data-category="Business">
-    <a href="articles/operator-economy-execution-moat/index.html" style="text-decoration:none;" aria-label="Read: The Operator Economy: Why Execution Is Becoming the New Competitive Moat">
-      <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&q=75" alt="The Operator Economy: Why Execution Is Becoming the New Competitive Moat" loading="lazy" width="600" height="375" />
-        <div class="card-thumb-overlay"></div>
-      </div>
-    </a>
-    <div class="card-body">
-      <span class="category-badge">Business</span>
-      <h2 class="card-title"><a href="articles/operator-economy-execution-moat/index.html" style="text-decoration:none; color:inherit;">The Operator Economy: Why Execution Is Becoming the New Competitive Moat</a></h2>
-      <p class="card-desc">AI made ideas cheaper than ever, so the rare business advantage is shifting toward operators who can turn clarity into disciplined execution.</p>
-      <a href="articles/operator-economy-execution-moat/index.html" class="btn-primary mt-4" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">Read More</a>
-    </div>
-  </article>
 <article class="article-card" data-id="034" data-category="Health">
     <a href="articles/inflammation-equation-chronic-disease/index.html" style="text-decoration:none;" aria-label="Read: The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=75" alt="The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing" loading="lazy" width="600" height="375" />
+        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing" loading="lazy" width="480" height="300" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -323,13 +311,13 @@ crossorigin="anonymous"></script>
       <span class="category-badge">Health</span>
       <h2 class="card-title"><a href="articles/inflammation-equation-chronic-disease/index.html" style="text-decoration:none; color:inherit;">The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing</a></h2>
       <p class="card-desc">Chronic inflammation silently drives 60% of deaths worldwide — from heart disease to depression. Here is what the new science reveals about getting older.</p>
-      <a href="articles/inflammation-equation-chronic-disease/index.html" class="btn-primary mt-4" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">Read More</a>
+      <a href="articles/inflammation-equation-chronic-disease/index.html" class="btn-primary mt-4" aria-label="Read more: The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing</span></a>
     </div>
   </article>
 <article class="article-card" data-id="033" data-category="Design">
     <a href="articles/white-space-manifesto-design/index.html" style="text-decoration:none;" aria-label="Read: The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=600&q=75" alt="The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design" loading="lazy" width="600" height="375" />
+        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design" loading="lazy" width="480" height="300" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -337,13 +325,13 @@ crossorigin="anonymous"></script>
       <span class="category-badge">Design</span>
       <h2 class="card-title"><a href="articles/white-space-manifesto-design/index.html" style="text-decoration:none; color:inherit;">The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design</a></h2>
       <p class="card-desc">Empty space isn't wasted space — it's the silent architecture that makes everything else legible, trustworthy, and worth looking at.</p>
-      <a href="articles/white-space-manifesto-design/index.html" class="btn-primary mt-4" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">Read More</a>
+      <a href="articles/white-space-manifesto-design/index.html" class="btn-primary mt-4" aria-label="Read more: The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design</span></a>
     </div>
   </article>
 <article class="article-card" data-id="032" data-category="Culture">
     <a href="articles/the-lost-art-of-silence/index.html" style="text-decoration:none;" aria-label="Read: The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=75" alt="The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten" loading="lazy" width="600" height="375" />
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten" loading="lazy" width="480" height="300" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -351,13 +339,13 @@ crossorigin="anonymous"></script>
       <span class="category-badge">Culture</span>
       <h2 class="card-title"><a href="articles/the-lost-art-of-silence/index.html" style="text-decoration:none; color:inherit;">The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten</a></h2>
       <p class="card-desc">From Finnish saunas to Japanese ma — why silence is not absence but presence, and what noise-saturated societies are quietly losing.</p>
-      <a href="articles/the-lost-art-of-silence/index.html" class="btn-primary mt-4" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">Read More</a>
+      <a href="articles/the-lost-art-of-silence/index.html" class="btn-primary mt-4" aria-label="Read more: The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten</span></a>
     </div>
   </article>
 <article class="article-card" data-id="031" data-category="Business">
     <a href="articles/rise-of-the-cfo-future-officer/index.html" style="text-decoration:none;" aria-label="Read: The Rise of the CFO as Chief Future Officer">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=75" alt="The Rise of the CFO as Chief Future Officer" loading="lazy" width="600" height="375" />
+        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Rise of the CFO as Chief Future Officer" loading="lazy" width="480" height="300" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -365,13 +353,13 @@ crossorigin="anonymous"></script>
       <span class="category-badge">Business</span>
       <h2 class="card-title"><a href="articles/rise-of-the-cfo-future-officer/index.html" style="text-decoration:none; color:inherit;">The Rise of the CFO as Chief Future Officer</a></h2>
       <p class="card-desc">The modern CFO has evolved from scorekeeper to strategist — navigating AI disruption, geopolitical volatility, and the uncertain terrain of tomorrow's economy.</p>
-      <a href="articles/rise-of-the-cfo-future-officer/index.html" class="btn-primary mt-4" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">Read More</a>
+      <a href="articles/rise-of-the-cfo-future-officer/index.html" class="btn-primary mt-4" aria-label="Read more: The Rise of the CFO as Chief Future Officer" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Rise of the CFO as Chief Future Officer</span></a>
     </div>
   </article>
 <article class="article-card" data-id="030" data-category="Technology">
     <a href="articles/neuromorphic-computing-brain-inspired-chips/index.html" style="text-decoration:none;" aria-label="Read: Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=75" alt="Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI" loading="lazy" width="600" height="375" />
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI" loading="lazy" width="480" height="300" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -379,7 +367,21 @@ crossorigin="anonymous"></script>
       <span class="category-badge">Technology</span>
       <h2 class="card-title"><a href="articles/neuromorphic-computing-brain-inspired-chips/index.html" style="text-decoration:none; color:inherit;">Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI</a></h2>
       <p class="card-desc">The brain runs on 20 watts. AI data centers consume megawatts. Neuromorphic chips are finally closing that impossible gap.</p>
-      <a href="articles/neuromorphic-computing-brain-inspired-chips/index.html" class="btn-primary mt-4" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">Read More</a>
+      <a href="articles/neuromorphic-computing-brain-inspired-chips/index.html" class="btn-primary mt-4" aria-label="Read more: Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">Read More<span class="sr-only">: Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI</span></a>
+    </div>
+  </article>
+<article class="article-card" data-id="029" data-category="Business">
+    <a href="articles/art-of-pricing-business-strategy/index.html" style="text-decoration:none;" aria-label="Read: The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make">
+      <div class="card-thumb">
+        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make" loading="lazy" width="480" height="300" />
+        <div class="card-thumb-overlay"></div>
+      </div>
+    </a>
+    <div class="card-body">
+      <span class="category-badge">Business</span>
+      <h2 class="card-title"><a href="articles/art-of-pricing-business-strategy/index.html" style="text-decoration:none; color:inherit;">The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make</a></h2>
+      <p class="card-desc">Most businesses treat pricing as a math problem. The best businesses treat it as a strategy — and the difference in outcomes is staggering.</p>
+      <a href="articles/art-of-pricing-business-strategy/index.html" class="btn-primary mt-4" aria-label="Read more: The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make</span></a>
     </div>
   </article>
         </div>
@@ -423,7 +425,7 @@ crossorigin="anonymous"></script>
               onblur="this.style.borderColor='rgba(255,255,255,0.12)'"
             />
             <button
-              style="width:100%; padding:0.7rem 1rem; background:var(--accent); color:#fff; font-size:0.875rem; font-weight:600; border-radius:50px; border:none; cursor:pointer; font-family:'DM Sans',sans-serif; transition:background 0.28s ease, transform 0.2s ease;"
+              style="width:100%; padding:0.7rem 1rem; background:var(--accent); color:var(--ink); font-size:0.875rem; font-weight:600; border-radius:50px; border:none; cursor:pointer; font-family:'DM Sans',sans-serif; transition:background 0.28s ease, transform 0.2s ease;"
               onmouseover="this.style.background='var(--accent-dark)'; this.style.transform='translateY(-1px)'"
               onmouseout="this.style.background='var(--accent)'; this.style.transform='translateY(0)'"
             >Subscribe Free</button>

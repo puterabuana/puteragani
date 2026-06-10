@@ -140,7 +140,13 @@ function seoTitle(headline, pageNumber) {
     if (!core || core.length < 24) core = `${trimAtWord(cleanText(headline), 43)} – Part ${pageNumber}`;
   }
 
-  if (core.length > 60 && core.includes(':')) {
+  if (pageNumber > 1) {
+    const suffix = ` - Part ${pageNumber}`;
+    core = core.replace(/\s+(?:\S+\s+)?Part\s+[23]$/i, '');
+    core = `${trimAtWord(core, 60 - suffix.length)}${suffix}`;
+  }
+
+  if (pageNumber === 1 && core.length > 60 && core.includes(':')) {
     const lead = core.split(':')[0].trim();
     if (lead.length >= 18) core = lead;
   }
@@ -233,6 +239,35 @@ function normalizeArticleDates() {
   }
 }
 
+function optimizeUnsplashImage(value, width, quality) {
+  if (!value || !value.includes('images.unsplash.com')) return value;
+  const imageUrl = new URL(value);
+  imageUrl.searchParams.set('w', String(width));
+  imageUrl.searchParams.set('q', String(quality));
+  imageUrl.searchParams.set('auto', 'format');
+  imageUrl.searchParams.set('fit', 'crop');
+  return imageUrl.toString();
+}
+
+function normalizeArticleImages() {
+  let changed = false;
+  for (const article of articles) {
+    const image = optimizeUnsplashImage(article.image, 480, 62);
+    const imageLarge = optimizeUnsplashImage(article.imageLarge || article.image, 640, 62);
+    if (image !== article.image) {
+      article.image = image;
+      changed = true;
+    }
+    if (imageLarge !== article.imageLarge) {
+      article.imageLarge = imageLarge;
+      changed = true;
+    }
+  }
+  if (changed) {
+    fs.writeFileSync(articlesFile, `${JSON.stringify(articleData, null, 2)}\n`);
+  }
+}
+
 function gitModified(file, fallback) {
   try {
     const value = execFileSync('git', ['log', '-1', '--format=%cI', '--', file], {
@@ -300,11 +335,14 @@ function jsonLd(value) {
 }
 
 function managedBlock({ title, description, canonical, image, schema, article, pageNumber }) {
+  const fontUrl = 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=DM+Sans:wght@400;500;600&amp;family=DM+Mono:wght@500&amp;display=swap';
   const lines = [
     '<!-- SEO-ENHANCEMENT:START -->',
     '<link rel="preconnect" href="https://fonts.googleapis.com" />',
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />',
-    '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&amp;family=DM+Mono:wght@400;500&amp;display=swap" />',
+    `<link rel="preload" as="style" href="${fontUrl}" />`,
+    `<link rel="stylesheet" href="${fontUrl}" media="print" onload="this.media='all'" />`,
+    `<noscript><link rel="stylesheet" href="${fontUrl}" /></noscript>`,
     `<meta name="description" content="${escapeHtml(description)}" />`,
     '<meta name="author" content="Putera Buana Gani" />',
     `<link rel="canonical" href="${canonical}" />`,
@@ -532,7 +570,7 @@ function categoryArticleCard(article, prefix) {
   return `<article class="article-card" data-id="${escapeHtml(article.id)}" data-category="${escapeHtml(article.category)}">
     <a href="${url}" style="text-decoration:none;" aria-label="Read: ${escapeHtml(article.title)}">
       <div class="card-thumb">
-        <img src="${article.image}" alt="${escapeHtml(article.title)}" loading="lazy" width="600" height="375" />
+        <img src="${escapeHtml(optimizeUnsplashImage(article.image, 480, 62))}" alt="${escapeHtml(article.title)}" loading="lazy" width="480" height="300" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -540,7 +578,7 @@ function categoryArticleCard(article, prefix) {
       <span class="category-badge">${escapeHtml(article.category)}</span>
       <h2 class="card-title"><a href="${url}" style="text-decoration:none;color:inherit;">${escapeHtml(article.title)}</a></h2>
       <p class="card-desc">${escapeHtml(article.excerpt)}</p>
-      <a href="${url}" class="btn-primary mt-4" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More</a>
+      <a href="${url}" class="btn-primary mt-4" aria-label="Read more: ${escapeHtml(article.title)}" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: ${escapeHtml(article.title)}</span></a>
     </div>
   </article>`;
 }
@@ -618,7 +656,7 @@ function articleCard(article) {
   return `<article class="article-card" data-id="${escapeHtml(article.id)}" data-category="${escapeHtml(article.category)}">
     <a href="${url}" style="text-decoration:none;" aria-label="Read: ${escapeHtml(article.title)}">
       <div class="card-thumb">
-        <img src="${article.image}" alt="${escapeHtml(article.title)}" loading="lazy" width="600" height="375" />
+        <img src="${escapeHtml(optimizeUnsplashImage(article.image, 480, 62))}" alt="${escapeHtml(article.title)}" loading="lazy" width="480" height="300" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -626,7 +664,7 @@ function articleCard(article) {
       <span class="category-badge">${escapeHtml(article.category)}</span>
       <h2 class="card-title"><a href="${url}" style="text-decoration:none; color:inherit;">${escapeHtml(article.title)}</a></h2>
       <p class="card-desc">${escapeHtml(article.excerpt)}</p>
-      <a href="${url}" class="btn-primary mt-4" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">Read More</a>
+      <a href="${url}" class="btn-primary mt-4" aria-label="Read more: ${escapeHtml(article.title)}" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">Read More<span class="sr-only">: ${escapeHtml(article.title)}</span></a>
     </div>
   </article>`;
 }
@@ -636,6 +674,7 @@ function renderHomepageFallback() {
   let html = fs.readFileSync(file, 'utf8');
   const featured = articles[0];
   const featureUrl = `articles/${featured.slug}/index.html`;
+  const heroImage = optimizeUnsplashImage(featured.imageLarge || featured.image, 640, 62);
   const hero = `<section class="hero-gradient" id="featured-section" aria-label="Featured Story">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -646,30 +685,25 @@ function renderHomepageFallback() {
           <a href="${featureUrl}" class="btn-accent">Read Story</a>
         </div>
         <div class="hero-img-wrap" style="height:420px;">
-          <img src="${featured.imageLarge || featured.image}" alt="${escapeHtml(featured.title)}" width="800" height="500" fetchpriority="high" />
+          <img src="${escapeHtml(heroImage)}" alt="${escapeHtml(featured.title)}" width="640" height="400" fetchpriority="high" decoding="async" />
           <div class="hero-img-overlay"></div>
         </div>
       </div>
     </div>
   </section>`;
   html = html.replace(/<section class="hero-gradient" id="featured-section"[\s\S]*?<\/section>/i, hero);
+  html = html
+    .replace(/\s*<link\b[^>]*data-homepage-hero-preload[^>]*>\s*/gi, '\n')
+    .replace('</head>', `<link rel="preload" as="image" href="${escapeHtml(heroImage)}" fetchpriority="high" data-homepage-hero-preload />\n</head>`);
   if (!/id="site-purpose-heading"/.test(html)) {
     html = html.replace(
       '<div id="homepage-content">',
       '<div id="homepage-content">\n  <h1 id="site-purpose-heading" class="sr-only">Putera Gani: Independent Articles on Technology, Design, Culture and Science</h1>'
     );
   }
-  const cards = articles.slice(0, 6).map(articleCard).join('\n');
+  const cards = articles.slice(1, 7).map(articleCard).join('\n');
   html = html.replace(/(<div id="article-grid"[^>]*>)[\s\S]*?(<\/div>\s*\n\s*<!-- Load More)/i, `$1\n${cards}\n        $2`);
   fs.writeFileSync(file, html);
-
-  const engineFile = path.join(ROOT, 'assets', 'js', 'articles.js');
-  let engine = fs.readFileSync(engineFile, 'utf8');
-  engine = engine
-    .replace('<h1 class="font-display text-white mb-5 leading-tight"', '<h2 class="font-display text-white mb-5 leading-tight"')
-    .replace('</h1>\\n            <p class="text-base mb-8"', '</h2>\\n            <p class="text-base mb-8"')
-    .replace('" loading="eager"\\n              onerror=', '" loading="eager" width="800" height="500" fetchpriority="high"\\n              onerror=');
-  fs.writeFileSync(engineFile, engine);
 }
 
 function sitemapEntries() {
@@ -696,6 +730,7 @@ function writeSitemap() {
 }
 
 normalizeArticleDates();
+normalizeArticleImages();
 const files = walk(ROOT);
 for (const file of files) {
   const rel = relative(file);
