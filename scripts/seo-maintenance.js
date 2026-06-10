@@ -6,8 +6,37 @@ const ROOT = path.resolve(__dirname, '..');
 const SITE = 'https://puteragani.com';
 const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80';
 const LOGO = `${SITE}/assets/images/favicon.svg`;
-const articles = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'articles.json'), 'utf8')).articles;
+const articlesFile = path.join(ROOT, 'data', 'articles.json');
+const articleData = JSON.parse(fs.readFileSync(articlesFile, 'utf8'));
+const articles = articleData.articles;
 const articleBySlug = new Map(articles.map((article) => [article.slug, article]));
+
+const categoryContent = {
+  Technology: {
+    summary: 'Technology changes quickly, but the questions underneath it are durable: who benefits, what becomes possible, and what new risks appear? This collection examines artificial intelligence, computing, software, hardware, and digital systems through practical explanations and long-form analysis.',
+    focus: 'Explore emerging tools alongside the economic, cultural, and human consequences that determine whether an innovation becomes genuinely useful.'
+  },
+  Design: {
+    summary: 'Design is more than visual polish. It shapes attention, trust, usability, and the way people understand products and ideas. These essays explore typography, visual systems, product design, motion, color, and the principles that make creative work clear and enduring.',
+    focus: 'Read practical analysis of the choices behind memorable interfaces, objects, brands, and communication systems.'
+  },
+  Culture: {
+    summary: 'Culture gives technology, cities, habits, and creative work their meaning. This collection looks at philosophy, storytelling, social behavior, identity, and the subtle forces that shape how people live together and interpret a changing world.',
+    focus: 'The articles connect everyday experience with wider historical, psychological, and social patterns.'
+  },
+  Science: {
+    summary: 'Scientific discovery changes both what humanity knows and what it can do. These articles explain developments in physics, biology, space, climate, genetics, and computation without losing sight of uncertainty, evidence, and real-world consequences.',
+    focus: 'Use this collection to understand the ideas behind major discoveries and why they matter beyond the laboratory.'
+  },
+  Business: {
+    summary: 'Modern business advantage increasingly comes from execution, judgment, and the ability to adapt. This collection covers strategy, pricing, operations, finance, leadership, entrepreneurship, and the changing economics of work and technology.',
+    focus: 'The goal is practical clarity for builders and decision-makers navigating markets shaped by rapid technological change.'
+  },
+  Health: {
+    summary: 'Health is shaped by biology, behavior, environment, and access to reliable information. These articles examine longevity, sleep, nutrition, inflammation, mental health, and wellness technology through an evidence-led editorial lens.',
+    focus: 'The collection translates complex research into useful context while avoiding simplistic promises or one-size-fits-all advice.'
+  }
+};
 
 const pageMetadata = {
   'index.html': {
@@ -184,6 +213,24 @@ function replaceTitle(html, title) {
 function isoDate(value) {
   const date = new Date(value);
   return Number.isNaN(date.getTime()) ? value : date.toISOString();
+}
+
+function normalizeArticleDates() {
+  let changed = false;
+  for (const article of articles) {
+    if (article.date && !String(article.date).includes('T')) {
+      const time = article.time || '00:00';
+      article.date = `${article.date}T${time}:00+07:00`;
+      changed = true;
+    }
+    if ('time' in article) {
+      delete article.time;
+      changed = true;
+    }
+  }
+  if (changed) {
+    fs.writeFileSync(articlesFile, `${JSON.stringify(articleData, null, 2)}\n`);
+  }
 }
 
 function gitModified(file, fallback) {
@@ -428,6 +475,7 @@ function processArticle(file, rel) {
     if (!/\bfetchpriority\s*=/.test(next)) next += ' fetchpriority="high"';
     return `<img${next}>`;
   });
+  html = renderStaticRelatedLinks(html, article);
   fs.writeFileSync(file, html);
 }
 
@@ -448,7 +496,107 @@ function processStandardPage(file, rel) {
     image,
     schema
   })}\n</head>`);
+  if (meta.category) {
+    html = renderCategoryFallback(html, rel, meta.category);
+  }
   fs.writeFileSync(file, html);
+}
+
+function pickRelated(article, count = 3) {
+  const sameCategory = articles.filter((candidate) => (
+    candidate.slug !== article.slug && candidate.category === article.category
+  ));
+  const others = articles.filter((candidate) => (
+    candidate.slug !== article.slug && candidate.category !== article.category
+  ));
+  return [...sameCategory, ...others].slice(0, count);
+}
+
+function relatedLinksBlock(article) {
+  const links = pickRelated(article).map((related) => (
+    `<a href="../../articles/${related.slug}/index.html" class="related-static-link">` +
+      `<span>${escapeHtml(related.category)}</span>` +
+      `<strong>${escapeHtml(related.title)}</strong>` +
+    '</a>'
+  )).join('\n');
+  return `<!-- SEO-RELATED-LINKS:START -->\n${links}\n<!-- SEO-RELATED-LINKS:END -->`;
+}
+
+function renderStaticRelatedLinks(html, article) {
+  const block = relatedLinksBlock(article);
+  return replaceDivContentsById(html, 'related-articles', block);
+}
+
+function categoryArticleCard(article, prefix) {
+  const url = `${prefix}articles/${article.slug}/index.html`;
+  return `<article class="article-card" data-id="${escapeHtml(article.id)}" data-category="${escapeHtml(article.category)}">
+    <a href="${url}" style="text-decoration:none;" aria-label="Read: ${escapeHtml(article.title)}">
+      <div class="card-thumb">
+        <img src="${article.image}" alt="${escapeHtml(article.title)}" loading="lazy" width="600" height="375" />
+        <div class="card-thumb-overlay"></div>
+      </div>
+    </a>
+    <div class="card-body">
+      <span class="category-badge">${escapeHtml(article.category)}</span>
+      <h2 class="card-title"><a href="${url}" style="text-decoration:none;color:inherit;">${escapeHtml(article.title)}</a></h2>
+      <p class="card-desc">${escapeHtml(article.excerpt)}</p>
+      <a href="${url}" class="btn-primary mt-4" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More</a>
+    </div>
+  </article>`;
+}
+
+function replaceDivContentsById(html, id, content) {
+  const openingPattern = new RegExp(`<div\\b[^>]*id=["']${id}["'][^>]*>`, 'i');
+  const opening = openingPattern.exec(html);
+  if (!opening) return html;
+
+  const contentStart = opening.index + opening[0].length;
+  const tagPattern = /<\/?div\b[^>]*>/gi;
+  tagPattern.lastIndex = contentStart;
+  let depth = 1;
+  let tag;
+
+  while ((tag = tagPattern.exec(html))) {
+    depth += /^<div\b/i.test(tag[0]) ? 1 : -1;
+    if (depth === 0) {
+      return `${html.slice(0, contentStart)}\n${content}\n${html.slice(tag.index)}`;
+    }
+  }
+  return html;
+}
+
+function categoryIntroBlock(category) {
+  const content = categoryContent[category];
+  return `<!-- SEO-CATEGORY-INTRO:START -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12" aria-label="About ${escapeHtml(category)}">
+  <div class="rounded-2xl p-6 sm:p-8" style="background:#fff;border:1px solid var(--rule);">
+    <div class="section-label mb-4">About this collection</div>
+    <div class="grid md:grid-cols-2 gap-5" style="color:var(--ink-soft);line-height:1.8;">
+      <p>${escapeHtml(content.summary)}</p>
+      <p>${escapeHtml(content.focus)}</p>
+    </div>
+  </div>
+</section>
+<!-- SEO-CATEGORY-INTRO:END -->`;
+}
+
+function renderCategoryFallback(html, rel, category) {
+  const prefix = rel.startsWith('category/') ? '../../' : '';
+  const categoryArticles = articles
+    .filter((article) => article.category === category)
+    .slice(0, 9);
+  const cards = `<!-- SEO-CATEGORY-CARDS:START -->\n${categoryArticles
+    .map((article) => categoryArticleCard(article, prefix))
+    .join('\n')}\n<!-- SEO-CATEGORY-CARDS:END -->`;
+  const intro = categoryIntroBlock(category);
+
+  if (/<!-- SEO-CATEGORY-INTRO:START -->[\s\S]*?<!-- SEO-CATEGORY-INTRO:END -->/.test(html)) {
+    html = html.replace(/<!-- SEO-CATEGORY-INTRO:START -->[\s\S]*?<!-- SEO-CATEGORY-INTRO:END -->/, intro);
+  } else {
+    html = html.replace(/(<main\b[^>]*id=["']category-page["'])/i, `${intro}\n$1`);
+  }
+
+  return replaceDivContentsById(html, 'cat-article-grid', cards);
 }
 
 function processExcluded(file, rel) {
@@ -547,6 +695,7 @@ function writeSitemap() {
   return entries.length;
 }
 
+normalizeArticleDates();
 const files = walk(ROOT);
 for (const file of files) {
   const rel = relative(file);
