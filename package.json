@@ -4,7 +4,8 @@
   "scripts": {
     "build:css": "tailwindcss -i ./assets/css/tailwind-input.css -o ./assets/css/tailwind.min.css --minify",
     "seo:refresh": "node ./scripts/seo-maintenance.js",
-    "build": "npm run seo:refresh && npm run build:css"
+    "build": "npm run seo:refresh && npm run build:css",
+    "test": "node --test tests/*.test.js"
   },
   "devDependencies": {
     "tailwindcss": "3.4.17"

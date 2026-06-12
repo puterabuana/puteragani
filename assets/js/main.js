@@ -3,7 +3,138 @@
    UI interactions only. Article rendering is handled by articles.js
    ============================================================ */
 
+window.PuteraGani = (() => {
+  const CATEGORY_URLS = {
+    Technology: '/technology',
+    Design: '/design',
+    Culture: '/culture',
+    Science: '/science',
+    Business: '/category/business/',
+    Health: '/category/health/',
+  };
+
+  function articleUrl(slug, pageNumber) {
+    const base = `/articles/${slug}/`;
+    return pageNumber && pageNumber > 1 ? `${base}page-${pageNumber}` : base;
+  }
+
+  function categoryUrl(category) {
+    return CATEGORY_URLS[category] || `/category/${String(category || '').toLowerCase()}/`;
+  }
+
+  function unsplashUrl(source, width, height, quality) {
+    if (!source || !source.includes('images.unsplash.com')) return source;
+    const url = new URL(source.replaceAll('&amp;', '&'));
+    url.searchParams.set('w', String(width));
+    url.searchParams.set('h', String(height));
+    url.searchParams.set('q', String(quality || 62));
+    url.searchParams.set('auto', 'format');
+    url.searchParams.set('fit', 'crop');
+    return url.toString();
+  }
+
+  function responsiveImage(source, width, height, quality) {
+    const widths = width >= 1000
+      ? [480, 768, width]
+      : width >= 600
+        ? [320, 480, width]
+        : [Math.min(240, width), width];
+    const ratio = height / width;
+    const candidates = [...new Set(widths.filter((candidate) => candidate > 0 && candidate <= width))];
+    return {
+      src: unsplashUrl(source, width, height, quality),
+      srcset: source && source.includes('images.unsplash.com')
+        ? candidates.map((candidateWidth) => {
+            const candidateHeight = Math.max(1, Math.round(candidateWidth * ratio));
+            return `${unsplashUrl(source, candidateWidth, candidateHeight, quality)} ${candidateWidth}w`;
+          }).join(', ')
+        : '',
+    };
+  }
+
+  return { articleUrl, categoryUrl, responsiveImage };
+})();
+
+function localPreviewTarget(pathname) {
+  if (pathname === '/') return '/index.html';
+  if (/^\/(?:about|contact|privacy-policy|terms|technology|design|culture|science)$/.test(pathname)) {
+    return `${pathname}.html`;
+  }
+  if (/^\/category\/[^/]+\/$/.test(pathname)) return `${pathname}index.html`;
+  if (/^\/articles\/[^/]+\/$/.test(pathname)) return `${pathname}index.html`;
+  if (/^\/articles\/[^/]+\/page-[23]$/.test(pathname)) return `${pathname}.html`;
+  return '';
+}
+
+function cleanRuntimePath(pathname) {
+  if (pathname === '/business.html' || pathname === '/business') return '/category/business/';
+  if (pathname === '/health.html' || pathname === '/health') return '/category/health/';
+  if (/\/index\.html$/i.test(pathname)) return pathname.replace(/index\.html$/i, '');
+  if (/\.html$/i.test(pathname)) return pathname.replace(/\.html$/i, '');
+  return pathname;
+}
+
+function runtimeImageSizes(image, width) {
+  if (image.classList.contains('article-header-img')) return '(max-width: 768px) 100vw, 896px';
+  if (image.getAttribute('fetchpriority') === 'high') return '(max-width: 1023px) 100vw, 50vw';
+  if (width <= 600) return '(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw';
+  return `(max-width: ${width}px) 100vw, ${width}px`;
+}
+
+function enhanceRuntimeContent(root) {
+  const elements = root instanceof Element ? [root, ...root.querySelectorAll('a[href], img[src]')] : [];
+
+  for (const element of elements) {
+    if (element.matches('a[href]')) {
+      const rawHref = element.getAttribute('href');
+      if (!rawHref || /^(?:mailto:|tel:|javascript:|data:|#)/i.test(rawHref)) continue;
+      const url = new URL(rawHref, window.location.href);
+      if (url.origin !== window.location.origin) continue;
+      const cleanPath = cleanRuntimePath(url.pathname);
+      if (cleanPath !== url.pathname) element.setAttribute('href', `${cleanPath}${url.search}${url.hash}`);
+    }
+
+    if (element.matches('img[src]')) {
+      const source = element.getAttribute('src');
+      const width = Number(element.getAttribute('width'));
+      const height = Number(element.getAttribute('height'));
+      if (!source || !source.includes('images.unsplash.com') || !width || !height) continue;
+
+      const image = window.PuteraGani.responsiveImage(source, width, height, 62);
+      element.setAttribute('src', image.src);
+      if (image.srcset) element.setAttribute('srcset', image.srcset);
+      element.setAttribute('sizes', runtimeImageSizes(element, width));
+    }
+  }
+}
+
+const runtimeContentObserver = new MutationObserver((mutations) => {
+  for (const mutation of mutations) {
+    for (const node of mutation.addedNodes) {
+      if (node instanceof Element) enhanceRuntimeContent(node);
+    }
+  }
+});
+
+runtimeContentObserver.observe(document.documentElement, { childList: true, subtree: true });
+
+document.addEventListener('click', (event) => {
+  const isLocalPreview = ['localhost', '127.0.0.1', '[::1]'].includes(window.location.hostname);
+  if (!isLocalPreview || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+  const link = event.target.closest('a[href]');
+  if (!link || link.target || link.hasAttribute('download')) return;
+  const url = new URL(link.href, window.location.href);
+  if (url.origin !== window.location.origin) return;
+
+  const previewPath = localPreviewTarget(url.pathname);
+  if (!previewPath) return;
+  event.preventDefault();
+  window.location.assign(`${previewPath}${url.search}${url.hash}`);
+});
+
 document.addEventListener('DOMContentLoaded', () => {
+  enhanceRuntimeContent(document.body);
 
   /* ── Navbar scroll effect ── */
   const navbar = document.getElementById('navbar');

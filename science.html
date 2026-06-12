@@ -13,14 +13,17 @@
 
   <!-- Twitter Card -->
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
-  <link rel="shortcut icon" href="assets/images/favicon.svg" />
-
-  <!-- Compiled Tailwind CSS -->
+<!-- Compiled Tailwind CSS -->
 <!-- Custom Styles -->
+
+
+<!-- Non-blocking local styles -->
+<link rel="preload" as="style" href="assets/css/tailwind.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+<link rel="preload" as="style" href="assets/css/style.css" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript>
   <link rel="stylesheet" href="assets/css/tailwind.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
+</noscript>
 <!-- SEO-ENHANCEMENT:START -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -125,6 +128,10 @@
 }
 </script>
 <!-- SEO-ENHANCEMENT:END -->
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 </head>
 <body>
 
@@ -135,17 +142,17 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
 
-      <a href="index.html" class="flex items-center gap-3 no-underline" style="text-decoration:none;">
+      <a class="flex items-center gap-3 no-underline" style="text-decoration:none;" href="/">
         <div class="pg-logo-mark">PG</div>
         <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
       </a>
 
       <nav class="hidden md:flex items-center gap-7">
-        <a href="index.html" class="nav-link" style="text-decoration:none;">Home</a>
-        <a href="technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
-        <a href="design.html" class="nav-link" style="text-decoration:none;">Design</a>
-        <a href="culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
-        <a href="science.html" class="nav-link" style="text-decoration:none; color:var(--accent);">Science</a>
+        <a class="nav-link" style="text-decoration:none;" href="/">Home</a>
+        <a class="nav-link" style="text-decoration:none;" href="/technology">Technology</a>
+        <a class="nav-link" style="text-decoration:none;" href="/design">Design</a>
+        <a class="nav-link" style="text-decoration:none;" href="/culture">Culture</a>
+        <a class="nav-link" style="text-decoration:none; color:var(--accent);" href="/science">Science</a>
       </nav>
 
       <div class="flex items-center gap-4">
@@ -168,11 +175,11 @@
 
   <div id="mobile-menu">
     <div class="px-4 pb-4 pt-2 flex flex-col gap-1">
-      <a href="index.html" class="nav-link block py-2" style="text-decoration:none;">Home</a>
-      <a href="technology.html" class="nav-link block py-2" style="text-decoration:none;">Technology</a>
-      <a href="design.html" class="nav-link block py-2" style="text-decoration:none;">Design</a>
-      <a href="culture.html" class="nav-link block py-2" style="text-decoration:none;">Culture</a>
-      <a href="science.html" class="nav-link block py-2" style="text-decoration:none; color:var(--accent);">Science</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/">Home</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/technology">Technology</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/design">Design</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/culture">Culture</a>
+      <a class="nav-link block py-2" style="text-decoration:none; color:var(--accent);" href="/science">Science</a>
       <div class="relative mt-2">
         <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
@@ -232,73 +239,73 @@
       <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6" id="cat-article-grid">
 <!-- SEO-CATEGORY-CARDS:START -->
 <article class="article-card" data-id="028" data-category="Science">
-    <a href="articles/crispr-gene-editing-next-generation/index.html" style="text-decoration:none;" aria-label="Read: CRISPR 2.0: The Next Generation of Gene Editing That Could Cure Inherited Disease">
+    <a style="text-decoration:none;" aria-label="Read: CRISPR 2.0: The Next Generation of Gene Editing That Could Cure Inherited Disease" href="/articles/crispr-gene-editing-next-generation/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="CRISPR 2.0: The Next Generation of Gene Editing That Could Cure Inherited Disease" loading="lazy" width="480" height="300" />
+        <img alt="CRISPR 2.0: The Next Generation of Gene Editing That Could Cure Inherited Disease" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Science</span>
-      <h2 class="card-title"><a href="articles/crispr-gene-editing-next-generation/index.html" style="text-decoration:none;color:inherit;">CRISPR 2.0: The Next Generation of Gene Editing That Could Cure Inherited Disease</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/crispr-gene-editing-next-generation/">CRISPR 2.0: The Next Generation of Gene Editing That Could Cure Inherited Disease</a></h2>
       <p class="card-desc">The original CRISPR was a revolution. Base editing, prime editing, and epigenome editing are something else entirely — precision medicine at the level of individual letters.</p>
-      <a href="articles/crispr-gene-editing-next-generation/index.html" class="btn-primary mt-4" aria-label="Read more: CRISPR 2.0: The Next Generation of Gene Editing That Could Cure Inherited Disease" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: CRISPR 2.0: The Next Generation of Gene Editing That Could Cure Inherited Disease</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: CRISPR 2.0: The Next Generation of Gene Editing That Could Cure Inherited Disease" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/crispr-gene-editing-next-generation/">Read More<span class="sr-only">: CRISPR 2.0: The Next Generation of Gene Editing That Could Cure Inherited Disease</span></a>
     </div>
   </article>
 <article class="article-card" data-id="026" data-category="Science">
-    <a href="articles/dark-matter-universe-explained/index.html" style="text-decoration:none;" aria-label="Read: The Dark Matter Problem: What 95% of the Universe Is Made Of (And Why We Can't See It)">
+    <a style="text-decoration:none;" aria-label="Read: The Dark Matter Problem: What 95% of the Universe Is Made Of (And Why We Can't See It)" href="/articles/dark-matter-universe-explained/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Dark Matter Problem: What 95% of the Universe Is Made Of (And Why We Can't See It)" loading="lazy" width="480" height="300" />
+        <img alt="The Dark Matter Problem: What 95% of the Universe Is Made Of (And Why We Can't See It)" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Science</span>
-      <h2 class="card-title"><a href="articles/dark-matter-universe-explained/index.html" style="text-decoration:none;color:inherit;">The Dark Matter Problem: What 95% of the Universe Is Made Of (And Why We Can't See It)</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/dark-matter-universe-explained/">The Dark Matter Problem: What 95% of the Universe Is Made Of (And Why We Can't See It)</a></h2>
       <p class="card-desc">We can't see it, touch it, or detect it directly — yet dark matter makes up 27% of everything. The hunt for the universe's greatest secret.</p>
-      <a href="articles/dark-matter-universe-explained/index.html" class="btn-primary mt-4" aria-label="Read more: The Dark Matter Problem: What 95% of the Universe Is Made Of (And Why We Can't See It)" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Dark Matter Problem: What 95% of the Universe Is Made Of (And Why We Can't See It)</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Dark Matter Problem: What 95% of the Universe Is Made Of (And Why We Can't See It)" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/dark-matter-universe-explained/">Read More<span class="sr-only">: The Dark Matter Problem: What 95% of the Universe Is Made Of (And Why We Can't See It)</span></a>
     </div>
   </article>
 <article class="article-card" data-id="020" data-category="Science">
-    <a href="articles/the-science-of-sleep/index.html" style="text-decoration:none;" aria-label="Read: The Science of Sleep: What Happens Inside Your Brain While You Rest">
+    <a style="text-decoration:none;" aria-label="Read: The Science of Sleep: What Happens Inside Your Brain While You Rest" href="/articles/the-science-of-sleep/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Science of Sleep: What Happens Inside Your Brain While You Rest" loading="lazy" width="480" height="300" />
+        <img alt="The Science of Sleep: What Happens Inside Your Brain While You Rest" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Science</span>
-      <h2 class="card-title"><a href="articles/the-science-of-sleep/index.html" style="text-decoration:none;color:inherit;">The Science of Sleep: What Happens Inside Your Brain While You Rest</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/the-science-of-sleep/">The Science of Sleep: What Happens Inside Your Brain While You Rest</a></h2>
       <p class="card-desc">Every night your brain runs a maintenance cycle no waking activity can replicate — and the neuroscience of why is extraordinary.</p>
-      <a href="articles/the-science-of-sleep/index.html" class="btn-primary mt-4" aria-label="Read more: The Science of Sleep: What Happens Inside Your Brain While You Rest" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Science of Sleep: What Happens Inside Your Brain While You Rest</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Science of Sleep: What Happens Inside Your Brain While You Rest" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/the-science-of-sleep/">Read More<span class="sr-only">: The Science of Sleep: What Happens Inside Your Brain While You Rest</span></a>
     </div>
   </article>
 <article class="article-card" data-id="016" data-category="Science">
-    <a href="articles/quantum-computing-explained/index.html" style="text-decoration:none;" aria-label="Read: Quantum Computing Explained: The Race to Rewrite the Rules of Physics">
+    <a style="text-decoration:none;" aria-label="Read: Quantum Computing Explained: The Race to Rewrite the Rules of Physics" href="/articles/quantum-computing-explained/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="Quantum Computing Explained: The Race to Rewrite the Rules of Physics" loading="lazy" width="480" height="300" />
+        <img alt="Quantum Computing Explained: The Race to Rewrite the Rules of Physics" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Science</span>
-      <h2 class="card-title"><a href="articles/quantum-computing-explained/index.html" style="text-decoration:none;color:inherit;">Quantum Computing Explained: The Race to Rewrite the Rules of Physics</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/quantum-computing-explained/">Quantum Computing Explained: The Race to Rewrite the Rules of Physics</a></h2>
       <p class="card-desc">Inside the labs where scientists are harnessing quantum mechanics to build computers of the future.</p>
-      <a href="articles/quantum-computing-explained/index.html" class="btn-primary mt-4" aria-label="Read more: Quantum Computing Explained: The Race to Rewrite the Rules of Physics" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: Quantum Computing Explained: The Race to Rewrite the Rules of Physics</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: Quantum Computing Explained: The Race to Rewrite the Rules of Physics" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/quantum-computing-explained/">Read More<span class="sr-only">: Quantum Computing Explained: The Race to Rewrite the Rules of Physics</span></a>
     </div>
   </article>
 <article class="article-card" data-id="007" data-category="Science">
-    <a href="articles/climate-crisis-innovators/index.html" style="text-decoration:none;" aria-label="Read: The Climate Crisis and the Innovators Racing to Fix It">
+    <a style="text-decoration:none;" aria-label="Read: The Climate Crisis and the Innovators Racing to Fix It" href="/articles/climate-crisis-innovators/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Climate Crisis and the Innovators Racing to Fix It" loading="lazy" width="480" height="300" />
+        <img alt="The Climate Crisis and the Innovators Racing to Fix It" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Science</span>
-      <h2 class="card-title"><a href="articles/climate-crisis-innovators/index.html" style="text-decoration:none;color:inherit;">The Climate Crisis and the Innovators Racing to Fix It</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/climate-crisis-innovators/">The Climate Crisis and the Innovators Racing to Fix It</a></h2>
       <p class="card-desc">From direct air capture to fusion reactors — the technologies that could redefine humanity's relationship with the planet.</p>
-      <a href="articles/climate-crisis-innovators/index.html" class="btn-primary mt-4" aria-label="Read more: The Climate Crisis and the Innovators Racing to Fix It" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Climate Crisis and the Innovators Racing to Fix It</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Climate Crisis and the Innovators Racing to Fix It" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/climate-crisis-innovators/">Read More<span class="sr-only">: The Climate Crisis and the Innovators Racing to Fix It</span></a>
     </div>
   </article>
 <!-- SEO-CATEGORY-CARDS:END -->
@@ -343,12 +350,12 @@
       <div class="rounded-2xl p-6" style="background:#fff; border:1px solid var(--rule);">
         <div class="section-label mb-5" style="font-size:0.6875rem;">Browse Categories</div>
         <div class="flex flex-wrap gap-2">
-          <a href="technology.html" class="category-badge" style="text-decoration:none;">Technology</a>
-          <a href="design.html" class="category-badge" style="text-decoration:none; background:#f0f7ff; color:#2563eb; border-color:rgba(37,99,235,0.2);">Design</a>
-          <a href="science.html" class="category-badge" style="text-decoration:none; background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Science</a>
-          <a href="culture.html" class="category-badge" style="text-decoration:none; background:#fdf4ff; color:#9333ea; border-color:rgba(147,51,234,0.2);">Culture</a>
-          <a href="category/business/index.html" class="category-badge" style="text-decoration:none; background:#fff7ed; color:#ea580c; border-color:rgba(234,88,12,0.2);">Business</a>
-          <a href="category/health/index.html" class="category-badge" style="text-decoration:none; background:#fef2f2; color:#dc2626; border-color:rgba(220,38,38,0.2);">Health</a>
+          <a class="category-badge" style="text-decoration:none;" href="/technology">Technology</a>
+          <a class="category-badge" style="text-decoration:none; background:#f0f7ff; color:#2563eb; border-color:rgba(37,99,235,0.2);" href="/design">Design</a>
+          <a class="category-badge" style="text-decoration:none; background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);" href="/science">Science</a>
+          <a class="category-badge" style="text-decoration:none; background:#fdf4ff; color:#9333ea; border-color:rgba(147,51,234,0.2);" href="/culture">Culture</a>
+          <a class="category-badge" style="text-decoration:none; background:#fff7ed; color:#ea580c; border-color:rgba(234,88,12,0.2);" href="/category/business/">Business</a>
+          <a class="category-badge" style="text-decoration:none; background:#fef2f2; color:#dc2626; border-color:rgba(220,38,38,0.2);" href="/category/health/">Health</a>
         </div>
       </div>
 
@@ -384,20 +391,20 @@
       <div>
         <h4 style="color:#fff; font-weight:600; font-size:0.8125rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem;">Navigate</h4>
         <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;">
-          <li><a href="index.html" class="footer-link">Home</a></li>
-          <li><a href="technology.html" class="footer-link">Technology</a></li>
-          <li><a href="design.html" class="footer-link">Design</a></li>
-          <li><a href="culture.html" class="footer-link">Culture</a></li>
-          <li><a href="science.html" class="footer-link">Science</a></li>
+          <li><a class="footer-link" href="/">Home</a></li>
+          <li><a class="footer-link" href="/technology">Technology</a></li>
+          <li><a class="footer-link" href="/design">Design</a></li>
+          <li><a class="footer-link" href="/culture">Culture</a></li>
+          <li><a class="footer-link" href="/science">Science</a></li>
         </ul>
       </div>
       <div>
         <h4 style="color:#fff; font-weight:600; font-size:0.8125rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem;">Company</h4>
                 <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;">
-          <li><a href="about.html" class="footer-link">About</a></li>
-          <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
-          <li><a href="terms.html" class="footer-link">Terms of Service</a></li>
-          <li><a href="contact.html" class="footer-link">Contact</a></li>
+          <li><a class="footer-link" href="/about">About</a></li>
+          <li><a class="footer-link" href="/privacy-policy">Privacy Policy</a></li>
+          <li><a class="footer-link" href="/terms">Terms of Service</a></li>
+          <li><a class="footer-link" href="/contact">Contact</a></li>
         </ul>
       </div>
     </div>

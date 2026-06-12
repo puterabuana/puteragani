@@ -13,14 +13,17 @@
 
   <!-- Twitter Card -->
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
-  <link rel="shortcut icon" href="assets/images/favicon.svg" />
-
-  <!-- Compiled Tailwind CSS -->
+<!-- Compiled Tailwind CSS -->
 <!-- Custom Styles -->
+
+
+<!-- Non-blocking local styles -->
+<link rel="preload" as="style" href="assets/css/tailwind.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+<link rel="preload" as="style" href="assets/css/style.css" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript>
   <link rel="stylesheet" href="assets/css/tailwind.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
+</noscript>
 <!-- SEO-ENHANCEMENT:START -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -125,6 +128,10 @@
 }
 </script>
 <!-- SEO-ENHANCEMENT:END -->
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 </head>
 <body>
 
@@ -136,18 +143,18 @@
     <div class="flex items-center justify-between h-16">
 
       <!-- Logo + Brand -->
-      <a href="index.html" class="flex items-center gap-3 no-underline" style="text-decoration:none;">
+      <a class="flex items-center gap-3 no-underline" style="text-decoration:none;" href="/">
         <div class="pg-logo-mark">PG</div>
         <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
       </a>
 
       <!-- Desktop Nav Links -->
       <nav class="hidden md:flex items-center gap-7">
-        <a href="index.html" class="nav-link" style="text-decoration:none;">Home</a>
-        <a href="technology.html" class="nav-link" style="text-decoration:none; color:var(--accent);">Technology</a>
-        <a href="design.html" class="nav-link" style="text-decoration:none;">Design</a>
-        <a href="culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
-        <a href="science.html" class="nav-link" style="text-decoration:none;">Science</a>
+        <a class="nav-link" style="text-decoration:none;" href="/">Home</a>
+        <a class="nav-link" style="text-decoration:none; color:var(--accent);" href="/technology">Technology</a>
+        <a class="nav-link" style="text-decoration:none;" href="/design">Design</a>
+        <a class="nav-link" style="text-decoration:none;" href="/culture">Culture</a>
+        <a class="nav-link" style="text-decoration:none;" href="/science">Science</a>
       </nav>
 
       <!-- Search Bar + Mobile Menu Btn -->
@@ -175,11 +182,11 @@
   <!-- Mobile Menu -->
   <div id="mobile-menu">
     <div class="px-4 pb-4 pt-2 flex flex-col gap-1">
-      <a href="index.html" class="nav-link block py-2" style="text-decoration:none;">Home</a>
-      <a href="technology.html" class="nav-link block py-2" style="text-decoration:none; color:var(--accent);">Technology</a>
-      <a href="design.html" class="nav-link block py-2" style="text-decoration:none;">Design</a>
-      <a href="culture.html" class="nav-link block py-2" style="text-decoration:none;">Culture</a>
-      <a href="science.html" class="nav-link block py-2" style="text-decoration:none;">Science</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/">Home</a>
+      <a class="nav-link block py-2" style="text-decoration:none; color:var(--accent);" href="/technology">Technology</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/design">Design</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/culture">Culture</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/science">Science</a>
       <!-- Mobile Search (hidden) -->
       <div class="relative mt-2">
         <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -240,87 +247,87 @@
       <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6" id="cat-article-grid">
 <!-- SEO-CATEGORY-CARDS:START -->
 <article class="article-card" data-id="030" data-category="Technology">
-    <a href="articles/neuromorphic-computing-brain-inspired-chips/index.html" style="text-decoration:none;" aria-label="Read: Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI">
+    <a style="text-decoration:none;" aria-label="Read: Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI" href="/articles/neuromorphic-computing-brain-inspired-chips/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI" loading="lazy" width="480" height="300" />
+        <img alt="Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1518770660439-4636190af475?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1518770660439-4636190af475?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Technology</span>
-      <h2 class="card-title"><a href="articles/neuromorphic-computing-brain-inspired-chips/index.html" style="text-decoration:none;color:inherit;">Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/neuromorphic-computing-brain-inspired-chips/">Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI</a></h2>
       <p class="card-desc">The brain runs on 20 watts. AI data centers consume megawatts. Neuromorphic chips are finally closing that impossible gap.</p>
-      <a href="articles/neuromorphic-computing-brain-inspired-chips/index.html" class="btn-primary mt-4" aria-label="Read more: Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/neuromorphic-computing-brain-inspired-chips/">Read More<span class="sr-only">: Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI</span></a>
     </div>
   </article>
 <article class="article-card" data-id="027" data-category="Technology">
-    <a href="articles/spatial-computing-revolution/index.html" style="text-decoration:none;" aria-label="Read: The Spatial Computing Revolution: How Mixed Reality Is Rewriting the Rules of Human-Computer Interaction">
+    <a style="text-decoration:none;" aria-label="Read: The Spatial Computing Revolution: How Mixed Reality Is Rewriting the Rules of Human-Computer Interaction" href="/articles/spatial-computing-revolution/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Spatial Computing Revolution: How Mixed Reality Is Rewriting the Rules of Human-Computer Interaction" loading="lazy" width="480" height="300" />
+        <img alt="The Spatial Computing Revolution: How Mixed Reality Is Rewriting the Rules of Human-Computer Interaction" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Technology</span>
-      <h2 class="card-title"><a href="articles/spatial-computing-revolution/index.html" style="text-decoration:none;color:inherit;">The Spatial Computing Revolution: How Mixed Reality Is Rewriting the Rules of Human-Computer Interaction</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/spatial-computing-revolution/">The Spatial Computing Revolution: How Mixed Reality Is Rewriting the Rules of Human-Computer Interaction</a></h2>
       <p class="card-desc">Spatial computing is not a headset category — it is the next paradigm of computing itself. Here is why the transition is already underway.</p>
-      <a href="articles/spatial-computing-revolution/index.html" class="btn-primary mt-4" aria-label="Read more: The Spatial Computing Revolution: How Mixed Reality Is Rewriting the Rules of Human-Computer Interaction" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Spatial Computing Revolution: How Mixed Reality Is Rewriting the Rules of Human-Computer Interaction</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Spatial Computing Revolution: How Mixed Reality Is Rewriting the Rules of Human-Computer Interaction" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/spatial-computing-revolution/">Read More<span class="sr-only">: The Spatial Computing Revolution: How Mixed Reality Is Rewriting the Rules of Human-Computer Interaction</span></a>
     </div>
   </article>
 <article class="article-card" data-id="023" data-category="Technology">
-    <a href="articles/agentic-ai-autonomous-software/index.html" style="text-decoration:none;" aria-label="Read: The Rise of Agentic AI: When Software Starts Making Decisions for You">
+    <a style="text-decoration:none;" aria-label="Read: The Rise of Agentic AI: When Software Starts Making Decisions for You" href="/articles/agentic-ai-autonomous-software/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Rise of Agentic AI: When Software Starts Making Decisions for You" loading="lazy" width="480" height="300" />
+        <img alt="The Rise of Agentic AI: When Software Starts Making Decisions for You" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Technology</span>
-      <h2 class="card-title"><a href="articles/agentic-ai-autonomous-software/index.html" style="text-decoration:none;color:inherit;">The Rise of Agentic AI: When Software Starts Making Decisions for You</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/agentic-ai-autonomous-software/">The Rise of Agentic AI: When Software Starts Making Decisions for You</a></h2>
       <p class="card-desc">AI agents don't just answer questions — they take action, book flights, write code, and run workflows. The agentic revolution is already here.</p>
-      <a href="articles/agentic-ai-autonomous-software/index.html" class="btn-primary mt-4" aria-label="Read more: The Rise of Agentic AI: When Software Starts Making Decisions for You" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Rise of Agentic AI: When Software Starts Making Decisions for You</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Rise of Agentic AI: When Software Starts Making Decisions for You" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/agentic-ai-autonomous-software/">Read More<span class="sr-only">: The Rise of Agentic AI: When Software Starts Making Decisions for You</span></a>
     </div>
   </article>
 <article class="article-card" data-id="018" data-category="Technology">
-    <a href="articles/edge-ai-offline-intelligence/index.html" style="text-decoration:none;" aria-label="Read: The Rise of Edge AI: Why the Future of Intelligence Is Offline">
+    <a style="text-decoration:none;" aria-label="Read: The Rise of Edge AI: Why the Future of Intelligence Is Offline" href="/articles/edge-ai-offline-intelligence/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Rise of Edge AI: Why the Future of Intelligence Is Offline" loading="lazy" width="480" height="300" />
+        <img alt="The Rise of Edge AI: Why the Future of Intelligence Is Offline" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Technology</span>
-      <h2 class="card-title"><a href="articles/edge-ai-offline-intelligence/index.html" style="text-decoration:none;color:inherit;">The Rise of Edge AI: Why the Future of Intelligence Is Offline</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/edge-ai-offline-intelligence/">The Rise of Edge AI: Why the Future of Intelligence Is Offline</a></h2>
       <p class="card-desc">AI no longer needs the cloud to be powerful. On-device intelligence is rewriting the rules of privacy, speed, and connectivity forever.</p>
-      <a href="articles/edge-ai-offline-intelligence/index.html" class="btn-primary mt-4" aria-label="Read more: The Rise of Edge AI: Why the Future of Intelligence Is Offline" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Rise of Edge AI: Why the Future of Intelligence Is Offline</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Rise of Edge AI: Why the Future of Intelligence Is Offline" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/edge-ai-offline-intelligence/">Read More<span class="sr-only">: The Rise of Edge AI: Why the Future of Intelligence Is Offline</span></a>
     </div>
   </article>
 <article class="article-card" data-id="005" data-category="Technology">
-    <a href="articles/the-web3-illusion/index.html" style="text-decoration:none;" aria-label="Read: The Web3 Illusion: Separating Hype from Genuine Innovation">
+    <a style="text-decoration:none;" aria-label="Read: The Web3 Illusion: Separating Hype from Genuine Innovation" href="/articles/the-web3-illusion/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Web3 Illusion: Separating Hype from Genuine Innovation" loading="lazy" width="480" height="300" />
+        <img alt="The Web3 Illusion: Separating Hype from Genuine Innovation" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Technology</span>
-      <h2 class="card-title"><a href="articles/the-web3-illusion/index.html" style="text-decoration:none;color:inherit;">The Web3 Illusion: Separating Hype from Genuine Innovation</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/the-web3-illusion/">The Web3 Illusion: Separating Hype from Genuine Innovation</a></h2>
       <p class="card-desc">Blockchain promised revolution. Reality is far messier. A critical examination of Web3 hype, fundamental trade-offs, and where decentralization actually matters.</p>
-      <a href="articles/the-web3-illusion/index.html" class="btn-primary mt-4" aria-label="Read more: The Web3 Illusion: Separating Hype from Genuine Innovation" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Web3 Illusion: Separating Hype from Genuine Innovation</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Web3 Illusion: Separating Hype from Genuine Innovation" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/the-web3-illusion/">Read More<span class="sr-only">: The Web3 Illusion: Separating Hype from Genuine Innovation</span></a>
     </div>
   </article>
 <article class="article-card" data-id="001" data-category="Technology">
-    <a href="articles/the-future-of-artificial-intelligence/index.html" style="text-decoration:none;" aria-label="Read: The Future of Artificial Intelligence: How Machines Are Learning to Think">
+    <a style="text-decoration:none;" aria-label="Read: The Future of Artificial Intelligence: How Machines Are Learning to Think" href="/articles/the-future-of-artificial-intelligence/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Future of Artificial Intelligence: How Machines Are Learning to Think" loading="lazy" width="480" height="300" />
+        <img alt="The Future of Artificial Intelligence: How Machines Are Learning to Think" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Technology</span>
-      <h2 class="card-title"><a href="articles/the-future-of-artificial-intelligence/index.html" style="text-decoration:none;color:inherit;">The Future of Artificial Intelligence: How Machines Are Learning to Think</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/the-future-of-artificial-intelligence/">The Future of Artificial Intelligence: How Machines Are Learning to Think</a></h2>
       <p class="card-desc">From deep learning breakthroughs to the ethical questions keeping researchers up at night — a deep dive into the technology reshaping civilization as we know it.</p>
-      <a href="articles/the-future-of-artificial-intelligence/index.html" class="btn-primary mt-4" aria-label="Read more: The Future of Artificial Intelligence: How Machines Are Learning to Think" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Future of Artificial Intelligence: How Machines Are Learning to Think</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Future of Artificial Intelligence: How Machines Are Learning to Think" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/the-future-of-artificial-intelligence/">Read More<span class="sr-only">: The Future of Artificial Intelligence: How Machines Are Learning to Think</span></a>
     </div>
   </article>
 <!-- SEO-CATEGORY-CARDS:END -->
@@ -368,12 +375,12 @@
       <div class="rounded-2xl p-6" style="background:#fff; border:1px solid var(--rule);">
         <div class="section-label mb-5" style="font-size:0.6875rem;">Browse Categories</div>
         <div class="flex flex-wrap gap-2">
-          <a href="technology.html" class="category-badge" style="text-decoration:none;">Technology</a>
-          <a href="design.html" class="category-badge" style="text-decoration:none; background:#f0f7ff; color:#2563eb; border-color:rgba(37,99,235,0.2);">Design</a>
-          <a href="science.html" class="category-badge" style="text-decoration:none; background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Science</a>
-          <a href="culture.html" class="category-badge" style="text-decoration:none; background:#fdf4ff; color:#9333ea; border-color:rgba(147,51,234,0.2);">Culture</a>
-          <a href="category/business/index.html" class="category-badge" style="text-decoration:none; background:#fff7ed; color:#ea580c; border-color:rgba(234,88,12,0.2);">Business</a>
-          <a href="category/health/index.html" class="category-badge" style="text-decoration:none; background:#fef2f2; color:#dc2626; border-color:rgba(220,38,38,0.2);">Health</a>
+          <a class="category-badge" style="text-decoration:none;" href="/technology">Technology</a>
+          <a class="category-badge" style="text-decoration:none; background:#f0f7ff; color:#2563eb; border-color:rgba(37,99,235,0.2);" href="/design">Design</a>
+          <a class="category-badge" style="text-decoration:none; background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);" href="/science">Science</a>
+          <a class="category-badge" style="text-decoration:none; background:#fdf4ff; color:#9333ea; border-color:rgba(147,51,234,0.2);" href="/culture">Culture</a>
+          <a class="category-badge" style="text-decoration:none; background:#fff7ed; color:#ea580c; border-color:rgba(234,88,12,0.2);" href="/category/business/">Business</a>
+          <a class="category-badge" style="text-decoration:none; background:#fef2f2; color:#dc2626; border-color:rgba(220,38,38,0.2);" href="/category/health/">Health</a>
         </div>
       </div>
 
@@ -414,11 +421,11 @@
       <div>
         <h4 style="color:#fff; font-weight:600; font-size:0.8125rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem;">Navigate</h4>
         <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;">
-          <li><a href="index.html" class="footer-link">Home</a></li>
-          <li><a href="technology.html" class="footer-link">Technology</a></li>
-          <li><a href="design.html" class="footer-link">Design</a></li>
-          <li><a href="culture.html" class="footer-link">Culture</a></li>
-          <li><a href="science.html" class="footer-link">Science</a></li>
+          <li><a class="footer-link" href="/">Home</a></li>
+          <li><a class="footer-link" href="/technology">Technology</a></li>
+          <li><a class="footer-link" href="/design">Design</a></li>
+          <li><a class="footer-link" href="/culture">Culture</a></li>
+          <li><a class="footer-link" href="/science">Science</a></li>
         </ul>
       </div>
 
@@ -426,10 +433,10 @@
       <div>
         <h4 style="color:#fff; font-weight:600; font-size:0.8125rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem;">Company</h4>
                 <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;">
-          <li><a href="about.html" class="footer-link">About</a></li>
-          <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
-          <li><a href="terms.html" class="footer-link">Terms of Service</a></li>
-          <li><a href="contact.html" class="footer-link">Contact</a></li>
+          <li><a class="footer-link" href="/about">About</a></li>
+          <li><a class="footer-link" href="/privacy-policy">Privacy Policy</a></li>
+          <li><a class="footer-link" href="/terms">Terms of Service</a></li>
+          <li><a class="footer-link" href="/contact">Contact</a></li>
         </ul>
       </div>
 

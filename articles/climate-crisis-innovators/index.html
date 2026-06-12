@@ -9,14 +9,9 @@
   <meta name="robots" content="index, follow" />
 
   <!-- Open Graph -->
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
-
-  <!-- Compiled Tailwind CSS -->
+<!-- Compiled Tailwind CSS -->
 <!-- Custom Styles -->
-  <link rel="stylesheet" href="../../assets/css/tailwind.min.css" />
-  <link rel="stylesheet" href="../../assets/css/style.css" />
+
 <style>
     .narrative-box {
       background: linear-gradient(135deg, rgba(22,163,74,0.08) 0%, rgba(22,163,74,0.03) 100%);
@@ -109,6 +104,15 @@
     .page-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(15,15,15,0.15); transition: background 0.2s; }
     .page-dot.active { background: #16a34a; }
   </style>
+
+
+<!-- Non-blocking local styles -->
+<link rel="preload" as="style" href="../../assets/css/tailwind.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+<link rel="preload" as="style" href="../../assets/css/style.css" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript>
+  <link rel="stylesheet" href="../../assets/css/tailwind.min.css" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</noscript>
 <!-- SEO-ENHANCEMENT:START -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -128,7 +132,7 @@
 <meta name="twitter:description" content="From direct air capture to fusion reactors — the technologies that could redefine humanity's relationship with the planet." />
 <meta name="twitter:image" content="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=1200&q=80" />
 <meta property="article:published_time" content="2025-01-29T17:00:00.000Z" />
-<meta property="article:modified_time" content="2026-06-10T04:32:06.000Z" />
+<meta property="article:modified_time" content="2026-06-10T06:34:16.000Z" />
 <meta property="article:author" content="https://puteragani.com/about#putera-buana-gani" />
 <meta property="article:section" content="Science" />
 <meta property="article:tag" content="Climate" />
@@ -192,7 +196,7 @@
         "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=1200&q=80"
       ],
       "datePublished": "2025-01-29T17:00:00.000Z",
-      "dateModified": "2026-06-10T04:32:06.000Z",
+      "dateModified": "2026-06-10T06:34:16.000Z",
       "author": {
         "@id": "https://puteragani.com/about#putera-buana-gani"
       },
@@ -257,6 +261,10 @@
 }
 </script>
 <!-- SEO-ENHANCEMENT:END -->
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 </head>
 <body>
 
@@ -267,18 +275,18 @@
 <header class="navbar" id="navbar">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
-      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+      <a class="flex items-center gap-3" style="text-decoration:none;" href="/">
         <div class="pg-logo-mark">PG</div>
         <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
       </a>
       <nav class="hidden md:flex items-center gap-7">
-        <a href="../../index.html" class="nav-link" style="text-decoration:none;">Home</a>
-        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
-        <a href="../../design.html" class="nav-link" style="text-decoration:none;">Design</a>
-        <a href="../../culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
-        <a href="../../science.html" class="nav-link" style="text-decoration:none;">Science</a>
+        <a class="nav-link" style="text-decoration:none;" href="/">Home</a>
+        <a class="nav-link" style="text-decoration:none;" href="/technology">Technology</a>
+        <a class="nav-link" style="text-decoration:none;" href="/design">Design</a>
+        <a class="nav-link" style="text-decoration:none;" href="/culture">Culture</a>
+        <a class="nav-link" style="text-decoration:none;" href="/science">Science</a>
       </nav>
-      <a href="../../index.html" class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;">
+      <a class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;" href="/">
         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
         All Articles
       </a>
@@ -289,7 +297,7 @@
 <!-- ARTICLE HEADER -->
 <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
   <div class="flex flex-wrap items-center gap-3 mb-8">
-    <a href="../../index.html" class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">
+    <a class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'" href="/">
       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       Back to Home
     </a>
@@ -326,9 +334,8 @@
 <div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
   <div style="border-radius:16px; overflow:hidden; position:relative;">
     <img class="article-header-img"
-         src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=1200&q=80"
          alt="Aerial view of forest and river — climate and nature"
-         loading="eager" / width="1200" height="675" fetchpriority="high">
+         loading="eager" / width="1200" height="675" fetchpriority="high" src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=1200&amp;q=80&amp;h=675&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=480&amp;q=80&amp;h=270&amp;auto=format&amp;fit=crop 480w, https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=768&amp;q=80&amp;h=432&amp;auto=format&amp;fit=crop 768w, https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=1200&amp;q=80&amp;h=675&amp;auto=format&amp;fit=crop 1200w" sizes="(max-width: 768px) 100vw, 896px">
     <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
     <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
       Photo: Unsplash / Climate & Environment
@@ -453,7 +460,7 @@
         <div style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--rule);">
           <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
             <span style="font-size:0.85rem; color:var(--ink-muted); font-family:'DM Mono',monospace;">Continue reading</span>
-            <a href="page-2.html" style="display:inline-flex; align-items:center; gap:8px; padding:10px 16px; background:#16a34a; color:white; text-decoration:none; border-radius:8px; font-weight:600; font-size:0.9rem; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+            <a style="display:inline-flex; align-items:center; gap:8px; padding:10px 16px; background:#16a34a; color:white; text-decoration:none; border-radius:8px; font-weight:600; font-size:0.9rem; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'" href="/articles/climate-crisis-innovators/page-2">
               Page 2: Carbon Removal
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
@@ -469,15 +476,15 @@
         <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
           <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
           <div style="display:flex; flex-direction:column; gap:0.5rem;">
-            <a href="index.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:rgba(22,163,74,0.08); border:1px solid rgba(22,163,74,0.2); text-decoration:none;">
+            <a style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:rgba(22,163,74,0.08); border:1px solid rgba(22,163,74,0.2); text-decoration:none;" href="/articles/climate-crisis-innovators/">
               <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:#16a34a; font-weight:600;">01</span>
               <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">The Energy Transition</span>
             </a>
-            <a href="page-2.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+            <a style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'" href="/articles/climate-crisis-innovators/page-2">
               <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">02</span>
               <span style="font-size:0.8rem; color:var(--ink-muted);">Carbon Removal</span>
             </a>
-            <a href="page-3.html" style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'">
+            <a style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'" href="/articles/climate-crisis-innovators/page-3">
               <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">03</span>
               <span style="font-size:0.8rem; color:var(--ink-muted);">Fusion & The Future</span>
             </a>
@@ -506,9 +513,9 @@
     <div class="section-label mb-8">Related Articles</div>
     <div id="related-articles" class="grid sm:grid-cols-3 gap-5" data-current-slug="climate-crisis-innovators">
 <!-- SEO-RELATED-LINKS:START -->
-<a href="../../articles/crispr-gene-editing-next-generation/index.html" class="related-static-link"><span>Science</span><strong>CRISPR 2.0: The Next Generation of Gene Editing That Could Cure Inherited Disease</strong></a>
-<a href="../../articles/dark-matter-universe-explained/index.html" class="related-static-link"><span>Science</span><strong>The Dark Matter Problem: What 95% of the Universe Is Made Of (And Why We Can't See It)</strong></a>
-<a href="../../articles/the-science-of-sleep/index.html" class="related-static-link"><span>Science</span><strong>The Science of Sleep: What Happens Inside Your Brain While You Rest</strong></a>
+<a class="related-static-link" href="/articles/crispr-gene-editing-next-generation/"><span>Science</span><strong>CRISPR 2.0: The Next Generation of Gene Editing That Could Cure Inherited Disease</strong></a>
+<a class="related-static-link" href="/articles/dark-matter-universe-explained/"><span>Science</span><strong>The Dark Matter Problem: What 95% of the Universe Is Made Of (And Why We Can't See It)</strong></a>
+<a class="related-static-link" href="/articles/the-science-of-sleep/"><span>Science</span><strong>The Science of Sleep: What Happens Inside Your Brain While You Rest</strong></a>
 <!-- SEO-RELATED-LINKS:END -->
 </div>
   </div>
@@ -518,7 +525,7 @@
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
     <hr class="footer-divider mb-6" />
     <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
-      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;">
+      <a class="flex items-center gap-3" style="text-decoration:none;" href="/">
         <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
         <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
       </a>

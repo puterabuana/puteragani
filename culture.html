@@ -13,14 +13,17 @@
 
   <!-- Twitter Card -->
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
-  <link rel="shortcut icon" href="assets/images/favicon.svg" />
-
-  <!-- Compiled Tailwind CSS -->
+<!-- Compiled Tailwind CSS -->
 <!-- Custom Styles -->
+
+
+<!-- Non-blocking local styles -->
+<link rel="preload" as="style" href="assets/css/tailwind.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+<link rel="preload" as="style" href="assets/css/style.css" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript>
   <link rel="stylesheet" href="assets/css/tailwind.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
+</noscript>
 <!-- SEO-ENHANCEMENT:START -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -125,6 +128,10 @@
 }
 </script>
 <!-- SEO-ENHANCEMENT:END -->
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 </head>
 <body>
 
@@ -135,17 +142,17 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
 
-      <a href="index.html" class="flex items-center gap-3 no-underline" style="text-decoration:none;">
+      <a class="flex items-center gap-3 no-underline" style="text-decoration:none;" href="/">
         <div class="pg-logo-mark">PG</div>
         <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
       </a>
 
       <nav class="hidden md:flex items-center gap-7">
-        <a href="index.html" class="nav-link" style="text-decoration:none;">Home</a>
-        <a href="technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
-        <a href="design.html" class="nav-link" style="text-decoration:none;">Design</a>
-        <a href="culture.html" class="nav-link" style="text-decoration:none; color:var(--accent);">Culture</a>
-        <a href="science.html" class="nav-link" style="text-decoration:none;">Science</a>
+        <a class="nav-link" style="text-decoration:none;" href="/">Home</a>
+        <a class="nav-link" style="text-decoration:none;" href="/technology">Technology</a>
+        <a class="nav-link" style="text-decoration:none;" href="/design">Design</a>
+        <a class="nav-link" style="text-decoration:none; color:var(--accent);" href="/culture">Culture</a>
+        <a class="nav-link" style="text-decoration:none;" href="/science">Science</a>
       </nav>
 
       <div class="flex items-center gap-4">
@@ -168,11 +175,11 @@
 
   <div id="mobile-menu">
     <div class="px-4 pb-4 pt-2 flex flex-col gap-1">
-      <a href="index.html" class="nav-link block py-2" style="text-decoration:none;">Home</a>
-      <a href="technology.html" class="nav-link block py-2" style="text-decoration:none;">Technology</a>
-      <a href="design.html" class="nav-link block py-2" style="text-decoration:none;">Design</a>
-      <a href="culture.html" class="nav-link block py-2" style="text-decoration:none; color:var(--accent);">Culture</a>
-      <a href="science.html" class="nav-link block py-2" style="text-decoration:none;">Science</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/">Home</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/technology">Technology</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/design">Design</a>
+      <a class="nav-link block py-2" style="text-decoration:none; color:var(--accent);" href="/culture">Culture</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/science">Science</a>
       <div class="relative mt-2">
         <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
@@ -232,73 +239,73 @@
       <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6" id="cat-article-grid">
 <!-- SEO-CATEGORY-CARDS:START -->
 <article class="article-card" data-id="032" data-category="Culture">
-    <a href="articles/the-lost-art-of-silence/index.html" style="text-decoration:none;" aria-label="Read: The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten">
+    <a style="text-decoration:none;" aria-label="Read: The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten" href="/articles/the-lost-art-of-silence/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten" loading="lazy" width="480" height="300" />
+        <img alt="The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Culture</span>
-      <h2 class="card-title"><a href="articles/the-lost-art-of-silence/index.html" style="text-decoration:none;color:inherit;">The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/the-lost-art-of-silence/">The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten</a></h2>
       <p class="card-desc">From Finnish saunas to Japanese ma — why silence is not absence but presence, and what noise-saturated societies are quietly losing.</p>
-      <a href="articles/the-lost-art-of-silence/index.html" class="btn-primary mt-4" aria-label="Read more: The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/the-lost-art-of-silence/">Read More<span class="sr-only">: The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten</span></a>
     </div>
   </article>
 <article class="article-card" data-id="015" data-category="Culture">
-    <a href="articles/the-art-of-storytelling-in-modern-society/index.html" style="text-decoration:none;" aria-label="Read: The Art of Storytelling in Modern Society: Why Narrative Still Rules Everything">
+    <a style="text-decoration:none;" aria-label="Read: The Art of Storytelling in Modern Society: Why Narrative Still Rules Everything" href="/articles/the-art-of-storytelling-in-modern-society/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Art of Storytelling in Modern Society: Why Narrative Still Rules Everything" loading="lazy" width="480" height="300" />
+        <img alt="The Art of Storytelling in Modern Society: Why Narrative Still Rules Everything" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Culture</span>
-      <h2 class="card-title"><a href="articles/the-art-of-storytelling-in-modern-society/index.html" style="text-decoration:none;color:inherit;">The Art of Storytelling in Modern Society: Why Narrative Still Rules Everything</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/the-art-of-storytelling-in-modern-society/">The Art of Storytelling in Modern Society: Why Narrative Still Rules Everything</a></h2>
       <p class="card-desc">From ancient myths to digital narratives — how storytelling remains humanity's most powerful tool for connection, meaning-making, and cultural transmission.</p>
-      <a href="articles/the-art-of-storytelling-in-modern-society/index.html" class="btn-primary mt-4" aria-label="Read more: The Art of Storytelling in Modern Society: Why Narrative Still Rules Everything" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Art of Storytelling in Modern Society: Why Narrative Still Rules Everything</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Art of Storytelling in Modern Society: Why Narrative Still Rules Everything" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/the-art-of-storytelling-in-modern-society/">Read More<span class="sr-only">: The Art of Storytelling in Modern Society: Why Narrative Still Rules Everything</span></a>
     </div>
   </article>
 <article class="article-card" data-id="012" data-category="Culture">
-    <a href="articles/filosofi-minimalisme/index.html" style="text-decoration:none;" aria-label="Read: The Philosophy of Minimalism: Why Less Has Always Been a Radical Idea">
+    <a style="text-decoration:none;" aria-label="Read: The Philosophy of Minimalism: Why Less Has Always Been a Radical Idea" href="/articles/filosofi-minimalisme/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Philosophy of Minimalism: Why Less Has Always Been a Radical Idea" loading="lazy" width="480" height="300" />
+        <img alt="The Philosophy of Minimalism: Why Less Has Always Been a Radical Idea" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1449247709967-d4461a6a6103?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Culture</span>
-      <h2 class="card-title"><a href="articles/filosofi-minimalisme/index.html" style="text-decoration:none;color:inherit;">The Philosophy of Minimalism: Why Less Has Always Been a Radical Idea</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/filosofi-minimalisme/">The Philosophy of Minimalism: Why Less Has Always Been a Radical Idea</a></h2>
       <p class="card-desc">Minimalism is not an aesthetic trend. It is a centuries-old philosophical tradition — and a serious response to the question of what makes a life worth living.</p>
-      <a href="articles/filosofi-minimalisme/index.html" class="btn-primary mt-4" aria-label="Read more: The Philosophy of Minimalism: Why Less Has Always Been a Radical Idea" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Philosophy of Minimalism: Why Less Has Always Been a Radical Idea</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Philosophy of Minimalism: Why Less Has Always Been a Radical Idea" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/filosofi-minimalisme/">Read More<span class="sr-only">: The Philosophy of Minimalism: Why Less Has Always Been a Radical Idea</span></a>
     </div>
   </article>
 <article class="article-card" data-id="013" data-category="Culture">
-    <a href="articles/the-mythology-of-time/index.html" style="text-decoration:none;" aria-label="Read: The Mythology of Time: How Different Cultures Experience the Clock">
+    <a style="text-decoration:none;" aria-label="Read: The Mythology of Time: How Different Cultures Experience the Clock" href="/articles/the-mythology-of-time/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Mythology of Time: How Different Cultures Experience the Clock" loading="lazy" width="480" height="300" />
+        <img alt="The Mythology of Time: How Different Cultures Experience the Clock" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1501139083538-0139583c060f?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Culture</span>
-      <h2 class="card-title"><a href="articles/the-mythology-of-time/index.html" style="text-decoration:none;color:inherit;">The Mythology of Time: How Different Cultures Experience the Clock</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/the-mythology-of-time/">The Mythology of Time: How Different Cultures Experience the Clock</a></h2>
       <p class="card-desc">Across cultures and centuries, humanity has shaped wildly different relationships with time — and those differences remake how we think, plan, and live our lives.</p>
-      <a href="articles/the-mythology-of-time/index.html" class="btn-primary mt-4" aria-label="Read more: The Mythology of Time: How Different Cultures Experience the Clock" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Mythology of Time: How Different Cultures Experience the Clock</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Mythology of Time: How Different Cultures Experience the Clock" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/the-mythology-of-time/">Read More<span class="sr-only">: The Mythology of Time: How Different Cultures Experience the Clock</span></a>
     </div>
   </article>
 <article class="article-card" data-id="004" data-category="Culture">
-    <a href="articles/how-cities-shape-the-human-mind/index.html" style="text-decoration:none;" aria-label="Read: How Cities Shape the Human Mind and the Way We Think">
+    <a style="text-decoration:none;" aria-label="Read: How Cities Shape the Human Mind and the Way We Think" href="/articles/how-cities-shape-the-human-mind/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="How Cities Shape the Human Mind and the Way We Think" loading="lazy" width="480" height="300" />
+        <img alt="How Cities Shape the Human Mind and the Way We Think" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Culture</span>
-      <h2 class="card-title"><a href="articles/how-cities-shape-the-human-mind/index.html" style="text-decoration:none;color:inherit;">How Cities Shape the Human Mind and the Way We Think</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/how-cities-shape-the-human-mind/">How Cities Shape the Human Mind and the Way We Think</a></h2>
       <p class="card-desc">The surprising neuroscience behind urban environments and why dense cities make us smarter and more creative.</p>
-      <a href="articles/how-cities-shape-the-human-mind/index.html" class="btn-primary mt-4" aria-label="Read more: How Cities Shape the Human Mind and the Way We Think" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: How Cities Shape the Human Mind and the Way We Think</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: How Cities Shape the Human Mind and the Way We Think" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/how-cities-shape-the-human-mind/">Read More<span class="sr-only">: How Cities Shape the Human Mind and the Way We Think</span></a>
     </div>
   </article>
 <!-- SEO-CATEGORY-CARDS:END -->
@@ -343,12 +350,12 @@
       <div class="rounded-2xl p-6" style="background:#fff; border:1px solid var(--rule);">
         <div class="section-label mb-5" style="font-size:0.6875rem;">Browse Categories</div>
         <div class="flex flex-wrap gap-2">
-          <a href="technology.html" class="category-badge" style="text-decoration:none;">Technology</a>
-          <a href="design.html" class="category-badge" style="text-decoration:none; background:#f0f7ff; color:#2563eb; border-color:rgba(37,99,235,0.2);">Design</a>
-          <a href="science.html" class="category-badge" style="text-decoration:none; background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Science</a>
-          <a href="culture.html" class="category-badge" style="text-decoration:none; background:#fdf4ff; color:#9333ea; border-color:rgba(147,51,234,0.2);">Culture</a>
-          <a href="category/business/index.html" class="category-badge" style="text-decoration:none; background:#fff7ed; color:#ea580c; border-color:rgba(234,88,12,0.2);">Business</a>
-          <a href="category/health/index.html" class="category-badge" style="text-decoration:none; background:#fef2f2; color:#dc2626; border-color:rgba(220,38,38,0.2);">Health</a>
+          <a class="category-badge" style="text-decoration:none;" href="/technology">Technology</a>
+          <a class="category-badge" style="text-decoration:none; background:#f0f7ff; color:#2563eb; border-color:rgba(37,99,235,0.2);" href="/design">Design</a>
+          <a class="category-badge" style="text-decoration:none; background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);" href="/science">Science</a>
+          <a class="category-badge" style="text-decoration:none; background:#fdf4ff; color:#9333ea; border-color:rgba(147,51,234,0.2);" href="/culture">Culture</a>
+          <a class="category-badge" style="text-decoration:none; background:#fff7ed; color:#ea580c; border-color:rgba(234,88,12,0.2);" href="/category/business/">Business</a>
+          <a class="category-badge" style="text-decoration:none; background:#fef2f2; color:#dc2626; border-color:rgba(220,38,38,0.2);" href="/category/health/">Health</a>
         </div>
       </div>
 
@@ -384,20 +391,20 @@
       <div>
         <h4 style="color:#fff; font-weight:600; font-size:0.8125rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem;">Navigate</h4>
         <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;">
-          <li><a href="index.html" class="footer-link">Home</a></li>
-          <li><a href="technology.html" class="footer-link">Technology</a></li>
-          <li><a href="design.html" class="footer-link">Design</a></li>
-          <li><a href="culture.html" class="footer-link">Culture</a></li>
-          <li><a href="science.html" class="footer-link">Science</a></li>
+          <li><a class="footer-link" href="/">Home</a></li>
+          <li><a class="footer-link" href="/technology">Technology</a></li>
+          <li><a class="footer-link" href="/design">Design</a></li>
+          <li><a class="footer-link" href="/culture">Culture</a></li>
+          <li><a class="footer-link" href="/science">Science</a></li>
         </ul>
       </div>
       <div>
         <h4 style="color:#fff; font-weight:600; font-size:0.8125rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem;">Company</h4>
                 <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;">
-          <li><a href="about.html" class="footer-link">About</a></li>
-          <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
-          <li><a href="terms.html" class="footer-link">Terms of Service</a></li>
-          <li><a href="contact.html" class="footer-link">Contact</a></li>
+          <li><a class="footer-link" href="/about">About</a></li>
+          <li><a class="footer-link" href="/privacy-policy">Privacy Policy</a></li>
+          <li><a class="footer-link" href="/terms">Terms of Service</a></li>
+          <li><a class="footer-link" href="/contact">Contact</a></li>
         </ul>
       </div>
     </div>

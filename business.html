@@ -13,14 +13,17 @@
 
   <!-- Twitter Card -->
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
-  <link rel="shortcut icon" href="assets/images/favicon.svg" />
-
-  <!-- Compiled Tailwind CSS -->
+<!-- Compiled Tailwind CSS -->
 <!-- Custom Styles -->
+
+
+<!-- Non-blocking local styles -->
+<link rel="preload" as="style" href="assets/css/tailwind.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+<link rel="preload" as="style" href="assets/css/style.css" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript>
   <link rel="stylesheet" href="assets/css/tailwind.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
+</noscript>
 <!-- SEO-ENHANCEMENT:START -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -125,6 +128,10 @@
 }
 </script>
 <!-- SEO-ENHANCEMENT:END -->
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 </head>
 <body>
 
@@ -135,17 +142,17 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
 
-      <a href="index.html" class="flex items-center gap-3 no-underline" style="text-decoration:none;">
+      <a class="flex items-center gap-3 no-underline" style="text-decoration:none;" href="/">
         <div class="pg-logo-mark">PG</div>
         <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
       </a>
 
       <nav class="hidden md:flex items-center gap-7">
-        <a href="index.html" class="nav-link" style="text-decoration:none;">Home</a>
-        <a href="technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
-        <a href="design.html" class="nav-link" style="text-decoration:none;">Design</a>
-        <a href="culture.html" class="nav-link" style="text-decoration:none; >Culture</a>
-        <a href="science.html" class="nav-link" style="text-decoration:none;">Science</a>
+        <a class="nav-link" style="text-decoration:none;" href="/">Home</a>
+        <a class="nav-link" style="text-decoration:none;" href="/technology">Technology</a>
+        <a class="nav-link" style="text-decoration:none;" href="/design">Design</a>
+        <a class="nav-link" style="text-decoration:none; href="/culture" >Culture</a>
+        <a class="nav-link" style="text-decoration:none;" href="/science">Science</a>
       </nav>
 
       <div class="flex items-center gap-4">
@@ -168,11 +175,11 @@
 
   <div id="mobile-menu">
     <div class="px-4 pb-4 pt-2 flex flex-col gap-1">
-      <a href="index.html" class="nav-link block py-2" style="text-decoration:none;">Home</a>
-      <a href="technology.html" class="nav-link block py-2" style="text-decoration:none;">Technology</a>
-      <a href="design.html" class="nav-link block py-2" style="text-decoration:none;">Design</a>
-      <a href="culture.html" class="nav-link block py-2" style="text-decoration:none; >Culture</a>
-      <a href="science.html" class="nav-link block py-2" style="text-decoration:none;">Science</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/">Home</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/technology">Technology</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/design">Design</a>
+      <a class="nav-link block py-2" style="text-decoration:none; href="/culture" >Culture</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/science">Science</a>
       <div class="relative mt-2">
         <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
@@ -232,87 +239,87 @@
       <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6" id="cat-article-grid">
 <!-- SEO-CATEGORY-CARDS:START -->
 <article class="article-card" data-id="035" data-category="Business">
-    <a href="articles/operator-economy-execution-moat/index.html" style="text-decoration:none;" aria-label="Read: The Operator Economy: Why Execution Is Becoming the New Competitive Moat">
+    <a style="text-decoration:none;" aria-label="Read: The Operator Economy: Why Execution Is Becoming the New Competitive Moat" href="/articles/operator-economy-execution-moat/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Operator Economy: Why Execution Is Becoming the New Competitive Moat" loading="lazy" width="480" height="300" />
+        <img alt="The Operator Economy: Why Execution Is Becoming the New Competitive Moat" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1556761175-b413da4baf72?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Business</span>
-      <h2 class="card-title"><a href="articles/operator-economy-execution-moat/index.html" style="text-decoration:none;color:inherit;">The Operator Economy: Why Execution Is Becoming the New Competitive Moat</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/operator-economy-execution-moat/">The Operator Economy: Why Execution Is Becoming the New Competitive Moat</a></h2>
       <p class="card-desc">AI made ideas cheaper than ever, so the rare business advantage is shifting toward operators who can turn clarity into disciplined execution.</p>
-      <a href="articles/operator-economy-execution-moat/index.html" class="btn-primary mt-4" aria-label="Read more: The Operator Economy: Why Execution Is Becoming the New Competitive Moat" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Operator Economy: Why Execution Is Becoming the New Competitive Moat</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Operator Economy: Why Execution Is Becoming the New Competitive Moat" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/operator-economy-execution-moat/">Read More<span class="sr-only">: The Operator Economy: Why Execution Is Becoming the New Competitive Moat</span></a>
     </div>
   </article>
 <article class="article-card" data-id="031" data-category="Business">
-    <a href="articles/rise-of-the-cfo-future-officer/index.html" style="text-decoration:none;" aria-label="Read: The Rise of the CFO as Chief Future Officer">
+    <a style="text-decoration:none;" aria-label="Read: The Rise of the CFO as Chief Future Officer" href="/articles/rise-of-the-cfo-future-officer/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Rise of the CFO as Chief Future Officer" loading="lazy" width="480" height="300" />
+        <img alt="The Rise of the CFO as Chief Future Officer" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Business</span>
-      <h2 class="card-title"><a href="articles/rise-of-the-cfo-future-officer/index.html" style="text-decoration:none;color:inherit;">The Rise of the CFO as Chief Future Officer</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/rise-of-the-cfo-future-officer/">The Rise of the CFO as Chief Future Officer</a></h2>
       <p class="card-desc">The modern CFO has evolved from scorekeeper to strategist — navigating AI disruption, geopolitical volatility, and the uncertain terrain of tomorrow's economy.</p>
-      <a href="articles/rise-of-the-cfo-future-officer/index.html" class="btn-primary mt-4" aria-label="Read more: The Rise of the CFO as Chief Future Officer" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Rise of the CFO as Chief Future Officer</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Rise of the CFO as Chief Future Officer" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/rise-of-the-cfo-future-officer/">Read More<span class="sr-only">: The Rise of the CFO as Chief Future Officer</span></a>
     </div>
   </article>
 <article class="article-card" data-id="029" data-category="Business">
-    <a href="articles/art-of-pricing-business-strategy/index.html" style="text-decoration:none;" aria-label="Read: The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make">
+    <a style="text-decoration:none;" aria-label="Read: The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make" href="/articles/art-of-pricing-business-strategy/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make" loading="lazy" width="480" height="300" />
+        <img alt="The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Business</span>
-      <h2 class="card-title"><a href="articles/art-of-pricing-business-strategy/index.html" style="text-decoration:none;color:inherit;">The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/art-of-pricing-business-strategy/">The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make</a></h2>
       <p class="card-desc">Most businesses treat pricing as a math problem. The best businesses treat it as a strategy — and the difference in outcomes is staggering.</p>
-      <a href="articles/art-of-pricing-business-strategy/index.html" class="btn-primary mt-4" aria-label="Read more: The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/art-of-pricing-business-strategy/">Read More<span class="sr-only">: The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make</span></a>
     </div>
   </article>
 <article class="article-card" data-id="022" data-category="Business">
-    <a href="articles/subscription-economy-recurring-revenue/index.html" style="text-decoration:none;" aria-label="Read: The Subscription Economy: How Recurring Revenue Is Reshaping Business Forever">
+    <a style="text-decoration:none;" aria-label="Read: The Subscription Economy: How Recurring Revenue Is Reshaping Business Forever" href="/articles/subscription-economy-recurring-revenue/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Subscription Economy: How Recurring Revenue Is Reshaping Business Forever" loading="lazy" width="480" height="300" />
+        <img alt="The Subscription Economy: How Recurring Revenue Is Reshaping Business Forever" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Business</span>
-      <h2 class="card-title"><a href="articles/subscription-economy-recurring-revenue/index.html" style="text-decoration:none;color:inherit;">The Subscription Economy: How Recurring Revenue Is Reshaping Business Forever</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/subscription-economy-recurring-revenue/">The Subscription Economy: How Recurring Revenue Is Reshaping Business Forever</a></h2>
       <p class="card-desc">From Netflix to SaaS empires — how the shift from ownership to access is rewriting the rules of how companies make money.</p>
-      <a href="articles/subscription-economy-recurring-revenue/index.html" class="btn-primary mt-4" aria-label="Read more: The Subscription Economy: How Recurring Revenue Is Reshaping Business Forever" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Subscription Economy: How Recurring Revenue Is Reshaping Business Forever</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Subscription Economy: How Recurring Revenue Is Reshaping Business Forever" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/subscription-economy-recurring-revenue/">Read More<span class="sr-only">: The Subscription Economy: How Recurring Revenue Is Reshaping Business Forever</span></a>
     </div>
   </article>
 <article class="article-card" data-id="017" data-category="Business">
-    <a href="articles/creator-economy-work/index.html" style="text-decoration:none;" aria-label="Read: Why the Creator Economy Is Rewriting the Rules of Work">
+    <a style="text-decoration:none;" aria-label="Read: Why the Creator Economy Is Rewriting the Rules of Work" href="/articles/creator-economy-work/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="Why the Creator Economy Is Rewriting the Rules of Work" loading="lazy" width="480" height="300" />
+        <img alt="Why the Creator Economy Is Rewriting the Rules of Work" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Business</span>
-      <h2 class="card-title"><a href="articles/creator-economy-work/index.html" style="text-decoration:none;color:inherit;">Why the Creator Economy Is Rewriting the Rules of Work</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/creator-economy-work/">Why the Creator Economy Is Rewriting the Rules of Work</a></h2>
       <p class="card-desc">More than 50 million people now call themselves creators. What happens when passion becomes profession at scale?</p>
-      <a href="articles/creator-economy-work/index.html" class="btn-primary mt-4" aria-label="Read more: Why the Creator Economy Is Rewriting the Rules of Work" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: Why the Creator Economy Is Rewriting the Rules of Work</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: Why the Creator Economy Is Rewriting the Rules of Work" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/creator-economy-work/">Read More<span class="sr-only">: Why the Creator Economy Is Rewriting the Rules of Work</span></a>
     </div>
   </article>
 <article class="article-card" data-id="010" data-category="Business">
-    <a href="articles/personal-branding-new-resume/index.html" style="text-decoration:none;" aria-label="Read: How Personal Branding Is Becoming the New Resume">
+    <a style="text-decoration:none;" aria-label="Read: How Personal Branding Is Becoming the New Resume" href="/articles/personal-branding-new-resume/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="How Personal Branding Is Becoming the New Resume" loading="lazy" width="480" height="300" />
+        <img alt="How Personal Branding Is Becoming the New Resume" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Business</span>
-      <h2 class="card-title"><a href="articles/personal-branding-new-resume/index.html" style="text-decoration:none;color:inherit;">How Personal Branding Is Becoming the New Resume</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/personal-branding-new-resume/">How Personal Branding Is Becoming the New Resume</a></h2>
       <p class="card-desc">In an era of radical visibility, how you show up online has become more powerful than any credential you can print on a traditional resume.</p>
-      <a href="articles/personal-branding-new-resume/index.html" class="btn-primary mt-4" aria-label="Read more: How Personal Branding Is Becoming the New Resume" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: How Personal Branding Is Becoming the New Resume</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: How Personal Branding Is Becoming the New Resume" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/personal-branding-new-resume/">Read More<span class="sr-only">: How Personal Branding Is Becoming the New Resume</span></a>
     </div>
   </article>
 <!-- SEO-CATEGORY-CARDS:END -->
@@ -357,12 +364,12 @@
       <div class="rounded-2xl p-6" style="background:#fff; border:1px solid var(--rule);">
         <div class="section-label mb-5" style="font-size:0.6875rem;">Browse Categories</div>
         <div class="flex flex-wrap gap-2">
-          <a href="technology.html" class="category-badge" style="text-decoration:none;">Technology</a>
-          <a href="design.html" class="category-badge" style="text-decoration:none; background:#f0f7ff; color:#2563eb; border-color:rgba(37,99,235,0.2);">Design</a>
-          <a href="science.html" class="category-badge" style="text-decoration:none; background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);">Science</a>
-          <a href="culture.html" class="category-badge" style="text-decoration:none; background:#fdf4ff; color:#9333ea; border-color:rgba(147,51,234,0.2);">Culture</a>
-          <a href="category/business/index.html" class="category-badge" style="text-decoration:none; background:#fff7ed; color:#ea580c; border-color:rgba(234,88,12,0.2);">Business</a>
-          <a href="category/health/index.html" class="category-badge" style="text-decoration:none; background:#fef2f2; color:#dc2626; border-color:rgba(220,38,38,0.2);">Health</a>
+          <a class="category-badge" style="text-decoration:none;" href="/technology">Technology</a>
+          <a class="category-badge" style="text-decoration:none; background:#f0f7ff; color:#2563eb; border-color:rgba(37,99,235,0.2);" href="/design">Design</a>
+          <a class="category-badge" style="text-decoration:none; background:#f0fdf4; color:#16a34a; border-color:rgba(22,163,74,0.2);" href="/science">Science</a>
+          <a class="category-badge" style="text-decoration:none; background:#fdf4ff; color:#9333ea; border-color:rgba(147,51,234,0.2);" href="/culture">Culture</a>
+          <a class="category-badge" style="text-decoration:none; background:#fff7ed; color:#ea580c; border-color:rgba(234,88,12,0.2);" href="/category/business/">Business</a>
+          <a class="category-badge" style="text-decoration:none; background:#fef2f2; color:#dc2626; border-color:rgba(220,38,38,0.2);" href="/category/health/">Health</a>
         </div>
       </div>
 
@@ -398,20 +405,20 @@
       <div>
         <h4 style="color:#fff; font-weight:600; font-size:0.8125rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem;">Navigate</h4>
         <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;">
-          <li><a href="index.html" class="footer-link">Home</a></li>
-          <li><a href="technology.html" class="footer-link">Technology</a></li>
-          <li><a href="design.html" class="footer-link">Design</a></li>
-          <li><a href="culture.html" class="footer-link">Culture</a></li>
-          <li><a href="science.html" class="footer-link">Science</a></li>
+          <li><a class="footer-link" href="/">Home</a></li>
+          <li><a class="footer-link" href="/technology">Technology</a></li>
+          <li><a class="footer-link" href="/design">Design</a></li>
+          <li><a class="footer-link" href="/culture">Culture</a></li>
+          <li><a class="footer-link" href="/science">Science</a></li>
         </ul>
       </div>
       <div>
         <h4 style="color:#fff; font-weight:600; font-size:0.8125rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem;">Company</h4>
                 <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;">
-          <li><a href="about.html" class="footer-link">About</a></li>
-          <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
-          <li><a href="terms.html" class="footer-link">Terms of Service</a></li>
-          <li><a href="contact.html" class="footer-link">Contact</a></li>
+          <li><a class="footer-link" href="/about">About</a></li>
+          <li><a class="footer-link" href="/privacy-policy">Privacy Policy</a></li>
+          <li><a class="footer-link" href="/terms">Terms of Service</a></li>
+          <li><a class="footer-link" href="/contact">Contact</a></li>
         </ul>
       </div>
     </div>

@@ -197,19 +197,26 @@ function removeManagedHead(html) {
 function replaceRuntimeTailwind(html, rel) {
   const depth = rel.split('/').length - 1;
   const prefix = depth ? '../'.repeat(depth) : '';
-  const stylesheet = `${prefix}assets/css/tailwind.min.css`;
+  const tailwind = `${prefix}assets/css/tailwind.min.css`;
+  const custom = `${prefix}assets/css/style.css`;
+  const stylesheetBlock = [
+    '<!-- Non-blocking local styles -->',
+    `<link rel="preload" as="style" href="${tailwind}" onload="this.onload=null;this.rel='stylesheet'" />`,
+    `<link rel="preload" as="style" href="${custom}" onload="this.onload=null;this.rel='stylesheet'" />`,
+    '<noscript>',
+    `  <link rel="stylesheet" href="${tailwind}" />`,
+    `  <link rel="stylesheet" href="${custom}" />`,
+    '</noscript>'
+  ].join('\n');
   html = html
     .replace(/\s*<script\b[^>]*src=["']https:\/\/cdn\.tailwindcss\.com["'][^>]*><\/script>\s*/gi, '\n')
     .replace(/\s*<script>\s*tailwind\.config\s*=[\s\S]*?<\/script>\s*/gi, '\n')
+    .replace(/\s*<!-- Non-blocking local styles -->[\s\S]*?<\/noscript>\s*/gi, '\n')
+    .replace(/\s*<noscript>\s*<link\b[^>]*assets\/css\/(?:tailwind\.min|style)\.css[^>]*>\s*(?:<link\b[^>]*assets\/css\/(?:tailwind\.min|style)\.css[^>]*>\s*)?<\/noscript>\s*/gi, '\n')
+    .replace(/\s*<link\b[^>]*href=["'][^"']*assets\/css\/(?:tailwind\.min|style)\.css["'][^>]*>\s*/gi, '\n')
     .replace(/<!--\s*Tailwind CSS \(CDN\)\s*-->/gi, '<!-- Compiled Tailwind CSS -->')
     .replace(/<!--\s*Tailwind CSS\s*-->/gi, '<!-- Compiled Tailwind CSS -->');
-  if (!html.includes('tailwind.min.css')) {
-    html = html.replace(
-      /(<link\b[^>]*href=["'][^"']*assets\/css\/style\.css["'][^>]*>)/i,
-      `<link rel="stylesheet" href="${stylesheet}" />\n  $1`
-    );
-  }
-  return html;
+  return html.replace('</head>', `${stylesheetBlock}\n</head>`);
 }
 
 function replaceTitle(html, title) {
@@ -239,10 +246,11 @@ function normalizeArticleDates() {
   }
 }
 
-function optimizeUnsplashImage(value, width, quality) {
+function optimizeUnsplashImage(value, width, height, quality) {
   if (!value || !value.includes('images.unsplash.com')) return value;
-  const imageUrl = new URL(value);
+  const imageUrl = new URL(value.replaceAll('&amp;', '&'));
   imageUrl.searchParams.set('w', String(width));
+  imageUrl.searchParams.set('h', String(height));
   imageUrl.searchParams.set('q', String(quality));
   imageUrl.searchParams.set('auto', 'format');
   imageUrl.searchParams.set('fit', 'crop');
@@ -252,8 +260,8 @@ function optimizeUnsplashImage(value, width, quality) {
 function normalizeArticleImages() {
   let changed = false;
   for (const article of articles) {
-    const image = optimizeUnsplashImage(article.image, 480, 62);
-    const imageLarge = optimizeUnsplashImage(article.imageLarge || article.image, 640, 62);
+    const image = optimizeUnsplashImage(article.image, 600, 375, 62);
+    const imageLarge = optimizeUnsplashImage(article.imageLarge || article.image, 800, 500, 62);
     if (image !== article.image) {
       article.image = image;
       changed = true;
@@ -266,6 +274,103 @@ function normalizeArticleImages() {
   if (changed) {
     fs.writeFileSync(articlesFile, `${JSON.stringify(articleData, null, 2)}\n`);
   }
+}
+
+function setTagAttribute(tag, name, value) {
+  const pattern = new RegExp(`\\s+${name}=["'][^"']*["']`, 'i');
+  const next = tag.replace(pattern, '');
+  return next.replace(/\s*\/?>$/, (ending) => ` ${name}="${escapeHtml(value)}"${ending}`);
+}
+
+function responsiveWidths(width) {
+  const candidates = width >= 1000
+    ? [480, 768, width]
+    : width >= 600
+      ? [320, 480, width]
+      : [Math.min(240, width), width];
+  return [...new Set(candidates.filter((candidate) => candidate > 0 && candidate <= width))];
+}
+
+function imageSizes(tag, width) {
+  if (/\barticle-header-img\b/i.test(tag)) return '(max-width: 768px) 100vw, 896px';
+  if (/\bfetchpriority=["']high["']/i.test(tag)) return '(max-width: 1023px) 100vw, 50vw';
+  if (width <= 600) return '(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw';
+  return `(max-width: ${width}px) 100vw, ${width}px`;
+}
+
+function enhanceResponsiveImages(html) {
+  return html.replace(/<img\b[^>]*>/gi, (tag) => {
+    const srcMatch = tag.match(/\bsrc=["']([^"']+)["']/i);
+    const widthMatch = tag.match(/\bwidth=["'](\d+)["']/i);
+    const heightMatch = tag.match(/\bheight=["'](\d+)["']/i);
+    if (!srcMatch || !widthMatch || !heightMatch || !srcMatch[1].includes('images.unsplash.com')) return tag;
+
+    const width = Number(widthMatch[1]);
+    const height = Number(heightMatch[1]);
+    const ratio = height / width;
+    const qualityMatch = srcMatch[1].replaceAll('&amp;', '&').match(/[?&]q=(\d+)/);
+    const quality = qualityMatch ? Number(qualityMatch[1]) : 70;
+    const src = optimizeUnsplashImage(srcMatch[1], width, height, quality);
+    const srcset = responsiveWidths(width)
+      .map((candidateWidth) => {
+        const candidateHeight = Math.max(1, Math.round(candidateWidth * ratio));
+        return `${optimizeUnsplashImage(src, candidateWidth, candidateHeight, quality)} ${candidateWidth}w`;
+      })
+      .join(', ');
+
+    let next = setTagAttribute(tag, 'src', src);
+    next = setTagAttribute(next, 'srcset', srcset);
+    next = setTagAttribute(next, 'sizes', imageSizes(tag, width));
+    return next;
+  });
+}
+
+function normalizeFavicons(html) {
+  const block = [
+    '<!-- Favicon -->',
+    '<link rel="icon" href="/favicon.ico" sizes="any" />',
+    '<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />',
+    '<link rel="apple-touch-icon" href="/apple-touch-icon.png" />'
+  ].join('\n');
+  return html
+    .replace(/\s*<!-- Favicon -->\s*/gi, '\n')
+    .replace(/\s*<link\b(?=[^>]*\brel=["'][^"']*(?:icon|apple-touch-icon)[^"']*["'])[^>]*>\s*/gi, '\n')
+    .replace('</head>', `${block}\n</head>`);
+}
+
+function cleanInternalHref(href, rel) {
+  if (!href || /^(?:https?:|mailto:|tel:|javascript:|data:|#|\/\/)/i.test(href)) return href;
+  const match = href.match(/^([^?#]*)(.*)$/);
+  const pathname = match ? match[1] : href;
+  const suffix = match ? match[2] : '';
+  if (!/\.html$/i.test(pathname)) return href;
+
+  const baseDir = path.posix.dirname(`/${rel}`);
+  const resolved = pathname.startsWith('/')
+    ? path.posix.normalize(pathname)
+    : path.posix.normalize(path.posix.join(baseDir, pathname));
+  const targetRel = resolved.replace(/^\/+/, '');
+  const metadata = pageMetadata[targetRel];
+  let cleanPath;
+
+  if (metadata) {
+    cleanPath = new URL(metadata.canonical).pathname;
+  } else if (/\/index\.html$/i.test(resolved)) {
+    cleanPath = resolved.replace(/index\.html$/i, '');
+  } else {
+    cleanPath = resolved.replace(/\.html$/i, '');
+  }
+
+  return `${cleanPath || '/'}${suffix}`;
+}
+
+function normalizeInternalLinks(html, rel) {
+  return html.replace(/<a\b[^>]*>/gi, (tag) => {
+    const hrefMatch = tag.match(/\bhref=["']([^"']*)["']/i);
+    if (!hrefMatch) return tag;
+    const cleanHref = cleanInternalHref(hrefMatch[1], rel);
+    return cleanHref === hrefMatch[1] ? tag : setTagAttribute(tag, 'href', cleanHref);
+  });
 }
 
 function gitModified(file, fallback) {
@@ -514,6 +619,9 @@ function processArticle(file, rel) {
     return `<img${next}>`;
   });
   html = renderStaticRelatedLinks(html, article);
+  html = enhanceResponsiveImages(html);
+  html = normalizeFavicons(html);
+  html = normalizeInternalLinks(html, rel);
   fs.writeFileSync(file, html);
 }
 
@@ -537,6 +645,9 @@ function processStandardPage(file, rel) {
   if (meta.category) {
     html = renderCategoryFallback(html, rel, meta.category);
   }
+  html = enhanceResponsiveImages(html);
+  html = normalizeFavicons(html);
+  html = normalizeInternalLinks(html, rel);
   fs.writeFileSync(file, html);
 }
 
@@ -570,7 +681,7 @@ function categoryArticleCard(article, prefix) {
   return `<article class="article-card" data-id="${escapeHtml(article.id)}" data-category="${escapeHtml(article.category)}">
     <a href="${url}" style="text-decoration:none;" aria-label="Read: ${escapeHtml(article.title)}">
       <div class="card-thumb">
-        <img src="${escapeHtml(optimizeUnsplashImage(article.image, 480, 62))}" alt="${escapeHtml(article.title)}" loading="lazy" width="480" height="300" />
+        <img src="${escapeHtml(optimizeUnsplashImage(article.image, 480, 300, 62))}" alt="${escapeHtml(article.title)}" loading="lazy" width="480" height="300" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -641,6 +752,9 @@ function processExcluded(file, rel) {
   let html = fs.readFileSync(file, 'utf8');
   html = replaceRuntimeTailwind(html, rel);
   if (rel === '404.html') {
+    html = enhanceResponsiveImages(html);
+    html = normalizeFavicons(html);
+    html = normalizeInternalLinks(html, rel);
     fs.writeFileSync(file, html);
     return;
   }
@@ -648,6 +762,9 @@ function processExcluded(file, rel) {
   if (!/<meta\b[^>]*name=["']robots["']/i.test(html)) {
     html = html.replace('</title>', '</title>\n  <meta name="robots" content="noindex, nofollow" />');
   }
+  html = enhanceResponsiveImages(html);
+  html = normalizeFavicons(html);
+  html = normalizeInternalLinks(html, rel);
   fs.writeFileSync(file, html);
 }
 
@@ -656,7 +773,7 @@ function articleCard(article) {
   return `<article class="article-card" data-id="${escapeHtml(article.id)}" data-category="${escapeHtml(article.category)}">
     <a href="${url}" style="text-decoration:none;" aria-label="Read: ${escapeHtml(article.title)}">
       <div class="card-thumb">
-        <img src="${escapeHtml(optimizeUnsplashImage(article.image, 480, 62))}" alt="${escapeHtml(article.title)}" loading="lazy" width="480" height="300" />
+        <img src="${escapeHtml(optimizeUnsplashImage(article.image, 480, 300, 62))}" alt="${escapeHtml(article.title)}" loading="lazy" width="480" height="300" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -674,7 +791,7 @@ function renderHomepageFallback() {
   let html = fs.readFileSync(file, 'utf8');
   const featured = articles[0];
   const featureUrl = `articles/${featured.slug}/index.html`;
-  const heroImage = optimizeUnsplashImage(featured.imageLarge || featured.image, 640, 62);
+  const heroImage = optimizeUnsplashImage(featured.imageLarge || featured.image, 640, 400, 62);
   const hero = `<section class="hero-gradient" id="featured-section" aria-label="Featured Story">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -703,6 +820,9 @@ function renderHomepageFallback() {
   }
   const cards = articles.slice(1, 7).map(articleCard).join('\n');
   html = html.replace(/(<div id="article-grid"[^>]*>)[\s\S]*?(<\/div>\s*\n\s*<!-- Load More)/i, `$1\n${cards}\n        $2`);
+  html = enhanceResponsiveImages(html);
+  html = normalizeFavicons(html);
+  html = normalizeInternalLinks(html, 'index.html');
   fs.writeFileSync(file, html);
 }
 

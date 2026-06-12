@@ -15,20 +15,24 @@
 
   <!-- Canonical -->
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg" />
-  <link rel="shortcut icon" href="../../assets/images/favicon.svg" />
-
-  <!-- Compiled Tailwind CSS -->
+<!-- Compiled Tailwind CSS -->
 <!-- Custom Styles -->
-  <link rel="stylesheet" href="../../assets/css/tailwind.min.css" />
-  <link rel="stylesheet" href="../../assets/css/style.css" />
+
 <!-- Category accent colour override -->
   <style>
     :root { --cat-bg:#fef2f2; --cat-color:#dc2626; --cat-border:rgba(220,38,38,0.2); }
     .cat-hero-accent { color: #dc2626; }
     .cat-tag { background:rgba(220,38,38,0.15); border-color:rgba(220,38,38,0.4); color:#dc2626; }
   </style>
+
+
+<!-- Non-blocking local styles -->
+<link rel="preload" as="style" href="../../assets/css/tailwind.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+<link rel="preload" as="style" href="../../assets/css/style.css" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript>
+  <link rel="stylesheet" href="../../assets/css/tailwind.min.css" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</noscript>
 <!-- SEO-ENHANCEMENT:START -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -133,6 +137,10 @@
 }
 </script>
 <!-- SEO-ENHANCEMENT:END -->
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 </head>
 <body>
 
@@ -143,17 +151,17 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center h-16" style="position:relative;">
 
-      <a href="../../index.html" class="flex items-center gap-3" style="text-decoration:none;flex-shrink:0;">
+      <a class="flex items-center gap-3" style="text-decoration:none;flex-shrink:0;" href="/">
         <div class="pg-logo-mark">PG</div>
         <span class="font-display font-semibold text-lg" style="color:var(--ink);letter-spacing:-0.02em;">Putera Gani</span>
       </a>
 
       <nav class="hidden md:flex items-center gap-7" style="position:absolute;left:50%;transform:translateX(-50%);">
-        <a href="../../index.html"      class="nav-link" style="text-decoration:none;">Home</a>
-        <a href="../../technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
-        <a href="../../design.html"     class="nav-link" style="text-decoration:none;">Design</a>
-        <a href="../../culture.html"    class="nav-link" style="text-decoration:none;">Culture</a>
-        <a href="../../science.html"    class="nav-link" style="text-decoration:none;">Science</a>
+        <a      class="nav-link" style="text-decoration:none;" href="/">Home</a>
+        <a class="nav-link" style="text-decoration:none;" href="/technology">Technology</a>
+        <a     class="nav-link" style="text-decoration:none;" href="/design">Design</a>
+        <a    class="nav-link" style="text-decoration:none;" href="/culture">Culture</a>
+        <a    class="nav-link" style="text-decoration:none;" href="/science">Science</a>
       </nav>
 
       <div class="flex items-center gap-4" style="margin-left:auto;">
@@ -174,11 +182,11 @@
 
   <div id="mobile-menu">
     <div class="px-4 pb-4 pt-2 flex flex-col gap-1">
-      <a href="../../index.html"      class="nav-link block py-2" style="text-decoration:none;">Home</a>
-      <a href="../../technology.html" class="nav-link block py-2" style="text-decoration:none;">Technology</a>
-      <a href="../../design.html"     class="nav-link block py-2" style="text-decoration:none;">Design</a>
-      <a href="../../culture.html"    class="nav-link block py-2" style="text-decoration:none;">Culture</a>
-      <a href="../../science.html"    class="nav-link block py-2" style="text-decoration:none;">Science</a>
+      <a      class="nav-link block py-2" style="text-decoration:none;" href="/">Home</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/technology">Technology</a>
+      <a     class="nav-link block py-2" style="text-decoration:none;" href="/design">Design</a>
+      <a    class="nav-link block py-2" style="text-decoration:none;" href="/culture">Culture</a>
+      <a    class="nav-link block py-2" style="text-decoration:none;" href="/science">Science</a>
       <div class="relative mt-2">
         <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
@@ -196,7 +204,7 @@
 <nav aria-label="Breadcrumb" style="background:var(--paper-warm);border-bottom:1px solid var(--rule);">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
     <ol style="display:flex;align-items:center;gap:0.5rem;list-style:none;padding:0;margin:0;font-size:0.8rem;color:var(--ink-muted);">
-      <li><a href="../../index.html" style="text-decoration:none;color:var(--ink-muted);transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--ink-muted)'">Home</a></li>
+      <li><a style="text-decoration:none;color:var(--ink-muted);transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--ink-muted)'" href="/">Home</a></li>
       <li aria-hidden="true" style="opacity:0.4;">
         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
       </li>
@@ -261,73 +269,73 @@
            aria-live="polite" aria-label="Health articles">
 <!-- SEO-CATEGORY-CARDS:START -->
 <article class="article-card" data-id="034" data-category="Health">
-    <a href="../../articles/inflammation-equation-chronic-disease/index.html" style="text-decoration:none;" aria-label="Read: The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing">
+    <a style="text-decoration:none;" aria-label="Read: The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing" href="/articles/inflammation-equation-chronic-disease/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing" loading="lazy" width="480" height="300" />
+        <img alt="The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Health</span>
-      <h2 class="card-title"><a href="../../articles/inflammation-equation-chronic-disease/index.html" style="text-decoration:none;color:inherit;">The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/inflammation-equation-chronic-disease/">The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing</a></h2>
       <p class="card-desc">Chronic inflammation silently drives 60% of deaths worldwide — from heart disease to depression. Here is what the new science reveals about getting older.</p>
-      <a href="../../articles/inflammation-equation-chronic-disease/index.html" class="btn-primary mt-4" aria-label="Read more: The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/inflammation-equation-chronic-disease/">Read More<span class="sr-only">: The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing</span></a>
     </div>
   </article>
 <article class="article-card" data-id="025" data-category="Health">
-    <a href="../../articles/longevity-code-living-longer/index.html" style="text-decoration:none;" aria-label="Read: The Longevity Code: What Science Now Knows About Living Longer and Better">
+    <a style="text-decoration:none;" aria-label="Read: The Longevity Code: What Science Now Knows About Living Longer and Better" href="/articles/longevity-code-living-longer/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Longevity Code: What Science Now Knows About Living Longer and Better" loading="lazy" width="480" height="300" />
+        <img alt="The Longevity Code: What Science Now Knows About Living Longer and Better" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Health</span>
-      <h2 class="card-title"><a href="../../articles/longevity-code-living-longer/index.html" style="text-decoration:none;color:inherit;">The Longevity Code: What Science Now Knows About Living Longer and Better</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/longevity-code-living-longer/">The Longevity Code: What Science Now Knows About Living Longer and Better</a></h2>
       <p class="card-desc">From senolytics to Blue Zone blueprints — the cutting-edge biology of aging and what it means for how long you live.</p>
-      <a href="../../articles/longevity-code-living-longer/index.html" class="btn-primary mt-4" aria-label="Read more: The Longevity Code: What Science Now Knows About Living Longer and Better" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Longevity Code: What Science Now Knows About Living Longer and Better</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Longevity Code: What Science Now Knows About Living Longer and Better" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/longevity-code-living-longer/">Read More<span class="sr-only">: The Longevity Code: What Science Now Knows About Living Longer and Better</span></a>
     </div>
   </article>
 <article class="article-card" data-id="021" data-category="Health">
-    <a href="../../articles/gut-health-second-brain/index.html" style="text-decoration:none;" aria-label="Read: Gut Health: Why Your Second Brain May Be Running Your Life">
+    <a style="text-decoration:none;" aria-label="Read: Gut Health: Why Your Second Brain May Be Running Your Life" href="/articles/gut-health-second-brain/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="Gut Health: Why Your Second Brain May Be Running Your Life" loading="lazy" width="480" height="300" />
+        <img alt="Gut Health: Why Your Second Brain May Be Running Your Life" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Health</span>
-      <h2 class="card-title"><a href="../../articles/gut-health-second-brain/index.html" style="text-decoration:none;color:inherit;">Gut Health: Why Your Second Brain May Be Running Your Life</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/gut-health-second-brain/">Gut Health: Why Your Second Brain May Be Running Your Life</a></h2>
       <p class="card-desc">Inside the gut-brain axis — how 100 trillion microbes quietly shape your mood, immunity, and mental health.</p>
-      <a href="../../articles/gut-health-second-brain/index.html" class="btn-primary mt-4" aria-label="Read more: Gut Health: Why Your Second Brain May Be Running Your Life" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: Gut Health: Why Your Second Brain May Be Running Your Life</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: Gut Health: Why Your Second Brain May Be Running Your Life" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/gut-health-second-brain/">Read More<span class="sr-only">: Gut Health: Why Your Second Brain May Be Running Your Life</span></a>
     </div>
   </article>
 <article class="article-card" data-id="011" data-category="Health">
-    <a href="../../articles/memahami-kecerdasan-emosional/index.html" style="text-decoration:none;" aria-label="Read: Understanding Emotional Intelligence: The Science Behind Feeling">
+    <a style="text-decoration:none;" aria-label="Read: Understanding Emotional Intelligence: The Science Behind Feeling" href="/articles/memahami-kecerdasan-emosional/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="Understanding Emotional Intelligence: The Science Behind Feeling" loading="lazy" width="480" height="300" />
+        <img alt="Understanding Emotional Intelligence: The Science Behind Feeling" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Health</span>
-      <h2 class="card-title"><a href="../../articles/memahami-kecerdasan-emosional/index.html" style="text-decoration:none;color:inherit;">Understanding Emotional Intelligence: The Science Behind Feeling</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/memahami-kecerdasan-emosional/">Understanding Emotional Intelligence: The Science Behind Feeling</a></h2>
       <p class="card-desc">EQ isn't a buzzword — it's a measurable set of skills that shapes your relationships, career, and wellbeing. Here's what the science actually says.</p>
-      <a href="../../articles/memahami-kecerdasan-emosional/index.html" class="btn-primary mt-4" aria-label="Read more: Understanding Emotional Intelligence: The Science Behind Feeling" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: Understanding Emotional Intelligence: The Science Behind Feeling</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: Understanding Emotional Intelligence: The Science Behind Feeling" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/memahami-kecerdasan-emosional/">Read More<span class="sr-only">: Understanding Emotional Intelligence: The Science Behind Feeling</span></a>
     </div>
   </article>
 <article class="article-card" data-id="008" data-category="Health">
-    <a href="../../articles/mental-health-technology/index.html" style="text-decoration:none;" aria-label="Read: The Quiet Revolution in Mental Health Technology">
+    <a style="text-decoration:none;" aria-label="Read: The Quiet Revolution in Mental Health Technology" href="/articles/mental-health-technology/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Quiet Revolution in Mental Health Technology" loading="lazy" width="480" height="300" />
+        <img alt="The Quiet Revolution in Mental Health Technology" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1559757175-5700dde675bc?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Health</span>
-      <h2 class="card-title"><a href="../../articles/mental-health-technology/index.html" style="text-decoration:none;color:inherit;">The Quiet Revolution in Mental Health Technology</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none;color:inherit;" href="/articles/mental-health-technology/">The Quiet Revolution in Mental Health Technology</a></h2>
       <p class="card-desc">Smartphone apps and AI therapists are changing access to mental healthcare — but at what cost to human connection?</p>
-      <a href="../../articles/mental-health-technology/index.html" class="btn-primary mt-4" aria-label="Read more: The Quiet Revolution in Mental Health Technology" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Quiet Revolution in Mental Health Technology</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Quiet Revolution in Mental Health Technology" style="width:fit-content;font-size:0.75rem;padding:0.5rem 1.1rem;" href="/articles/mental-health-technology/">Read More<span class="sr-only">: The Quiet Revolution in Mental Health Technology</span></a>
     </div>
   </article>
 <!-- SEO-CATEGORY-CARDS:END -->
@@ -398,20 +406,20 @@
       <div>
         <h4 style="color:#fff;font-weight:600;font-size:0.8125rem;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1rem;">Navigate</h4>
         <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.6rem;">
-          <li><a href="../../index.html"      class="footer-link">Home</a></li>
-          <li><a href="../../technology.html" class="footer-link">Technology</a></li>
-          <li><a href="../../design.html"     class="footer-link">Design</a></li>
-          <li><a href="../../culture.html"    class="footer-link">Culture</a></li>
-          <li><a href="../../science.html"    class="footer-link">Science</a></li>
+          <li><a      class="footer-link" href="/">Home</a></li>
+          <li><a class="footer-link" href="/technology">Technology</a></li>
+          <li><a     class="footer-link" href="/design">Design</a></li>
+          <li><a    class="footer-link" href="/culture">Culture</a></li>
+          <li><a    class="footer-link" href="/science">Science</a></li>
         </ul>
       </div>
       <div>
         <h4 style="color:#fff;font-weight:600;font-size:0.8125rem;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1rem;">Company</h4>
         <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.6rem;">
-          <li><a href="../../about.html"          class="footer-link">About</a></li>
-          <li><a href="../../privacy-policy.html" class="footer-link">Privacy Policy</a></li>
-          <li><a href="../../terms.html"          class="footer-link">Terms of Service</a></li>
-          <li><a href="../../contact.html"        class="footer-link">Contact</a></li>
+          <li><a          class="footer-link" href="/about">About</a></li>
+          <li><a class="footer-link" href="/privacy-policy">Privacy Policy</a></li>
+          <li><a          class="footer-link" href="/terms">Terms of Service</a></li>
+          <li><a        class="footer-link" href="/contact">Contact</a></li>
         </ul>
       </div>
     </div>

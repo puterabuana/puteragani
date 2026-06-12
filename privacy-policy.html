@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy and Data Use | Putera Gani</title>
   <meta name="robots" content="index, follow" />
-  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
-  <link rel="shortcut icon" href="assets/images/favicon.svg" />
-<link rel="stylesheet" href="assets/css/tailwind.min.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+
 <style>
     .page-content { max-width: 760px; margin: 0 auto; }
     .page-content h2 {
@@ -43,6 +40,15 @@
     }
     .divider { height: 1px; background: var(--rule); margin: 2.5rem 0; }
   </style>
+
+
+<!-- Non-blocking local styles -->
+<link rel="preload" as="style" href="assets/css/tailwind.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+<link rel="preload" as="style" href="assets/css/style.css" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript>
+  <link rel="stylesheet" href="assets/css/tailwind.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</noscript>
 <!-- SEO-ENHANCEMENT:START -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -143,21 +149,25 @@
 }
 </script>
 <!-- SEO-ENHANCEMENT:END -->
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 </head>
 <body>
 <header class="navbar" id="navbar">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
-      <a href="index.html" class="flex items-center gap-3 no-underline" style="text-decoration:none;">
+      <a class="flex items-center gap-3 no-underline" style="text-decoration:none;" href="/">
         <div class="pg-logo-mark">PG</div>
         <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
       </a>
       <nav class="hidden md:flex items-center gap-7">
-        <a href="index.html" class="nav-link" style="text-decoration:none;">Home</a>
-        <a href="technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
-        <a href="design.html" class="nav-link" style="text-decoration:none;">Design</a>
-        <a href="culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
-        <a href="science.html" class="nav-link" style="text-decoration:none;">Science</a>
+        <a class="nav-link" style="text-decoration:none;" href="/">Home</a>
+        <a class="nav-link" style="text-decoration:none;" href="/technology">Technology</a>
+        <a class="nav-link" style="text-decoration:none;" href="/design">Design</a>
+        <a class="nav-link" style="text-decoration:none;" href="/culture">Culture</a>
+        <a class="nav-link" style="text-decoration:none;" href="/science">Science</a>
       </nav>
       <div class="flex items-center gap-4">
         <button id="menu-btn" class="md:hidden p-2 rounded-lg" style="background:var(--paper-warm); border:1px solid var(--rule);" aria-label="Toggle menu">
@@ -171,11 +181,11 @@
   </div>
   <div id="mobile-menu">
     <div class="px-4 pb-4 pt-2 flex flex-col gap-1">
-      <a href="index.html" class="nav-link block py-2" style="text-decoration:none;">Home</a>
-      <a href="technology.html" class="nav-link block py-2" style="text-decoration:none;">Technology</a>
-      <a href="design.html" class="nav-link block py-2" style="text-decoration:none;">Design</a>
-      <a href="culture.html" class="nav-link block py-2" style="text-decoration:none;">Culture</a>
-      <a href="science.html" class="nav-link block py-2" style="text-decoration:none;">Science</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/">Home</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/technology">Technology</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/design">Design</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/culture">Culture</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/science">Science</a>
     </div>
   </div>
 </header>
@@ -245,20 +255,20 @@
       <div>
         <h4 style="color:#fff; font-weight:600; font-size:0.8125rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem;">Navigate</h4>
         <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;">
-          <li><a href="index.html" class="footer-link">Home</a></li>
-          <li><a href="technology.html" class="footer-link">Technology</a></li>
-          <li><a href="design.html" class="footer-link">Design</a></li>
-          <li><a href="culture.html" class="footer-link">Culture</a></li>
-          <li><a href="science.html" class="footer-link">Science</a></li>
+          <li><a class="footer-link" href="/">Home</a></li>
+          <li><a class="footer-link" href="/technology">Technology</a></li>
+          <li><a class="footer-link" href="/design">Design</a></li>
+          <li><a class="footer-link" href="/culture">Culture</a></li>
+          <li><a class="footer-link" href="/science">Science</a></li>
         </ul>
       </div>
       <div>
         <h4 style="color:#fff; font-weight:600; font-size:0.8125rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem;">Company</h4>
         <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;">
-          <li><a href="about.html" class="footer-link">About</a></li>
-          <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
-          <li><a href="terms.html" class="footer-link">Terms of Service</a></li>
-          <li><a href="contact.html" class="footer-link">Contact</a></li>
+          <li><a class="footer-link" href="/about">About</a></li>
+          <li><a class="footer-link" href="/privacy-policy">Privacy Policy</a></li>
+          <li><a class="footer-link" href="/terms">Terms of Service</a></li>
+          <li><a class="footer-link" href="/contact">Contact</a></li>
         </ul>
       </div>
     </div>

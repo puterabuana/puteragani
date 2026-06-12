@@ -17,14 +17,15 @@
 
   <!-- Twitter Card -->
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
-  <link rel="shortcut icon" href="assets/images/favicon.svg" />
-
-  <!-- Compiled Tailwind CSS -->
+<!-- Compiled Tailwind CSS -->
 <!-- Custom Styles -->
+<!-- Non-blocking local styles -->
+<link rel="preload" as="style" href="assets/css/tailwind.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+<link rel="preload" as="style" href="assets/css/style.css" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript>
   <link rel="stylesheet" href="assets/css/tailwind.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
+</noscript>
 <!-- SEO-ENHANCEMENT:START -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -104,7 +105,13 @@
 }
 </script>
 <!-- SEO-ENHANCEMENT:END -->
-<link rel="preload" as="image" href="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=640&amp;q=62&amp;auto=format&amp;fit=crop" fetchpriority="high" data-homepage-hero-preload />
+
+
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=640&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=400" fetchpriority="high" data-homepage-hero-preload />
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 </head>
 <body>
 
@@ -116,18 +123,18 @@
     <div class="flex items-center justify-between h-16">
 
       <!-- Logo + Brand -->
-      <a href="index.html" class="flex items-center gap-3 no-underline" style="text-decoration:none;">
+      <a class="flex items-center gap-3 no-underline" style="text-decoration:none;" href="/">
         <div class="pg-logo-mark">PG</div>
         <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
       </a>
 
       <!-- Desktop Nav Links -->
       <nav class="hidden md:flex items-center gap-7">
-        <a href="index.html" class="nav-link" style="text-decoration:none;">Home</a>
-        <a href="technology.html" class="nav-link" style="text-decoration:none;">Technology</a>
-        <a href="design.html" class="nav-link" style="text-decoration:none;">Design</a>
-        <a href="culture.html" class="nav-link" style="text-decoration:none;">Culture</a>
-        <a href="science.html" class="nav-link" style="text-decoration:none;">Science</a>
+        <a class="nav-link" style="text-decoration:none;" href="/">Home</a>
+        <a class="nav-link" style="text-decoration:none;" href="/technology">Technology</a>
+        <a class="nav-link" style="text-decoration:none;" href="/design">Design</a>
+        <a class="nav-link" style="text-decoration:none;" href="/culture">Culture</a>
+        <a class="nav-link" style="text-decoration:none;" href="/science">Science</a>
       </nav>
 
       <!-- Right side: Search + Mobile buttons -->
@@ -177,11 +184,11 @@
   <!-- Mobile Menu -->
   <div id="mobile-menu">
     <div class="px-4 pb-4 pt-2 flex flex-col gap-1">
-      <a href="index.html" class="nav-link block py-2" style="text-decoration:none;">Home</a>
-      <a href="technology.html" class="nav-link block py-2" style="text-decoration:none;">Technology</a>
-      <a href="design.html" class="nav-link block py-2" style="text-decoration:none;">Design</a>
-      <a href="culture.html" class="nav-link block py-2" style="text-decoration:none;">Culture</a>
-      <a href="science.html" class="nav-link block py-2" style="text-decoration:none;">Science</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/">Home</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/technology">Technology</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/design">Design</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/culture">Culture</a>
+      <a class="nav-link block py-2" style="text-decoration:none;" href="/science">Science</a>
     </div>
   </div>
 </header>
@@ -230,7 +237,7 @@
       <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.75rem;">
         <div>
           <p id="search-overlay-label" style="font-family:'DM Mono',monospace; font-size:0.65rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:0.3rem;">Search Results</p>
-          <h2 id="search-overlay-title" style="font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700; color:var(--ink); letter-spacing:-0.02em;"></h2>
+          <h2 id="search-overlay-title" style="font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700; color:var(--ink); letter-spacing:-0.02em;">Search results</h2>
         </div>
         <button id="search-overlay-close" aria-label="Close search results" style="display:flex; align-items:center; gap:0.5rem; padding:0.45rem 1rem; background:transparent; border:1.5px solid var(--rule); border-radius:50px; font-size:0.75rem; font-weight:600; color:var(--ink-soft); cursor:pointer; font-family:'DM Sans',sans-serif; transition:all 0.22s ease; white-space:nowrap;">
           <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -271,10 +278,10 @@
           <div class="hero-tag mb-5">Featured Story</div>
           <h2 class="font-display text-white mb-5 leading-tight" style="font-size:clamp(2rem,4vw,3rem); font-weight:700; letter-spacing:-0.02em;">The Operator Economy: Why Execution Is Becoming the New Competitive Moat</h2>
           <p class="text-base mb-8" style="color:rgba(255,255,255,0.65); line-height:1.75; max-width:520px;">AI made ideas cheaper than ever, so the rare business advantage is shifting toward operators who can turn clarity into disciplined execution.</p>
-          <a href="articles/operator-economy-execution-moat/index.html" class="btn-accent">Read Story</a>
+          <a class="btn-accent" href="/articles/operator-economy-execution-moat/">Read Story</a>
         </div>
         <div class="hero-img-wrap" style="height:420px;">
-          <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=640&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Operator Economy: Why Execution Is Becoming the New Competitive Moat" width="640" height="400" fetchpriority="high" decoding="async" />
+          <img alt="The Operator Economy: Why Execution Is Becoming the New Competitive Moat" width="640" height="400" fetchpriority="high" decoding="async" src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=640&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=400" srcset="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1556761175-b413da4baf72?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w, https://images.unsplash.com/photo-1556761175-b413da4baf72?w=640&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=400 640w" sizes="(max-width: 1023px) 100vw, 50vw" />
           <div class="hero-img-overlay"></div>
         </div>
       </div>
@@ -301,87 +308,87 @@
         <!-- Article Grid — rendered from JSON -->
         <div id="article-grid" class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
 <article class="article-card" data-id="034" data-category="Health">
-    <a href="articles/inflammation-equation-chronic-disease/index.html" style="text-decoration:none;" aria-label="Read: The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing">
+    <a style="text-decoration:none;" aria-label="Read: The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing" href="/articles/inflammation-equation-chronic-disease/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing" loading="lazy" width="480" height="300" />
+        <img alt="The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Health</span>
-      <h2 class="card-title"><a href="articles/inflammation-equation-chronic-disease/index.html" style="text-decoration:none; color:inherit;">The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none; color:inherit;" href="/articles/inflammation-equation-chronic-disease/">The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing</a></h2>
       <p class="card-desc">Chronic inflammation silently drives 60% of deaths worldwide — from heart disease to depression. Here is what the new science reveals about getting older.</p>
-      <a href="articles/inflammation-equation-chronic-disease/index.html" class="btn-primary mt-4" aria-label="Read more: The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;" href="/articles/inflammation-equation-chronic-disease/">Read More<span class="sr-only">: The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing</span></a>
     </div>
   </article>
 <article class="article-card" data-id="033" data-category="Design">
-    <a href="articles/white-space-manifesto-design/index.html" style="text-decoration:none;" aria-label="Read: The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design">
+    <a style="text-decoration:none;" aria-label="Read: The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design" href="/articles/white-space-manifesto-design/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design" loading="lazy" width="480" height="300" />
+        <img alt="The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Design</span>
-      <h2 class="card-title"><a href="articles/white-space-manifesto-design/index.html" style="text-decoration:none; color:inherit;">The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none; color:inherit;" href="/articles/white-space-manifesto-design/">The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design</a></h2>
       <p class="card-desc">Empty space isn't wasted space — it's the silent architecture that makes everything else legible, trustworthy, and worth looking at.</p>
-      <a href="articles/white-space-manifesto-design/index.html" class="btn-primary mt-4" aria-label="Read more: The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;" href="/articles/white-space-manifesto-design/">Read More<span class="sr-only">: The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design</span></a>
     </div>
   </article>
 <article class="article-card" data-id="032" data-category="Culture">
-    <a href="articles/the-lost-art-of-silence/index.html" style="text-decoration:none;" aria-label="Read: The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten">
+    <a style="text-decoration:none;" aria-label="Read: The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten" href="/articles/the-lost-art-of-silence/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten" loading="lazy" width="480" height="300" />
+        <img alt="The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Culture</span>
-      <h2 class="card-title"><a href="articles/the-lost-art-of-silence/index.html" style="text-decoration:none; color:inherit;">The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none; color:inherit;" href="/articles/the-lost-art-of-silence/">The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten</a></h2>
       <p class="card-desc">From Finnish saunas to Japanese ma — why silence is not absence but presence, and what noise-saturated societies are quietly losing.</p>
-      <a href="articles/the-lost-art-of-silence/index.html" class="btn-primary mt-4" aria-label="Read more: The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;" href="/articles/the-lost-art-of-silence/">Read More<span class="sr-only">: The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten</span></a>
     </div>
   </article>
 <article class="article-card" data-id="031" data-category="Business">
-    <a href="articles/rise-of-the-cfo-future-officer/index.html" style="text-decoration:none;" aria-label="Read: The Rise of the CFO as Chief Future Officer">
+    <a style="text-decoration:none;" aria-label="Read: The Rise of the CFO as Chief Future Officer" href="/articles/rise-of-the-cfo-future-officer/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Rise of the CFO as Chief Future Officer" loading="lazy" width="480" height="300" />
+        <img alt="The Rise of the CFO as Chief Future Officer" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Business</span>
-      <h2 class="card-title"><a href="articles/rise-of-the-cfo-future-officer/index.html" style="text-decoration:none; color:inherit;">The Rise of the CFO as Chief Future Officer</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none; color:inherit;" href="/articles/rise-of-the-cfo-future-officer/">The Rise of the CFO as Chief Future Officer</a></h2>
       <p class="card-desc">The modern CFO has evolved from scorekeeper to strategist — navigating AI disruption, geopolitical volatility, and the uncertain terrain of tomorrow's economy.</p>
-      <a href="articles/rise-of-the-cfo-future-officer/index.html" class="btn-primary mt-4" aria-label="Read more: The Rise of the CFO as Chief Future Officer" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Rise of the CFO as Chief Future Officer</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Rise of the CFO as Chief Future Officer" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;" href="/articles/rise-of-the-cfo-future-officer/">Read More<span class="sr-only">: The Rise of the CFO as Chief Future Officer</span></a>
     </div>
   </article>
 <article class="article-card" data-id="030" data-category="Technology">
-    <a href="articles/neuromorphic-computing-brain-inspired-chips/index.html" style="text-decoration:none;" aria-label="Read: Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI">
+    <a style="text-decoration:none;" aria-label="Read: Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI" href="/articles/neuromorphic-computing-brain-inspired-chips/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI" loading="lazy" width="480" height="300" />
+        <img alt="Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1518770660439-4636190af475?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1518770660439-4636190af475?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Technology</span>
-      <h2 class="card-title"><a href="articles/neuromorphic-computing-brain-inspired-chips/index.html" style="text-decoration:none; color:inherit;">Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none; color:inherit;" href="/articles/neuromorphic-computing-brain-inspired-chips/">Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI</a></h2>
       <p class="card-desc">The brain runs on 20 watts. AI data centers consume megawatts. Neuromorphic chips are finally closing that impossible gap.</p>
-      <a href="articles/neuromorphic-computing-brain-inspired-chips/index.html" class="btn-primary mt-4" aria-label="Read more: Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">Read More<span class="sr-only">: Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;" href="/articles/neuromorphic-computing-brain-inspired-chips/">Read More<span class="sr-only">: Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI</span></a>
     </div>
   </article>
 <article class="article-card" data-id="029" data-category="Business">
-    <a href="articles/art-of-pricing-business-strategy/index.html" style="text-decoration:none;" aria-label="Read: The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make">
+    <a style="text-decoration:none;" aria-label="Read: The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make" href="/articles/art-of-pricing-business-strategy/">
       <div class="card-thumb">
-        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=480&amp;q=62&amp;auto=format&amp;fit=crop" alt="The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make" loading="lazy" width="480" height="300" />
+        <img alt="The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
     <div class="card-body">
       <span class="category-badge">Business</span>
-      <h2 class="card-title"><a href="articles/art-of-pricing-business-strategy/index.html" style="text-decoration:none; color:inherit;">The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make</a></h2>
+      <h2 class="card-title"><a style="text-decoration:none; color:inherit;" href="/articles/art-of-pricing-business-strategy/">The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make</a></h2>
       <p class="card-desc">Most businesses treat pricing as a math problem. The best businesses treat it as a strategy — and the difference in outcomes is staggering.</p>
-      <a href="articles/art-of-pricing-business-strategy/index.html" class="btn-primary mt-4" aria-label="Read more: The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;">Read More<span class="sr-only">: The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make</span></a>
+      <a class="btn-primary mt-4" aria-label="Read more: The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make" style="width:fit-content; font-size:0.75rem; padding:0.5rem 1.1rem;" href="/articles/art-of-pricing-business-strategy/">Read More<span class="sr-only">: The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make</span></a>
     </div>
   </article>
         </div>
@@ -475,11 +482,11 @@
         <div>
           <h4 style="color:#fff; font-weight:600; font-size:0.8125rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem;">Navigate</h4>
           <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;">
-            <li><a href="index.html" class="footer-link">Home</a></li>
-            <li><a href="technology.html" class="footer-link">Technology</a></li>
-            <li><a href="design.html" class="footer-link">Design</a></li>
-            <li><a href="culture.html" class="footer-link">Culture</a></li>
-            <li><a href="science.html" class="footer-link">Science</a></li>
+            <li><a class="footer-link" href="/">Home</a></li>
+            <li><a class="footer-link" href="/technology">Technology</a></li>
+            <li><a class="footer-link" href="/design">Design</a></li>
+            <li><a class="footer-link" href="/culture">Culture</a></li>
+            <li><a class="footer-link" href="/science">Science</a></li>
           </ul>
         </div>
 
@@ -487,10 +494,10 @@
         <div>
           <h4 style="color:#fff; font-weight:600; font-size:0.8125rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem;">Company</h4>
           <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.6rem;">
-            <li><a href="about.html" class="footer-link">About</a></li>
-            <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
-            <li><a href="terms.html" class="footer-link">Terms of Service</a></li>
-            <li><a href="contact.html" class="footer-link">Contact</a></li>
+            <li><a class="footer-link" href="/about">About</a></li>
+            <li><a class="footer-link" href="/privacy-policy">Privacy Policy</a></li>
+            <li><a class="footer-link" href="/terms">Terms of Service</a></li>
+            <li><a class="footer-link" href="/contact">Contact</a></li>
           </ul>
         </div>
 
