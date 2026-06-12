@@ -238,13 +238,9 @@
   </style>
 
 
-<!-- Non-blocking local styles -->
-<link rel="preload" as="style" href="../../assets/css/tailwind.min.css" onload="this.onload=null;this.rel='stylesheet'" />
-<link rel="preload" as="style" href="../../assets/css/style.css" onload="this.onload=null;this.rel='stylesheet'" />
-<noscript>
-  <link rel="stylesheet" href="../../assets/css/tailwind.min.css" />
-  <link rel="stylesheet" href="../../assets/css/style.css" />
-</noscript>
+<!-- Critical local styles: block first paint to prevent layout shifts -->
+<link rel="stylesheet" href="../../assets/css/tailwind.min.css" />
+<link rel="stylesheet" href="../../assets/css/style.css" />
 <!-- Favicon -->
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />

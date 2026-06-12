@@ -249,13 +249,9 @@
   </style>
 
 
-<!-- Non-blocking local styles -->
-<link rel="preload" as="style" href="../../assets/css/tailwind.min.css" onload="this.onload=null;this.rel='stylesheet'" />
-<link rel="preload" as="style" href="../../assets/css/style.css" onload="this.onload=null;this.rel='stylesheet'" />
-<noscript>
-  <link rel="stylesheet" href="../../assets/css/tailwind.min.css" />
-  <link rel="stylesheet" href="../../assets/css/style.css" />
-</noscript>
+<!-- Critical local styles: block first paint to prevent layout shifts -->
+<link rel="stylesheet" href="../../assets/css/tailwind.min.css" />
+<link rel="stylesheet" href="../../assets/css/style.css" />
 <!-- SEO-ENHANCEMENT:START -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -275,7 +271,7 @@
 <meta name="twitter:description" content="Understanding color psychology is the first step. Building a color system that encodes that understanding durably — one that works across your entire…" />
 <meta name="twitter:image" content="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=1200&q=80" />
 <meta property="article:published_time" content="2026-05-10T12:30:00.000Z" />
-<meta property="article:modified_time" content="2026-06-10T06:34:16.000Z" />
+<meta property="article:modified_time" content="2026-06-12T06:36:32.000Z" />
 <meta property="article:author" content="https://puteragani.com/about#putera-buana-gani" />
 <meta property="article:section" content="Design" />
 <meta property="article:tag" content="Color Theory" />
@@ -339,7 +335,7 @@
         "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=1200&q=80"
       ],
       "datePublished": "2026-05-10T12:30:00.000Z",
-      "dateModified": "2026-06-10T06:34:16.000Z",
+      "dateModified": "2026-06-12T06:36:32.000Z",
       "author": {
         "@id": "https://puteragani.com/about#putera-buana-gani"
       },
@@ -478,7 +474,7 @@
   <div style="border-radius:16px; overflow:hidden; position:relative;">
     <img class="article-header-img"
          alt="Applying design systems and color theory"
-         loading="eager" / width="1200" height="675" fetchpriority="high" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&amp;q=80&amp;h=675&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=480&amp;q=80&amp;h=270&amp;auto=format&amp;fit=crop 480w, https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=768&amp;q=80&amp;h=432&amp;auto=format&amp;fit=crop 768w, https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&amp;q=80&amp;h=675&amp;auto=format&amp;fit=crop 1200w" sizes="(max-width: 768px) 100vw, 896px">
+         loading="eager" / width="1200" height="675" fetchpriority="high" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&amp;q=80&amp;h=675&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=320&amp;q=80&amp;h=180&amp;auto=format&amp;fit=crop 320w, https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&amp;q=80&amp;h=225&amp;auto=format&amp;fit=crop 400w, https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=480&amp;q=80&amp;h=270&amp;auto=format&amp;fit=crop 480w, https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=640&amp;q=80&amp;h=360&amp;auto=format&amp;fit=crop 640w, https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=768&amp;q=80&amp;h=432&amp;auto=format&amp;fit=crop 768w, https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=960&amp;q=80&amp;h=540&amp;auto=format&amp;fit=crop 960w, https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&amp;q=80&amp;h=675&amp;auto=format&amp;fit=crop 1200w" sizes="(max-width: 768px) 100vw, 896px">
     <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
     <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
       Photo: Unsplash / Design Practice

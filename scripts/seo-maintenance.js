@@ -200,18 +200,15 @@ function replaceRuntimeTailwind(html, rel) {
   const tailwind = `${prefix}assets/css/tailwind.min.css`;
   const custom = `${prefix}assets/css/style.css`;
   const stylesheetBlock = [
-    '<!-- Non-blocking local styles -->',
-    `<link rel="preload" as="style" href="${tailwind}" onload="this.onload=null;this.rel='stylesheet'" />`,
-    `<link rel="preload" as="style" href="${custom}" onload="this.onload=null;this.rel='stylesheet'" />`,
-    '<noscript>',
-    `  <link rel="stylesheet" href="${tailwind}" />`,
-    `  <link rel="stylesheet" href="${custom}" />`,
-    '</noscript>'
+    '<!-- Critical local styles: block first paint to prevent layout shifts -->',
+    `<link rel="stylesheet" href="${tailwind}" />`,
+    `<link rel="stylesheet" href="${custom}" />`
   ].join('\n');
   html = html
     .replace(/\s*<script\b[^>]*src=["']https:\/\/cdn\.tailwindcss\.com["'][^>]*><\/script>\s*/gi, '\n')
     .replace(/\s*<script>\s*tailwind\.config\s*=[\s\S]*?<\/script>\s*/gi, '\n')
     .replace(/\s*<!-- Non-blocking local styles -->[\s\S]*?<\/noscript>\s*/gi, '\n')
+    .replace(/\s*<!-- Critical local styles: block first paint to prevent layout shifts -->\s*/gi, '\n')
     .replace(/\s*<noscript>\s*<link\b[^>]*assets\/css\/(?:tailwind\.min|style)\.css[^>]*>\s*(?:<link\b[^>]*assets\/css\/(?:tailwind\.min|style)\.css[^>]*>\s*)?<\/noscript>\s*/gi, '\n')
     .replace(/\s*<link\b[^>]*href=["'][^"']*assets\/css\/(?:tailwind\.min|style)\.css["'][^>]*>\s*/gi, '\n')
     .replace(/<!--\s*Tailwind CSS \(CDN\)\s*-->/gi, '<!-- Compiled Tailwind CSS -->')
@@ -284,10 +281,10 @@ function setTagAttribute(tag, name, value) {
 
 function responsiveWidths(width) {
   const candidates = width >= 1000
-    ? [480, 768, width]
+    ? [320, 400, 480, 640, 768, 960, width]
     : width >= 600
-      ? [320, 480, width]
-      : [Math.min(240, width), width];
+      ? [320, 400, 480, 640, width]
+      : [Math.min(240, width), 320, 400, width];
   return [...new Set(candidates.filter((candidate) => candidate > 0 && candidate <= width))];
 }
 

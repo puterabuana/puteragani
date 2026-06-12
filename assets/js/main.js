@@ -35,10 +35,10 @@ window.PuteraGani = (() => {
 
   function responsiveImage(source, width, height, quality) {
     const widths = width >= 1000
-      ? [480, 768, width]
+      ? [320, 400, 480, 640, 768, 960, width]
       : width >= 600
-        ? [320, 480, width]
-        : [Math.min(240, width), width];
+        ? [320, 400, 480, 640, width]
+        : [Math.min(240, width), 320, 400, width];
     const ratio = height / width;
     const candidates = [...new Set(widths.filter((candidate) => candidate > 0 && candidate <= width))];
     return {

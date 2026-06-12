@@ -17,13 +17,9 @@
 <!-- Custom Styles -->
 
 
-<!-- Non-blocking local styles -->
-<link rel="preload" as="style" href="assets/css/tailwind.min.css" onload="this.onload=null;this.rel='stylesheet'" />
-<link rel="preload" as="style" href="assets/css/style.css" onload="this.onload=null;this.rel='stylesheet'" />
-<noscript>
-  <link rel="stylesheet" href="assets/css/tailwind.min.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-</noscript>
+<!-- Critical local styles: block first paint to prevent layout shifts -->
+<link rel="stylesheet" href="assets/css/tailwind.min.css" />
+<link rel="stylesheet" href="assets/css/style.css" />
 <!-- SEO-ENHANCEMENT:START -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -241,7 +237,7 @@
 <article class="article-card" data-id="028" data-category="Science">
     <a style="text-decoration:none;" aria-label="Read: CRISPR 2.0: The Next Generation of Gene Editing That Could Cure Inherited Disease" href="/articles/crispr-gene-editing-next-generation/">
       <div class="card-thumb">
-        <img alt="CRISPR 2.0: The Next Generation of Gene Editing That Could Cure Inherited Disease" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
+        <img alt="CRISPR 2.0: The Next Generation of Gene Editing That Could Cure Inherited Disease" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=400&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=250 400w, https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -255,7 +251,7 @@
 <article class="article-card" data-id="026" data-category="Science">
     <a style="text-decoration:none;" aria-label="Read: The Dark Matter Problem: What 95% of the Universe Is Made Of (And Why We Can't See It)" href="/articles/dark-matter-universe-explained/">
       <div class="card-thumb">
-        <img alt="The Dark Matter Problem: What 95% of the Universe Is Made Of (And Why We Can't See It)" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
+        <img alt="The Dark Matter Problem: What 95% of the Universe Is Made Of (And Why We Can't See It)" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=250 400w, https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -269,7 +265,7 @@
 <article class="article-card" data-id="020" data-category="Science">
     <a style="text-decoration:none;" aria-label="Read: The Science of Sleep: What Happens Inside Your Brain While You Rest" href="/articles/the-science-of-sleep/">
       <div class="card-thumb">
-        <img alt="The Science of Sleep: What Happens Inside Your Brain While You Rest" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
+        <img alt="The Science of Sleep: What Happens Inside Your Brain While You Rest" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=400&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=250 400w, https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -283,7 +279,7 @@
 <article class="article-card" data-id="016" data-category="Science">
     <a style="text-decoration:none;" aria-label="Read: Quantum Computing Explained: The Race to Rewrite the Rules of Physics" href="/articles/quantum-computing-explained/">
       <div class="card-thumb">
-        <img alt="Quantum Computing Explained: The Race to Rewrite the Rules of Physics" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
+        <img alt="Quantum Computing Explained: The Race to Rewrite the Rules of Physics" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=250 400w, https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -297,7 +293,7 @@
 <article class="article-card" data-id="007" data-category="Science">
     <a style="text-decoration:none;" aria-label="Read: The Climate Crisis and the Innovators Racing to Fix It" href="/articles/climate-crisis-innovators/">
       <div class="card-thumb">
-        <img alt="The Climate Crisis and the Innovators Racing to Fix It" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
+        <img alt="The Climate Crisis and the Innovators Racing to Fix It" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=400&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=250 400w, https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>

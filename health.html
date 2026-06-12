@@ -17,13 +17,9 @@
 <!-- Custom Styles -->
 
 
-<!-- Non-blocking local styles -->
-<link rel="preload" as="style" href="assets/css/tailwind.min.css" onload="this.onload=null;this.rel='stylesheet'" />
-<link rel="preload" as="style" href="assets/css/style.css" onload="this.onload=null;this.rel='stylesheet'" />
-<noscript>
-  <link rel="stylesheet" href="assets/css/tailwind.min.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-</noscript>
+<!-- Critical local styles: block first paint to prevent layout shifts -->
+<link rel="stylesheet" href="assets/css/tailwind.min.css" />
+<link rel="stylesheet" href="assets/css/style.css" />
 <!-- SEO-ENHANCEMENT:START -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -241,7 +237,7 @@
 <article class="article-card" data-id="034" data-category="Health">
     <a style="text-decoration:none;" aria-label="Read: The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing" href="/articles/inflammation-equation-chronic-disease/">
       <div class="card-thumb">
-        <img alt="The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
+        <img alt="The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=250 400w, https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -255,7 +251,7 @@
 <article class="article-card" data-id="025" data-category="Health">
     <a style="text-decoration:none;" aria-label="Read: The Longevity Code: What Science Now Knows About Living Longer and Better" href="/articles/longevity-code-living-longer/">
       <div class="card-thumb">
-        <img alt="The Longevity Code: What Science Now Knows About Living Longer and Better" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
+        <img alt="The Longevity Code: What Science Now Knows About Living Longer and Better" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=250 400w, https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -269,7 +265,7 @@
 <article class="article-card" data-id="021" data-category="Health">
     <a style="text-decoration:none;" aria-label="Read: Gut Health: Why Your Second Brain May Be Running Your Life" href="/articles/gut-health-second-brain/">
       <div class="card-thumb">
-        <img alt="Gut Health: Why Your Second Brain May Be Running Your Life" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
+        <img alt="Gut Health: Why Your Second Brain May Be Running Your Life" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=250 400w, https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -283,7 +279,7 @@
 <article class="article-card" data-id="011" data-category="Health">
     <a style="text-decoration:none;" aria-label="Read: Understanding Emotional Intelligence: The Science Behind Feeling" href="/articles/memahami-kecerdasan-emosional/">
       <div class="card-thumb">
-        <img alt="Understanding Emotional Intelligence: The Science Behind Feeling" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
+        <img alt="Understanding Emotional Intelligence: The Science Behind Feeling" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=250 400w, https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -297,7 +293,7 @@
 <article class="article-card" data-id="008" data-category="Health">
     <a style="text-decoration:none;" aria-label="Read: The Quiet Revolution in Mental Health Technology" href="/articles/mental-health-technology/">
       <div class="card-thumb">
-        <img alt="The Quiet Revolution in Mental Health Technology" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1559757175-5700dde675bc?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
+        <img alt="The Quiet Revolution in Mental Health Technology" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1559757175-5700dde675bc?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1559757175-5700dde675bc?w=400&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=250 400w, https://images.unsplash.com/photo-1559757175-5700dde675bc?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>

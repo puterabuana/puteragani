@@ -17,13 +17,9 @@
 <!-- Custom Styles -->
 
 
-<!-- Non-blocking local styles -->
-<link rel="preload" as="style" href="assets/css/tailwind.min.css" onload="this.onload=null;this.rel='stylesheet'" />
-<link rel="preload" as="style" href="assets/css/style.css" onload="this.onload=null;this.rel='stylesheet'" />
-<noscript>
-  <link rel="stylesheet" href="assets/css/tailwind.min.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-</noscript>
+<!-- Critical local styles: block first paint to prevent layout shifts -->
+<link rel="stylesheet" href="assets/css/tailwind.min.css" />
+<link rel="stylesheet" href="assets/css/style.css" />
 <!-- SEO-ENHANCEMENT:START -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -245,7 +241,7 @@
 <article class="article-card" data-id="033" data-category="Design">
     <a style="text-decoration:none;" aria-label="Read: The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design" href="/articles/white-space-manifesto-design/">
       <div class="card-thumb">
-        <img alt="The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
+        <img alt="The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=400&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=250 400w, https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -259,7 +255,7 @@
 <article class="article-card" data-id="024" data-category="Design">
     <a style="text-decoration:none;" aria-label="Read: Motion Design Language: Why Animation Is the New Typography" href="/articles/motion-design-language/">
       <div class="card-thumb">
-        <img alt="Motion Design Language: Why Animation Is the New Typography" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
+        <img alt="Motion Design Language: Why Animation Is the New Typography" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=250 400w, https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -273,7 +269,7 @@
 <article class="article-card" data-id="019" data-category="Design">
     <a style="text-decoration:none;" aria-label="Read: The Psychology of Color in Design: How Hues Shape Human Behavior" href="/articles/color-psychology-in-design/">
       <div class="card-thumb">
-        <img alt="The Psychology of Color in Design: How Hues Shape Human Behavior" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
+        <img alt="The Psychology of Color in Design: How Hues Shape Human Behavior" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=400&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=250 400w, https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -287,7 +283,7 @@
 <article class="article-card" data-id="002" data-category="Design">
     <a style="text-decoration:none;" aria-label="Read: The Principles of Timeless Design That Never Go Out of Style" href="/articles/principles-of-timeless-design/">
       <div class="card-thumb">
-        <img alt="The Principles of Timeless Design That Never Go Out of Style" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1561070791-2526d30994b5?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
+        <img alt="The Principles of Timeless Design That Never Go Out of Style" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1561070791-2526d30994b5?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=250 400w, https://images.unsplash.com/photo-1561070791-2526d30994b5?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -301,7 +297,7 @@
 <article class="article-card" data-id="006" data-category="Design">
     <a style="text-decoration:none;" aria-label="Read: Typography in the Digital Age: Why Letters Still Matter More Than Ever" href="/articles/typography-in-the-digital-age/">
       <div class="card-thumb">
-        <img alt="Typography in the Digital Age: Why Letters Still Matter More Than Ever" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1586717799252-bd134ad00e26?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1586717799252-bd134ad00e26?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1586717799252-bd134ad00e26?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
+        <img alt="Typography in the Digital Age: Why Letters Still Matter More Than Ever" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1586717799252-bd134ad00e26?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1586717799252-bd134ad00e26?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1586717799252-bd134ad00e26?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1586717799252-bd134ad00e26?w=400&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=250 400w, https://images.unsplash.com/photo-1586717799252-bd134ad00e26?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>

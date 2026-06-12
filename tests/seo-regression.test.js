@@ -81,15 +81,30 @@ test('security headers, favicon compatibility, and heading structure are complet
   }
 });
 
-test('local stylesheets load non-blocking with a no-script fallback', () => {
+test('local stylesheets block first paint to prevent unstyled layout shifts', () => {
   for (const file of productionPages()) {
     const html = fs.readFileSync(file, 'utf8');
     const localStyles = html.match(/<link\b[^>]*href=["'][^"']*assets\/css\/(?:tailwind\.min|style)\.css["'][^>]*>/gi) || [];
-    assert.equal(localStyles.length, 4, `${relative(file)} should contain preload and noscript links for both stylesheets`);
-    for (const tag of localStyles.slice(0, 2)) {
-      assert.match(tag, /\brel=["']preload["']/i, relative(file));
-      assert.match(tag, /\bas=["']style["']/i, relative(file));
-      assert.match(tag, /\bonload=/i, relative(file));
+    assert.equal(localStyles.length, 2, `${relative(file)} should load both local stylesheets exactly once`);
+    for (const tag of localStyles) {
+      assert.match(tag, /\brel=["']stylesheet["']/i, relative(file));
+      assert.doesNotMatch(tag, /\bonload=/i, relative(file));
+    }
+    assert.doesNotMatch(html, /<!-- Non-blocking local styles -->/i, relative(file));
+  }
+});
+
+test('responsive image candidates include practical mobile widths', () => {
+  for (const file of productionPages()) {
+    const html = fs.readFileSync(file, 'utf8');
+    for (const tag of html.match(/<img\b[^>]*>/gi) || []) {
+      const src = attribute(tag, 'src');
+      const width = Number(attribute(tag, 'width'));
+      if (!src.includes('images.unsplash.com') || width < 480) continue;
+
+      const srcset = attribute(tag, 'srcset');
+      assert.match(srcset, /\s320w(?:,|$)/, `${relative(file)} should provide a 320w candidate`);
+      assert.match(srcset, /\s400w(?:,|$)/, `${relative(file)} should provide a 400w candidate`);
     }
   }
 });

@@ -19,13 +19,9 @@
 
 <!-- Compiled Tailwind CSS -->
 <!-- Custom Styles -->
-<!-- Non-blocking local styles -->
-<link rel="preload" as="style" href="assets/css/tailwind.min.css" onload="this.onload=null;this.rel='stylesheet'" />
-<link rel="preload" as="style" href="assets/css/style.css" onload="this.onload=null;this.rel='stylesheet'" />
-<noscript>
-  <link rel="stylesheet" href="assets/css/tailwind.min.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-</noscript>
+<!-- Critical local styles: block first paint to prevent layout shifts -->
+<link rel="stylesheet" href="assets/css/tailwind.min.css" />
+<link rel="stylesheet" href="assets/css/style.css" />
 <!-- SEO-ENHANCEMENT:START -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -281,7 +277,7 @@
           <a class="btn-accent" href="/articles/operator-economy-execution-moat/">Read Story</a>
         </div>
         <div class="hero-img-wrap" style="height:420px;">
-          <img alt="The Operator Economy: Why Execution Is Becoming the New Competitive Moat" width="640" height="400" fetchpriority="high" decoding="async" src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=640&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=400" srcset="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1556761175-b413da4baf72?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w, https://images.unsplash.com/photo-1556761175-b413da4baf72?w=640&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=400 640w" sizes="(max-width: 1023px) 100vw, 50vw" />
+          <img alt="The Operator Economy: Why Execution Is Becoming the New Competitive Moat" width="640" height="400" fetchpriority="high" decoding="async" src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=640&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=400" srcset="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=250 400w, https://images.unsplash.com/photo-1556761175-b413da4baf72?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w, https://images.unsplash.com/photo-1556761175-b413da4baf72?w=640&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=400 640w" sizes="(max-width: 1023px) 100vw, 50vw" />
           <div class="hero-img-overlay"></div>
         </div>
       </div>
@@ -310,7 +306,7 @@
 <article class="article-card" data-id="034" data-category="Health">
     <a style="text-decoration:none;" aria-label="Read: The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing" href="/articles/inflammation-equation-chronic-disease/">
       <div class="card-thumb">
-        <img alt="The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
+        <img alt="The Inflammation Equation: Why Everything You Thought You Knew About Chronic Disease Is Changing" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=250 400w, https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -324,7 +320,7 @@
 <article class="article-card" data-id="033" data-category="Design">
     <a style="text-decoration:none;" aria-label="Read: The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design" href="/articles/white-space-manifesto-design/">
       <div class="card-thumb">
-        <img alt="The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
+        <img alt="The White Space Manifesto: Why Nothing Is the Most Powerful Tool in Design" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=400&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=250 400w, https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -338,7 +334,7 @@
 <article class="article-card" data-id="032" data-category="Culture">
     <a style="text-decoration:none;" aria-label="Read: The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten" href="/articles/the-lost-art-of-silence/">
       <div class="card-thumb">
-        <img alt="The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
+        <img alt="The Lost Art of Silence: What the World's Quietest Cultures Know That We've Forgotten" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=250 400w, https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -352,7 +348,7 @@
 <article class="article-card" data-id="031" data-category="Business">
     <a style="text-decoration:none;" aria-label="Read: The Rise of the CFO as Chief Future Officer" href="/articles/rise-of-the-cfo-future-officer/">
       <div class="card-thumb">
-        <img alt="The Rise of the CFO as Chief Future Officer" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
+        <img alt="The Rise of the CFO as Chief Future Officer" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=250 400w, https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -366,7 +362,7 @@
 <article class="article-card" data-id="030" data-category="Technology">
     <a style="text-decoration:none;" aria-label="Read: Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI" href="/articles/neuromorphic-computing-brain-inspired-chips/">
       <div class="card-thumb">
-        <img alt="Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1518770660439-4636190af475?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1518770660439-4636190af475?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
+        <img alt="Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1518770660439-4636190af475?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1518770660439-4636190af475?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=250 400w, https://images.unsplash.com/photo-1518770660439-4636190af475?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
@@ -380,7 +376,7 @@
 <article class="article-card" data-id="029" data-category="Business">
     <a style="text-decoration:none;" aria-label="Read: The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make" href="/articles/art-of-pricing-business-strategy/">
       <div class="card-thumb">
-        <img alt="The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
+        <img alt="The Art of Pricing: Why What You Charge Is the Most Powerful Business Decision You'll Ever Make" loading="lazy" width="480" height="300" src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300" srcset="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=240&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=150 240w, https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=320&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=200 320w, https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=400&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=250 400w, https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=480&amp;q=62&amp;auto=format&amp;fit=crop&amp;h=300 480w" sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw" />
         <div class="card-thumb-overlay"></div>
       </div>
     </a>
