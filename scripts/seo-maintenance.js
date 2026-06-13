@@ -6,6 +6,15 @@ const ROOT = path.resolve(__dirname, '..');
 const SITE = 'https://puteragani.com';
 const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80';
 const LOGO = `${SITE}/assets/images/favicon.svg`;
+const HOMEPAGE_HERO = {
+  src: '/assets/images/homepage-hero-640.webp',
+  srcset: [
+    '/assets/images/homepage-hero-320.webp 320w',
+    '/assets/images/homepage-hero-400.webp 400w',
+    '/assets/images/homepage-hero-640.webp 640w'
+  ].join(', '),
+  sizes: '(max-width: 1023px) 100vw, 50vw'
+};
 const articlesFile = path.join(ROOT, 'data', 'articles.json');
 const articleData = JSON.parse(fs.readFileSync(articlesFile, 'utf8'));
 const articles = articleData.articles;
@@ -788,7 +797,6 @@ function renderHomepageFallback() {
   let html = fs.readFileSync(file, 'utf8');
   const featured = articles[0];
   const featureUrl = `articles/${featured.slug}/index.html`;
-  const heroImage = optimizeUnsplashImage(featured.imageLarge || featured.image, 640, 400, 62);
   const hero = `<section class="hero-gradient" id="featured-section" aria-label="Featured Story">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -799,7 +807,7 @@ function renderHomepageFallback() {
           <a href="${featureUrl}" class="btn-accent">Read Story</a>
         </div>
         <div class="hero-img-wrap" style="height:420px;">
-          <img src="${escapeHtml(heroImage)}" alt="${escapeHtml(featured.title)}" width="640" height="400" fetchpriority="high" decoding="async" />
+          <img src="${HOMEPAGE_HERO.src}" srcset="${HOMEPAGE_HERO.srcset}" sizes="${HOMEPAGE_HERO.sizes}" alt="${escapeHtml(featured.title)}" loading="eager" width="640" height="400" fetchpriority="high" decoding="async" />
           <div class="hero-img-overlay"></div>
         </div>
       </div>
@@ -808,7 +816,10 @@ function renderHomepageFallback() {
   html = html.replace(/<section class="hero-gradient" id="featured-section"[\s\S]*?<\/section>/i, hero);
   html = html
     .replace(/\s*<link\b[^>]*data-homepage-hero-preload[^>]*>\s*/gi, '\n')
-    .replace('</head>', `<link rel="preload" as="image" href="${escapeHtml(heroImage)}" fetchpriority="high" data-homepage-hero-preload />\n</head>`);
+    .replace(
+      '</head>',
+      `<link rel="preload" as="image" href="${HOMEPAGE_HERO.src}" imagesrcset="${HOMEPAGE_HERO.srcset}" imagesizes="${HOMEPAGE_HERO.sizes}" fetchpriority="high" data-homepage-hero-preload />\n</head>`
+    );
   if (!/id="site-purpose-heading"/.test(html)) {
     html = html.replace(
       '<div id="homepage-content">',
