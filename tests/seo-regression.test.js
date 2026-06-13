@@ -108,3 +108,35 @@ test('responsive image candidates include practical mobile widths', () => {
     }
   }
 });
+
+test('homepage LCP image is self-hosted and preloaded responsively', () => {
+  const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+  const heroSection = html.match(/<section\b[^>]*id=["']featured-section["'][^>]*>[\s\S]*?<\/section>/i)?.[0] || '';
+  const heroImage = heroSection.match(/<img\b[^>]*\bfetchpriority=["']high["'][^>]*>/i)?.[0] || '';
+  const preload = html.match(/<link\b[^>]*data-homepage-hero-preload[^>]*>/i)?.[0] || '';
+
+  assert.match(attribute(heroImage, 'src'), /^\/assets\/images\/homepage-hero-\d+\.webp$/);
+  assert.equal(attribute(heroImage, 'loading'), 'eager');
+  assert.equal(attribute(heroImage, 'decoding'), 'async');
+  assert.match(attribute(heroImage, 'srcset'), /homepage-hero-320\.webp 320w/);
+  assert.match(attribute(heroImage, 'srcset'), /homepage-hero-400\.webp 400w/);
+  assert.match(attribute(heroImage, 'srcset'), /homepage-hero-640\.webp 640w/);
+
+  assert.equal(attribute(preload, 'as'), 'image');
+  assert.match(attribute(preload, 'href'), /^\/assets\/images\/homepage-hero-\d+\.webp$/);
+  assert.equal(attribute(preload, 'imagesrcset'), attribute(heroImage, 'srcset'));
+  assert.equal(attribute(preload, 'imagesizes'), attribute(heroImage, 'sizes'));
+
+  for (const width of [320, 400, 640]) {
+    const asset = path.join(ROOT, 'assets', 'images', `homepage-hero-${width}.webp`);
+    assert.equal(fs.existsSync(asset), true, `missing ${relative(asset)}`);
+  }
+});
+
+test('client-rendered navigation points directly to clean production URLs', () => {
+  const source = fs.readFileSync(path.join(ROOT, 'assets', 'js', 'articles.js'), 'utf8');
+
+  assert.doesNotMatch(source, /articles\/['"]?\s*\+\s*article\.slug\s*\+\s*['"]\/index\.html/i);
+  assert.doesNotMatch(source, /(?:technology|design|science|culture)\.html/i);
+  assert.doesNotMatch(source, /category\/(?:business|health)\/index\.html/i);
+});
