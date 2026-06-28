@@ -4,6 +4,7 @@ const { execFileSync } = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..');
 const SITE = 'https://puteragani.com';
+const GA_MEASUREMENT_ID = 'G-84HWYM68D2';
 const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80';
 const LOGO = `${SITE}/assets/images/favicon.svg`;
 const HOMEPAGE_HERO = {
@@ -449,6 +450,13 @@ function managedBlock({ title, description, canonical, image, schema, article, p
   const fontUrl = 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=DM+Sans:wght@400;500;600&amp;family=DM+Mono:wght@500&amp;display=swap';
   const lines = [
     '<!-- SEO-ENHANCEMENT:START -->',
+    `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}"></script>`,
+    '<script>',
+    'window.dataLayer = window.dataLayer || [];',
+    'function gtag(){dataLayer.push(arguments);}',
+    "gtag('js', new Date());",
+    `gtag('config', '${GA_MEASUREMENT_ID}');`,
+    '</script>',
     '<link rel="preconnect" href="https://fonts.googleapis.com" />',
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />',
     `<link rel="preload" as="style" href="${fontUrl}" />`,
