@@ -825,6 +825,7 @@ function renderHomepageFallback() {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div>
+          <p id="site-intro" class="text-sm mb-4" style="color:rgba(255,255,255,0.45); max-width:480px; line-height:1.6;">Independent articles on technology, design, culture, and science.</p>
           <div class="hero-tag mb-5">Featured Story</div>
           <h2 class="font-display text-white mb-5 leading-tight" style="font-size:clamp(2rem,4vw,3rem); font-weight:700; letter-spacing:-0.02em;">${escapeHtml(featured.title)}</h2>
           <p class="text-base mb-8" style="color:rgba(255,255,255,0.65); line-height:1.75; max-width:520px;">${escapeHtml(featured.excerpt)}</p>
@@ -848,12 +849,6 @@ function renderHomepageFallback() {
     html = html.replace(
       '<div id="homepage-content">',
       '<div id="homepage-content">\n  <h1 id="site-purpose-heading" class="sr-only">Putera Gani: Independent Articles on Technology, Design, Culture and Science</h1>'
-    );
-  }
-  if (!/id="site-intro"/.test(html)) {
-    html = html.replace(
-      /(<h1 id="site-purpose-heading"[^>]*>[\s\S]*?<\/h1>\s*)/,
-      `$1\n  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-6">\n    <p id="site-intro" class="text-sm" style="color:var(--ink-muted); max-width:640px; line-height:1.7;">Independent, in-depth articles on technology, design, and culture, with reporting on science, business, and health — written with editorial clarity for readers who want more than headlines.</p>\n  </div>\n`
     );
   }
   const cards = articles.slice(1, 7).map(articleCard).join('\n');
