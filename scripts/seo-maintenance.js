@@ -853,7 +853,7 @@ function renderHomepageFallback() {
   if (!/id="site-intro"/.test(html)) {
     html = html.replace(
       /(<h1 id="site-purpose-heading"[^>]*>[\s\S]*?<\/h1>\s*)/,
-      `$1\n  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">\n    <p id="site-intro" class="text-sm" style="color:var(--ink-muted); max-width:640px; line-height:1.7;">Independent, in-depth articles on technology, design, and culture, with reporting on science, business, and health — written with editorial clarity for readers who want more than headlines.</p>\n  </div>\n`
+      `$1\n  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-6">\n    <p id="site-intro" class="text-sm" style="color:var(--ink-muted); max-width:640px; line-height:1.7;">Independent, in-depth articles on technology, design, and culture, with reporting on science, business, and health — written with editorial clarity for readers who want more than headlines.</p>\n  </div>\n`
     );
   }
   const cards = articles.slice(1, 7).map(articleCard).join('\n');
