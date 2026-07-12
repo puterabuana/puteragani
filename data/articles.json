@@ -738,6 +738,144 @@
       "excerpt": "Smartphone apps and AI therapists are changing access to mental healthcare — but at what cost to human connection?",
       "content": "One in four people will experience a mental health condition in their lifetime. For most of history, the path to treatment was narrow and expensive.",
       "url": "articles/mental-health-technology/index.html"
+    },
+    {
+      "id": "036",
+      "title": "The Solid-State Battery: Why the Next Decade of Energy Runs on a Sheet of Glass",
+      "slug": "solid-state-battery-breakthrough",
+      "category": "Technology",
+      "tags": [
+        "Technology",
+        "Batteries",
+        "Energy",
+        "Electric Vehicles",
+        "Manufacturing"
+      ],
+      "featured": false,
+      "trending": true,
+      "date": "2026-07-02T09:15:00+07:00",
+      "author": "Putera Gani",
+      "readTime": "9 min",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=62&auto=format&fit=crop&h=375",
+      "imageLarge": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=62&auto=format&fit=crop&h=500",
+      "excerpt": "Solid-state batteries promise double the range, minutes-long charging, and no fires — by swapping liquid electrolyte for a solid. The hard part was never the chemistry.",
+      "content": "For fifteen years the lithium-ion battery has improved only a few percent a year. Solid-state designs promise a genuine step change, but the barrier separating lab prototypes from your car has almost nothing to do with physics and everything to do with manufacturing at scale.",
+      "url": "articles/solid-state-battery-breakthrough/index.html"
+    },
+    {
+      "id": "037",
+      "title": "Dark Patterns: The Quiet Design Choices Built to Work Against You",
+      "slug": "dark-patterns-attention-economy",
+      "category": "Design",
+      "tags": [
+        "Design",
+        "UX",
+        "Ethics",
+        "Product",
+        "Psychology"
+      ],
+      "featured": false,
+      "trending": false,
+      "date": "2026-06-24T14:30:00+07:00",
+      "author": "Putera Gani",
+      "readTime": "8 min",
+      "image": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=600&q=62&auto=format&fit=crop&h=375",
+      "imageLarge": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&q=62&auto=format&fit=crop&h=500",
+      "excerpt": "Countdown timers that never end, cancel buttons you cannot find, pre-ticked boxes — a field guide to the manipulative design choices you meet every day, and how to design them out.",
+      "content": "Dark patterns are interfaces crafted to trick people into decisions they did not mean to make. They are rarely the work of villains; they are what optimization looks like when it is pointed at a business metric instead of a human need. Naming them is the first step to resisting them.",
+      "url": "articles/dark-patterns-attention-economy/index.html"
+    },
+    {
+      "id": "038",
+      "title": "The Third Place: What We Lost When the Cafes, Barbershops, and Front Stoops Emptied",
+      "slug": "third-place-community-decline",
+      "category": "Culture",
+      "tags": [
+        "Culture",
+        "Community",
+        "Society",
+        "Loneliness",
+        "Urban Life"
+      ],
+      "featured": false,
+      "trending": false,
+      "date": "2026-07-05T08:00:00+07:00",
+      "author": "Putera Gani",
+      "readTime": "8 min",
+      "image": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&q=62&auto=format&fit=crop&h=375",
+      "imageLarge": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=62&auto=format&fit=crop&h=500",
+      "excerpt": "Between home and work there used to be a third room — the cafe, the stoop, the corner pub — where community accumulated by accident. Here is how we lost it, and how it is quietly coming back.",
+      "content": "The third place is the informal public space between home and work where belonging accumulates one ordinary encounter at a time. We did not lose these places to a villain but to a thousand conveniences — and their absence helps explain the modern ache of loneliness in a crowded, connected world.",
+      "url": "articles/third-place-community-decline/index.html"
+    },
+    {
+      "id": "039",
+      "title": "Fusion Energy: Inside the Machines Chasing a Star on Earth",
+      "slug": "fusion-energy-net-gain",
+      "category": "Science",
+      "tags": [
+        "Science",
+        "Energy",
+        "Physics",
+        "Fusion",
+        "Climate"
+      ],
+      "featured": false,
+      "trending": true,
+      "date": "2026-06-30T11:20:00+07:00",
+      "author": "Putera Gani",
+      "readTime": "10 min",
+      "image": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=62&auto=format&fit=crop&h=375",
+      "imageLarge": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=62&auto=format&fit=crop&h=500",
+      "excerpt": "In 2022 a lab made fusion release more energy than the lasers delivered — a historic spark. Here is what really happened, who is racing to build a reactor, and why the hard part is now engineering, not physics.",
+      "content": "Fusion is the reaction that powers the sun, and in 2022 a laboratory achieved a net energy gain for the first time. The science is no longer the main obstacle; the challenge is now engineering and economics — building a machine that holds a star steady, cheaply, for decades.",
+      "url": "articles/fusion-energy-net-gain/index.html"
+    },
+    {
+      "id": "040",
+      "title": "Why Boring Businesses Win: The Quiet Case Against Chasing the Next Big Thing",
+      "slug": "boring-businesses-quiet-compounders",
+      "category": "Business",
+      "tags": [
+        "Business",
+        "Strategy",
+        "Entrepreneurship",
+        "Investing",
+        "Operations"
+      ],
+      "featured": false,
+      "trending": false,
+      "date": "2026-07-08T16:45:00+07:00",
+      "author": "Putera Gani",
+      "readTime": "9 min",
+      "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=62&auto=format&fit=crop&h=375",
+      "imageLarge": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=62&auto=format&fit=crop&h=500",
+      "excerpt": "The most reliable fortunes are built on laundromats, waste hauling, and accounting software nobody has heard of. Why glamour attracts competition, boredom is a moat, and dull compounds.",
+      "content": "The businesses that quietly build wealth for decades tend to be boring ones — unglamorous, unkillable, and ignored by the ambitious crowd chasing the frontier. Excitement draws competition that compresses margins; boredom keeps rivals away and lets a reliable operator compound cash over decades.",
+      "url": "articles/boring-businesses-quiet-compounders/index.html"
+    },
+    {
+      "id": "041",
+      "title": "Muscle Is an Organ: The Longevity Case for Getting Strong",
+      "slug": "muscle-longevity-metabolic-organ",
+      "category": "Health",
+      "tags": [
+        "Health",
+        "Longevity",
+        "Strength",
+        "Metabolism",
+        "Aging"
+      ],
+      "featured": false,
+      "trending": false,
+      "date": "2026-07-10T07:30:00+07:00",
+      "author": "Putera Gani",
+      "readTime": "8 min",
+      "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=62&auto=format&fit=crop&h=375",
+      "imageLarge": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=62&auto=format&fit=crop&h=500",
+      "excerpt": "Science now treats muscle as a metabolic organ that talks to the whole body — and its slow loss with age as a quiet driver of decline. The longevity case for strength training, and the simple protocol that delivers it.",
+      "content": "Skeletal muscle is emerging as one of the body’s most important metabolic and endocrine organs, releasing signalling molecules and disposing of most of the glucose you eat. Losing it with age drives metabolic disease and frailty — which makes strength training one of the closest things we have to a broad-spectrum longevity drug.",
+      "url": "articles/muscle-longevity-metabolic-organ/index.html"
     }
   ]
 }

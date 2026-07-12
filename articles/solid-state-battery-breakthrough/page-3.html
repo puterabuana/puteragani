@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Solid-State Battery: What Changes - Part 3</title>
+  <meta name="robots" content="index, follow" />
+<style>
+    /* Premium Content Enhancement Styles */
+    .highlight-box { background: linear-gradient(135deg, rgba(200,151,58,0.07) 0%, rgba(200,151,58,0.03) 100%); border: 1px solid rgba(200,151,58,0.3); border-left: 3px solid var(--accent, #c8973a); border-radius: 12px; padding: 1rem 1rem; margin: 1.75rem 0; }
+    @media (min-width: 640px) { .highlight-box { padding: 1.25rem 1.5rem; } }
+    .highlight-box .hb-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent, #c8973a); font-weight: 600; margin-bottom: 0.5rem; }
+    .highlight-box p { margin: 0 !important; font-size: 0.9375rem; line-height: 1.7; color: var(--ink, #0f0f0f); }
+    .cta-block { background: var(--ink, #0f0f0f); border-radius: 14px; padding: 1.25rem 1.125rem; margin: 2rem 0; position: relative; overflow: hidden; }
+    @media (min-width: 640px) { .cta-block { padding: 1.5rem 1.75rem; } }
+    .cta-block::before { content: ''; position: absolute; top: -40px; right: -40px; width: 120px; height: 120px; border-radius: 50%; background: rgba(200,151,58,0.08); }
+    .cta-block .cta-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent, #c8973a); font-weight: 600; margin-bottom: 0.6rem; }
+    .cta-block p { margin: 0 !important; font-size: 0.9375rem; color: rgba(255,255,255,0.82); line-height: 1.7; }
+    .cta-block strong { color: #fff !important; }
+    .strategy-item { display: flex; gap: 0.875rem; align-items: flex-start; padding: 1rem 0; border-bottom: 1px solid var(--rule, #e8e4de); }
+    @media (min-width: 640px) { .strategy-item { gap: 1.125rem; } }
+    .strategy-item:last-child { border-bottom: none; }
+    .strategy-num { flex-shrink: 0; width: 36px; height: 36px; border-radius: 8px; background: var(--accent-pale, rgba(200,151,58,0.08)); border: 1px solid rgba(200,151,58,0.22); display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 700; color: var(--accent, #c8973a); margin-top: 2px; }
+    .strategy-content h4 { font-size: 0.875rem; font-weight: 600; color: var(--ink, #0f0f0f); margin: 0 0 0.3rem 0; letter-spacing: -0.01em; }
+    @media (min-width: 640px) { .strategy-content h4 { font-size: 0.9375rem; } }
+    .strategy-content p { margin: 0 !important; font-size: 0.8125rem; color: var(--ink-muted, #6b6860); line-height: 1.65; }
+    @media (min-width: 640px) { .strategy-content p { font-size: 0.875rem; } }
+    .bold-callout { border-top: 2px solid var(--ink, #0f0f0f); border-bottom: 2px solid var(--ink, #0f0f0f); padding: 1.25rem 0; margin: 2rem 0; text-align: center; }
+    .bold-callout p { margin: 0 !important; font-family: 'Playfair Display', serif; font-size: clamp(1rem, 4vw, 1.375rem); font-weight: 700; line-height: 1.5; letter-spacing: -0.015em; color: var(--ink, #0f0f0f); }
+    .stat-row { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--rule, #e8e4de); border: 1px solid var(--rule, #e8e4de); border-radius: 12px; overflow: hidden; margin: 2.25rem 0; }
+    @media (min-width: 480px) { .stat-row { grid-template-columns: repeat(3, 1fr); } }
+    .stat-cell { background: var(--paper, #fafaf8); padding: 1rem 0.875rem; text-align: center; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--ink, #0f0f0f); letter-spacing: -0.02em; line-height: 1; margin-bottom: 0.3rem; }
+    @media (min-width: 480px) { .stat-num { font-size: 1.75rem; } }
+    .stat-num span { color: var(--accent, #c8973a); }
+    .stat-label { font-size: 0.7rem; color: var(--ink-muted, #6b6860); line-height: 1.4; font-family: 'DM Mono', monospace; letter-spacing: 0.03em; }
+    .section-rule { display: flex; align-items: center; gap: 0.75rem; margin: 2rem 0; }
+    .section-rule::before, .section-rule::after { content: ''; flex: 1; height: 1px; background: var(--rule, #e8e4de); }
+    .section-rule span { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted, #6b6860); white-space: nowrap; }
+    .article-body p strong { color: var(--ink, #0f0f0f); font-weight: 650; }
+    .insight-tag { display: inline-flex; align-items: center; gap: 5px; background: rgba(200,151,58,0.1); border: 1px solid rgba(200,151,58,0.25); border-radius: 20px; padding: 3px 10px; font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent, #c8973a); font-weight: 600; margin-bottom: 0.75rem; }
+    .strategy-box { border: 1px solid var(--rule, #e8e4de); border-radius: 14px; padding: 1rem 1rem; margin: 1.75rem 0; background: var(--paper, #fafaf8); }
+    @media (min-width: 640px) { .strategy-box { padding: 1.25rem 1.5rem; } }
+    .strategy-box-title { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted, #6b6860); margin-bottom: 0.875rem; font-family: 'DM Mono', monospace; }
+  </style>
+
+
+<!-- Critical local styles: block first paint to prevent layout shifts -->
+<link rel="stylesheet" href="../../assets/css/tailwind.min.css" />
+<link rel="stylesheet" href="../../assets/css/style.css" />
+<!-- SEO-ENHANCEMENT:START -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-84HWYM68D2"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-84HWYM68D2');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=DM+Sans:wght@400;500;600&amp;family=DM+Mono:wght@500&amp;display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=DM+Sans:wght@400;500;600&amp;family=DM+Mono:wght@500&amp;display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=DM+Sans:wght@400;500;600&amp;family=DM+Mono:wght@500&amp;display=swap" /></noscript>
+<meta name="description" content="Assume the engineering gets solved — a reasonable bet on a ten-year horizon. What actually changes when a solid-state battery becomes ordinary? The honest…" />
+<meta name="author" content="Putera Buana Gani" />
+<link rel="canonical" href="https://puteragani.com/articles/solid-state-battery-breakthrough/page-3" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://puteragani.com/articles/solid-state-battery-breakthrough/page-3" />
+<meta property="og:title" content="The Solid-State Battery: What Changes - Part 3" />
+<meta property="og:description" content="Assume the engineering gets solved — a reasonable bet on a ten-year horizon. What actually changes when a solid-state battery becomes ordinary? The honest…" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=62&auto=format&fit=crop&h=500" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Solid-State Battery: What Changes - Part 3" />
+<meta name="twitter:description" content="Assume the engineering gets solved — a reasonable bet on a ten-year horizon. What actually changes when a solid-state battery becomes ordinary? The honest…" />
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=62&auto=format&fit=crop&h=500" />
+<meta property="article:published_time" content="2026-07-02T02:15:00.000Z" />
+<meta property="article:modified_time" content="2026-07-02T02:15:00.000Z" />
+<meta property="article:author" content="https://puteragani.com/about#putera-buana-gani" />
+<meta property="article:section" content="Technology" />
+<meta property="article:tag" content="Technology" />
+<meta property="article:tag" content="Batteries" />
+<meta property="article:tag" content="Energy" />
+<meta property="article:tag" content="Electric Vehicles" />
+<meta property="article:tag" content="Manufacturing" />
+<link rel="prev" href="https://puteragani.com/articles/solid-state-battery-breakthrough/page-2" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://puteragani.com/#organization",
+      "name": "Putera Gani",
+      "url": "https://puteragani.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://puteragani.com/assets/images/favicon.svg"
+      },
+      "founder": {
+        "@id": "https://puteragani.com/about#putera-buana-gani"
+      },
+      "sameAs": [
+        "https://www.instagram.com/puterabuana",
+        "https://www.linkedin.com/in/puterabuana/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://puteragani.com/about#putera-buana-gani",
+      "name": "Putera Buana Gani",
+      "alternateName": "Putera Gani",
+      "url": "https://puteragani.com/about",
+      "worksFor": {
+        "@id": "https://puteragani.com/#organization"
+      },
+      "sameAs": [
+        "https://www.instagram.com/puterabuana",
+        "https://www.linkedin.com/in/puterabuana/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://puteragani.com/#website",
+      "url": "https://puteragani.com/",
+      "name": "Putera Gani",
+      "description": "Read independent, in-depth articles from Putera Gani about technology, design, culture, science, health, business, and ideas shaping the future.",
+      "publisher": {
+        "@id": "https://puteragani.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://puteragani.com/articles/solid-state-battery-breakthrough/page-3#article",
+      "headline": "The Solid-State Battery: What Changes - Part 3",
+      "description": "Assume the engineering gets solved — a reasonable bet on a ten-year horizon. What actually changes when a solid-state battery becomes ordinary? The honest…",
+      "image": [
+        "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=62&auto=format&fit=crop&h=500"
+      ],
+      "datePublished": "2026-07-02T02:15:00.000Z",
+      "dateModified": "2026-07-02T02:15:00.000Z",
+      "author": {
+        "@id": "https://puteragani.com/about#putera-buana-gani"
+      },
+      "publisher": {
+        "@id": "https://puteragani.com/#organization"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://puteragani.com/articles/solid-state-battery-breakthrough/page-3"
+      },
+      "isPartOf": {
+        "@id": "https://puteragani.com/#website"
+      },
+      "articleSection": "Technology",
+      "keywords": "Technology, Batteries, Energy, Electric Vehicles, Manufacturing",
+      "wordCount": 459,
+      "inLanguage": "en"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://puteragani.com/articles/solid-state-battery-breakthrough/page-3",
+      "url": "https://puteragani.com/articles/solid-state-battery-breakthrough/page-3",
+      "name": "The Solid-State Battery: What Changes - Part 3",
+      "description": "Assume the engineering gets solved — a reasonable bet on a ten-year horizon. What actually changes when a solid-state battery becomes ordinary? The honest…",
+      "isPartOf": {
+        "@id": "https://puteragani.com/#website"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=62&auto=format&fit=crop&h=500"
+      },
+      "breadcrumb": {
+        "@id": "https://puteragani.com/articles/solid-state-battery-breakthrough/page-3#breadcrumb"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://puteragani.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Technology",
+          "item": "https://puteragani.com/technology"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The Solid-State Battery: Why the Next Decade of Energy Runs on a Sheet of Glass – Part 3",
+          "item": "https://puteragani.com/articles/solid-state-battery-breakthrough/page-3"
+        }
+      ],
+      "@id": "https://puteragani.com/articles/solid-state-battery-breakthrough/page-3#breadcrumb"
+    }
+  ]
+}
+</script>
+<!-- SEO-ENHANCEMENT:END -->
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+</head>
+<body>
+
+<div id="reading-progress" style="position:fixed; top:0; left:0; height:2.5px; background:var(--accent); z-index:999; width:0%; transition:width 0.1s linear;"></div>
+
+<header class="navbar" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a class="flex items-center gap-3" style="text-decoration:none;" href="/">
+        <div class="pg-logo-mark">PG</div>
+        <span class="font-display font-semibold text-lg" style="color:var(--ink); letter-spacing:-0.02em;">Putera Gani</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a class="nav-link" style="text-decoration:none;" href="/">Home</a>
+        <a class="nav-link" style="text-decoration:none;" href="/technology">Technology</a>
+        <a class="nav-link" style="text-decoration:none;" href="/design">Design</a>
+        <a class="nav-link" style="text-decoration:none;" href="/culture">Culture</a>
+        <a class="nav-link" style="text-decoration:none;" href="/science">Science</a>
+      </nav>
+      <a class="btn-ghost" style="font-size:0.75rem; padding:0.45rem 1rem;" href="/">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Articles
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-6">
+  <div class="flex flex-wrap items-center gap-3 mb-8">
+    <a class="flex items-center gap-2 text-muted" style="font-size:0.8rem; text-decoration:none; transition: color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'" href="/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Home
+    </a>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span class="category-badge">Technology</span>
+  </div>
+
+  <h1 class="font-display mb-5 leading-tight animate-fade-up" style="font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight:700; letter-spacing:-0.025em; color:var(--ink);">
+    The Solid-State Battery: What Changes
+  </h1>
+
+  <div class="flex flex-wrap items-center gap-4 mb-8 animate-fade-up delay-100" style="font-size:0.8125rem; color:var(--ink-muted);">
+    <div class="flex items-center gap-2">
+      <div style="width:32px; height:32px; border-radius:50%; background:var(--ink); color:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;">P</div>
+      <span style="font-weight:500; color:var(--ink);">Putera Buana Gani</span>
+    </div>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>July 2, 2026</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <span>9 min read</span>
+    <span style="width:3px; height:3px; border-radius:50%; background:var(--rule);"></span>
+    <div class="flex items-center gap-2">
+      <span style="font-weight:500; color:var(--ink);">Page 3 of 3</span>
+      <div class="page-dots">
+        <div class="page-dot"></div>
+        <div class="page-dot"></div>
+        <div class="page-dot active"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 animate-fade-up delay-200">
+  <div style="border-radius:16px; overflow:hidden; position:relative;">
+    <img class="article-header-img" alt="Battery cells and energy storage technology" loading="eager" / width="1200" height="675" fetchpriority="high" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&amp;q=80&amp;h=675&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1518770660439-4636190af475?w=320&amp;q=80&amp;h=180&amp;auto=format&amp;fit=crop 320w, https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&amp;q=80&amp;h=225&amp;auto=format&amp;fit=crop 400w, https://images.unsplash.com/photo-1518770660439-4636190af475?w=480&amp;q=80&amp;h=270&amp;auto=format&amp;fit=crop 480w, https://images.unsplash.com/photo-1518770660439-4636190af475?w=640&amp;q=80&amp;h=360&amp;auto=format&amp;fit=crop 640w, https://images.unsplash.com/photo-1518770660439-4636190af475?w=768&amp;q=80&amp;h=432&amp;auto=format&amp;fit=crop 768w, https://images.unsplash.com/photo-1518770660439-4636190af475?w=960&amp;q=80&amp;h=540&amp;auto=format&amp;fit=crop 960w, https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&amp;q=80&amp;h=675&amp;auto=format&amp;fit=crop 1200w" sizes="(max-width: 768px) 100vw, 896px">
+    <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+    <div style="position:absolute; bottom:16px; left:20px; font-size:0.7rem; color:rgba(255,255,255,0.6);">
+      Photo: Unsplash / Energy technology
+    </div>
+  </div>
+</div>
+
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+
+    <div class="flex-1 min-w-0">
+      <div class="article-body">
+
+        <p>
+          Assume the engineering gets solved — a reasonable bet on a ten-year horizon. What actually changes when a solid-state battery becomes ordinary? The honest answer is that the first effects are boring, and the later ones are profound.
+        </p>
+        <h2>Where the Impact Lands First</h2>
+        <div class="strategy-box">
+          <div class="strategy-box-title">⚡ Four Domains Solid-State Reshapes</div>
+          <div class="strategy-item">
+            <div class="strategy-num">01</div>
+            <div class="strategy-content">
+              <h4>Electric Vehicles</h4>
+              <p>The headline use case. Double the range in the same weight, or the same range at half the pack size, plus charging fast enough to rival a fuel stop. This is where the capital expects its return.</p>
+            </div>
+          </div>
+          <div class="strategy-item">
+            <div class="strategy-num">02</div>
+            <div class="strategy-content">
+              <h4>Grid Storage</h4>
+              <p>Safer, longer-lived cells make it cheaper to store solar and wind for the hours the sun is down. Less about range, more about surviving twenty years of daily cycling.</p>
+            </div>
+          </div>
+          <div class="strategy-item">
+            <div class="strategy-num">03</div>
+            <div class="strategy-content">
+              <h4>Consumer Devices</h4>
+              <p>Phones and laptops that last meaningfully longer and stop catching fire in cargo holds. A quiet but real safety and convenience win.</p>
+            </div>
+          </div>
+          <div class="strategy-item">
+            <div class="strategy-num">04</div>
+            <div class="strategy-content">
+              <h4>Electric Aviation</h4>
+              <p>The most demanding case. Short-hop electric flight only becomes plausible once energy density crosses a threshold that liquid cells may never reach.</p>
+            </div>
+          </div>
+        </div>
+        <p>
+          Notice the pattern: the technology arrives first where safety and density matter most and cost matters least — premium vehicles, aerospace — then trickles down as manufacturing matures, exactly as lithium-ion did before it.
+        </p>
+        <div class="bold-callout">
+          <p>"The battery is not a component. It is the constraint that shapes what an entire category of machines is allowed to be."</p>
+        </div>
+        <h2>Where This Leaves You</h2>
+        <p>
+          <strong>If you are a consumer:</strong> do not wait to buy an electric car on the promise of solid-state. The best available battery is the one shipping today; the perfect one is always a few years out, and waiting for it can cost you a decade.
+        </p>
+        <p>
+          <strong>If you are an investor:</strong> treat "lab breakthrough" and "manufacturable product" as different asset classes. The value is created not at the chemistry stage but at the yield stage — reward the companies that talk about factories, not just cells.
+        </p>
+        <p>
+          <strong>If you are a builder or engineer:</strong> the unsolved problems here are materials, interfaces, and process control, not marketing. This is a field where patient, unglamorous work on manufacturing will matter more than any single clever idea.
+        </p>
+
+      </div>
+
+      <div class="flex items-center justify-between mt-12 pt-8" style="border-top: 1px solid var(--rule);">
+        <a class="btn-ghost" href="/articles/solid-state-battery-breakthrough/page-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Previous Page
+        </a>
+
+        <div class="flex items-center gap-4">
+          <div class="page-dots">
+            <div class="page-dot"></div>
+            <div class="page-dot"></div>
+            <div class="page-dot active"></div>
+          </div>
+          <a class="btn-accent" href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Back to Homepage
+          </a>
+        </div>
+      </div>
+
+      <!-- Completion Banner -->
+      <div class="mt-10 rounded-2xl p-7 text-center" style="background: linear-gradient(135deg, #1a1510 0%, #0f0f0f 100%); border: 1px solid #2a2520;">
+        <div class="text-accent font-mono text-xs font-medium mb-3 tracking-widest uppercase">Article Complete</div>
+        <h3 class="font-display text-white text-xl font-semibold mb-2">Thanks for reading</h3>
+        <p style="color:rgba(255,255,255,0.5); font-size:0.875rem; margin-bottom:1.5rem;">
+          Enjoyed this piece? Subscribe for one curated story delivered to your inbox each week.
+        </p>
+        <div class="flex gap-3 max-w-sm mx-auto">
+          <input type="email" placeholder="your@email.com" style="flex:1; padding:0.6rem 1rem; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:8px; color:#fff; font-size:0.8125rem; outline:none; font-family:'DM Sans',sans-serif;" aria-label="Email address" />
+          <button class="btn-accent" style="white-space:nowrap;">Subscribe</button>
+        </div>
+      </div>
+
+    </div>
+
+    <aside class="hidden lg:block w-64 flex-shrink-0">
+      <div class="sticky" style="top:80px;">
+        <div class="rounded-2xl p-5 mb-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Article Pages</div>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'" href="/articles/solid-state-battery-breakthrough/">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">01</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Chemistry</span>
+            </a>
+            <a style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; text-decoration:none;" onmouseover="this.style.background='var(--paper-warm)'" onmouseout="this.style.background='transparent'" href="/articles/solid-state-battery-breakthrough/page-2">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ink-muted); font-weight:600;">02</span>
+              <span style="font-size:0.8rem; color:var(--ink-muted);">The Race to Build</span>
+            </a>
+            <a style="display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px; background:var(--accent-pale); border:1px solid rgba(200,151,58,0.25); text-decoration:none;" href="/articles/solid-state-battery-breakthrough/page-3">
+              <span style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); font-weight:600;">03</span>
+              <span style="font-size:0.8rem; font-weight:500; color:var(--ink);">What Changes</span>
+            </a>
+          </div>
+        </div>
+        <div class="rounded-2xl p-5" style="background:#fff; border:1px solid var(--rule);">
+          <div class="text-muted font-mono" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.75rem;">Share</div>
+          <div style="display:flex; gap:8px;">
+            <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank'); return false;" class="social-btn" style="background:var(--paper-warm); border-color:var(--rule);" aria-label="Share on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px; color:var(--ink-soft);"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<div style="background: var(--paper-warm); border-top: 1px solid var(--rule);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
+    <div class="section-label mb-8">Related Articles</div>
+    <div
+      id="related-articles"
+      class="grid sm:grid-cols-3 gap-5"
+      data-current-slug="solid-state-battery-breakthrough"
+    >
+<!-- SEO-RELATED-LINKS:START -->
+<a class="related-static-link" href="/articles/neuromorphic-computing-brain-inspired-chips/"><span>Technology</span><strong>Neuromorphic Computing: The Brain-Inspired Chips Rewriting the Future of AI</strong></a>
+<a class="related-static-link" href="/articles/spatial-computing-revolution/"><span>Technology</span><strong>The Spatial Computing Revolution: How Mixed Reality Is Rewriting the Rules of Human-Computer Interaction</strong></a>
+<a class="related-static-link" href="/articles/agentic-ai-autonomous-software/"><span>Technology</span><strong>The Rise of Agentic AI: When Software Starts Making Decisions for You</strong></a>
+<!-- SEO-RELATED-LINKS:END -->
+</div>
+  </div>
+</div>
+
+<footer class="footer-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <hr class="footer-divider mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <a class="flex items-center gap-3" style="text-decoration:none;" href="/">
+        <div class="pg-logo-mark" style="background:rgba(200,151,58,0.12); border:1px solid rgba(200,151,58,0.3); color:var(--accent); width:32px; height:32px; font-size:0.8rem;">PG</div>
+        <span class="footer-logo-text" style="font-size:1.1rem;">Putera Gani</span>
+      </a>
+      <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">&copy; 2026 Putera Gani. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/related.js"></script>
+</body>
+</html>
