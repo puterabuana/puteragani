@@ -691,9 +691,19 @@ function pickRelated(article, count = 3) {
   return [...sameCategory, ...others].slice(0, count);
 }
 
+function contentUrl(article, prefix = '') {
+  return `${prefix}${article.url || `articles/${article.slug}/index.html`}`;
+}
+
+function sitemapUrl(article) {
+  const path = (article.url || `articles/${article.slug}/index.html`)
+    .replace(/index\.html$/i, '');
+  return `${SITE}/${path}`;
+}
+
 function relatedLinksBlock(article) {
   const links = pickRelated(article).map((related) => (
-    `<a href="../../articles/${related.slug}/index.html" class="related-static-link">` +
+    `<a href="../../${contentUrl(related)}" class="related-static-link">` +
       `<span>${escapeHtml(related.category)}</span>` +
       `<strong>${escapeHtml(related.title)}</strong>` +
     '</a>'
@@ -707,7 +717,7 @@ function renderStaticRelatedLinks(html, article) {
 }
 
 function categoryArticleCard(article, prefix) {
-  const url = `${prefix}articles/${article.slug}/index.html`;
+  const url = contentUrl(article, prefix);
   return `<article class="article-card" data-id="${escapeHtml(article.id)}" data-category="${escapeHtml(article.category)}">
     <a href="${url}" style="text-decoration:none;" aria-label="Read: ${escapeHtml(article.title)}">
       <div class="card-thumb">
@@ -799,7 +809,7 @@ function processExcluded(file, rel) {
 }
 
 function articleCard(article) {
-  const url = `articles/${article.slug}/index.html`;
+  const url = contentUrl(article);
   return `<article class="article-card" data-id="${escapeHtml(article.id)}" data-category="${escapeHtml(article.category)}">
     <a href="${url}" style="text-decoration:none;" aria-label="Read: ${escapeHtml(article.title)}">
       <div class="card-thumb">
@@ -820,7 +830,7 @@ function renderHomepageFallback() {
   const file = path.join(ROOT, 'index.html');
   let html = fs.readFileSync(file, 'utf8');
   const featured = articles[0];
-  const featureUrl = `articles/${featured.slug}/index.html`;
+  const featureUrl = contentUrl(featured);
   const hero = `<section class="hero-gradient" id="featured-section" aria-label="Featured Story">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -867,10 +877,12 @@ function sitemapEntries() {
   }
   for (const article of articles) {
     const date = isoDate(article.date).slice(0, 10);
-    const base = `${SITE}/articles/${article.slug}/`;
+    const base = sitemapUrl(article);
     entries.push({ loc: base, lastmod: date });
-    entries.push({ loc: `${base}page-2`, lastmod: date });
-    entries.push({ loc: `${base}page-3`, lastmod: date });
+    if (!article.url || article.url.startsWith('articles/')) {
+      entries.push({ loc: `${base}page-2`, lastmod: date });
+      entries.push({ loc: `${base}page-3`, lastmod: date });
+    }
   }
   return [...new Map(entries.map((entry) => [entry.loc, entry])).values()];
 }
