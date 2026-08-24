@@ -1,6 +1,54 @@
 {
   "articles": [
     {
+      "id": "043",
+      "title": "The Memory Illusion: Why Your Brain Rewrites the Past Every Time You Remember",
+      "slug": "memory-illusion-reconstructing-the-past",
+      "category": "Science",
+      "tags": [
+        "Science",
+        "Memory",
+        "Neuroscience",
+        "Psychology",
+        "Learning",
+        "Cognition"
+      ],
+      "featured": true,
+      "trending": true,
+      "date": "2026-08-24T14:22:53+07:00",
+      "author": "Putera Gani",
+      "readTime": "8 min",
+      "image": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=62&auto=format&fit=crop&h=375",
+      "imageLarge": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=62&auto=format&fit=crop&h=500",
+      "excerpt": "Memory is not a recording but a reconstruction. Each act of recall can strengthen, reshape, or quietly distort the story you remember.",
+      "content": "The brain does not replay the past like video. It rebuilds experience from fragments, expectations, emotion, and context each time we remember.",
+      "url": "articles/memory-illusion-reconstructing-the-past/index.html"
+    },
+    {
+      "id": "042",
+      "title": "The Ritual Renaissance: Why Modern Life Keeps Inventing New Ceremonies",
+      "slug": "ritual-renaissance-modern-ceremony",
+      "category": "Culture",
+      "tags": [
+        "Culture",
+        "Ritual",
+        "Ceremony",
+        "Community",
+        "Belonging",
+        "Modern Life"
+      ],
+      "featured": true,
+      "trending": true,
+      "date": "2026-08-24T14:22:52+07:00",
+      "author": "Putera Gani",
+      "readTime": "8 min",
+      "image": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&q=62&auto=format&fit=crop&h=375",
+      "imageLarge": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&q=62&auto=format&fit=crop&h=500",
+      "excerpt": "From graduation walks to digital memorials, modern people keep inventing ceremonies that turn private transitions into shared meaning, memory, and belonging.",
+      "content": "Ritual did not disappear when societies became more secular. It changed shape, moving into graduations, fandoms, wellness routines, workplace traditions, and digital remembrance.",
+      "url": "articles/ritual-renaissance-modern-ceremony/index.html"
+    },
+    {
       "id": "035",
       "title": "The Operator Economy: Why Execution Is Becoming the New Competitive Moat",
       "slug": "operator-economy-execution-moat",
