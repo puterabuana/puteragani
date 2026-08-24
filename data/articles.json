@@ -1,6 +1,29 @@
 {
   "articles": [
     {
+      "id": "044",
+      "title": "Neuromorphic Computing Landscape 2026: A Practical Map of Event-Driven AI",
+      "slug": "neuromorphic-computing-landscape-2026",
+      "category": "Technology",
+      "tags": [
+        "Technology",
+        "Neuromorphic Computing",
+        "Edge AI",
+        "AI Hardware",
+        "Spiking Neural Networks"
+      ],
+      "featured": false,
+      "trending": false,
+      "date": "2026-08-24T17:45:00+07:00",
+      "author": "Putera Gani",
+      "readTime": "10 min",
+      "image": "assets/images/neuromorphic-computing-landscape-2026.png",
+      "imageLarge": "assets/images/neuromorphic-computing-landscape-2026.png",
+      "excerpt": "A practical field guide to event-driven sensing, spiking neural networks, neuromorphic platforms, and the product constraints that make edge AI worth the complexity.",
+      "content": "Neuromorphic computing is best understood as a complete event-driven system: sensing, sparse representation, local computation, and action. This reference maps the landscape and offers a practical framework for evaluating its fit.",
+      "url": "resources/neuromorphic-computing-landscape-2026/index.html"
+    },
+    {
       "id": "043",
       "title": "The Memory Illusion: Why Your Brain Rewrites the Past Every Time You Remember",
       "slug": "memory-illusion-reconstructing-the-past",
