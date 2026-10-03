@@ -1,6 +1,54 @@
 {
   "articles": [
     {
+      "id": "046",
+      "title": "Designing for Mistakes: How Better Interfaces Help People Recover",
+      "slug": "designing-for-mistakes-user-recovery",
+      "category": "Design",
+      "tags": [
+        "Design",
+        "UX",
+        "Error Recovery",
+        "Accessibility",
+        "Forms",
+        "Product Design"
+      ],
+      "featured": true,
+      "trending": false,
+      "date": "2026-10-03T19:46:48+07:00",
+      "author": "Putera Gani",
+      "readTime": "7 min",
+      "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=62&auto=format&fit=crop&h=375",
+      "imageLarge": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=62&auto=format&fit=crop&h=500",
+      "excerpt": "Errors are inevitable in digital products. The best interfaces make consequences clear, preserve work, and help people recover without shame or guesswork.",
+      "content": "Good interface design assumes people will make mistakes. It prevents avoidable errors, limits the damage of unavoidable ones, and makes recovery understandable.",
+      "url": "articles/designing-for-mistakes-user-recovery/index.html"
+    },
+    {
+      "id": "045",
+      "title": "The Handwritten Note: Why a Slow Message Still Matters",
+      "slug": "handwritten-note-slow-message",
+      "category": "Culture",
+      "tags": [
+        "Culture",
+        "Handwriting",
+        "Communication",
+        "Memory",
+        "Letters",
+        "Everyday Rituals"
+      ],
+      "featured": true,
+      "trending": false,
+      "date": "2026-10-03T19:46:47+07:00",
+      "author": "Putera Gani",
+      "readTime": "7 min",
+      "image": "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=600&q=62&auto=format&fit=crop&h=375",
+      "imageLarge": "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=800&q=62&auto=format&fit=crop&h=500",
+      "excerpt": "A handwritten note moves at human speed. Its paper, pauses, and imperfections turn ordinary words into an object someone can keep and revisit.",
+      "content": "A handwritten note gives a message a physical life beyond the moment it is sent. Its lasting value comes from attention, material presence, and the freedom to reread.",
+      "url": "articles/handwritten-note-slow-message/index.html"
+    },
+    {
       "id": "044",
       "title": "Neuromorphic Computing Landscape 2026: A Practical Map of Event-Driven AI",
       "slug": "neuromorphic-computing-landscape-2026",
